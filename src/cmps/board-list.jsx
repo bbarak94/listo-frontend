@@ -15,8 +15,7 @@ export const BoardList = (props) => {
 
     if (!boards) return <h1>loading...</h1>
     return (
-        <div className='board-list'>
-            <h1>board list</h1>
+        <div className='board-list flex'>
             {boards.map(board =>
                 <BoardPreview board={board} key={board._id} />
             )}
