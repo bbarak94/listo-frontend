@@ -203,6 +203,21 @@ a {
   margin: 0;
 }
 
+.board-group {
+  gap: 1em;
+  border: 1px solid black;
+  margin: 0 1em;
+  background-color: #F4F5F7;
+}
+
+.task-preview {
+  margin: 1em;
+  -webkit-box-shadow: 2px 2px black;
+          box-shadow: 2px 2px black;
+  background-color: white;
+  cursor: pointer;
+}
+
 .board-list {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
