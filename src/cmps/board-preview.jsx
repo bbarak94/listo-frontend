@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 
 export const BoardPreview = ({ board }) => {
-   //  const [board, setBoard] = useState(board)
 
     const getStyle = () => {
         return board.style
@@ -9,7 +8,10 @@ export const BoardPreview = ({ board }) => {
 
     return (
         <section className='board-preview' style={getStyle()}>
-            <p> {board.title}</p>
+            <p>
+                board preview--
+                {board.title}
+            </p>
         </section>
     )
 }

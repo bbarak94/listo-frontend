@@ -8,9 +8,7 @@ export const storageService = {
 }
 
 function query(entityType, delay = 600) {
-    console.log('entityType:', entityType)
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
-    console.log('entities:', entities)
     if (!entities.length) {
         entities = _createBoards()
         _save(entityType, entities)
@@ -171,7 +169,7 @@ const gUsers = [
 function _createBoards() {
     return [
         {
-            id: 'b101',
+            _id: 'b101',
             title: 'First Board',
             archivedAt: null,
             createdAt: 1589983468418,
@@ -313,8 +311,8 @@ function _createBoards() {
             ],
         },
         {
-            id: 'b101',
-            title: 'First Board',
+            _id: 'b102',
+            title: 'Second Board',
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -456,8 +454,8 @@ function _createBoards() {
             ],
         },
         {
-            id: 'b101',
-            title: 'First Board',
+            _id: 'b103',
+            title: 'Third Board',
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -601,5 +599,3 @@ function _createBoards() {
     ]
 }
 
-// post('user', gUsers)
-// post('board', gBoards)
