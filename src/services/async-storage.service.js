@@ -602,5 +602,5 @@ const boards = [
 ]
 }
 
-// post('user', gUsers)
-// post('board', gBoards)
+post('user', gUsers)
+post('board', gBoards)
