@@ -11,9 +11,7 @@ import { LoginSignup } from './pages/login-signup.jsx'
 
 
 export function RootCmp() {
-
-
-
+    
     return (
         <Router>
             <div className='root-cmp'>

@@ -1,3 +1,10 @@
+import {BoardList} from '../cmps/board-list'
+
 export const Workspace = () => {
-    return <h1>I'm Workspace</h1>
+
+    return <div className="board-list">
+
+    <BoardList />
+
+    </div>
 }
