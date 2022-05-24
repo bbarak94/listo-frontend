@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadBoards } from '../store/actions/board.action'
-
+import { BoardPreview } from './board-preview'
 export const BoardList = (props) => {
     const { boards } = useSelector((storeState) => storeState.boardModule)
     const dispatch = useDispatch()
@@ -12,8 +12,12 @@ export const BoardList = (props) => {
         dispatch(loadBoards())
     }, [])
 
+    if (!boards) return <h1>loading...</h1>
     return (
         <div className='board-list'>
+            {boards.map((board) => (
+                <BoardPreview board={board} />
+            ))}
             <h1>board list</h1>
         </div>
     )
