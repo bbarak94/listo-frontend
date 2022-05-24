@@ -1,0 +1,169 @@
+/* Media  Mixins */
+@font-face {
+  font-family: Roboto;
+  src: url(../../fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Bold;
+  src: url(../../fonts/Roboto/Roboto-Bold.ttf);
+}
+
+.fs12 {
+  font-size: 0.75rem;
+}
+
+.fs14 {
+  font-size: 0.875rem;
+}
+
+.fs18 {
+  font-size: 1.125rem;
+}
+
+.fs20 {
+  font-size: 1.25rem;
+}
+
+.fs24 {
+  font-size: 1.5rem;
+}
+
+.fs28 {
+  font-size: 1.75rem;
+}
+
+.fs30 {
+  font-size: 1.875rem;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex > *.full {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.flex.column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.flex.justify-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex.align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.square-ratio {
+  position: relative;
+  overflow: hidden;
+}
+
+.square-ratio::before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 100%;
+}
+
+.square-ratio > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.square-ratio > img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.video-ratio {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-ratio::before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.video-ratio > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.video-ratio > img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.portrait-ratio {
+  position: relative;
+  overflow: hidden;
+}
+
+.portrait-ratio::before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 177.77778%;
+}
+
+.portrait-ratio > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.portrait-ratio > img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-family: Roboto;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+/*# sourceMappingURL=main.css.map */

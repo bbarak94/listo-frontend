@@ -1,0 +1,23 @@
+// Setup
+@import "setup/variables";
+@import "setup/functions";
+@import "setup/mixins";
+@import "setup/typography";
+
+// Basics
+@import "basics/helpers";
+@import "basics/layout";
+@import "basics/base";
+
+
+// Pages
+@import "pages/home";
+@import "pages/login";
+@import "pages/signup";
+@import "pages/workspace";
+@import "pages/board-details";
+@import "pages/task-details";
+
+// Components
+@import "cmps/app-header";
+
