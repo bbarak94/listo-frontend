@@ -7,12 +7,16 @@ import { Workspace } from './pages/workspace.jsx'
 import { TaskDetails } from './pages/task-details.jsx'
 import { AppHeader } from './cmps/app-header'
 import { LoginSignup } from './pages/login-signup.jsx'
+import configureStore from './configure-store.js'
+import {Provider} from 'react-redux'
+const store = configureStore()
 
 
 
 export function RootCmp() {
     
     return (
+        <Provider store={store}>
         <Router>
             <div className='root-cmp'>
                 <AppHeader />
@@ -27,6 +31,7 @@ export function RootCmp() {
                 </Routes>
             </div>
         </Router>
+        </Provider>
     )
 }
 
