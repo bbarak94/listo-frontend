@@ -7,11 +7,8 @@ export const BoardPreview = ({ board }) => {
     }
 
     return (
-        <section className='board-preview' style={getStyle()}>
-            <p>
-                board preview--
-                {board.title}
-            </p>
-        </section>
+        <div className='board-preview flex ' style={getStyle()}>
+            <div>{board.title}</div>
+        </div>
     )
 }

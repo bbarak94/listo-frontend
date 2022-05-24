@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { BoardGroup } from "../cmps/board-group"
 import { boardService } from '../services/board.service'
 
 export const BoardDetails = () => {
@@ -12,13 +13,17 @@ export const BoardDetails = () => {
     }, [params.id])
 
     const loadBoard = async () => {
-        const board = await boardService.getById(params.id)
+        const board = await boardService.getById(params.boardId)
         setboard(board)
     }
 
     if (!board) return <div>Loading...</div>
-
+    console.log(board.style.background);
     return (
-        <h1>I'm Board Details</h1>
+        <div className="board-details flex" style={{backgroundColor: board.style.background}}>
+            {board.groups.map(group =>
+                <BoardGroup group={group} key={group.id} />
+            )}
+        </div>
     )
 }
