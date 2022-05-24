@@ -179,7 +179,7 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                background: '#ffffff',
+                background: '#00c2e0',
             },
             labels: [
                 {
@@ -217,15 +217,15 @@ function _createBoards() {
                     archivedAt: 1589983468418,
                     tasks: [
                         {
-                            id: 'c101',
+                            id: 't101',
                             title: 'Replace logo',
                         },
                         {
-                            id: 'c102',
+                            id: 't102',
                             title: 'Add Samples',
                         },
                         {
-                            id: 'c103',
+                            id: 't103',
                             title: 'Make JSON Look Pretty',
                         },
                     ],
@@ -236,12 +236,12 @@ function _createBoards() {
                     title: 'QA',
                     tasks: [
                         {
-                            id: 'c103',
+                            id: 't103',
                             title: 'Test Filter Component',
                             archivedAt: 1589983468418,
                         },
                         {
-                            id: 'c104',
+                            id: 't104',
                             title: 'Test headers new button',
                             status: 'in-progress',
                             description: 'description',
@@ -360,15 +360,15 @@ function _createBoards() {
                     archivedAt: 1589983468418,
                     tasks: [
                         {
-                            id: 'c101',
+                            id: 't101',
                             title: 'Replace logo',
                         },
                         {
-                            id: 'c102',
+                            id: 't102',
                             title: 'Add Samples',
                         },
                         {
-                            id: 'c103',
+                            id: 't103',
                             title: 'Make JSON Look Pretty',
                         },
                     ],
@@ -379,12 +379,12 @@ function _createBoards() {
                     title: 'QA',
                     tasks: [
                         {
-                            id: 'c103',
+                            id: 't103',
                             title: 'Test Filter Component',
                             archivedAt: 1589983468418,
                         },
                         {
-                            id: 'c104',
+                            id: 't104',
                             title: 'Test headers new button',
                             status: 'in-progress',
                             description: 'description',
@@ -503,15 +503,15 @@ function _createBoards() {
                     archivedAt: 1589983468418,
                     tasks: [
                         {
-                            id: 'c101',
+                            id: 't101',
                             title: 'Replace logo',
                         },
                         {
-                            id: 'c102',
+                            id: 't102',
                             title: 'Add Samples',
                         },
                         {
-                            id: 'c103',
+                            id: 't103',
                             title: 'Make JSON Look Pretty',
                         },
                     ],
@@ -522,12 +522,441 @@ function _createBoards() {
                     title: 'QA',
                     tasks: [
                         {
-                            id: 'c103',
+                            id: 't103',
                             title: 'Test Filter Component',
                             archivedAt: 1589983468418,
                         },
                         {
-                            id: 'c104',
+                            id: 't104',
+                            title: 'Test headers new button',
+                            status: 'in-progress',
+                            description: 'description',
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
+                            checklists: [
+                                {
+                                    id: 'YEhmF',
+                                    title: 'Checklist',
+                                    todos: [
+                                        {
+                                            id: 'td101',
+                                            title: 'First take a deep breath',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td102',
+                                            title: 'Grab a beer',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                            ],
+                            memberIds: ['u100', 'u101', 'u102', 'u103', 'u104'],
+                            labelIds: ['l101', 'l102'],
+                            createdAt: 1590999730348,
+                            dueDate: 16156215211,
+                            byMember: {
+                                _id: 'u102',
+                                username: 'guy',
+                                fullname: 'Guy Elizarov',
+                                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+                            },
+                            style: {
+                                bgColor: '#26de81',
+                            },
+                        },
+                    ],
+                    style: {},
+                },
+            ],
+            activities: [
+                {
+                    id: 'a101',
+                    txt: 'Changed Color',
+                    createdAt: 154514,
+                    byMember: {
+                        _id: 'u101',
+                        fullname: 'Barak Braun',
+                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                    },
+                    task: {
+                        id: 't107',
+                        title: 'Replace Logo',
+                    },
+                },
+            ],
+        },
+        {
+            _id: 'b104',
+            title: 'Fourth Board',
+            archivedAt: null,
+            createdAt: 1589983468418,
+            createdBy: {
+                _id: 'u101',
+                fullname: 'Barak Braun',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+            },
+            style: {
+                backgroundImg: null,
+                backgroundColor: '',
+            },
+            labels: [
+                {
+                    id: 'l101',
+                    title: 'Done',
+                    color: '#61bd4f',
+                },
+                {
+                    id: 'l102',
+                    title: 'Progress',
+                    color: '#61bd33',
+                },
+            ],
+            members: [
+                {
+                    id: 'u101',
+                    fullname: 'Barak Braun',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                },
+                {
+                    id: 'u103',
+                    fullname: 'Itai Rotstein',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
+                },
+                {
+                    id: 'u104',
+                    fullname: 'Tommy Irmia',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',
+                },
+            ],
+            groups: [
+                {
+                    id: 'g101',
+                    title: 'In Progress',
+                    archivedAt: 1589983468418,
+                    tasks: [
+                        {
+                            id: 't101',
+                            title: 'Replace logo',
+                        },
+                        {
+                            id: 't102',
+                            title: 'Add Samples',
+                        },
+                        {
+                            id: 't103',
+                            title: 'Make JSON Look Pretty',
+                        },
+                    ],
+                    style: {},
+                },
+                {
+                    id: 'g102',
+                    title: 'QA',
+                    tasks: [
+                        {
+                            id: 't103',
+                            title: 'Test Filter Component',
+                            archivedAt: 1589983468418,
+                        },
+                        {
+                            id: 't104',
+                            title: 'Test headers new button',
+                            status: 'in-progress',
+                            description: 'description',
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
+                            checklists: [
+                                {
+                                    id: 'YEhmF',
+                                    title: 'Checklist',
+                                    todos: [
+                                        {
+                                            id: 'td101',
+                                            title: 'First take a deep breath',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td102',
+                                            title: 'Grab a beer',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                            ],
+                            memberIds: ['u100', 'u101', 'u102', 'u103', 'u104'],
+                            labelIds: ['l101', 'l102'],
+                            createdAt: 1590999730348,
+                            dueDate: 16156215211,
+                            byMember: {
+                                _id: 'u102',
+                                username: 'guy',
+                                fullname: 'Guy Elizarov',
+                                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+                            },
+                            style: {
+                                bgColor: '#26de81',
+                            },
+                        },
+                    ],
+                    style: {},
+                },
+            ],
+            activities: [
+                {
+                    id: 'a101',
+                    txt: 'Changed Color',
+                    createdAt: 154514,
+                    byMember: {
+                        _id: 'u101',
+                        fullname: 'Barak Braun',
+                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                    },
+                    task: {
+                        id: 't107',
+                        title: 'Replace Logo',
+                    },
+                },
+            ],
+        },
+        {
+            _id: 'b105',
+            title: 'Fifth Board',
+            archivedAt: null,
+            createdAt: 1589983468418,
+            createdBy: {
+                _id: 'u101',
+                fullname: 'Barak Braun',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+            },
+            style: {
+                backgroundImg: null,
+                backgroundColor: '',
+            },
+            labels: [
+                {
+                    id: 'l101',
+                    title: 'Done',
+                    color: '#61bd4f',
+                },
+                {
+                    id: 'l102',
+                    title: 'Progress',
+                    color: '#61bd33',
+                },
+            ],
+            members: [
+                {
+                    id: 'u101',
+                    fullname: 'Barak Braun',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                },
+                {
+                    id: 'u103',
+                    fullname: 'Itai Rotstein',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
+                },
+                {
+                    id: 'u104',
+                    fullname: 'Tommy Irmia',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',
+                },
+            ],
+            groups: [
+                {
+                    id: 'g101',
+                    title: 'In Progress',
+                    archivedAt: 1589983468418,
+                    tasks: [
+                        {
+                            id: 't101',
+                            title: 'Replace logo',
+                        },
+                        {
+                            id: 't102',
+                            title: 'Add Samples',
+                        },
+                        {
+                            id: 't103',
+                            title: 'Make JSON Look Pretty',
+                        },
+                    ],
+                    style: {},
+                },
+                {
+                    id: 'g102',
+                    title: 'QA',
+                    tasks: [
+                        {
+                            id: 't103',
+                            title: 'Test Filter Component',
+                            archivedAt: 1589983468418,
+                        },
+                        {
+                            id: 't104',
+                            title: 'Test headers new button',
+                            status: 'in-progress',
+                            description: 'description',
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
+                            checklists: [
+                                {
+                                    id: 'YEhmF',
+                                    title: 'Checklist',
+                                    todos: [
+                                        {
+                                            id: 'td101',
+                                            title: 'First take a deep breath',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td102',
+                                            title: 'Grab a beer',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                            ],
+                            memberIds: ['u100', 'u101', 'u102', 'u103', 'u104'],
+                            labelIds: ['l101', 'l102'],
+                            createdAt: 1590999730348,
+                            dueDate: 16156215211,
+                            byMember: {
+                                _id: 'u102',
+                                username: 'guy',
+                                fullname: 'Guy Elizarov',
+                                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+                            },
+                            style: {
+                                bgColor: '#26de81',
+                            },
+                        },
+                    ],
+                    style: {},
+                },
+            ],
+            activities: [
+                {
+                    id: 'a101',
+                    txt: 'Changed Color',
+                    createdAt: 154514,
+                    byMember: {
+                        _id: 'u101',
+                        fullname: 'Barak Braun',
+                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                    },
+                    task: {
+                        id: 't107',
+                        title: 'Replace Logo',
+                    },
+                },
+            ],
+        },
+        {
+            _id: 'b106',
+            title: 'Sixth Board',
+            archivedAt: null,
+            createdAt: 1589983468418,
+            createdBy: {
+                _id: 'u101',
+                fullname: 'Barak Braun',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+            },
+            style: {
+                backgroundImg: null,
+                backgroundColor: '',
+            },
+            labels: [
+                {
+                    id: 'l101',
+                    title: 'Done',
+                    color: '#61bd4f',
+                },
+                {
+                    id: 'l102',
+                    title: 'Progress',
+                    color: '#61bd33',
+                },
+            ],
+            members: [
+                {
+                    id: 'u101',
+                    fullname: 'Barak Braun',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                },
+                {
+                    id: 'u103',
+                    fullname: 'Itai Rotstein',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
+                },
+                {
+                    id: 'u104',
+                    fullname: 'Tommy Irmia',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',
+                },
+            ],
+            groups: [
+                {
+                    id: 'g101',
+                    title: 'In Progress',
+                    archivedAt: 1589983468418,
+                    tasks: [
+                        {
+                            id: 't101',
+                            title: 'Replace logo',
+                        },
+                        {
+                            id: 't102',
+                            title: 'Add Samples',
+                        },
+                        {
+                            id: 't103',
+                            title: 'Make JSON Look Pretty',
+                        },
+                    ],
+                    style: {},
+                },
+                {
+                    id: 'g102',
+                    title: 'QA',
+                    tasks: [
+                        {
+                            id: 't103',
+                            title: 'Test Filter Component',
+                            archivedAt: 1589983468418,
+                        },
+                        {
+                            id: 't104',
                             title: 'Test headers new button',
                             status: 'in-progress',
                             description: 'description',
