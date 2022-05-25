@@ -1,8 +1,8 @@
 
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { addGroup, loadBoards, setBoard } from '../store/actions/board.action'
+import { addGroup } from '../store/actions/board.action'
 
 export const AddGroup = () => {
 
@@ -16,14 +16,16 @@ export const AddGroup = () => {
 
     const onHandleSubmit = (ev) => {
         ev.preventDefault()
+        if (title === '') return
         dispatch(addGroup(title, params.boardId))
+        setTitle('')
     }
     return <div className="add-group">
         <form onSubmit={onHandleSubmit}>
             <input type="text" placeholder="Enter list title..." onChange={onHandleChange} value={title} />
             <div className='add-group-actions flex'>
                 <button className="btn">Add list</button>
-                <a href="#"></a>
+                <span className='close-btn'></span>
             </div>
         </form>
     </div>
