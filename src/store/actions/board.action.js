@@ -32,6 +32,16 @@ export function getActionUpdateBoard(board) {
     }
 }
 
+export function setBoard(board) {
+    return dispatch => {
+        try {
+            dispatch({ type: 'SET_BOARD', board });
+        } catch (err) {
+            console.log('Cannot set board', err);
+        }
+    };
+}
+
 export function loadBoards() {
     return async (dispatch) => {
         try {
@@ -80,4 +90,18 @@ export function saveBoard(board) {
                 // setUserMsg('Cannot save board','bad')
             })
     }
+}
+
+export function addGroup(groupTitle, boardId) {
+    return async dispatch => {
+        try {
+            const board = await boardService.addGroup(groupTitle, boardId);
+            dispatch({
+                type: 'SAVE_BOARD',
+                board: board,
+            });
+        } catch (err) {
+            console.log('Cannot add group', err);
+        }
+    };
 }

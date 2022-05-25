@@ -1,0 +1,33 @@
+.home-main-layout {
+   margin: 40px;
+   height: 315px;
+   margin-top: 120px;
+   justify-content: space-between;
+}
+
+.home-left-container {
+   height: 315px;
+   max-width: 580px;
+   h1 {
+      margin: 8px;
+      font-size: 44px;
+   }
+   p {
+      margin: 0;
+      line-height: 30px;
+      margin-bottom: 20px;
+      font-size: 20px;
+   }
+   Button {
+      font-size: 18px;
+      max-width: 215px;
+      min-height: 44px;
+      border-radius: 6px;
+      background-color: #0065FF;
+   }
+}
+
+.hero-img-container {
+   max-width: 375px;
+
+}

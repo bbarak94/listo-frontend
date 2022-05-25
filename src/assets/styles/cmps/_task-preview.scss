@@ -6,7 +6,7 @@
    background-color: $clr10; 
 
    &:hover {
-      background-color: darken($clr10, 8%);
+      background-color: darken($clr10, 5%);
    }
 
    .task-preview-title { 
@@ -14,4 +14,5 @@
       margin-bottom: 4px;
       word-wrap: break-word;
    }
+
 }
