@@ -1,6 +1,25 @@
+.screen {
+    position: fixed;
+    width: unset;
+    inset: 0;
+    background: black;
+    margin: 0;
+    // filter: blur(4px);
+    opacity: .68;
+    z-index: 10;
+}
+
 .task-details {
-    background-color: $clr11;  
+    z-index: 100;
+    background-color: $clr11;
+    min-height: 90.5vh;
+    min-width: 72vw;
     position: absolute;
-    left: 31%;
-    top: 10%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.task-details-header {
+    width: 100%;
 }

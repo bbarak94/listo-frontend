@@ -25,7 +25,7 @@ export function RootCmp() {
                     <Route path='signup' element={<LoginSignup />} />
                     <Route path='workspace' element={<Workspace />} />
                     <Route path='board/:boardId' element={<BoardDetails />}>
-                        <Route path='group/:groupId/task/:taskId' element={<TaskDetails />} />
+                        <Route path='task/:taskId' element={<TaskDetails />} />
                     </Route>
                     <Route path='/' element={<Home />} />
                 </Routes>

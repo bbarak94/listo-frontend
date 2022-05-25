@@ -21,14 +21,17 @@ export const BoardDetails = () => {
     }
 
     if (!board) return <div>Loading...</div>
-
+    console.log('board:',board)
+    
     return (
+
         <main className="board-details flex">
             {board.groups.map(group =>
-                <BoardGroup group={group} key={group.id} groupId={group.id} boardId={board._id} />
+                <BoardGroup group={group} key={group.id} boardId={board._id} />
             )}
             <AddGroup />
             <Outlet />
         </main>
+       
     )
 }
