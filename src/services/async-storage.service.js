@@ -240,8 +240,7 @@ function _createBoards() {
                 imgUrl: 'srcassetsimgguest.jpg',
             },
             style: {
-                backgroundImg: null,
-                backgroundColor: '',
+                background: '#f2d600',
             },
             labels: [
                 {
@@ -383,8 +382,7 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                backgroundImg: null,
-                backgroundColor: '',
+                background: '#51e898',
             },
             labels: [
                 {
@@ -526,8 +524,7 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                backgroundImg: null,
-                backgroundColor: '',
+                background: '#eb5a46',
             },
             labels: [
                 {

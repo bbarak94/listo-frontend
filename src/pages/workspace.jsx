@@ -1,6 +1,8 @@
 import { BoardList } from '../cmps/board-list'
 import templates from '../assets/img/workspace/templates.svg'
 import close from '../assets/img/workspace/close.svg'
+import starStroke from '../assets/img/workspace/star-stroke.svg'
+import clock from '../assets/img/workspace/clock.svg'
 import {SelectLabels} from '../cmps/select-labels'
 
 
@@ -39,6 +41,30 @@ export const Workspace = () => {
                     </div>
                 </div>
             <BoardList />
+            <div className='title flex'>
+                <div className='flex align-center'>
+                    <div className='icon-container'>
+                        <img
+                            src={starStroke}
+                            alt='star'
+                            style={{ width: '25px' }}
+                        />
+                    </div>
+                    <h2>Most popular templates</h2>
+                </div>
+            </div>
+            <div className='title flex'>
+                <div className='flex align-center'>
+                    <div className='icon-container'>
+                        <img
+                            src={clock}
+                            alt='clock'
+                            style={{ width: '25px' }}
+                        />
+                    </div>
+                    <h2>Most popular templates</h2>
+                </div>
+            </div>
         </div>
     )
 }

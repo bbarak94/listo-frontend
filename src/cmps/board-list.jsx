@@ -7,7 +7,6 @@ export const BoardList = (props) => {
     const { boards } = useSelector((storeState) => storeState.boardModule)
     const dispatch = useDispatch()
 
-    console.log('boards:', boards)
 
     useEffect(() => {
         dispatch(loadBoards())
