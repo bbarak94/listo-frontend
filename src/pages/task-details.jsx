@@ -6,8 +6,6 @@ export const TaskDetails = () => {
             <div className="task-details-header">
                 <input type="text"/>
             </div>
-
         </div>
-
     )
 }
