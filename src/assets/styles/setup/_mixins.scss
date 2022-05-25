@@ -10,6 +10,10 @@
   align-items: center;
   height: 32px;
   line-height: 16px;
+
+  &:hover {
+    background-color: darken($clr4, 5%);
+  }
 }
 
 @mixin close-btn {

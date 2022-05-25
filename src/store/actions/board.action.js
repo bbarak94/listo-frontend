@@ -56,7 +56,7 @@ export function loadBoards() {
 export function getBoard(boardId) {
     return async (dispatch) => {
         try {
-            const boards= await boardService.getById(boardId)
+            const boards = await boardService.getById(boardId)
             dispatch(getActionSetBoard(boards))
         } catch {
             throw new Error('Could not load boards')
@@ -96,6 +96,20 @@ export function addGroup(groupTitle, boardId) {
     return async dispatch => {
         try {
             const board = await boardService.addGroup(groupTitle, boardId);
+            dispatch({
+                type: 'SAVE_BOARD',
+                board: board,
+            });
+        } catch (err) {
+            console.log('Cannot add group', err);
+        }
+    };
+}
+
+export function addTask(taskTitle, boardId, groupId) {
+    return async dispatch => {
+        try {
+            const board = await boardService.addTask(taskTitle, boardId, groupId);
             dispatch({
                 type: 'SAVE_BOARD',
                 board: board,

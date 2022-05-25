@@ -19,7 +19,8 @@ export const boardService = {
     getEmptyBoard,
     subscribe,
     unsubscribe,
-    addGroup
+    addGroup,
+    addTask
 }
 window.cs = boardService
 
@@ -53,7 +54,7 @@ async function save(board) {
 }
 
 function getEmptyBoard() {
-    const newBoard =  {
+    const newBoard = {
         title: 'New Board',
         archivedAt: null,
         createdAt: Date.now(),
@@ -128,6 +129,33 @@ async function addGroup(title, boardId) {
         return board
     } catch (err) {
         console.log('Cannot add group', err)
+    }
+}
+
+async function addTask(title, boardId, groupId) {
+    const newTask = {
+        id: utilService.makeId(),
+        title,
+        status: '',
+        description: '',
+        comments: [],
+        checklists: [],
+        memberIds: [],
+        labelIds: [],
+        createdAt: Date.now(),
+        dueDate: null,
+        byMember: null,
+        style: null
+    }
+    try {
+        const board = await getById(boardId)
+        let group = board.groups.find(group => group.id === groupId)
+        console.log('group from service', group)
+        group.tasks.push(newTask)
+        save(board)
+        return board
+    } catch (err) {
+        console.log('Cannot add Task', err)
     }
 }
 
