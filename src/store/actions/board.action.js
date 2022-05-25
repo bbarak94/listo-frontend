@@ -6,6 +6,12 @@ export function getActionSetBoards(boards) {
         boards,
     }
 }
+export function getActionSetBoard(board) {
+    return {
+        type: 'SET_BOARD',
+        board,
+    }
+}
 
 export function getActionRemoveBoard(boardId) {
     return {
@@ -37,11 +43,11 @@ export function loadBoards() {
     }
 }
 
-export function getBoard() {
+export function getBoard(boardId) {
     return async (dispatch) => {
         try {
-            const boards = await boardService.query()
-            dispatch(getActionSetBoards(boards))
+            const boards= await boardService.getById(boardId)
+            dispatch(getActionSetBoard(boards))
         } catch {
             throw new Error('Could not load boards')
         }
