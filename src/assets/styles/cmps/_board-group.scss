@@ -1,5 +1,16 @@
 .board-group{
-    gap: 1em;
+    // gap: 1em;
     background-color: $clr13;
-    margin: 0 1em;
+    // margin: 0 4px;
+    width: 272px;
+    border-radius: 3px;
+    // white-space: normal;
+
+    .group-header {
+        font-weight: 600;
+        // flex: 0 0 auto;
+        // min-height: 20px;
+        padding: 10px 8px;
+        // position: relative;
+    }
 }

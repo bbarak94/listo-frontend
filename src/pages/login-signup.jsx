@@ -11,7 +11,7 @@ export function LoginSignup() {
     const [users, setUsers] = useState([])
 
     useEffect(async () => {
-        const users = await userService.getUsers()
+        // const users = await userService.getUsers()
         setUsers(users)
     }, [])
 

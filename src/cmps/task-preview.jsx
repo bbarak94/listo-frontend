@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 
 
-export const TaskPreview = ({ task, boardId, setTaskOpen }) => {
+export const TaskPreview = ({ task, boardId, groupId }) => {
 
     return (
-        <Link to={`/board/${boardId}/task/${task.id}`}>
-            <div className="task-preview" onClick={() => setTaskOpen(true)}>
-                {task.title}
+        <Link to={`/board/${boardId}/group/${groupId}/task/${task.id}`}>
+            <div className="task-preview">
+                <span className="task-preview-title">{task.title}</span>
             </div>
         </Link>
     )

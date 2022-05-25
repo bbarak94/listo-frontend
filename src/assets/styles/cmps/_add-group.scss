@@ -1,0 +1,37 @@
+.add-group {
+
+    margin-inline-end: 8px;
+    align-self: flex-start;
+
+    input {
+        display: block;
+        width: 100%;
+        padding: 8px 12px;
+        outline: none;
+        border: none;
+        border-radius: 3px;
+        box-shadow: inset 0 0 0 2px #0079bf;
+        line-height: 20px;
+    }
+
+    button {
+        background-color: $clr3;
+        float: left;
+    }
+
+    .add-group-actions a {
+        width: 25px;
+        font-size: 24px;
+        color: red;
+    }
+
+    .add-group-actions a::before {
+        content: url('../../img/icon/close.svg');
+        width: 25px;
+        font-size: 24px;
+    }
+
+    .add-group-actions a:hover {
+        filter: invert(40%) sepia(89%) saturate(1592%) hue-rotate(164deg) brightness(60%) contrast(101%);
+    }
+}

@@ -1,2 +1,7 @@
 .board-details {
+
+    &>* {
+        margin: 0 4px;
+        width: 272px;
+    }
 }

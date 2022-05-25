@@ -1,5 +1,5 @@
 .task-preview {
-   margin: 1em;
+   margin: 0 4px 8px;
    padding: 6px 8px 2px;
    border-radius: 0.2em;
    box-shadow: 0 1px 0 #091e4240;
@@ -7,5 +7,11 @@
 
    &:hover {
       background-color: darken($clr10, 8%);
+   }
+
+   .task-preview-title { 
+      display: block;
+      margin-bottom: 4px;
+      word-wrap: break-word;
    }
 }
