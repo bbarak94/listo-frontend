@@ -1,16 +1,46 @@
-.board-group{
-    // gap: 1em;
-    background-color: $clr13;
-    // margin: 0 4px;
-    width: 272px;
-    border-radius: 3px;
+.board-group {
     // white-space: normal;
+    align-self: flex-start;
 
     .group-header {
         font-weight: 600;
-        // flex: 0 0 auto;
-        // min-height: 20px;
         padding: 10px 8px;
-        // position: relative;
+    }
+
+    .add-card {
+        color: $clr8;
+        margin: 2px 8px 8px;
+        padding: 4px 8px;
+        border-radius: 3px;
+        cursor: pointer;
+        line-height: 20px;
+
+        .add-icon {
+            margin-inline-end: 4px;
+        }
+
+        .add-icon::before {
+            background-image: url(http://localhost:3000/static/media/add.9b575a3c22f8522650a4.svg);
+            filter: invert(30%) sepia(16%) saturate(1134%) hue-rotate(179deg) brightness(99%) contrast(84%);
+            background-size: 16px;
+            display: inline-block;
+            width: 16px;
+            height: 14px;
+            content: "";
+        }
+
+        &:hover {
+            background-color: darken($clr13, 6%);
+            color: darken($clr8, 14%);
+        }
+    }
+    textArea{
+        margin: 0 6px 8px;
+        width: 240px;
+        height: 54px;
+        resize: none;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 0 1px 0 rgba(9, 30, 66, 0.2509803922);
     }
 }

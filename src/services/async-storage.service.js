@@ -7,7 +7,7 @@ export const storageService = {
     postMany,
 }
 
-function query(entityType, delay = 600) {
+function query(entityType, delay = 300) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
     if (!entities.length) {
         if (entityType === 'board') entities = _createBoards()

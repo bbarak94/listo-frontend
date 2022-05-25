@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 
-
 export const TaskPreview = ({ task, boardId, groupId }) => {
 
     return (

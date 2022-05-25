@@ -1,21 +1,23 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useParams, Outlet } from "react-router-dom"
 import { BoardGroup } from "../cmps/board-group"
-import { boardService } from '../services/board.service'
+import { setBoard } from '../store/actions/board.action'
 import { AddGroup } from '../cmps/add-group'
+import { useDispatch, useSelector } from "react-redux"
+import { boardService } from "../services/board.service"
 
 export const BoardDetails = () => {
     const params = useParams()
-
-    const [board, setboard] = useState(null)
-
+    const { board } = useSelector((storeState) => storeState.boardModule)
+    const dispatch = useDispatch()
+    
     useEffect(() => {
         loadBoard()
     }, [params.id])
 
     const loadBoard = async () => {
         const board = await boardService.getById(params.boardId)
-        setboard(board)
+        dispatch(setBoard(board))
     }
 
     if (!board) return <div>Loading...</div>
@@ -25,7 +27,7 @@ export const BoardDetails = () => {
             {board.groups.map(group =>
                 <BoardGroup group={group} key={group.id} groupId={group.id} boardId={board._id} />
             )}
-            <AddGroup/>
+            <AddGroup />
             <Outlet />
         </main>
     )

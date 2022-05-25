@@ -19,6 +19,7 @@ export const boardService = {
     getEmptyBoard,
     subscribe,
     unsubscribe,
+    addGroup
 }
 window.cs = boardService
 
@@ -33,7 +34,7 @@ async function remove(boardId) {
     // return new Promise((resolve, reject) => {
     //     setTimeout(reject, 2000)
     // })
-    // return Promise.reject('Not now!');
+    // return Promise.reject('Not now!')
     await storageService.remove(STORAGE_KEY, boardId)
     boardChannel.postMessage(getActionRemoveBoard(boardId))
 }
@@ -60,6 +61,23 @@ function subscribe(listener) {
 }
 function unsubscribe(listener) {
     boardChannel.removeEventListener('message', listener)
+}
+
+async function addGroup(title, boardId) {
+    const newGroup = {
+        id: utilService.makeId(),
+        title,
+        tasks: [],
+    }
+    try {
+        const board = await getById(boardId)
+        board.groups.push(newGroup)
+
+        save(board)
+        return board
+    } catch (err) {
+        console.log('Cannot add group', err)
+    }
 }
 
 // TEST DATA
