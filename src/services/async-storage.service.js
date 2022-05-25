@@ -84,7 +84,6 @@ function postMany(entityType, newEntities) {
     })
 }
 
-
 function _createBoards() {
     return [
         {
@@ -138,14 +137,18 @@ function _createBoards() {
                         {
                             id: 't101',
                             title: 'Replace logo',
+                            description: 'need to replace logo argently',
                         },
                         {
                             id: 't102',
                             title: 'Add Samples',
+                            description: 'need to replace samples argently',
                         },
                         {
                             id: 't103',
                             title: 'Make JSON Look Pretty',
+                            description:
+                                'need to Make JSON Look Pretty argently',
                         },
                     ],
                     style: {},
@@ -944,7 +947,7 @@ function _createBoards() {
     ]
 }
 
-function _createUsers(){
+function _createUsers() {
     return [
         {
             _id: 'u100',

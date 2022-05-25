@@ -10,7 +10,14 @@
 }
 
 .task-details {
+    .credit-card-icon{
+        color: $clr8;
+        margin-top: 2.4px;
+        margin-left: 3px;
+
+    }
     z-index: 100;
+    padding: 20px;
     background-color: $clr11;
     min-height: 90.5vh;
     min-width: 72vw;
@@ -18,8 +25,75 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    .icon-container {
+        justify-content: center;
+        align-items: center;
+        min-width: 45px;
+        min-height: 45px;
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        &:hover{
+            cursor: pointer;
+            background-color: darken($color: $clr11, $amount: 5);
+            border-radius: 50%;
+        }
+        img{
+            filter: invert(42%) sepia(5%) saturate(2509%) hue-rotate(180deg) brightness(92%) contrast(77%);
+        }
+    }
+    label{
+        margin-top: 26px;
+        margin-left: 52px;
+    }
+    
 }
 
 .task-details-header {
     width: 100%;
+    justify-content: space-between;
+    align-content: flex-start;
+
+    .left-side {
+        gap: 18px;
+
+    }
+
+    .title {
+        gap: 7px;
+
+        h1 {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        h2 {
+            color: $clr8;
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0;
+
+            span {
+                cursor: pointer;
+                text-decoration: underline;
+
+                &:hover {
+                    color: $clr1;
+                }
+            }
+        }
+    }
+
+
+    img {
+        &:hover {
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: darken($color: $clr11, $amount: 5);
+        }
+    }
+    
+
+
 }

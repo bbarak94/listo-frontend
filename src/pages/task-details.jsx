@@ -2,7 +2,19 @@ import { Component, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useEffectUpdate } from '../hooks/useEffectUpdate'
 import { boardService } from '../services/board.service'
-import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp';
+import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
+import close from '../assets/img/workspace/close.svg'
+// import TaskMembers from '../cmps/task-members.jsx'
+// import TaskLabels from '../cmps/task-labels.jsx'
+// import TaskDates from '../cmps/task-dates.jsx'
+// import TaskDescription from '../cmps/task-description.jsx'
+// import TaskLocation from '../cmps/task-location.jsx'
+// import TaskAttachments from '../cmps/task-attachments.jsx'
+// import TaskChecklist from '../cmps/task-checklist.jsx'
+// import TaskActivity from '../cmps/task-activity.jsx'
+// import TaskCover from '../cmps/task-cover.jsx'
+// import TaskCustonFields from '../cmps/task-custom-fields.jsx'
+
 export const TaskDetails = () => {
     const { boardId, taskId } = useParams()
     const [board, setBoard] = useState(null)
@@ -24,9 +36,24 @@ export const TaskDetails = () => {
         setBoard(currBoard)
     }
 
+    const getGroup = () => {
+        if (!board) return
+        let currTask
+        let currGroup
+        board.groups.forEach((g) => {
+            if (currTask) return
+            currTask = g.tasks.forEach((t) => {
+                if (t.id === taskId) {
+                    currGroup = g
+                }
+            })
+        })
+        console.log(currGroup)
+        return currGroup
+    }
+
     const getTask = () => {
         if (!board) return
-
         // var currGroups = []
         // board.groups.forEach((group) => {
         //     currGroups.push(group)
@@ -58,6 +85,9 @@ export const TaskDetails = () => {
     }
 
     if (!task) return <h1>Loading...</h1>
+    const currGroup = getGroup()
+    console.log('currGroup:', currGroup)
+
     return (
         <>
             <div
@@ -67,15 +97,31 @@ export const TaskDetails = () => {
                 }}
             ></div>
             <div className='task-details flex column'>
-                <div className='title flex'>
-                    <div className='flex align-center'>
-                        <div className='icon-container'>
-                        <CreditCardSharpIcon/>
+                <div className='task-details-header flex'>
+                    <div className='flex left-side'>
+                        <CreditCardSharpIcon className='credit-card-icon' />
+                        <div className='title flex align-center column'>
+                            <h1>{task.title}</h1>
+                            <h2>
+                                in list <span>{currGroup.title}</span>
+                            </h2>
                         </div>
-                        <h2>Recently viewed</h2>
                     </div>
                 </div>
-                <h1>{task.title}</h1>
+                    <div className='icon-container close flex'>
+                        <img
+                            src={close}
+                            alt='close'
+                            style={{ width: '21px'}}
+                        />
+                    </div>
+
+                    <label>Labels</label>
+                    <label>Description</label>
+
+
+                    <p></p>
+
             </div>
         </>
     )
