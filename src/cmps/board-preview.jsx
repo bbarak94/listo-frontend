@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 export const BoardPreview = ({ board }) => {
-    console.log('board.style:', board.style)
+    // console.log('board.style:', board.style)
     const navigation = useNavigate()
     return (
         <div
