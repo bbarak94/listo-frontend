@@ -52,7 +52,58 @@ async function save(board) {
 }
 
 function getEmptyBoard() {
-    return {}
+    const newBoard =  {
+        title: 'New Board',
+        archivedAt: null,
+        createdAt: Date.now(),
+        createdBy: {
+            _id: 'u100',
+            fullname: 'Guest',
+            imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg',
+        },
+        style: {
+            background: '#091e420a',
+        },
+        labels: [],
+        members: [
+            {
+                _id: 'u100',
+                fullname: 'Guest',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg',
+            },
+        ],
+        groups: [
+            {
+                id: utilService.makeId(),
+                title: '',
+                archivedAt: Date.now(),
+                tasks: [
+                    {
+                        id: 't101',
+                        title: 'Replace logo',
+                    },
+                ],
+                style: {},
+            },
+        ],
+        activities: [
+            {
+                id: utilService.makeId(),
+                txt: 'Guest created a board',
+                createdAt: Date.now(),
+                byMember: {
+                    _id: 'u100',
+                    fullname: 'Guest',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                },
+                // task: {
+                //     id: 't107',
+                //     title: 'Replace Logo',
+                // },
+            },
+        ],
+    }
+    return newBoard
 }
 
 function subscribe(listener) {
@@ -64,5 +115,3 @@ function unsubscribe(listener) {
 
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
-
-

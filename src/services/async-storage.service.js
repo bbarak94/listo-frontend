@@ -237,7 +237,7 @@ function _createBoards() {
             createdBy: {
                 _id: 'u101',
                 fullname: 'Barak Braun',
-                imgUrl: 'srcassetsimgguest.jpg',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
                 background: '#f2d600',
