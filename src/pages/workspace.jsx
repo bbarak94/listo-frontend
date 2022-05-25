@@ -10,6 +10,7 @@ export const Workspace = () => {
     const categories = [
         'Popular','Small business','Design','Education','Engineering-IT','Marketing','Human-resources','Operations','Sales-CRM'
     ]
+    
     return (
         <div className='board-list'>
             <div className='title flex'>
@@ -26,7 +27,7 @@ export const Workspace = () => {
                 <div className='icon-container close flex align-center justify-center'>
                     <img
                         src={close}
-                        alt='templates'
+                        alt='close'
                         style={{ width: '25px' }}
                     />
                 </div>
@@ -50,7 +51,7 @@ export const Workspace = () => {
                             style={{ width: '25px' }}
                         />
                     </div>
-                    <h2>Most popular templates</h2>
+                    <h2>Starred boards</h2>
                 </div>
             </div>
             <div className='title flex'>
@@ -62,7 +63,7 @@ export const Workspace = () => {
                             style={{ width: '25px' }}
                         />
                     </div>
-                    <h2>Most popular templates</h2>
+                    <h2>Recently viewed</h2>
                 </div>
             </div>
         </div>
