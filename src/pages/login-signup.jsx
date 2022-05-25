@@ -1,19 +1,21 @@
 import { useState, useEffect } from 'react'
 // import { userService } from '../services/user.service'
-import {  useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 
 export function LoginSignup() {
 
     const dispatch = useDispatch()
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
-    const [isSignup, setIsSignup] = useState(false)
-    const [users, setUsers] = useState([])
+    const isSignup = useRef(false)
 
-    useEffect(async () => {
-        const users = await userService.getUsers()
-        setUsers(users)
-    }, [])
+    // const [isSignup, setIsSignup] = useState(false)
+    // const [users, setUsers] = useState([])
+
+    // useEffect(async () => {
+    // const users = await userService.getUsers()
+    //     setUsers(users)
+    // }, [])
 
     const clearState = () => {
         setCredentials({ username: '', password: '', fullname: '', imgUrl: '' })
@@ -26,43 +28,43 @@ export function LoginSignup() {
         setCredentials({ ...credentials, [field]: value });
     }
 
-    // const onLogin = (ev = null) => {
-    //     if (ev) ev.preventDefault();
-    //     if (!credentials.username) return;
-    //     props.onLogin(credentials);
-    //     clearState()
-    // }
+    const onLogin = (ev = null) => {
+        if (ev) ev.preventDefault();
+        // if (!credentials.username) return;
+        // props.onLogin(credentials);
+        clearState()
+    }
 
-    // const onSignup = (ev = null) => {
-    //     if (ev) ev.preventDefault();
-    //     if (!credentials.username || !credentials.password || !credentials.fullname) return;
-    //     props.onSignup(credentials);
-    //     clearState()
-    // }
+    const onSignup = (ev = null) => {
+        if (ev) ev.preventDefault();
+        // if (!credentials.username || !credentials.password || !credentials.fullname) return;
+        // props.onSignup(credentials);
+        clearState()
+    }
 
-    
+
     // const onUploaded = (imgUrl) => {
     //     setCredentials({ ...credentials, imgUrl });
     // }
 
     return (
+<div className="login-page">
+        
+}
+
+
+    return (
         <div className="login-page">
             {/* <p>
                 <button className="btn-link" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
-            </p>
+            </p> */}
             {!isSignup && <form className="login-form" onSubmit={onLogin}>
-                <select
-                    name="username"
-                    value={credentials.username}
-                    onChange={handleChange}
-                >
-                    <option value="">Select User</option>
-                    {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
-                </select>
+
                 <button>Login!</button>
             </form>}
+
             <div className="signup-section">
-                {isSignup && <form className="signup-form" onSubmit={onSignup}>
+                {/* {isSignup && <form className="signup-form" onSubmit={onSignup}>
                     <input
                         type="text"
                         name="fullname"
@@ -87,10 +89,9 @@ export function LoginSignup() {
                         onChange={handleChange}
                         required
                     />
-                    {/* <ImgUploader onUploaded={onUploaded} /> */}
-                    {/* <button >Signup!</button> */}
-                {/* </form>} */}
-            {/* // </div> */}
-        </div>
+                    {/* /* <ImgUploader onUploaded={onUploaded} /> */}
+                    {/* <button >Signup!</button>
+                </form>
+                    </div>  */}
+            </div>
     )
-}
