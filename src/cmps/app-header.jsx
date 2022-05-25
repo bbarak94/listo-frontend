@@ -14,13 +14,7 @@ export const AppHeader = () => {
                     }}
                 src={Logo}></img>
             </div>
-            <div className='header-logo'>
-                <img 
-                onClick={() => {
-                        navigation(`/workspace`)
-                    }}
-                src={Logo}></img>
-            </div>
+            
             <div className='header-btns flex'>
                 <a
                     className='login-btn'

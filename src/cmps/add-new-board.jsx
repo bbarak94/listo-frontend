@@ -58,9 +58,9 @@ export function AddNewBoard({onCreateNewBoard}) {
                             }}
                         >
                             {/* <Typography sx={{ p: 2 }}>The content of the Popover.</Typography> */}
-                            <Typography sx={{ p: 2 }}>
+                            {/* <Typography sx={{ p: 2 }}> */}
                                 <EditNewBoard onCreateNewBoard={onCreateNewBoard}/>
-                            </Typography>
+                            {/* </Typography> */}
                         </Popover>
                     </div>
                 )}
