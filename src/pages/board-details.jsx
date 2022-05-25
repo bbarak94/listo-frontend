@@ -5,7 +5,7 @@ import { boardService } from '../services/board.service'
 
 export const BoardDetails = () => {
     const params = useParams()
-
+    
     const [board, setboard] = useState(null)
     const [isTaskOpen, setTaskOpen] = useState(false)
     useEffect(() => {

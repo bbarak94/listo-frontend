@@ -1,9 +1,11 @@
 
 export const TaskDetails = () => {
-
+    
     return (
         <div className="task-details">
-            I'm TaskDetails
+            <div className="task-details-header">
+                <input type="text"/>
+            </div>
 
         </div>
 

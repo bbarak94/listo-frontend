@@ -6,6 +6,11 @@
    .title {
       .close {
          background-color: $clr11;
+         &:hover{
+            cursor: pointer;
+            background-color: darken($color: $clr11, $amount: 5);
+            border-width: 15px;
+         }
 
          img {
             max-width: 20px;
