@@ -37,6 +37,17 @@ export function loadBoards() {
     }
 }
 
+export function getBoard() {
+    return async (dispatch) => {
+        try {
+            const boards = await boardService.query()
+            dispatch(getActionSetBoards(boards))
+        } catch {
+            throw new Error('Could not load boards')
+        }
+    }
+}
+
 export function removeBoard(boardId) {
     return async (dispatch) => {
         try {
