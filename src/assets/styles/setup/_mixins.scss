@@ -9,6 +9,23 @@
   display: inline-flex;
   align-items: center;
   height: 32px;
+  line-height: 16px;
+}
+
+@mixin close-btn {
+  width: 32px;
+  font-size: 22px;
+  padding: 0 10px;
+  cursor: pointer;
+  filter: invert(30%) sepia(16%) saturate(1134%) hue-rotate(179deg) brightness(89%) contrast(84%);
+
+  &:before {
+    content: url('../../img/icon/close.svg');
+  }
+
+  &:hover {
+    filter: invert(30%) sepia(16%) saturate(1134%) hue-rotate(179deg) brightness(59%) contrast(84%);
+  }
 }
 
 /* Media  Mixins */

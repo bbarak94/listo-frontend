@@ -23,22 +23,7 @@
     }
 
     .add-group-actions {
-
         margin-top: 4px;
-        a {
-            width: 25px;
-            font-size: 22px;
-            padding: 0 7px;
-            filter: invert(30%) sepia(16%) saturate(1134%) hue-rotate(179deg) brightness(89%) contrast(84%);
-        }
-        
-        a::before {
-            content: url('../../img/icon/close.svg');
-        }
-        
-        a:hover {
-            filter: invert(30%) sepia(16%) saturate(1134%) hue-rotate(179deg) brightness(59%) contrast(84%);
-        }
     }
 
 
