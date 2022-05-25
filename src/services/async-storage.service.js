@@ -12,7 +12,6 @@ function query(entityType, delay = 600) {
     if (!entities.length) {
         entities = _createBoards()
         _save(entityType, entities)
-        console.log('entities:', entities)
     }
     return new Promise((resolve, reject) => {
         setTimeout(() => {

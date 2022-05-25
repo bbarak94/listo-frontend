@@ -1,2 +1,0 @@
-// userMsg
-// isLoading

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 
 export const BoardPreview = ({ board }) => {
-    console.log('board.style:',board.style)
     
     return (
         <div
