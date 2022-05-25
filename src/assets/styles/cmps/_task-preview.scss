@@ -1,5 +1,11 @@
 .task-preview {
-   background-color: white; 
    margin: 1em;
-   box-shadow: 2px 2px black;
+   padding: 6px 8px 2px;
+   border-radius: 0.2em;
+   box-shadow: 0 1px 0 #091e4240;
+   background-color: $clr10; 
+
+   &:hover {
+      background-color: darken($clr10, 8%);
+   }
 }

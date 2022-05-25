@@ -1,5 +1,6 @@
 const initialState = {
     boards: [],
+    board: null
 }
 export function boardReducer(state = initialState, action) {
     var newState = state
@@ -7,6 +8,9 @@ export function boardReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_BOARDS':
             newState = { ...state, boards: action.boards }
+            break
+        case 'SET_BOARD':
+            newState = { ...state, board: action.board }
             break
         case 'REMOVE_BOARD':
             const lastRemovedBoard = state.boards.find(

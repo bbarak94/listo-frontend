@@ -10,9 +10,10 @@ export const storageService = {
 function query(entityType, delay = 600) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
     if (!entities.length) {
-        entities = _createBoards()
+        if (entityType === 'board') entities = _createBoards()
+        else entities = _createUsers()
+        // console.log('entities:', entities)
         _save(entityType, entities)
-        console.log('entities:', entities)
     }
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -83,88 +84,6 @@ function postMany(entityType, newEntities) {
     })
 }
 
-const gUsers = [
-    {
-        _id: 'u100',
-        fullname: 'Guest',
-        username: 'guest',
-        password: 'guest',
-        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg',
-        mentions: [
-            {
-                id: 'm101',
-                boardId: 'b101',
-                taskId: 't101',
-            },
-            {
-                id: 'm102',
-                boardId: 'b102',
-                taskId: 't102',
-            },
-        ],
-    },
-    {
-        _id: 'u101',
-        fullname: 'Barak Braun',
-        username: 'barak',
-        password: 'barak',
-        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
-        mentions: [
-            {
-                id: 'm101',
-                boardId: 'b101',
-                taskId: 't101',
-            },
-            {
-                id: 'm102',
-                boardId: 'b102',
-                taskId: 't102',
-            },
-        ],
-    },
-    {
-        _id: 'u102',
-        fullname: 'Guy Elizarov',
-        username: 'guy',
-        password: 'guy',
-        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
-        mentions: [
-            {
-                id: 'm102',
-                boardId: 'b102',
-                taskId: 't102',
-            },
-        ],
-    },
-    {
-        _id: 'u103',
-        fullname: 'Itai Rotstein',
-        username: 'itai',
-        password: 'itai',
-        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
-        mentions: [
-            {
-                id: 'm103',
-                boardId: 'b103',
-                taskId: 't103',
-            },
-        ],
-    },
-    {
-        _id: 'u104',
-        fullname: 'Tommy Irmia',
-        username: 'tommy',
-        password: 'tommy',
-        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',
-        mentions: [
-            {
-                id: 'm104',
-                boardId: 'b104',
-                taskId: 't104',
-            },
-        ],
-    },
-]
 
 function _createBoards() {
     return [
@@ -1025,3 +944,87 @@ function _createBoards() {
     ]
 }
 
+function _createUsers(){
+    return [
+        {
+            _id: 'u100',
+            fullname: 'Guest',
+            username: 'guest',
+            password: 'guest',
+            imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg',
+            mentions: [
+                {
+                    id: 'm101',
+                    boardId: 'b101',
+                    taskId: 't101',
+                },
+                {
+                    id: 'm102',
+                    boardId: 'b102',
+                    taskId: 't102',
+                },
+            ],
+        },
+        {
+            _id: 'u101',
+            fullname: 'Barak Braun',
+            username: 'barak',
+            password: 'barak',
+            imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+            mentions: [
+                {
+                    id: 'm101',
+                    boardId: 'b101',
+                    taskId: 't101',
+                },
+                {
+                    id: 'm102',
+                    boardId: 'b102',
+                    taskId: 't102',
+                },
+            ],
+        },
+        {
+            _id: 'u102',
+            fullname: 'Guy Elizarov',
+            username: 'guy',
+            password: 'guy',
+            imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+            mentions: [
+                {
+                    id: 'm102',
+                    boardId: 'b102',
+                    taskId: 't102',
+                },
+            ],
+        },
+        {
+            _id: 'u103',
+            fullname: 'Itai Rotstein',
+            username: 'itai',
+            password: 'itai',
+            imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
+            mentions: [
+                {
+                    id: 'm103',
+                    boardId: 'b103',
+                    taskId: 't103',
+                },
+            ],
+        },
+        {
+            _id: 'u104',
+            fullname: 'Tommy Irmia',
+            username: 'tommy',
+            password: 'tommy',
+            imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',
+            mentions: [
+                {
+                    id: 'm104',
+                    boardId: 'b104',
+                    taskId: 't104',
+                },
+            ],
+        },
+    ]
+}
