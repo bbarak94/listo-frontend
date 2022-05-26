@@ -17,11 +17,13 @@ export const Cover = () => {
     const dispatch = useDispatch()
     const { boardId, taskId } = useParams()
     const [task, setTask] = useState(null)
+    const [group, setGroup] = useState(null)
     const { board } = useSelector((storeState) => storeState.boardModule)
 
     useEffectUpdate(() => {
         const { currTask, currGroup } = boardService.getTaskAndGroup(board, taskId)
         setTask(currTask)
+        setGroup(currGroup)
     }, [board])
 
     const colors = [
@@ -48,8 +50,8 @@ export const Cover = () => {
 
     const onSetCoverColor = (color) => {
         const taskToUpdate = {...task, style: {...style, color}}
-        // updateTask(taskToUpdate, board.id, currGroup.id )
-        console.log('task', task)
+        updateTask(taskToUpdate, board.id, group.id )
+        // console.log('taskToUpdate', taskToUpdate)
         dispatch(setCoverColor(color))
         dispatch(setCoverImg(null))
     }
