@@ -22,7 +22,8 @@ export const boardService = {
     addGroup,
     updateGroup,
     addTask,
-    updateTask
+    updateTask,
+    getTaskAndGroup
 }
 window.cs = boardService
 
@@ -137,7 +138,7 @@ async function addGroup(title, boardId) {
 async function updateGroup(boardId, groupId, title) {
     try {
         const board = await getById(boardId)
-        let group = board.groups.find(group => group.id === groupId)    
+        let group = board.groups.find(group => group.id === groupId)
         group.title = title
         save(board)
         return board
@@ -174,7 +175,7 @@ async function addTask(title, boardId, groupId) {
 }
 
 async function updateTask(title, boardId, groupId) {
-    
+
     try {
         const board = await getById(boardId)
         let group = board.groups.find(group => group.id === groupId)
@@ -186,6 +187,25 @@ async function updateTask(title, boardId, groupId) {
     }
 }
 
+function getTaskAndGroup(board, taskId){
+    if (!board) return
+    let currTask
+    let currGroup
+
+    board.groups.forEach((g) => {
+        if (currTask) return
+        currTask = g.tasks.find((t) => {
+
+            if (t.id === taskId) {
+                currGroup = g
+                return true
+            }
+            //    return (t.id === taskId)
+        })
+    })
+    // setTask(currTask)
+    return { currGroup, currTask }
+}
 
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
