@@ -11,10 +11,6 @@ export function AddNewBoard({onCreateNewBoard}) {
             <PopupState variant='popover' popupId='demo-popup-popover'>
                 {(popupState) => (
                     <div>
-                        {/* <Button variant="contained" {...bindTrigger(popupState)}>
-            Open Popover
-          </Button> */}
-
                         <div
                             {...bindTrigger(popupState)}
                             className='board-preview flex column align-center justify-center'
