@@ -165,7 +165,7 @@ async function addTask(title, boardId, groupId) {
         const board = await getById(boardId)
         let group = board.groups.find(group => group.id === groupId)
         console.log('group from service', group)
-        group.tasks.push(newTask)
+        // group.tasks.push(newTask)
         save(board)
         return board
     } catch (err) {
@@ -178,7 +178,7 @@ async function updateTask(title, boardId, groupId) {
     try {
         const board = await getById(boardId)
         let group = board.groups.find(group => group.id === groupId)
-        group.tasks.push(newTask)
+        // group.tasks.push(newTask)
         save(board)
         return board
     } catch (err) {
