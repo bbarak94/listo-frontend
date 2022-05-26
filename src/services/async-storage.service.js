@@ -145,17 +145,31 @@ function _createBoards() {
                             id: 't101',
                             title: 'Replace logo',
                             description: 'need to replace logo argently',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't102',
                             title: 'Add Samples',
                             description: 'need to replace samples argently',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't103',
                             title: 'Make JSON Look Pretty',
-                            description:
-                                'need to Make JSON Look Pretty argently',
+                            description: 'need to Make JSON Look Pretty argently',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                     ],
                     style: {},
@@ -168,6 +182,11 @@ function _createBoards() {
                             id: 't103',
                             title: 'Test Filter Component',
                             archivedAt: 1589983468418,
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't104',
@@ -216,7 +235,8 @@ function _createBoards() {
                             },
                             style: {
                                 color: null,
-                                imgUrl: 'https://images.unsplash.com/photo-1644797694478-d12d4eab8cd8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880'
+                                imgUrl: 'https://images.unsplash.com/photo-1644797694478-d12d4eab8cd8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880',
+                                isTextOnCover: true
                             },
                         },
                     ],
@@ -298,14 +318,29 @@ function _createBoards() {
                         {
                             id: 't101',
                             title: 'Replace logo',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't102',
                             title: 'Add Samples',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't103',
                             title: 'Make JSON Look Pretty',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                     ],
                     style: {},
@@ -349,7 +384,7 @@ function _createBoards() {
                                     ],
                                 },
                             ],
-                            memberIds: ['u100', 'u101', 'u102',  'u104'],
+                            memberIds: ['u100', 'u101', 'u102', 'u104'],
                             labelIds: ['l101', 'l102'],
                             createdAt: 1590999730348,
                             dueDate: 16156215211,
@@ -361,7 +396,7 @@ function _createBoards() {
                             },
                             style: {
                                 color: '#7BC86C',
-                                imgUrl: null
+                                imgUrl: true
                             },
                         },
                     ],
@@ -443,14 +478,29 @@ function _createBoards() {
                         {
                             id: 't101',
                             title: 'Replace logo',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't102',
                             title: 'Add Samples',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't103',
                             title: 'Make JSON Look Pretty',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                     ],
                     style: {},
@@ -463,6 +513,11 @@ function _createBoards() {
                             id: 't103',
                             title: 'Test Filter Component',
                             archivedAt: 1589983468418,
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't104',
@@ -511,7 +566,8 @@ function _createBoards() {
                             },
                             style: {
                                 color: '#F5DD29',
-                                imgUrl: null
+                                imgUrl: null,
+                                isTextOnCover: false
                             },
                         },
                     ],
@@ -587,14 +643,29 @@ function _createBoards() {
                         {
                             id: 't101',
                             title: 'Replace logo',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't102',
                             title: 'Add Samples',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't103',
                             title: 'Make JSON Look Pretty',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                     ],
                     style: {},
@@ -607,6 +678,11 @@ function _createBoards() {
                             id: 't103',
                             title: 'Test Filter Component',
                             archivedAt: 1589983468418,
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't104',
@@ -654,7 +730,8 @@ function _createBoards() {
                             },
                             style: {
                                 color: null,
-                                imgUrl: null
+                                imgUrl: null,
+                                isTextOnCover: false
                             },
                         },
                     ],
@@ -731,14 +808,29 @@ function _createBoards() {
                         {
                             id: 't101',
                             title: 'Replace logo',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't102',
                             title: 'Add Samples',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't103',
                             title: 'Make JSON Look Pretty',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                     ],
                     style: {},
@@ -751,6 +843,11 @@ function _createBoards() {
                             id: 't103',
                             title: 'Test Filter Component',
                             archivedAt: 1589983468418,
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't104',
@@ -799,7 +896,8 @@ function _createBoards() {
                             },
                             style: {
                                 color: null,
-                                imgUrl: null
+                                imgUrl: null,
+                                isTextOnCover: false
                             },
                         },
                     ],
@@ -876,14 +974,29 @@ function _createBoards() {
                         {
                             id: 't101',
                             title: 'Replace logo',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't102',
                             title: 'Add Samples',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't103',
                             title: 'Make JSON Look Pretty',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                     ],
                     style: {},
@@ -896,6 +1009,11 @@ function _createBoards() {
                             id: 't103',
                             title: 'Test Filter Component',
                             archivedAt: 1589983468418,
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isTextOnCover: false
+                            },
                         },
                         {
                             id: 't104',
@@ -944,7 +1062,8 @@ function _createBoards() {
                             },
                             style: {
                                 color: '#172B4D',
-                                imgUrl: 'https://images.unsplash.com/photo-1631116616602-322db356c4fb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687'
+                                imgUrl: 'https://images.unsplash.com/photo-1631116616602-322db356c4fb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687',
+                                isTextOnCover: false
                             },
                         },
                     ],

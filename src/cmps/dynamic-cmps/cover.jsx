@@ -49,17 +49,15 @@ export const Cover = () => {
     ]
 
     const onSetCoverColor = (color) => {
-        const taskToUpdate = {...task, style: {...style, color}}
-        updateTask(taskToUpdate, board.id, group.id )
-        // console.log('taskToUpdate', taskToUpdate)
-        dispatch(setCoverColor(color))
-        dispatch(setCoverImg(null))
+        const taskToUpdate = { ...task, style: { ...style, color, imgUrl: null } }
+        dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
 
     const onSetCoverImg = (imgUrl) => {
-        dispatch(setCoverImg(imgUrl))
-        dispatch(setCoverColor(null))
+        const taskToUpdate = { ...task, style: { ...style, color: null, imgUrl } }
+        dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
+
     return (
         <div className="cover">
             <div className="popup-header flex align-center justify-center">
@@ -80,8 +78,7 @@ export const Cover = () => {
                     <button onClick={() => onSetCoverColor(color)} key={idx} style={{ backgroundColor: color }}></button>
                 )}
             </div>
-            <h4>Attachments</h4>
-            <button>Upload a cover image</button>
+            <h4>Photos from Unsplash</h4>
             <div className='cover-imgs'>
                 {imgUrls.map((url, idx) =>
                     <div key={idx} className="img-container" onClick={() => onSetCoverImg(url)}><img src={url} alt="" /></div>

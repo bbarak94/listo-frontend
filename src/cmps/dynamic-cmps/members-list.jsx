@@ -10,16 +10,16 @@ export const MembersList = () => {
 
     useEffect(() => {
         const { currTask } = boardService.getTaskAndGroup(board, taskId)
-        console.log('board:', board)
-        console.log('taskId:', taskId)
-        console.log('currTask:', currTask)
+        // console.log('board:', board)
+        // console.log('taskId:', taskId)
+        // console.log('currTask:', currTask)
         board.members.forEach((m) => {
-            console.log('m:', m)
-            console.log('currTask.memberIds:', currTask.memberIds)
-            console.log('m.id:', m.id)
+            // console.log('m:', m)
+            // console.log('currTask.memberIds:', currTask.memberIds)
+            // console.log('m.id:', m.id)
             if (currTask.memberIds.includes(m.id)) {
-                console.log('m:', m)
-                console.log('m.id:', m.id)
+                // console.log('m:', m)
+                // console.log('m.id:', m.id)
                 setCurrMembers([m, ...currMembers])
             }
         })

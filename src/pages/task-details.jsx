@@ -60,11 +60,11 @@ export const TaskDetails = () => {
         <>
             <Screen cb={onHandleScreenClick} />
             <div className='task-details flex column'>
-                {coverColor && <div style={{ backgroundColor: coverColor }} className='task-details-cover-color'></div>}
-                {coverImg &&
+                {task.style.color && <div style={{ backgroundColor: task.style.color }} className='task-details-cover-color'></div>}
+                {task.style.imgUrl &&
                     <div  className='task-details-cover-img'>
                         <div className='cover-img-container'>
-                            <img src={coverImg} alt="" />
+                            <img src={task.style.imgUrl} alt="" />
                         </div>
                     </div>
                 }
