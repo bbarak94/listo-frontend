@@ -1,5 +1,6 @@
 import members from '../../assets/img/task/navbar/members.svg'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
+import VideoLabelOutlinedIcon from '@mui/icons-material/VideoLabelOutlined'
 import { NewBoardPrev } from './new-board-prev'
 export function DynamicBtn(props) {
     switch (props.name) {
@@ -29,6 +30,17 @@ export function DynamicBtn(props) {
                             <CheckBoxOutlinedIcon style={{ width: '16px' }} />
                         </div>
                         <h2>Checklist</h2>
+                    </div>
+                </div>
+            )
+        case 'cover':
+            return (
+                <div {...props.bindTrigger(props.popupState)}>
+                    <div className='task-edit-btn flex align-center'>
+                        <div>
+                            <VideoLabelOutlinedIcon style={{ width: '16px' }} />
+                        </div>
+                        <h2>Cover</h2>
                     </div>
                 </div>
             )

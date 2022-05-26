@@ -1,0 +1,65 @@
+.cover {
+    padding: 0 12px 12px;
+    width: 304px;
+
+    .popup-header {
+        position: relative;
+        padding: 0 32px;
+        line-height: 40px;
+    }
+
+    .popup-header-title {
+        color: #5e6c84;
+        display: block;
+    }
+
+    .close-btn {
+        width: 40px;
+    }
+
+    h4 {
+        font-size: 12px;
+        color: $clr8;
+    }
+
+    .cover-colors {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .cover-colors>* {
+        width: 50px;
+        height: 32px;
+        border: none;
+        border-radius: 4px;
+        margin: 0;
+        cursor: pointer;
+
+        &.selected {
+            box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #5ba4cf;
+        }
+    }
+
+    .cover-imgs {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 8px;
+    }
+
+    .cover-imgs>* {
+        width: 88px;
+
+        img {
+            border-radius: 4px;
+            object-fit: cover;
+            height: 48px;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+}

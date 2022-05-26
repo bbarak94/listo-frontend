@@ -29,11 +29,10 @@ export const TaskEditPreviewNav = () => {
         { title: 'Archive', icon: archive },
     ]
 
-
     return (
         <nav className="task-edit-nav">
-            {editors.map(editor =>
-                <button>{editor.icon}{editor.title}</button>
+            {editors.map((editor, idx) =>
+                <button key={idx}>{editor.icon}{editor.title}</button>
             )}
         </nav>
     )
