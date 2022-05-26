@@ -4,7 +4,7 @@ import custom from '../assets/img/task/navbar/custom.svg'
 import settings from '../assets/img/task/navbar/settings.svg'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import AttachFileIcon from '@mui/icons-material/AttachFile'
-import {DynamicPopup} from './dynamic-cmps/dynamic-cmp'
+import { DynamicPopup } from './dynamic-cmps/dynamic-cmp'
 import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded'
 
 export const TaskNavBar = () => {
@@ -21,14 +21,7 @@ export const TaskNavBar = () => {
                 </div>
             </div>
             <DynamicPopup name={'members'} />
-            <div className='task-edit-btn flex align-center'>
-                <div>
-                    <TurnedInNotRoundedIcon
-                        style={{ width: '16px', transform: 'rotate(45deg)' }}
-                    />
-                </div>
-                <h2>Labels</h2>
-            </div>
+            <DynamicPopup name={'labels'} />
             <DynamicPopup name={'checklist'} />
             <div className='task-edit-btn flex align-center'>
                 <div>
