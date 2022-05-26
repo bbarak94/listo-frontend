@@ -14,6 +14,7 @@ import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
 
 import close from '../assets/img/workspace/close.svg'
 
+import {MembersList} from '../cmps/dynamic-cmps/members-list.jsx'
 // import TaskMembers from '../cmps/task-members.jsx'
 // import TaskLabels from '../cmps/task-labels.jsx'
 // import TaskDates from '../cmps/task-dates.jsx'
@@ -75,6 +76,7 @@ export const TaskDetails = () => {
                 </div>
                 <div className='task-main-layout flex'>
                     <div className='task- flex column'>
+                        <MembersList />
                         <label>Labels</label>
                         <label>Description</label>
                     </div>

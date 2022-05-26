@@ -176,11 +176,17 @@ async function addTask(title, boardId, groupId) {
 
 async function updateTask(taskToUpdate, boardId, groupId) {
     try {
+        console.log('taskToUpdate:',taskToUpdate)
+        console.log('boardId:',boardId)
+        console.log('groupId:',groupId)
+        
         const board = await getById(boardId)
         let group = board.groups.find(group => group.id === groupId)
         const taskIdx = group.tasks.findIndex(task => task.id === taskToUpdate.id)
         group.tasks.splice(taskIdx, 1, taskToUpdate)
         save(board)
+        console.log('board:',board)
+        
         return board
     } catch (err) {
         console.log('Cannot update Task', err)
