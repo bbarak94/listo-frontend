@@ -1,9 +1,10 @@
 import { Component, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+
 import { useEffectUpdate } from '../hooks/useEffectUpdate'
 
 import { boardService } from '../services/board.service'
-
+import { Screen } from '../cmps/screen'
 import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
 
 import close from '../assets/img/workspace/close.svg'
@@ -24,7 +25,8 @@ export const TaskDetails = () => {
     const { boardId, taskId } = useParams()
     const [board, setBoard] = useState(null)
     const [task, setTask] = useState(null)
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
+
 
     useEffect(() => {
         loadBoard()
@@ -37,7 +39,6 @@ export const TaskDetails = () => {
 
     const loadBoard = async () => {
         const currBoard = await boardService.getById(boardId)
-        console.log('currBoard:', currBoard)
         setBoard(currBoard)
     }
 
@@ -53,7 +54,6 @@ export const TaskDetails = () => {
                 }
             })
         })
-        console.log(currGroup)
         return currGroup
     }
 
@@ -64,7 +64,6 @@ export const TaskDetails = () => {
             if (currTask) return
             currTask = g.tasks.find((t) => t.id === taskId)
         })
-        console.log('currTask:', currTask)
         setTask(currTask)
     }
 
@@ -74,12 +73,7 @@ export const TaskDetails = () => {
 
     return (
         <>
-            <div
-                className='screen'
-                onClick={() => {
-                    navigate(`/board/${boardId}`)
-                }}
-            ></div>
+            <Screen boardId={boardId} />
             <div className='task-details flex column'>
                 <div className='task-details-header flex'>
                     <div className='flex left-side'>
