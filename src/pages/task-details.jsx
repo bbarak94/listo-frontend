@@ -78,7 +78,7 @@ export const TaskDetails = () => {
                 <div className='task-details-header flex'>
                     <div className='flex left-side'>
                         <CreditCardSharpIcon className='credit-card-icon' />
-                        <div className='title flex align-center column'>
+                        <div className='title flex column'>
                             <h1>{task.title}</h1>
                             <h2>
                                 in list <span>{currGroup.title}</span>

@@ -1,0 +1,59 @@
+.task-nav-bar {
+   gap: 7.5px;
+
+   .title-container {
+      justify-content: space-between;
+
+      .title {
+         font-size: 12px;
+         font-weight: 500;
+         margin: 0;
+      }
+
+      div {
+         &:hover {
+            cursor: pointer;
+            background-color: darken($color: $clr11, $amount: 8);
+         }
+
+         background-color: $clr12;
+
+         display: flex;
+         align-content: center;
+         justify-content: center;
+         min-width: 22px;
+         min-height: 22px;
+         padding: 2px;
+      }
+   }
+
+   .task-edit-btn {
+      max-height: 32px;
+      width: 170px;
+      background-color: $clr12;
+      align-content: center;
+
+      &:hover {
+         cursor: pointer;
+         background-color: darken($color: $clr11, $amount: 6);
+      }
+
+      div {
+         display: flex;
+         align-content: center;
+         justify-content: center;
+         min-width: 32px;
+         min-height: 32px;
+         padding: 6px;
+      }
+
+      h2 {
+         color: $clr1;
+         font-size: 12px;
+         font-weight: 400;
+
+      }
+
+   }
+
+}
