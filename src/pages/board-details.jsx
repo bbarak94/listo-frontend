@@ -1,29 +1,29 @@
 import { useEffect, useState } from "react"
 import { useParams, Outlet } from "react-router-dom"
-import { BoardGroup } from "../cmps/board-group"
-import { setBoard } from '../store/actions/board.action'
-import { AddGroup } from '../cmps/add-group'
 import { useDispatch, useSelector } from "react-redux"
-import { boardService } from "../services/board.service"
+
+import { setBoard } from '../store/actions/board.action'
+
+import { BoardGroup } from "../cmps/board-group"
+import { AddGroup } from '../cmps/add-group'
 
 export const BoardDetails = () => {
-    const [expandShownGroupId, setExpandShownId] = useState('')
+    const [expandCardTitleGroupId, setExpandCardTitleId] = useState('')
+
     const params = useParams()
     const { board } = useSelector((storeState) => storeState.boardModule)
     const dispatch = useDispatch()
 
     useEffect(() => {
         loadBoard()
-    }, [params.id])
+    }, [params.boardId])
 
     const loadBoard = async () => {
-        const board = await boardService.getById(params.boardId)
-        dispatch(setBoard(board))
+        dispatch(setBoard(params.boardId))
     }
 
     if (!board) return <div>Loading...</div>
-    console.log('board:',board)
-    
+
     return (
 
         <main className="board-details flex">
@@ -32,13 +32,13 @@ export const BoardDetails = () => {
                     group={group}
                     key={group.id}
                     boardId={board._id}
-                    setExpandShownId={setExpandShownId}
-                    expandShownGroupId={expandShownGroupId}
+                    expandCardTitleGroupId={expandCardTitleGroupId}
+                    setExpandCardTitleId={setExpandCardTitleId}
                 />
             )}
             <AddGroup />
             <Outlet />
         </main>
-       
+
     )
 }

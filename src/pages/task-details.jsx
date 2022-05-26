@@ -23,7 +23,7 @@ export const TaskDetails = () => {
 
     useEffect(() => {
         loadBoard()
-        console.log('board:', board)
+        // console.log('board:', board)
     }, [])
 
     useEffectUpdate(() => {
@@ -32,7 +32,7 @@ export const TaskDetails = () => {
 
     const loadBoard = async () => {
         const currBoard = await boardService.getById(boardId)
-        console.log('currBoard:', currBoard)
+        // console.log('currBoard:', currBoard)
         setBoard(currBoard)
     }
 
@@ -48,7 +48,7 @@ export const TaskDetails = () => {
                 }
             })
         })
-        console.log(currGroup)
+        // console.log(currGroup)
         return currGroup
     }
 
@@ -77,7 +77,7 @@ export const TaskDetails = () => {
             if (currTask) return
             currTask = g.tasks.find((t) => t.id === taskId)
         })
-        console.log('currTask:', currTask)
+        // console.log('currTask:', currTask)
         setTask(currTask)
 
         // console.log('currTask:',currTask)

@@ -1,0 +1,15 @@
+.task-edit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    textArea {
+        padding: 6px 8px 2px;
+        width: 240px;
+        height: 90px;
+    }
+    button {
+        margin-top: 12px;
+        padding: 6px 24px;
+    }
+}

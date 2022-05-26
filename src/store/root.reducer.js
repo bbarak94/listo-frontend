@@ -9,7 +9,7 @@ import {boardReducer} from './reducers/board.reducer'
 export const rootReducer = combineReducers({
    userModule: userReducer,
    boardModule: boardReducer,
-   // appModule: appReducer
+   appModule: appReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

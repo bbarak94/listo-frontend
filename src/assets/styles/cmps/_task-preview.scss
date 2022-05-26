@@ -3,13 +3,40 @@
    padding: 6px 8px 2px;
    border-radius: 0.2em;
    box-shadow: 0 1px 0 #091e4240;
-   background-color: $clr10; 
+   background-color: $clr10;
+   position: relative;
+   display: flex;
+   justify-content: space-between;
 
    &:hover {
       background-color: darken($clr10, 5%);
+      .edit-icon {
+         padding: 14px;
+         margin: 0;
+         background-image: url(../../img/icon/pencil.svg);
+         filter: invert(54%) sepia(6%) saturate(1076%) hue-rotate(180deg) brightness(87%) contrast(97%);
+         background-size: 12px 22px;
+         background-repeat: no-repeat;
+         background-position: center;
+         width: 8px;
+         // position: absolute;
+         // right: 2px;
+         // top: 2px;
+         position: relative;
+         right: -6px;
+         top: -2px;
+         border-radius: 3px;
+   
+         &:hover {
+            background-color: $clr13;
+            filter: invert(19%) sepia(100%) saturate(11%) hue-rotate(345deg) brightness(99%) contrast(91%);
+         }
    }
 
-   .task-preview-title { 
+
+   }
+
+   .task-preview-title {
       display: block;
       margin-bottom: 4px;
       word-wrap: break-word;

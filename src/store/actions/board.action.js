@@ -32,10 +32,11 @@ export function getActionUpdateBoard(board) {
     }
 }
 
-export function setBoard(board) {
-    return dispatch => {
+export function setBoard(boardId) {
+    return async dispatch => {
         try {
-            dispatch({ type: 'SET_BOARD', board });
+            const board = await boardService.getById(boardId)
+            dispatch(getActionSetBoard(board))
         } catch (err) {
             console.log('Cannot set board', err);
         }
@@ -56,8 +57,8 @@ export function loadBoards() {
 export function getBoard(boardId) {
     return async (dispatch) => {
         try {
-            const boards = await boardService.getById(boardId)
-            dispatch(getActionSetBoard(boards))
+            const board = await boardService.getById(boardId)
+            dispatch(getActionSetBoard(board))
         } catch {
             throw new Error('Could not load boards')
         }
@@ -106,10 +107,38 @@ export function addGroup(groupTitle, boardId) {
     };
 }
 
+export function updateGroup(boardId, groupId, groupTitle) {
+    return async dispatch => {
+        try {
+            const board = await boardService.updateGroup(boardId, groupId, groupTitle);
+            dispatch({
+                type: 'SAVE_BOARD',
+                board: board,
+            });
+        } catch (err) {
+            console.log('Cannot update group', err);
+        }
+    };
+}
+
 export function addTask(taskTitle, boardId, groupId) {
     return async dispatch => {
         try {
             const board = await boardService.addTask(taskTitle, boardId, groupId);
+            dispatch({
+                type: 'SAVE_BOARD',
+                board: board,
+            });
+        } catch (err) {
+            console.log('Cannot add group', err);
+        }
+    };
+}
+
+export function updateTask(taskTitle, boardId, groupId, taskId) {
+    return async dispatch => {
+        try {
+            const board = await boardService.updateTask(taskTitle, boardId, groupId, taskId);
             dispatch({
                 type: 'SAVE_BOARD',
                 board: board,

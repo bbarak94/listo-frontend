@@ -20,7 +20,9 @@ export const boardService = {
     subscribe,
     unsubscribe,
     addGroup,
-    addTask
+    updateGroup,
+    addTask,
+    updateTask
 }
 window.cs = boardService
 
@@ -132,6 +134,18 @@ async function addGroup(title, boardId) {
     }
 }
 
+async function updateGroup(boardId, groupId, title) {
+    try {
+        const board = await getById(boardId)
+        let group = board.groups.find(group => group.id === groupId)    
+        group.title = title
+        save(board)
+        return board
+    } catch (err) {
+        console.log('Cannot add group', err)
+    }
+}
+
 async function addTask(title, boardId, groupId) {
     const newTask = {
         id: utilService.makeId(),
@@ -158,6 +172,20 @@ async function addTask(title, boardId, groupId) {
         console.log('Cannot add Task', err)
     }
 }
+
+async function updateTask(title, boardId, groupId) {
+    
+    try {
+        const board = await getById(boardId)
+        let group = board.groups.find(group => group.id === groupId)
+        group.tasks.push(newTask)
+        save(board)
+        return board
+    } catch (err) {
+        console.log('Cannot update Task', err)
+    }
+}
+
 
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))

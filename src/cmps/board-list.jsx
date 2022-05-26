@@ -11,7 +11,7 @@ export const BoardList = (props) => {
 
     const onCreateNewBoard = () => {
         const board = boardService.getEmptyBoard()
-        console.log('board:', board)
+        // console.log('board:', board)
         dispatch(saveBoard(board))
     }
 

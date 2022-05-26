@@ -1,9 +1,24 @@
 .board-details {
 
+    overflow-x: auto;
+    overflow-y: hidden;
+    
     &>* {
         margin: 0 4px;
         width: 272px;
         border-radius: 3px;
         background-color: $clr13;
     }
+}
+
+.screen-overlay {
+    z-index: 15;
+    position: fixed;
+    display: block;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.192);
+    inset: 0;
+    transition: opacity 0.2s ease-out;
+    overflow-y: auto;
 }
