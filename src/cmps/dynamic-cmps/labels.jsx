@@ -34,35 +34,55 @@ export const Labels = () => {
         dispatch(updateTask(updatedTask, boardId, currGroupRef.current.id))
     }
 
-    // const isLabelOnTask = (labelId) => {
-    //            return task.labelIds.includes(labelId)
-    // }
+    const isLabelOnTask = (labelId) => {
+        if (!task) return
+        if (!task.labelIds) task.labelIds = []
+        return task.labelIds.includes(labelId)
+    }
 
-    // if (!task || !task.labelIds) return <h1>Loading...</h1>
+    const colors = [
+        '#7BC86C',
+        '#F5DD29',
+        '#FFAF3F',
+        '#EF7564',
+        '#CD8DE5',
+        '#5BA4CF',
+        '#29CCE5',
+        '#6DECA9',
+        '#FF8ED4',
+        '#172B4D'
+    ]
+
     return (
         <>
-            <p>labels</p>
-            <hr />
+            {<div className="label">
+                <p>labels</p>
+                <hr />
+                <ul>
+                    {board.labels.map(label => {
+                        return (
+                            <li key={label.id} style={{ background: label.color }} onClick={() => onToggleLabel(label.id)} >
+                                <span>{label.title}</span>
+                                {isLabelOnTask(label.id) && <span>✔</span>}
+                            </li>
+                        )
+                    })}
+                </ul>
+                <button> create new label</button>
+            </div>}
 
-            <ul>
 
-                {board.labels.map(label => {
-                    return (
-                        <li key={label.id} style={{ background: label.color }} onClick={() => onToggleLabel(label.id)} >
-                            <span>{label.title}</span>
-                            {/* {isLabelOnTask(label.id) && <span>✔</span>} */}
-                        </li>
-                    )
-                })}
-                {/* {basicLabelRef.current.map((label, idx) => {
-                    return (
-                        <li key={idx} style={{ background: label.color }} onClick={() => onAddLabelToTask(label)}>
-                            <span>{label.title}</span>
-                        </li>
-                    )
-                })} */}
-            </ul>
-            <button> create new label</button>
+            {<div className="label-edit">
+                <p>Create label</p>
+                <hr />
+                <input type="text" />
+                <div className='cover-colors'>
+                {colors.map((color, idx) =>
+                    <button  key={idx} style={{ backgroundColor: color }}></button>
+                )}
+                 </div>
+                <button> create new label</button>
+            </div>}
         </>
     )
 }
