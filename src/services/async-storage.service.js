@@ -100,16 +100,14 @@ function _createBoards() {
                 background: '#00c2e0',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -217,7 +215,8 @@ function _createBoards() {
                                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
                             },
                             style: {
-                                background: '#26de81',
+                                color: null,
+                                imgUrl: 'https://images.unsplash.com/photo-1644797694478-d12d4eab8cd8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880'
                             },
                         },
                     ],
@@ -255,16 +254,14 @@ function _createBoards() {
                 background: '#f2d600',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -363,7 +360,8 @@ function _createBoards() {
                                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
                             },
                             style: {
-                                bgColor: '#26de81',
+                                color: '#7BC86C',
+                                imgUrl: null
                             },
                         },
                     ],
@@ -401,16 +399,14 @@ function _createBoards() {
                 background: '#51e898',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -514,7 +510,8 @@ function _createBoards() {
                                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
                             },
                             style: {
-                                bgColor: '#26de81',
+                                color: '#F5DD29',
+                                imgUrl: null
                             },
                         },
                     ],
@@ -552,16 +549,14 @@ function _createBoards() {
                 background: '#eb5a46',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -658,7 +653,8 @@ function _createBoards() {
                                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
                             },
                             style: {
-                                bgColor: '#26de81',
+                                color: null,
+                                imgUrl: null
                             },
                         },
                     ],
@@ -697,16 +693,14 @@ function _createBoards() {
                 backgroundColor: '',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -804,7 +798,8 @@ function _createBoards() {
                                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
                             },
                             style: {
-                                bgColor: '#26de81',
+                                color: null,
+                                imgUrl: null
                             },
                         },
                     ],
@@ -843,16 +838,14 @@ function _createBoards() {
                 backgroundColor: '',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -950,7 +943,8 @@ function _createBoards() {
                                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
                             },
                             style: {
-                                bgColor: '#26de81',
+                                color: '#172B4D',
+                                imgUrl: 'https://images.unsplash.com/photo-1631116616602-322db356c4fb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687'
                             },
                         },
                     ],

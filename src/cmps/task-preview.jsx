@@ -14,7 +14,7 @@ export const TaskPreview = ({ task, boardId, groupId }) => {
         setTaskEditExpand(true)
     }
     return (
-        <section style={{position: 'relative'}}>
+        <section style={{ position: 'relative' }}>
             <Link to={`/board/${boardId}/task/${task.id}`}>
                 <div className="task-preview">
                     <span className="task-preview-title">{task.title}</span>

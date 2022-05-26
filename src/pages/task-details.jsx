@@ -32,6 +32,7 @@ export const TaskDetails = () => {
     const navigate = useNavigate()
 
     const { board } = useSelector((storeState) => storeState.boardModule)
+    const { coverColor, coverImg } = useSelector((storeState) => storeState.appModule)
     const [task, setTask] = useState(null)
     const currGroupRef = useRef(null)
 
@@ -53,13 +54,20 @@ export const TaskDetails = () => {
         navigate(`/board/${boardId}`)
     }
 
-
     if (!task) return <h1>Loading...</h1>
 
     return (
         <>
             <Screen cb={onHandleScreenClick} />
             <div className='task-details flex column'>
+                {coverColor && <div style={{ backgroundColor: coverColor }} className='task-details-cover-color'></div>}
+                {coverImg &&
+                    <div  className='task-details-cover-img'>
+                        <div className='cover-img-container'>
+                            <img src={coverImg} alt="" />
+                        </div>
+                    </div>
+                }
                 <div className='task-details-header flex'>
                     <div className='flex left-side'>
                         <CreditCardSharpIcon className='credit-card-icon' />
