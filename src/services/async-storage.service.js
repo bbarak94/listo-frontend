@@ -100,16 +100,14 @@ function _createBoards() {
                 background: '#00c2e0',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -246,16 +244,14 @@ function _createBoards() {
                 background: '#f2d600',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -383,16 +379,14 @@ function _createBoards() {
                 background: '#51e898',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -525,16 +519,14 @@ function _createBoards() {
                 background: '#eb5a46',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -668,16 +660,14 @@ function _createBoards() {
                 backgroundColor: '',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {
@@ -811,16 +801,14 @@ function _createBoards() {
                 backgroundColor: '',
             },
             labels: [
-                {
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
+                { id: 'l108', title: 'Done', color: '#61bd4f', },
+                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' }
             ],
             members: [
                 {

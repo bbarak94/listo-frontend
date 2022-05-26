@@ -69,7 +69,12 @@ function getEmptyBoard() {
         style: {
             background: '#091e420a',
         },
-        labels: [],
+        labels: [{ id: 'l101', title: '', color: '#61BD4F' },
+        { id: 'l102', title: '', color: '#F2D600' },
+        { id: 'l103', title: '', color: '#FF9F1A' },
+        { id: 'l104', title: '', color: '#EB5A46' },
+        { id: 'l105', title: '', color: '#C377E0' },
+        { id: 'l106', title: '', color: '#0079BF' }],
         members: [
             {
                 _id: 'u100',
