@@ -174,12 +174,12 @@ async function addTask(title, boardId, groupId) {
     }
 }
 
-async function updateTask(task, boardId, groupId) {
+async function updateTask(taskToUpdate, boardId, groupId) {
     try {
         const board = await getById(boardId)
         let group = board.groups.find(group => group.id === groupId)
-        const taskIdx = group.tasks.findIndex(task => task.id === task.id)
-        group.tasks.splice(taskIdx, 1, task)
+        const taskIdx = group.tasks.findIndex(task => task.id === taskToUpdate.id)
+        group.tasks.splice(taskIdx, 1, taskToUpdate)
         save(board)
         return board
     } catch (err) {
@@ -187,7 +187,7 @@ async function updateTask(task, boardId, groupId) {
     }
 }
 
-function getTaskAndGroup(board, taskId){
+function getTaskAndGroup(board, taskId) {
     if (!board) return
     let currTask
     let currGroup

@@ -1,18 +1,13 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useDispatch } from "react-redux"
 
 import { updateTask } from "../store/actions/board.action"
-
-import { useEffectUpdate } from "../hooks/useEffectUpdate"
+import { TaskEditPreviewNav } from "./task-preview-edit-nav"
 
 export const TaskEdit = ({ task, boardId, groupId, setTaskEditExpand }) => {
 
     const [title, setTitle] = useState(task.title)
     const dispatch = useDispatch()
-
-    // useEffectUpdate(() => {
-    //     console.log('Tommy');
-    // }, [task])
 
     const onHandleChange = (ev) => {
         setTitle(ev.target.value)
@@ -38,18 +33,21 @@ export const TaskEdit = ({ task, boardId, groupId, setTaskEditExpand }) => {
     }
 
     return (
-        <div className="task-edit">
-            < form onSubmit={onHandleSubmit}>
-                <textarea
-                    onKeyDown={onEnterPress}
-                    onChange={onHandleChange}
-                    onFocus={(ev) => ev.target.select()}
-                    value={title}
-                    spellCheck="false"
-                    autoFocus
-                />
-                <button className="btn">Save</button>
-            </form>
-        </div>
+        <section className="task-edit">
+            <div className="task-title-edit">
+                < form onSubmit={onHandleSubmit}>
+                    <textarea
+                        onKeyDown={onEnterPress}
+                        onChange={onHandleChange}
+                        onFocus={(ev) => ev.target.select()}
+                        value={title}
+                        spellCheck="false"
+                        autoFocus
+                    />
+                    <button className="btn">Save</button>
+                </form>
+            </div>
+            <TaskEditPreviewNav />
+        </section>
     )
 }

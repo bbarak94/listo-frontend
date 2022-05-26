@@ -7,7 +7,6 @@ import { Screen } from "./screen"
 export const TaskPreview = ({ task, boardId, groupId }) => {
 
     const [isTaskEditExpand, setTaskEditExpand] = useState(false)
-    console.log(boardId);
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
@@ -15,7 +14,7 @@ export const TaskPreview = ({ task, boardId, groupId }) => {
         setTaskEditExpand(true)
     }
     return (
-        <>
+        <section style={{position: 'relative'}}>
             <Link to={`/board/${boardId}/task/${task.id}`}>
                 <div className="task-preview">
                     <span className="task-preview-title">{task.title}</span>
@@ -24,6 +23,6 @@ export const TaskPreview = ({ task, boardId, groupId }) => {
             </Link>
             {isTaskEditExpand && <TaskEdit task={task} boardId={boardId} groupId={groupId} setTaskEditExpand={setTaskEditExpand} />}
             {isTaskEditExpand && <Screen cb={() => setTaskEditExpand(false)} />}
-        </>
+        </section>
     )
 }

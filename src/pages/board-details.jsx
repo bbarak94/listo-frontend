@@ -23,7 +23,7 @@ export const BoardDetails = () => {
     }
 
     if (!board) return <div>Loading...</div>
-
+    
     return (
 
         <main className="board-details flex">

@@ -135,10 +135,10 @@ export function addTask(taskTitle, boardId, groupId) {
     };
 }
 
-export function updateTask(boardId, groupId, task) {
+export function updateTask(task, boardId, groupId ) {
     return async dispatch => {
         try {
-            const board = await boardService.updateTask(boardId, groupId, task);
+            const board = await boardService.updateTask(task, boardId, groupId);
             dispatch({
                 type: 'SAVE_BOARD',
                 board: board,

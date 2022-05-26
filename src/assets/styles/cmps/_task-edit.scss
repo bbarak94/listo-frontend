@@ -1,15 +1,31 @@
 .task-edit {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
-    textArea {
-        padding: 6px 8px 2px;
-        width: 240px;
-        height: 90px;
+
+    .task-title-edit {
+        position: absolute;
+        top: 0;
+        left: 5px;
+        z-index: 20;
+
+        textArea {
+            padding: 6px 8px 2px;
+            width: 254px;
+            height: 96px;
+        }
+
+        button {
+            display: block;
+            margin-top: 12px;
+            padding: 6px 24px;
+        }
+
     }
-    button {
-        margin-top: 12px;
-        padding: 6px 24px;
+    .task-edit-nav {
+        position: relative;
+        z-index: 20;
+        left: 270px;
+
+        button {
+            display: flex;
+        }
     }
 }
