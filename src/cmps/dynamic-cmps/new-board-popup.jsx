@@ -1,13 +1,27 @@
-import NewBoardImg from '../assets/img/add-new-board/new-board.svg'
-import { ColorTextFields } from './color-text-fields.jsx'
+import NewBoardImg from '../../assets/img/add-new-board/new-board.svg'
+import { ColorTextFields } from '../color-text-fields'
+import { boardService } from '../../services/board.service'
 import Button from '@mui/material/Button'
-import more from '../assets/img/workspace/more.svg'
-import bg1 from '../assets/img/backgrounds/1.jpg'
-import bg2 from '../assets/img/backgrounds/2.jpg'
-import bg3 from '../assets/img/backgrounds/3.jpg'
-import bg4 from '../assets/img/backgrounds/4.jpg'
+import { useDispatch } from 'react-redux'
+import more from '../../assets/img/workspace/more.svg'
+import bg1 from '../../assets/img/backgrounds/1.jpg'
+import bg2 from '../../assets/img/backgrounds/2.jpg'
+import bg3 from '../../assets/img/backgrounds/3.jpg'
+import bg4 from '../../assets/img/backgrounds/4.jpg'
+import { saveBoard } from '../../store/actions/board.action'
+import { useNavigate } from 'react-router-dom'
 
-export function EditNewBoard({ onCreateNewBoard }) {
+export const NewBoardPopup = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const onCreateNewBoard = async () => {
+        const board = boardService.getEmptyBoard()
+        // boardService.save(board)
+        console.log('board:',board)
+        dispatch(saveBoard(board))
+        // navigate(`/board/${board.id}`)
+    }
+
     return (
         <div className='new-board-menu flex column'>
             <h1 className='edit-new-board-title'> Create board</h1>
