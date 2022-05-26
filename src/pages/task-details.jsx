@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
 
 import { useEffectUpdate } from '../hooks/useEffectUpdate'
@@ -27,6 +28,7 @@ import close from '../assets/img/workspace/close.svg'
 export const TaskDetails = () => {
     const { boardId, taskId } = useParams()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const { board } = useSelector((storeState) => storeState.boardModule)
     const [task, setTask] = useState(null)
@@ -46,12 +48,16 @@ export const TaskDetails = () => {
         dispatch(getBoard(boardId))
     }
 
+    const onHandleScreenClick = () => {
+        navigate(`/board/${boardId}`)
+    }
+
 
     if (!task) return <h1>Loading...</h1>
 
     return (
         <>
-            <Screen boardId={boardId} />
+            <Screen cb={onHandleScreenClick} />
             <div className='task-details flex column'>
                 <div className='task-details-header flex'>
                     <div className='flex left-side'>

@@ -1,14 +1,20 @@
 import { useNavigate } from 'react-router-dom'
 
 
-export const Screen = ({ boardId }) => {
+export const Screen = ({ cb }) => {
     const navigate = useNavigate()
 
     return (
         <div
             className='screen'
-            onClick={() => {
-                navigate(`/board/${boardId}`)
-            }}>
+            onClick={cb}>
         </div>)
+        // <div
+        //     className='screen'
+        //     onClick={() => {
+        //         console.log('koko');
+        //         if (!boardId) return
+        //         navigate(`/board/${boardId}`)
+        //     }}>
+        // </div>)
 }

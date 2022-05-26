@@ -19,6 +19,7 @@ export const TaskEdit = ({ task, boardId, groupId, setTaskEditExpand }) => {
     }
 
     const onHandleSubmit = (ev) => {
+        ev.stopPropagation()
         ev.preventDefault()
         onUpdateTitle()
     }
