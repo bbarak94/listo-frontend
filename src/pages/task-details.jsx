@@ -1,15 +1,18 @@
-import { Component, useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useState, useRef } from 'react'
+import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
 
 import { useEffectUpdate } from '../hooks/useEffectUpdate'
 
+import { getBoard } from '../store/actions/board.action'
 import { boardService } from '../services/board.service'
+
 import { Screen } from '../cmps/screen'
-import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
+import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
 
 import close from '../assets/img/workspace/close.svg'
 
-import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
 // import TaskMembers from '../cmps/task-members.jsx'
 // import TaskLabels from '../cmps/task-labels.jsx'
 // import TaskDates from '../cmps/task-dates.jsx'
@@ -23,53 +26,28 @@ import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
 
 export const TaskDetails = () => {
     const { boardId, taskId } = useParams()
-    const [board, setBoard] = useState(null)
-    const [task, setTask] = useState(null)
-    // const navigate = useNavigate()
+    const dispatch = useDispatch()
 
+    const { board } = useSelector((storeState) => storeState.boardModule)
+    const [task, setTask] = useState(null)
+    const currGroupRef = useRef(null)
 
     useEffect(() => {
         loadBoard()
-        // console.log('board:', board)
     }, [])
 
     useEffectUpdate(() => {
-        getTask()
+        const { currGroup, currTask } = boardService.getTaskAndGroup(board, taskId)
+        setTask(currTask)
+        currGroupRef.current = currGroup
     }, [board])
 
     const loadBoard = async () => {
-        const currBoard = await boardService.getById(boardId)
-        setBoard(currBoard)
+        dispatch(getBoard(boardId))
     }
 
-    const getGroup = () => {
-        if (!board) return
-        let currTask
-        let currGroup
-        board.groups.forEach((g) => {
-            if (currTask) return
-            currTask = g.tasks.forEach((t) => {
-                if (t.id === taskId) {
-                    currGroup = g
-                }
-            })
-        })
-        return currGroup
-    }
-
-    const getTask = () => {
-        if (!board) return
-        let currTask
-        board.groups.forEach((g) => {
-            if (currTask) return
-            currTask = g.tasks.find((t) => t.id === taskId)
-        })
-        setTask(currTask)
-    }
 
     if (!task) return <h1>Loading...</h1>
-    const currGroup = getGroup()
-    console.log('currGroup:', currGroup)
 
     return (
         <>
@@ -81,7 +59,7 @@ export const TaskDetails = () => {
                         <div className='title flex column'>
                             <h1>{task.title}</h1>
                             <h2>
-                                in list <span>{currGroup.title}</span>
+                                in list <span>{currGroupRef.current.title}</span>
                             </h2>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
-import { Fragment, useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
+
 import { TaskEdit } from './task-edit'
 
 export const TaskPreview = ({ task, boardId, groupId }) => {
@@ -11,17 +12,15 @@ export const TaskPreview = ({ task, boardId, groupId }) => {
         ev.stopPropagation()
         setTaskEditExpand(true)
     }
-
+    console.log(isTaskEditExpand);
     return (
-        <Fragment>
-            <Link to={`/board/${boardId}/task/${task.id}`}>
-                <div className="task-preview">
-                    <span className="task-preview-title">{task.title}</span>
-                    <p className="edit-icon" onClick={onOpenTaskEdit}></p>
-                    {isTaskEditExpand && <TaskEdit task={task} boardId={boardId} groupId={groupId} />}
-                    {/* <div className="screen-overlay"></div> */}
-                </div>
-            </Link>
-        </Fragment>
+        <Link to={`/board/${boardId}/task/${task.id}`}>
+            <div className="task-preview">
+                <span className="task-preview-title">{task.title}</span>
+                <p className="edit-icon" onClick={onOpenTaskEdit}></p>
+                {isTaskEditExpand && <TaskEdit task={task} boardId={boardId} groupId={groupId} setTaskEditExpand={setTaskEditExpand} />}
+                {/* <div className="screen-overlay"></div> */}
+            </div>
+        </Link>
     )
 }

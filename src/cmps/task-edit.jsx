@@ -1,12 +1,18 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 
 import { updateTask } from "../store/actions/board.action"
 
-export const TaskEdit = ({ task }) => {
+import { useEffectUpdate } from "../hooks/useEffectUpdate"
+
+export const TaskEdit = ({ task, boardId, groupId, setTaskEditExpand }) => {
 
     const [title, setTitle] = useState(task.title)
     const dispatch = useDispatch()
+
+    // useEffectUpdate(() => {
+    //     console.log('Tommy');
+    // }, [task])
 
     const onHandleChange = (ev) => {
         setTitle(ev.target.value)
@@ -25,7 +31,9 @@ export const TaskEdit = ({ task }) => {
     }
 
     const onUpdateTitle = () => {
-        dispatch(updateTask(title, task.id))
+        task = { ...task, title: title }
+        dispatch(updateTask(task, boardId, groupId))
+        setTaskEditExpand(false)
     }
 
     return (
@@ -33,11 +41,11 @@ export const TaskEdit = ({ task }) => {
             < form onSubmit={onHandleSubmit}>
                 <textarea
                     onKeyDown={onEnterPress}
-                    autoFocus 
-                    onFocus={(ev) => ev.target.select()}
                     onChange={onHandleChange}
+                    onFocus={(ev) => ev.target.select()}
                     value={title}
                     spellCheck="false"
+                    autoFocus
                 />
                 <button className="btn">Save</button>
             </form>
