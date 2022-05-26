@@ -1,9 +1,14 @@
 import { Component, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useEffectUpdate } from '../hooks/useEffectUpdate'
+
 import { boardService } from '../services/board.service'
+
 import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
+
 import close from '../assets/img/workspace/close.svg'
+
+import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
 // import TaskMembers from '../cmps/task-members.jsx'
 // import TaskLabels from '../cmps/task-labels.jsx'
 // import TaskDates from '../cmps/task-dates.jsx'
@@ -54,24 +59,6 @@ export const TaskDetails = () => {
 
     const getTask = () => {
         if (!board) return
-        // var currGroups = []
-        // board.groups.forEach((group) => {
-        //     currGroups.push(group)
-        // })
-
-        // var currTasks = []
-        // currGroups.forEach((group) => {
-        //     group.tasks.forEach((task) => {
-        //         currTasks.push(task)
-        //     })
-        //     currTasks.push(task)
-        // })
-        // var currTask = currTasks.find((task) => {
-        //     return task.id === taskId
-        // })
-        // console.log('currTask:', currTask)
-        // setTask(currTask)
-
         let currTask
         board.groups.forEach((g) => {
             if (currTask) return
@@ -79,9 +66,6 @@ export const TaskDetails = () => {
         })
         console.log('currTask:', currTask)
         setTask(currTask)
-
-        // console.log('currTask:',currTask)
-        // return currTask
     }
 
     if (!task) return <h1>Loading...</h1>
@@ -108,20 +92,16 @@ export const TaskDetails = () => {
                         </div>
                     </div>
                 </div>
-                    <div className='icon-container close flex'>
-                        <img
-                            src={close}
-                            alt='close'
-                            style={{ width: '21px'}}
-                        />
+                <div className='icon-container close flex'>
+                    <img src={close} alt='close' style={{ width: '21px' }} />
+                </div>
+                <div className='task-main-layout flex'>
+                    <div className='task- flex column'>
+                        <label>Labels</label>
+                        <label>Description</label>
                     </div>
-
-                    <label>Labels</label>
-                    <label>Description</label>
-
-
-                    <p></p>
-
+                    <TaskNavBar />
+                </div>
             </div>
         </>
     )
