@@ -39,10 +39,6 @@ export const TaskDetails = () => {
 
     const loadBoard = async () => {
         const currBoard = await boardService.getById(boardId)
-<<<<<<< HEAD
-        // console.log('currBoard:', currBoard)
-=======
->>>>>>> aa4b6c229b649a6b165696639ff6b58d7ae8c76e
         setBoard(currBoard)
     }
 
@@ -58,10 +54,6 @@ export const TaskDetails = () => {
                 }
             })
         })
-<<<<<<< HEAD
-        // console.log(currGroup)
-=======
->>>>>>> aa4b6c229b649a6b165696639ff6b58d7ae8c76e
         return currGroup
     }
 
@@ -72,10 +64,6 @@ export const TaskDetails = () => {
             if (currTask) return
             currTask = g.tasks.find((t) => t.id === taskId)
         })
-<<<<<<< HEAD
-        // console.log('currTask:', currTask)
-=======
->>>>>>> aa4b6c229b649a6b165696639ff6b58d7ae8c76e
         setTask(currTask)
     }
 

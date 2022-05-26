@@ -173,12 +173,12 @@ async function addTask(title, boardId, groupId) {
     }
 }
 
-async function updateTask(title, boardId, groupId) {
-    
+async function updateTask(task, boardId, groupId) {
     try {
         const board = await getById(boardId)
         let group = board.groups.find(group => group.id === groupId)
-        group.tasks.push(newTask)
+        const taskIdx = group.tasks.findIndex(task => task.id === task.id)
+        group.tasks.splice(taskIdx, 1, task)
         save(board)
         return board
     } catch (err) {
