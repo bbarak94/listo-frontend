@@ -33,14 +33,14 @@ export function getActionUpdateBoard(board) {
 }
 
 export function setBoard(boardId) {
-    return async dispatch => {
+    return async (dispatch) => {
         try {
             const board = await boardService.getById(boardId)
             dispatch(getActionSetBoard(board))
         } catch (err) {
-            console.log('Cannot set board', err);
+            console.log('Cannot set board', err)
         }
-    };
+    }
 }
 
 export function loadBoards() {
@@ -77,62 +77,70 @@ export function removeBoard(boardId) {
 }
 
 export function saveBoard(board) {
-    return (dispatch) => {
+    return async (dispatch) => {
+        console.log('test')
+        console.log('board:',board)
+        
         const actionType = board._id ? 'UPDATE_BOARD' : 'ADD_BOARD'
-        return boardService
-            .save(board)
-            .then((savedBoard) => {
-                dispatch({ type: actionType, board: savedBoard })
-                // setUserMsg('Board saved', 'good')
-            })
-            .catch((err) => {
-                throw err
-                // console.error('Error:', err)
-                // setUserMsg('Cannot save board','bad')
-            })
+        try {
+            const savedBoard = await boardService.save(board)
+            console.log('savedBoard:',savedBoard)
+            
+            dispatch({ type: actionType, board: savedBoard })
+        } catch(err) {
+            throw err
+        }
     }
 }
 
 export function addGroup(groupTitle, boardId) {
-    return async dispatch => {
+    return async (dispatch) => {
         try {
-            const board = await boardService.addGroup(groupTitle, boardId);
+            const board = await boardService.addGroup(groupTitle, boardId)
             dispatch({
                 type: 'SAVE_BOARD',
                 board: board,
-            });
+            })
         } catch (err) {
-            console.log('Cannot add group', err);
+            console.log('Cannot add group', err)
         }
-    };
+    }
 }
 
 export function updateGroup(boardId, groupId, groupTitle) {
-    return async dispatch => {
+    return async (dispatch) => {
         try {
-            const board = await boardService.updateGroup(boardId, groupId, groupTitle);
+            const board = await boardService.updateGroup(
+                boardId,
+                groupId,
+                groupTitle
+            )
             dispatch({
                 type: 'SAVE_BOARD',
                 board: board,
-            });
+            })
         } catch (err) {
-            console.log('Cannot update group', err);
+            console.log('Cannot update group', err)
         }
-    };
+    }
 }
 
 export function addTask(taskTitle, boardId, groupId) {
-    return async dispatch => {
+    return async (dispatch) => {
         try {
-            const board = await boardService.addTask(taskTitle, boardId, groupId);
+            const board = await boardService.addTask(
+                taskTitle,
+                boardId,
+                groupId
+            )
             dispatch({
                 type: 'SAVE_BOARD',
                 board: board,
-            });
+            })
         } catch (err) {
-            console.log('Cannot add group', err);
+            console.log('Cannot add group', err)
         }
-    };
+    }
 }
 
 export function updateTask(task, boardId, groupId ) {
@@ -142,9 +150,9 @@ export function updateTask(task, boardId, groupId ) {
             dispatch({
                 type: 'SAVE_BOARD',
                 board: board,
-            });
+            })
         } catch (err) {
-            console.log('Cannot add group', err);
+            console.log('Cannot add group', err)
         }
-    };
+    }
 }

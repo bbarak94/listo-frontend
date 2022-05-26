@@ -1,7 +1,7 @@
 const initialState = {
     boards: [],
     board: null,
-    currTask: null
+    currTask: null,
 }
 export function boardReducer(state = initialState, action) {
     var newState = state
@@ -35,8 +35,8 @@ export function boardReducer(state = initialState, action) {
             newState = { ...state, boards }
             break
         case 'SET_TASK':
-            return { ...state, currTask: action.task }
-        default:
+            newState = { ...state, currTask: action.task }
+            break
     }
     // For debug:
     window.boardState = newState
