@@ -300,11 +300,6 @@ function _createBoards() {
                     title: 'QA',
                     tasks: [
                         {
-                            id: 't103',
-                            title: 'Test Filter Component',
-                            archivedAt: 1589983468418,
-                        },
-                        {
                             id: 't104',
                             title: 'Test headers new button',
                             status: 'in-progress',

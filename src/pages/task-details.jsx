@@ -1,9 +1,15 @@
 import { Component, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+
 import { useEffectUpdate } from '../hooks/useEffectUpdate'
+
 import { boardService } from '../services/board.service'
+import { Screen } from '../cmps/screen'
 import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
+
 import close from '../assets/img/workspace/close.svg'
+
+import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
 // import TaskMembers from '../cmps/task-members.jsx'
 // import TaskLabels from '../cmps/task-labels.jsx'
 // import TaskDates from '../cmps/task-dates.jsx'
@@ -19,7 +25,8 @@ export const TaskDetails = () => {
     const { boardId, taskId } = useParams()
     const [board, setBoard] = useState(null)
     const [task, setTask] = useState(null)
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
+
 
     useEffect(() => {
         loadBoard()
@@ -32,7 +39,10 @@ export const TaskDetails = () => {
 
     const loadBoard = async () => {
         const currBoard = await boardService.getById(boardId)
+<<<<<<< HEAD
         // console.log('currBoard:', currBoard)
+=======
+>>>>>>> aa4b6c229b649a6b165696639ff6b58d7ae8c76e
         setBoard(currBoard)
     }
 
@@ -48,40 +58,25 @@ export const TaskDetails = () => {
                 }
             })
         })
+<<<<<<< HEAD
         // console.log(currGroup)
+=======
+>>>>>>> aa4b6c229b649a6b165696639ff6b58d7ae8c76e
         return currGroup
     }
 
     const getTask = () => {
         if (!board) return
-        // var currGroups = []
-        // board.groups.forEach((group) => {
-        //     currGroups.push(group)
-        // })
-
-        // var currTasks = []
-        // currGroups.forEach((group) => {
-        //     group.tasks.forEach((task) => {
-        //         currTasks.push(task)
-        //     })
-        //     currTasks.push(task)
-        // })
-        // var currTask = currTasks.find((task) => {
-        //     return task.id === taskId
-        // })
-        // console.log('currTask:', currTask)
-        // setTask(currTask)
-
         let currTask
         board.groups.forEach((g) => {
             if (currTask) return
             currTask = g.tasks.find((t) => t.id === taskId)
         })
+<<<<<<< HEAD
         // console.log('currTask:', currTask)
+=======
+>>>>>>> aa4b6c229b649a6b165696639ff6b58d7ae8c76e
         setTask(currTask)
-
-        // console.log('currTask:',currTask)
-        // return currTask
     }
 
     if (!task) return <h1>Loading...</h1>
@@ -90,12 +85,7 @@ export const TaskDetails = () => {
 
     return (
         <>
-            <div
-                className='screen'
-                onClick={() => {
-                    navigate(`/board/${boardId}`)
-                }}
-            ></div>
+            <Screen boardId={boardId} />
             <div className='task-details flex column'>
                 <div className='task-details-header flex'>
                     <div className='flex left-side'>
@@ -108,20 +98,16 @@ export const TaskDetails = () => {
                         </div>
                     </div>
                 </div>
-                    <div className='icon-container close flex'>
-                        <img
-                            src={close}
-                            alt='close'
-                            style={{ width: '21px'}}
-                        />
+                <div className='icon-container close flex'>
+                    <img src={close} alt='close' style={{ width: '21px' }} />
+                </div>
+                <div className='task-main-layout flex'>
+                    <div className='task- flex column'>
+                        <label>Labels</label>
+                        <label>Description</label>
                     </div>
-
-                    <label>Labels</label>
-                    <label>Description</label>
-
-
-                    <p></p>
-
+                    <TaskNavBar />
+                </div>
             </div>
         </>
     )
