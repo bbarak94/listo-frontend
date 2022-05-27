@@ -27,8 +27,7 @@ export const Members = () => {
         )
         const newTask = {...currTask}
         if(isMember){
-            // console.log('1:')
-            
+            console.log('1:')
             newTask.memberIds = newTask.memberIds.filter(m => m!==member.id)
         }else{
             // console.log('2:')

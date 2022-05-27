@@ -6,9 +6,25 @@ import { useEffect, useState } from 'react'
 export const MembersList = () => {
     const { taskId } = useParams()
     const { board } = useSelector((storeState) => storeState.boardModule)
-    const [currMembers, setCurrMembers] = useState([])
+    const { currTask } = boardService.getTaskAndGroup(board, taskId)
+    const [currMembers, setCurrMembers] = useState(currTask.memberIds || [])
+    console.log('currMembers:', currMembers)
 
     useEffect(() => {
+<<<<<<< HEAD
+        // const { currTask } = boardService.getTaskAndGroup(board, taskId)
+        // const newCurrMembers = []
+        // currTask.memberIds.forEach((id) => {
+        // })
+        // const { currTask } = boardService.getTaskAndGroup(board, taskId)
+        // board.members.forEach((m) => {
+        //     if (!currTask.memberIds) currTask.memberIds = []
+        //     if (currTask.memberIds.includes(m.id)) {
+        //         setCurrMembers([m.id, ...currMembers])
+        //     }
+        // })
+        // console.log('currMembers:', currMembers)
+=======
         const { currTask } = boardService.getTaskAndGroup(board, taskId)
         // console.log('board:', board)
         // console.log('taskId:', taskId)
@@ -25,7 +41,9 @@ export const MembersList = () => {
             }
         })
         console.log('currMembers:', currMembers)
+>>>>>>> 90f8e137ff9280a6289c372949a5b9344aa0f57b
     }, [])
+
     return (
         <div className='members-list-container flex'>
             <h1>Members</h1>
