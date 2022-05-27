@@ -16,7 +16,6 @@ export const TaskPreview = ({ task, boardId, groupId }) => {
 
     const borderRadius = (task.style.color || task.style.imgUrl) ? '0 0 3px 3px' : '3px'
 
-
     return (
         <section style={{ position: 'relative' }}>
             <Link to={`/board/${boardId}/task/${task.id}`}>

@@ -165,7 +165,11 @@ async function addTask(title, boardId, groupId) {
         createdAt: Date.now(),
         dueDate: null,
         byMember: null,
-        style: null
+        style: {
+            color:null,
+            imgUrl: null,
+            isCoverSizeBig: false
+        }
     }
     try {
         const board = await getById(boardId)

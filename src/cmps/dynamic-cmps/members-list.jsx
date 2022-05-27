@@ -14,9 +14,9 @@ export const MembersList = () => {
         // console.log('taskId:', taskId)
         // console.log('currTask:', currTask)
         board.members.forEach((m) => {
-            console.log('m:', m)
-            console.log('currTask.memberIds:', currTask.memberIds)
-            console.log('m.id:', m.id)
+            // console.log('m:', m)
+            // console.log('currTask.memberIds:', currTask.memberIds)
+            // console.log('m.id:', m.id)
             if (!currTask.memberIds) currTask.memberIds = []
             if (currTask.memberIds.includes(m.id)) {
                 // console.log('m:', m)

@@ -1,17 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
-
 import { useEffectUpdate } from '../../hooks/useEffectUpdate'
 
-import FolderIcon from '@mui/icons-material/Folder'
-import FolderCopyIcon from '@mui/icons-material/FolderCopy'
-
-import { setCoverColor, setCoverImg } from '../../store/actions/app.action'
 import { updateTask } from '../../store/actions/board.action'
 
 import { boardService } from '../../services/board.service'
-import { style } from '@mui/system'
+
+import cover1 from '../../assets/img/cover1.png'
+import cover2 from '../../assets/img/cover2.png'
 
 export const Cover = () => {
     const dispatch = useDispatch()
@@ -19,7 +16,7 @@ export const Cover = () => {
     const [task, setTask] = useState(null)
     const [group, setGroup] = useState(null)
     const { board } = useSelector((storeState) => storeState.boardModule)
-
+    
     useEffectUpdate(() => {
         const { currTask, currGroup } = boardService.getTaskAndGroup(board, taskId)
         setTask(currTask)
@@ -49,15 +46,26 @@ export const Cover = () => {
     ]
 
     const onSetCoverColor = (color) => {
-        const taskToUpdate = { ...task, style: { ...style, color, imgUrl: null } }
+        const taskToUpdate = { ...task }
+        taskToUpdate.style.color = color
+        taskToUpdate.style.imgUrl = null
         dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
 
     const onSetCoverImg = (imgUrl) => {
-        const taskToUpdate = { ...task, style: { ...style, color: null, imgUrl } }
+        const taskToUpdate = { ...task }
+        taskToUpdate.style.color = null
+        taskToUpdate.style.imgUrl = imgUrl
         dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
 
+    const setCoverSize = (isBig) => {
+        let taskToUpdate = { ...task }
+        taskToUpdate.style.isCoverSizeBig = isBig
+    }
+
+    if (!task) return <div>Loading...</div>
+    const selectedSize = task.style.isCoverSizeBig ? '0 0 0 2px #FFFFFF, 0 0 0 4px #0079BF' : ''
     return (
         <div className="cover">
             <div className="popup-header flex align-center justify-center">
@@ -66,9 +74,9 @@ export const Cover = () => {
             </div>
             <div>
                 <h4>Size</h4>
-                <div className='flex justify-center'>
-                    <FolderIcon fontSize='large' />
-                    <FolderCopyIcon fontSize='large' />
+                <div className='cover-size flex justify-center'>
+                    <img onClick={() => setCoverSize(false)} src={cover1} style={{ boxShadow: selectedSize }} />
+                    <img onClick={() => setCoverSize(true)} src={cover2} style={{ boxShadow: selectedSize }} />
                 </div>
             </div>
             <button onClick={() => onSetCoverColor(null)}>Remove cover</button>

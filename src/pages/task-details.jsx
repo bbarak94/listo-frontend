@@ -2,19 +2,19 @@ import { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
-
 import { useEffectUpdate } from '../hooks/useEffectUpdate'
+import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
 
 import { getBoard } from '../store/actions/board.action'
 import { boardService } from '../services/board.service'
 
-import { Screen } from '../cmps/screen'
-import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
-
 import close from '../assets/img/workspace/close.svg'
 
+import { Screen } from '../cmps/screen'
+import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
 import { MembersList } from '../cmps/dynamic-cmps/members-list.jsx'
+import { DatePreview } from '../cmps/dynamic-cmps/date-preview'
+
 // import TaskMembers from '../cmps/task-members.jsx'
 // import TaskLabels from '../cmps/task-labels.jsx'
 // import TaskDates from '../cmps/task-dates.jsx'
@@ -62,7 +62,7 @@ export const TaskDetails = () => {
             <div className='task-details flex column'>
                 {task.style.color && <div style={{ backgroundColor: task.style.color }} className='task-details-cover-color'></div>}
                 {task.style.imgUrl &&
-                    <div  className='task-details-cover-img'>
+                    <div className='task-details-cover-img'>
                         <div className='cover-img-container'>
                             <img src={task.style.imgUrl} alt="" />
                         </div>
@@ -84,8 +84,13 @@ export const TaskDetails = () => {
                 </div>
                 <div className='task-main-layout flex'>
                     <div className='task- flex column'>
-                        <MembersList />
-                        <label>Labels</label>
+                        <div className='flex'>
+                            <MembersList />
+
+                            <h4>Labels</h4>
+
+                            {task.dueDate && <DatePreview task={task}/>}
+                        </div>
                         <label>Description</label>
                     </div>
                     <TaskNavBar />
