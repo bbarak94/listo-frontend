@@ -190,7 +190,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            memberIds: []
                         },
                         {
                             id: 't104',
