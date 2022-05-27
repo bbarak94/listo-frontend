@@ -26,7 +26,6 @@
       background-color: $clr10;
       position: relative;
 
-
       &:hover {
          background-color: darken($clr10, 5%);
 
@@ -39,6 +38,7 @@
             background-repeat: no-repeat;
             background-position: center;
             width: 8px;
+            height: 8px;
             position: relative;
             right: -6px;
             top: -2px;
@@ -56,7 +56,6 @@
       .task-preview-title {
          display: block;
          margin-bottom: 4px;
-         word-wrap: break-word;
       }
 
       .task-preview-date {
@@ -68,12 +67,12 @@
          color: $clr8;
          margin-bottom: 4px;
 
-            img{
-               display: inline;
-               margin-inline-end: 4px;
-               filter: invert(41%) sepia(27%) saturate(398%) hue-rotate(179deg) brightness(94%) contrast(86%);
-               width: 16px; 
-            }
+         img {
+            display: inline;
+            margin-inline-end: 4px;
+            filter: invert(41%) sepia(27%) saturate(398%) hue-rotate(179deg) brightness(94%) contrast(86%);
+            width: 16px;
+         }
 
          &:hover {
             background-color: #091e4211;

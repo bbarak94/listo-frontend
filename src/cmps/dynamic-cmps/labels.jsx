@@ -41,7 +41,7 @@ export const Labels = () => {
         if (!task) return
         if (!task.labelIds) task.labelIds = []
         return task.labelIds.includes(labelId)
-        
+
     }
 
     const colors = [
