@@ -18,19 +18,22 @@ export const Labels = () => {
     const [task, setTask] = useState(null)
 
     const currGroupRef = useRef(null)
-    // const basicLabelRef = useRef(labelService.getBaseLabels())
 
+    // useEffect(()=>{
+    //     const { currGroup, currTask } = boardService.getTaskAndGroup(board, taskId)
+    //     currGroupRef.current = currGroup
+    // },[])
 
     useEffectUpdate(() => {
         const { currGroup, currTask } = boardService.getTaskAndGroup(board, taskId)
-        setTask(currTask)
         currGroupRef.current = currGroup
+        setTask(currTask)
     }, [board])
 
 
 
     const onToggleLabel = async (labelId) => {
-        const updatedTask = labelService.toggleLabel(labelId, task)
+        const updatedTask = await labelService.toggleLabel(labelId, task)
         dispatch(updateTask(updatedTask, boardId, currGroupRef.current.id))
     }
 
@@ -38,6 +41,7 @@ export const Labels = () => {
         if (!task) return
         if (!task.labelIds) task.labelIds = []
         return task.labelIds.includes(labelId)
+        
     }
 
     const colors = [
@@ -77,10 +81,10 @@ export const Labels = () => {
                 <hr />
                 <input type="text" />
                 <div className='cover-colors'>
-                {colors.map((color, idx) =>
-                    <button  key={idx} style={{ backgroundColor: color }}></button>
-                )}
-                 </div>
+                    {colors.map((color, idx) =>
+                        <button key={idx} style={{ backgroundColor: color }}></button>
+                    )}
+                </div>
                 <button> create new label</button>
             </div>}
         </>

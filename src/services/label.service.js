@@ -13,14 +13,17 @@ export const labelService = {
 //     return task
 // }
 
-function toggleLabel(labelId, task) {
+ function toggleLabel(labelId, task) {
     if (!task.labelIds) task.labelIds = []
     if (task.labelIds.includes(labelId)){
+        
         task.labelIds =  task.labelIds.filter(l=>l!==labelId)
     }else{
         task.labelIds.unshift(labelId)
     }
-    return task
+    // console.log('toggleLabel ~ task', task)
+    return Promise.resolve(task)
+    // return task
 }
 
 

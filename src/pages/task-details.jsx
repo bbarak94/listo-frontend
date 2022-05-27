@@ -14,6 +14,7 @@ import { Screen } from '../cmps/screen'
 import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
 import { MembersList } from '../cmps/dynamic-cmps/members-list.jsx'
 import { DatePreview } from '../cmps/dynamic-cmps/date-preview'
+import { LabelPreview } from '../cmps/label-preview'
 
 // import TaskMembers from '../cmps/task-members.jsx'
 // import TaskLabels from '../cmps/task-labels.jsx'
@@ -86,10 +87,10 @@ export const TaskDetails = () => {
                     <div className='task- flex column'>
                         <div className='flex'>
                             <MembersList />
+                            {task.labelIds && <LabelPreview board={board} task={task} />}
+                            {/* <h4>Labels</h4> */}
 
-                            <h4>Labels</h4>
-
-                            {task.dueDate && <DatePreview task={task}/>}
+                            {task.dueDate && <DatePreview task={task} />}
                         </div>
                         <label>Description</label>
                     </div>

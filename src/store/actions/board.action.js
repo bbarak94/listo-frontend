@@ -145,7 +145,9 @@ export function addTask(taskTitle, boardId, groupId) {
 
 export function updateTask(task, boardId, groupId ) {
     return async (dispatch) => {
+        
         try {
+            // console.log('onToggleLabel ~ updatedTask', task)
             const board = await boardService.updateTask(task, boardId, groupId);
             dispatch({
                 type: 'SAVE_BOARD',
