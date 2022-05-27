@@ -144,7 +144,7 @@ export function addTask(taskTitle, boardId, groupId) {
 }
 
 export function updateTask(task, boardId, groupId ) {
-    return async dispatch => {
+    return async (dispatch) => {
         try {
             const board = await boardService.updateTask(task, boardId, groupId);
             dispatch({
@@ -152,7 +152,7 @@ export function updateTask(task, boardId, groupId ) {
                 board: board,
             })
         } catch (err) {
-            console.log('Cannot add group', err)
+            console.log('Cannot update task', err)
         }
     }
 }

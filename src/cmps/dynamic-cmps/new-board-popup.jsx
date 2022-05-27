@@ -17,7 +17,7 @@ export const NewBoardPopup = () => {
     const onCreateNewBoard = async () => {
         const board = boardService.getEmptyBoard()
         // boardService.save(board)
-        console.log('board:',board)
+        // console.log('board:',board)
         dispatch(saveBoard(board))
         // navigate(`/board/${board.id}`)
     }

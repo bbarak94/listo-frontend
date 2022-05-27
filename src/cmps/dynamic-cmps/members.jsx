@@ -18,9 +18,9 @@ export const Members = () => {
     }
 
     const onToggleMember = (member) => {
-        console.log('member:',member)
+        // console.log('member:',member)
         const isMember = isMemberInTask(member.id)
-        console.log('isMember:',isMember)
+        // console.log('isMember:',isMember)
         const { currGroup, currTask } = boardService.getTaskAndGroup(
             board,
             taskId
@@ -30,10 +30,11 @@ export const Members = () => {
             console.log('1:')
             newTask.memberIds = newTask.memberIds.filter(m => m!==member.id)
         }else{
-            console.log('2:')
+            // console.log('2:')
             newTask.memberIds.unshift(member.id)
         }
-        console.log('newTask:',newTask)
+        // console.log('newTask:',newTask)
+        
         dispatch(updateTask(newTask, boardId, currGroup.id ))
     }
     return (
