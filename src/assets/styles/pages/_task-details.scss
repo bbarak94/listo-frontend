@@ -84,6 +84,14 @@
         margin-left: 34px;
     }
 
+    .task-desc {
+        width: 100%;
+        margin-right: 8px;
+        textarea {
+            width: 100%;
+        }
+    } 
+
 }
 
 .task-details-header {

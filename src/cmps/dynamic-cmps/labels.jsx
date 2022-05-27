@@ -41,7 +41,7 @@ export const Labels = () => {
         if (!task) return
         if (!task.labelIds) task.labelIds = []
         return task.labelIds.includes(labelId)
-        
+
     }
 
     const colors = [
@@ -60,12 +60,12 @@ export const Labels = () => {
     return (
         <>
             {<div className="label">
-                <p>labels</p>
+                <h1>Labels</h1>
                 <hr />
-                <ul>
+                <ul className='label-list'>
                     {board.labels.map(label => {
                         return (
-                            <li key={label.id} style={{ background: label.color }} onClick={() => onToggleLabel(label.id)} >
+                            <li className='label-list-item' key={label.id} style={{ background: label.color }} onClick={() => onToggleLabel(label.id)} >
                                 <span>{label.title}</span>
                                 {isLabelOnTask(label.id) && <span>✔</span>}
                             </li>
@@ -76,7 +76,7 @@ export const Labels = () => {
             </div>}
 
 
-            {<div className="label-edit">
+            {/* {<div className="label-edit">
                 <p>Create label</p>
                 <hr />
                 <input type="text" />
@@ -86,7 +86,7 @@ export const Labels = () => {
                     )}
                 </div>
                 <button> create new label</button>
-            </div>}
+            </div>} */}
         </>
     )
 }

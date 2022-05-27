@@ -6,11 +6,13 @@ import { Screen } from "./screen"
 
 import moment from 'moment'
 
-import dates from '../assets/img/task/navbar/dates.svg'
+import clock from '../assets/img/task/navbar/dates.svg'
+import checkBox from '../assets/img/checkbox.svg'
 
 export const TaskPreview = ({ task, boardId, groupId }) => {
 
     const [isTaskEditExpand, setTaskEditExpand] = useState(false)
+    const [isMouseOver, setIsMouseOver] = useState(false)
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
@@ -19,10 +21,6 @@ export const TaskPreview = ({ task, boardId, groupId }) => {
     }
 
     const taskBorderRadius = (task.style.color || task.style.imgUrl) ? '0 0 3px 3px' : '3px'
-
-    // const he
-    // task.dueDate ? 
-    const taskHeight = task.dueDate ? '60' : '32 '
 
     return (
         <section style={{ position: 'relative' }}>
@@ -43,10 +41,12 @@ export const TaskPreview = ({ task, boardId, groupId }) => {
                             <p className="edit-icon" onClick={onOpenTaskEdit}></p>
                         </div>
                         {task.dueDate &&
-                            <div className="task-preview-date flex">
-                                {/* <div className="date-img-container"> */}
-                                    <img src={dates} alt="" />
-                                    {/* </div> */}
+                            <div className="task-preview-date flex"
+                                onMouseOver={() => setIsMouseOver(true)}
+                                onMouseOut={() => setIsMouseOver(false)}
+                            >
+                                {!isMouseOver && <img src={clock} alt="" />}
+                                {isMouseOver && <img src={checkBox} alt="" />}
                                 <span>{moment(task.dueDate).format('MMMM D')}</span>
                             </div>
                         }

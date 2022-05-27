@@ -86,12 +86,15 @@ export const TaskDetails = () => {
                     <div className='task- flex column'>
                         <div className='flex'>
                             <MembersList board={board} task={task}/>
-                            {/* {task.labelIds && <LabelPreview board={board} task={task} />} */}
+                            {task.labelIds && <LabelPreview board={board} task={task} />}
                             {task.dueDate && <DatePreview task={task} />}
                         </div>
-                        <label>Description</label>
+                        <div className='task-desc'>
+                            <h3>Description</h3>
+                            <textarea placeholder='Add a more detailed description...' />
+                        </div>
                     </div>
-                    <TaskNavBar />
+                    <TaskNavBar board={board} task={task} />
                 </div>
             </div>
         </>
