@@ -1,6 +1,5 @@
 
 
-
 import { NewBoardPrev } from './new-board-prev'
 export function DynamicBtn(props) {
     switch (props.name) {

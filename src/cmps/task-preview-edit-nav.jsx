@@ -6,6 +6,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import ArchiveIcon from '@mui/icons-material/Archive';
+import { DynamicPopup } from './dynamic-cmps/dynamic-cmp';
 
 import { AppModal } from './app-modal';
 import { useState } from 'react';
@@ -26,6 +27,8 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group }) => {
                 <button onClick={goToTaskDetails}><CreditCardIcon /><span>Open Card</span></button>
                 <button onClick={() => onHandleClick('labels')}><LabelIcon /><span>Edit labels</span></button>
                 <button onClick={() => onHandleClick('members')}><PersonOutlineIcon /><span>Change Members</span></button>
+                <DynamicPopup name={'members-prev'} />
+                {/* <button onClick={() => onHandleClick('members')}><PersonOutlineIcon /><span>Change Members</span></button> */}
                 <button onClick={() => onHandleClick('cover')}><WallpaperIcon /><span>Change Cover</span></button>
                 <button onClick={() => onHandleClick('move')}><ArrowForwardIcon /><span>Move</span></button>
                 <button onClick={() => onHandleClick('copy')}><ContentCopyIcon /><span>Copy</span></button>

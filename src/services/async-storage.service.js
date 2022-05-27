@@ -227,7 +227,7 @@ function _createBoards() {
                                     ],
                                 },
                             ],
-                            memberIds: ['u100', 'u101', 'u102', 'u104'],
+                            memberIds: ['u101', 'u102', 'u103', 'u104'],
                             labelIds: ['l101', 'l102'],
                             dueDate: 16156215211,
                             byMember: {
@@ -635,6 +635,12 @@ function _createBoards() {
                     imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
                 },
                 {
+                    id: 'u102',
+                    fullname: 'Guy Elizarov',
+                    username: 'guy',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+                },
+                {
                     id: 'u103',
                     fullname: 'Itai Rotstein',
                     username: 'itai',
@@ -803,6 +809,12 @@ function _createBoards() {
                     fullname: 'Barak Braun',
                     username: 'barak',
                     imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                },
+                {
+                    id: 'u102',
+                    fullname: 'Guy Elizarov',
+                    username: 'guy',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
                 },
                 {
                     id: 'u103',
@@ -974,6 +986,12 @@ function _createBoards() {
                     fullname: 'Barak Braun',
                     username: 'barak',
                     imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                },
+                {
+                    id: 'u102',
+                    fullname: 'Guy Elizarov',
+                    username: 'guy',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
                 },
                 {
                     id: 'u103',
