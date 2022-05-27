@@ -41,19 +41,19 @@ const CustomPickersDay = styled(PickersDay, {
   }),
 }));
 
-export const Dates = ({ onClose }) => {
+export const Dates = ({ task, board, group, handleClose }) => {
   const [value, setValue] = React.useState(new Date());
   const dispatch = useDispatch()
-  const { taskId } = useParams()
-  const [task, setTask] = useState(null)
-  const [group, setGroup] = useState(null)
-  const { board } = useSelector((storeState) => storeState.boardModule)
+  // const { taskId } = useParams()
+  // const [task, setTask] = useState(null)
+  // const [group, setGroup] = useState(null)
+  // const { board } = useSelector((storeState) => storeState.boardModule)
 
-  useEffectUpdate(() => {
-    const { currTask, currGroup } = boardService.getTaskAndGroup(board, taskId)
-    setTask(currTask)
-    setGroup(currGroup)
-  }, [board])
+  // useEffectUpdate(() => {
+  //   const { currTask, currGroup } = boardService.getTaskAndGroup(board, taskId)
+  //   setTask(currTask)
+  //   setGroup(currGroup)
+  // }, [board])
 
   const renderWeekPickerDay = (date, selectedDates, pickersDayProps) => {
     if (!value) {
@@ -82,7 +82,7 @@ export const Dates = ({ onClose }) => {
     const taskToUpdate = { ...task }
     taskToUpdate.dueDate = value.getTime()
     dispatch(updateTask(taskToUpdate, board._id, group.id))
-    onClose()
+    handleClose(false)
   }
 
   if (!task) return <div>Loading...</div>

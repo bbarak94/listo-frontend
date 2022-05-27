@@ -10,7 +10,7 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import { AppModal } from './app-modal';
 import { useState } from 'react';
 
-export const TaskEditPreviewNav = ({ goToTaskDetails, task, boardId, groupId }) => {
+export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group }) => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
@@ -37,8 +37,8 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, boardId, groupId }) 
                 setIsOpen={setIsOpen}
                 cmpType={cmpType}
                 task={task}
-                boardId={boardId}
-                groupId={groupId}
+                board={board}
+                group={group}
             />
         </>
     )

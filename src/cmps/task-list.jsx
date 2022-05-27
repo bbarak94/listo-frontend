@@ -1,6 +1,6 @@
 import { TaskPreview } from "./task-preview"
 
-export const TaskList = ({boardId, group, setTaskEditExpand }) => {
+export const TaskList = ({board, group, setTaskEditExpand }) => {
 
     return (
         <section className="task-list">
@@ -8,7 +8,7 @@ export const TaskList = ({boardId, group, setTaskEditExpand }) => {
                 <TaskPreview
                     task={task}
                     key={task.id}
-                    boardId={boardId}
+                    board={board}
                     group={group}
                     setTaskEditExpand={setTaskEditExpand}
                 />

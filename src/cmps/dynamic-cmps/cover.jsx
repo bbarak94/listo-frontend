@@ -10,7 +10,7 @@ import { boardService } from '../../services/board.service'
 import cover1 from '../../assets/img/cover1.png'
 import cover2 from '../../assets/img/cover2.png'
 
-export const Cover = ({ task, boardId, groupId, handleClose }) => {
+export const Cover = ({ task, board, group, handleClose }) => {
     const dispatch = useDispatch()
     // const { boardId, taskId } = useParams()
     // const [task, setTask] = useState(null)
@@ -49,14 +49,14 @@ export const Cover = ({ task, boardId, groupId, handleClose }) => {
         const taskToUpdate = { ...task }
         taskToUpdate.style.color = color
         taskToUpdate.style.imgUrl = null
-        dispatch(updateTask(taskToUpdate, boardId, groupId))
+        dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
 
     const onSetCoverImg = (imgUrl) => {
         const taskToUpdate = { ...task }
         taskToUpdate.style.color = null
         taskToUpdate.style.imgUrl = imgUrl
-        dispatch(updateTask(taskToUpdate, boardId, groupId))
+        dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
 
     const setCoverSize = (isBig) => {

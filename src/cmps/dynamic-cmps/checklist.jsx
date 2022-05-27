@@ -12,23 +12,23 @@ import ListSubheader from '@mui/material/ListSubheader'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 
-export const Checklist = () => {
+export const Checklist = ({board, group, task}) => {
     const dispatch = useDispatch()
-    const [task, setTask] = useState(null)
-    const [group, setGroup] = useState(null)
-    const { boardId, taskId } = useParams()
-    const { board } = useSelector((storeState) => storeState.boardModule)
+    // const [task, setTask] = useState(null)
+    // const [group, setGroup] = useState(null)
+    // const { boardId, taskId } = useParams()
+    // const { board } = useSelector((storeState) => storeState.boardModule)
 
-    useEffect(() => {
-        const { currTask, currGroup } = boardService.getTaskAndGroup(
-            board,
-            taskId
-        )
-        console.log('currTask:',currTask)
+    // useEffect(() => {
+    //     const { currTask, currGroup } = boardService.getTaskAndGroup(
+    //         board,
+    //         taskId
+    //     )
+    //     console.log('currTask:',currTask)
         
-        setTask(currTask)
-        setGroup(currGroup)
-    }, [board])
+    //     setTask(currTask)
+    //     setGroup(currGroup)
+    // }, [board])
 
     function selectText(ev) {
         ev.target.focus()
@@ -36,14 +36,14 @@ export const Checklist = () => {
     }
 
     const onHandleSubmit = (ev) => {
-        const { currTask } = boardService.getTaskAndGroup(board, taskId)
-        console.log('submitted')
-        console.log('boardId:', boardId)
-        console.log('taskId:', taskId)
-        console.log('board:', board)
-        console.log('group:', group)
-        console.log('currTask:', currTask)
-        console.log('task:', task)
+        // const { currTask } = boardService.getTaskAndGroup(board, task.id)
+        // console.log('submitted')
+        // console.log('boardId:', board._id)
+        // console.log('taskId:', task.id)
+        // console.log('board:', board)
+        // console.log('group:', group)
+        // console.log('currTask:', task)
+        // console.log('task:', task)
         ev.preventDefault()
     }
 

@@ -1,8 +1,8 @@
-import { boardService } from '../../services/board.service'
-import { useState,useEffect } from 'react'
-import { DynamicPopup } from './dynamic-cmp'
+import { useState, useEffect } from 'react'
 
-export const MembersList = ({ board, task }) => {
+import add from '../../assets/img/members/add.svg'
+
+export const MembersList = ({ board, task, onOpenModal }) => {
     const [currMembers, setCurrMembers] = useState([])
 
     useEffect(() => {
@@ -26,12 +26,16 @@ export const MembersList = ({ board, task }) => {
             <div className='members-avatars-container flex'>
                 {currMembers.map((member, idx) => {
                     return (
-                        <div key={idx} className='member-container flex'>
-                            <DynamicPopup member={member} name={'member'} />
+                        <div key={idx} className='member-container flex' onClick={() => onOpenModal('member', member)}>
+                            <img src={member.imgUrl} />
                         </div>
                     )
                 })}
-                <DynamicPopup name={'plus-members'} />
+                <div onClick={() => onOpenModal('members')}>
+                    <div className='plus-container flex'>
+                        <img src={add} />
+                    </div>
+                </div>
             </div>
         </div>
     )

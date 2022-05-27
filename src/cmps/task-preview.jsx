@@ -12,7 +12,7 @@ import checkBox from '../assets/img/checkbox.svg'
 
 import { setTask } from "../store/actions/board.action"
 
-export const TaskPreview = ({ task, boardId, group }) => {
+export const TaskPreview = ({ task, board, group }) => {
 
     const [isTaskEditExpand, setTaskEditExpand] = useState(false)
     const [isMouseOver, setIsMouseOver] = useState(false)
@@ -35,7 +35,7 @@ export const TaskPreview = ({ task, boardId, group }) => {
 
     return (
         <section style={{ position: 'relative' }}>
-            <Link to={`/board/${boardId}/task/${task.id}`}>
+            <Link to={`/board/${board._id}/task/${task.id}`}>
                 <div className="task-preview-container flex column" onClick={onSetTask}>
                     {task.style.color &&
                         <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
@@ -64,7 +64,7 @@ export const TaskPreview = ({ task, boardId, group }) => {
                     </div>
                 </div>
             </Link>
-            {isTaskEditExpand && <TaskEdit task={task} boardId={boardId} groupId={group.id} setTaskEditExpand={setTaskEditExpand} />}
+            {isTaskEditExpand && <TaskEdit task={task} board={board} group={group} setTaskEditExpand={setTaskEditExpand} />}
             {isTaskEditExpand && <Screen cb={() => setTaskEditExpand(false)} />}
         </section>
     )

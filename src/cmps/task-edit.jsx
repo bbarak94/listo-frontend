@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { updateTask } from "../store/actions/board.action"
 import { TaskEditPreviewNav } from "./task-preview-edit-nav"
 
-export const TaskEdit = ({ task, boardId, groupId, setTaskEditExpand }) => {
+export const TaskEdit = ({ task, board, group, setTaskEditExpand }) => {
 
     const [title, setTitle] = useState(task.title)
     const dispatch = useDispatch()
@@ -30,12 +30,12 @@ export const TaskEdit = ({ task, boardId, groupId, setTaskEditExpand }) => {
 
     const onUpdateTitle = () => {
         task = { ...task, title: title }
-        dispatch(updateTask(task, boardId, groupId))
+        dispatch(updateTask(task, board._id, group.id))
         setTaskEditExpand(false)
     }
 
     const goToTaskDetails = () => {
-        navigate(`/board/${boardId}/task/${task.id}`)
+        navigate(`/board/${board._id}/task/${task.id}`)
         setTaskEditExpand(false)
     }
 
@@ -57,8 +57,8 @@ export const TaskEdit = ({ task, boardId, groupId, setTaskEditExpand }) => {
             <TaskEditPreviewNav
                 goToTaskDetails={goToTaskDetails}
                 task={task}
-                boardId={boardId}
-                groupId={groupId}
+                board={board}
+                group={group}
             />
         </section>
     )
