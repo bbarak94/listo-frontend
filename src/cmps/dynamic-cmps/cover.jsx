@@ -10,18 +10,18 @@ import { boardService } from '../../services/board.service'
 import cover1 from '../../assets/img/cover1.png'
 import cover2 from '../../assets/img/cover2.png'
 
-export const Cover = () => {
+export const Cover = ({ task, boardId, groupId, handleClose }) => {
     const dispatch = useDispatch()
-    const { boardId, taskId } = useParams()
-    const [task, setTask] = useState(null)
-    const [group, setGroup] = useState(null)
-    const { board } = useSelector((storeState) => storeState.boardModule)
-    
-    useEffectUpdate(() => {
-        const { currTask, currGroup } = boardService.getTaskAndGroup(board, taskId)
-        setTask(currTask)
-        setGroup(currGroup)
-    }, [board])
+    // const { boardId, taskId } = useParams()
+    // const [task, setTask] = useState(null)
+    // const [group, setGroup] = useState(null)
+    // const { board } = useSelector((storeState) => storeState.boardModule)
+
+    // useEffectUpdate(() => {
+    // const { task, currGroup } = boardService.getTaskAndGroup(board, task.id)
+    // setTask(currTask)
+    // setGroup(currGroup)
+    // }, [board])
 
     const colors = [
         '#7BC86C',
@@ -49,14 +49,14 @@ export const Cover = () => {
         const taskToUpdate = { ...task }
         taskToUpdate.style.color = color
         taskToUpdate.style.imgUrl = null
-        dispatch(updateTask(taskToUpdate, board._id, group.id))
+        dispatch(updateTask(taskToUpdate, boardId, groupId))
     }
 
     const onSetCoverImg = (imgUrl) => {
         const taskToUpdate = { ...task }
         taskToUpdate.style.color = null
         taskToUpdate.style.imgUrl = imgUrl
-        dispatch(updateTask(taskToUpdate, board._id, group.id))
+        dispatch(updateTask(taskToUpdate, boardId, groupId))
     }
 
     const setCoverSize = (isBig) => {
@@ -70,7 +70,7 @@ export const Cover = () => {
         <div className="cover">
             <div className="popup-header flex align-center justify-center">
                 Cover
-                <span className='close-btn' style={{ position: 'absolute', right: 0 }}></span>
+                <span className='close-btn' style={{ position: 'absolute', right: 0 }} onClick={() => handleClose(false)}></span>
             </div>
             <div>
                 <h4>Size</h4>

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react"
 
 export const LabelPreview = ({ board, task }) => {
-
+    console.log('task', task)
     const currLabelsRef = useRef([])
 
     useEffect(() => {

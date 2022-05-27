@@ -41,10 +41,10 @@ const CustomPickersDay = styled(PickersDay, {
   }),
 }));
 
-export const Dates = () => {
+export const Dates = ({ onClose }) => {
   const [value, setValue] = React.useState(new Date());
   const dispatch = useDispatch()
-  const { boardId, taskId } = useParams()
+  const { taskId } = useParams()
   const [task, setTask] = useState(null)
   const [group, setGroup] = useState(null)
   const { board } = useSelector((storeState) => storeState.boardModule)
@@ -78,16 +78,17 @@ export const Dates = () => {
     );
   };
 
-  const onSaveDate = () => {
+  const onHandleSave = () => {
     const taskToUpdate = { ...task }
     taskToUpdate.dueDate = value.getTime()
     dispatch(updateTask(taskToUpdate, board._id, group.id))
+    onClose()
   }
 
   if (!task) return <div>Loading...</div>
 
   return (
-    <section style={{backgroundColor: '#fff', marginTop: '8px'}}>
+    <section style={{ backgroundColor: '#fff', marginTop: '8px' }}>
 
       <h4>Dates</h4>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -103,7 +104,7 @@ export const Dates = () => {
           inputFormat="'Week of' MMM d"
         />
       </LocalizationProvider>
-      <button onClick={onSaveDate} className='btn'>Save</button>
+      <button onClick={onHandleSave} className='btn'>Save</button>
     </section>
   );
 }
