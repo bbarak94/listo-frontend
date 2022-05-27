@@ -59,7 +59,7 @@
 //                                                 <BoardGroup
 //                                                     group={group}
 //                                                     key={group.id}
-//                                                     boardId={board._id}
+//                                                     board={board}
 //                                                     expandCardTitleGroupId={
 //                                                         expandCardTitleGroupId
 //                                                     }

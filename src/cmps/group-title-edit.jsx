@@ -1,9 +1,8 @@
-import { useState } from "react"
-import { useDispatch } from "react-redux"
-import { updateGroup } from "../store/actions/board.action"
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { updateGroup } from '../store/actions/board.action'
 
-export const GroupTitleEdit = ({ groupTitle, groupId, boardId }) => {
-
+export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
     const [title, setTitle] = useState(groupTitle)
     const dispatch = useDispatch()
 
@@ -13,7 +12,7 @@ export const GroupTitleEdit = ({ groupTitle, groupId, boardId }) => {
 
     const onEnterPress = (ev) => {
         if (ev.keyCode == 13 && ev.shiftKey == false) {
-            ev.preventDefault();
+            ev.preventDefault()
             ev.target.blur()
             onUpdateGroup()
         }
@@ -24,15 +23,17 @@ export const GroupTitleEdit = ({ groupTitle, groupId, boardId }) => {
         onUpdateGroup()
     }
     const onUpdateGroup = () => {
-        dispatch(updateGroup(boardId, groupId, title))
+        let newGroup = { ...group }
+        newGroup.title = groupTitle
+        dispatch(updateGroup(newGroup, boardId))
     }
 
     return (
-        <div className="group-title">
+        <div className='group-title'>
             <input
                 type='text'
                 onFocus={(ev) => ev.target.select()}
-                value={title} 
+                value={title}
                 onChange={onHandleChange}
                 onKeyDown={onEnterPress}
                 onBlur={onHandleSubmit}

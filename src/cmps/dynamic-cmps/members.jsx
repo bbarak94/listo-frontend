@@ -31,9 +31,9 @@ export const Members = ({task, board, group, handleClose}) => {
         if(isMember){
             newTask.memberIds = newTask.memberIds.filter(m => m!==member.id)
         }else{
-            console.log('currTask:',currTask)
-            console.log('newTask:',newTask)
-            console.log('newTask.memberIds:',newTask.memberIds)
+            // console.log('currTask:',currTask)
+            // console.log('newTask:',newTask)
+            // console.log('newTask.memberIds:',newTask.memberIds)
             newTask.memberIds.unshift(member.id)
         }
         dispatch(updateTask(newTask, board._id, group.id ))

@@ -142,11 +142,13 @@ async function addGroup(title, boardId) {
     }
 }
 
-async function updateGroup(boardId, groupId, title) {
+async function updateGroup(groupToUpdate, boardId) {
     try {
         const board = await getById(boardId)
-        let group = board.groups.find(group => group.id === groupId)
-        group.title = title
+        console.log('board:',board)
+        
+        let groupIdx = board.groups.findIndex(currGroup => currGroup.id === groupToUpdate.id)
+        board.groups.splice(groupIdx,1,groupToUpdate)
         save(board)
         return board
     } catch (err) {

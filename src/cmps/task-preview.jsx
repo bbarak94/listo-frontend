@@ -13,7 +13,7 @@ import checkBox from '../assets/img/checkbox.svg'
 import { setTask } from "../store/actions/board.action"
 
 export const TaskPreview = ({ task, board, group }) => {
-
+    
     const [isTaskEditExpand, setTaskEditExpand] = useState(false)
     const [isMouseOver, setIsMouseOver] = useState(false)
     const dispatch = useDispatch()
