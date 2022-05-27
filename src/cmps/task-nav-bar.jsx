@@ -9,6 +9,8 @@ import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
 import {ArchiveTask} from '../cmps/archive-task'
 
+import {ArchiveTask} from '../cmps/archive-task'
+
 import { DynamicPopup } from './dynamic-cmps/dynamic-cmp'
 
 export const TaskNavBar = ({ onOpenModal, board, task }) => {

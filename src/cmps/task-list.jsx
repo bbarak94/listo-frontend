@@ -36,32 +36,31 @@ export const TaskList = ({ board, group, setTaskEditExpand }) => {
                         ref={provided.innerRef}
                     >
                         {group.tasks.map((task, index) => {
-                            if (!task.archivedAt)
-                                return (
-                                    <Draggable
-                                        key={task.id}
-                                        draggableId={task.id}
-                                        index={index}
-                                    >
-                                        {(provided) => (
-                                            <li
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                                ref={provided.innerRef}
-                                            >
-                                                <TaskPreview
-                                                    task={task}
-                                                    // key={task.id}
-                                                    board={board}
-                                                    group={group}
-                                                    setTaskEditExpand={
-                                                        setTaskEditExpand
-                                                    }
-                                                />
-                                            </li>
-                                        )}
-                                    </Draggable>
-                                )
+                                if (!task.archivedAt) return (
+                                <Draggable
+                                    key={task.id}
+                                    draggableId={task.id}
+                                    index={index}
+                                >
+                                    {(provided) => (
+                                        <li
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                            ref={provided.innerRef}
+                                        >
+                                            <TaskPreview
+                                                task={task}
+                                                // key={task.id}
+                                                board={board}
+                                                group={group}
+                                                setTaskEditExpand={
+                                                    setTaskEditExpand
+                                                }
+                                            />
+                                        </li>
+                                    )}
+                                </Draggable>
+                            )
                         })}
                         {provided.placeholder}
                     </ul>

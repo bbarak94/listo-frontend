@@ -21,7 +21,7 @@ export const Members = ({task, board, group, handleClose}) => {
     }
 
     const onToggleMember = (member) => {
-        console.log('member:',member)
+        // console.log('member:',member)
         const isMember = isMemberInTask(member.id)
         // const { currGroup, currTask } = boardService.getTaskAndGroup(
         //     board,
