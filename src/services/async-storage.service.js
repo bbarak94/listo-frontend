@@ -184,7 +184,6 @@ function _createBoards() {
                         {
                             id: 't113',
                             title: 'Test Filter Component',
-                            archivedAt: 1589983468418,
                             style: {
                                 color: null,
                                 imgUrl: null,
@@ -230,7 +229,6 @@ function _createBoards() {
                             ],
                             memberIds: ['u100', 'u101', 'u102', 'u104'],
                             labelIds: ['l101', 'l102'],
-                            createdAt: 1590999730348,
                             dueDate: 16156215211,
                             byMember: {
                                 _id: 'u102',
@@ -264,6 +262,7 @@ function _createBoards() {
                     },
                 },
             ],
+
         },
         {
             _id: 'b102',
@@ -427,6 +426,7 @@ function _createBoards() {
                     },
                 },
             ],
+
         },
         {
             _id: 'b103',
@@ -602,6 +602,7 @@ function _createBoards() {
                     },
                 },
             ],
+
         },
         {
             _id: 'b104',
@@ -769,7 +770,8 @@ function _createBoards() {
                         title: 'Replace Logo',
                     },
                 },
-            ],
+            ],     
+
         },
         {
             _id: 'b105',
@@ -940,6 +942,7 @@ function _createBoards() {
                     },
                 },
             ],
+
         },
         {
             _id: 'b106',

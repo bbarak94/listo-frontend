@@ -16,16 +16,13 @@ export const Labels = () => {
 
     const { board } = useSelector((storeState) => storeState.boardModule)
     const [task, setTask] = useState(null)
-
+    
     const currGroupRef = useRef(null)
-
-    // useEffect(()=>{
-    //     const { currGroup, currTask } = boardService.getTaskAndGroup(board, taskId)
-    //     currGroupRef.current = currGroup
-    // },[])
-
-    useEffectUpdate(() => {
+    
+    useEffect(() => {
+        console.log('update')
         const { currGroup, currTask } = boardService.getTaskAndGroup(board, taskId)
+        console.log('useEffectUpdate ~ currGroup', currGroup)
         currGroupRef.current = currGroup
         setTask(currTask)
     }, [board])
@@ -41,9 +38,9 @@ export const Labels = () => {
         if (!task) return
         if (!task.labelIds) task.labelIds = []
         return task.labelIds.includes(labelId)
-
     }
-
+    
+    console.log('Labels ~ task', task)
     const colors = [
         '#7BC86C',
         '#F5DD29',
@@ -56,7 +53,7 @@ export const Labels = () => {
         '#FF8ED4',
         '#172B4D'
     ]
-
+        
     return (
         <>
             {<div className="label">
@@ -72,7 +69,7 @@ export const Labels = () => {
                         )
                     })}
                 </ul>
-                <button> create new label</button>
+                <button> Create a new label</button>
             </div>}
 
 

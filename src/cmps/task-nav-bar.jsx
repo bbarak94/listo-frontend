@@ -5,7 +5,7 @@ import AttachFileIcon from '@mui/icons-material/AttachFile'
 import VideoLabelOutlinedIcon from '@mui/icons-material/VideoLabelOutlined'
 
 import { DynamicPopup } from './dynamic-cmps/dynamic-cmp'
-import { TaskArchive } from './task-archive'
+import { TaskArchive } from './archive-task'
 import { Cover } from './dynamic-cmps/cover'
 import { AppModal } from '../cmps/app-modal'
 import { useState } from 'react'

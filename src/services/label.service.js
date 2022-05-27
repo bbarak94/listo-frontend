@@ -26,8 +26,8 @@ export const labelService = {
         console.log('toggleLabel ~ taskToUpdate', taskToUpdate.labelIds)
     }
     // console.log('toggleLabel ~ taskToUpdate', taskToUpdate)
-    return Promise.resolve(taskToUpdate)
-    // return task
+    // return Promise.resolve(taskToUpdate)
+    return taskToUpdate
 }
 
 

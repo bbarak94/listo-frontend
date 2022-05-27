@@ -23,7 +23,9 @@ export const boardService = {
     updateGroup,
     addTask,
     updateTask,
-    getTaskAndGroup
+    getTaskAndGroup,
+    deleteTask,
+    getGroup
 }
 window.cs = boardService
 
@@ -166,7 +168,7 @@ async function addTask(title, boardId, groupId) {
         dueDate: null,
         byMember: null,
         style: {
-            color:null,
+            color: null,
             imgUrl: null,
             isCoverSizeBig: false
         }
@@ -191,7 +193,7 @@ async function updateTask(taskToUpdate, boardId, groupId) {
         group.tasks.splice(taskIdx, 1, taskToUpdate)
         save(board)
         // console.log('board:',board)
-        
+
         return board
     } catch (err) {
         console.log('Cannot update Task', err)
@@ -211,12 +213,37 @@ function getTaskAndGroup(board, taskId) {
                 currGroup = g
                 return true
             }
-            //    return (t.id === taskId)
         })
     })
-    // setTask(currTask)
     return { currGroup, currTask }
 }
 
+function getGroup(board, taskId) {
+    return board.groups.find((g) => {
+        return g.tasks.find((t) => (t.id === taskId))
+    })
+}
+
+
+function deleteTask(taskId, board) {
+    const currGroup = getGroup(board, taskId)
+    currGroup.tasks.filter(t => t.id !== taskId)
+    return board
+    // const boardToUpdate = {...board}
+    // boardToUpdate.groups.forEach((g) => {
+    //     g.tasks.forEach((t) => {
+    //         if (t.id === taskId) {
+    //             g.tasks.pop(t)
+    //         }
+    //     })
+    // })
+    // return boardToUpdate
+}
+
+
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
+
+
+
+
