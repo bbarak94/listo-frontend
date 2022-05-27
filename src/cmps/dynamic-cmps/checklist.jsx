@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { boardService } from '../../services/board.service'
 import { useParams } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
-import { useEffectUpdate } from '../../hooks/useEffectUpdate'
 
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
@@ -20,11 +19,13 @@ export const Checklist = () => {
     const { boardId, taskId } = useParams()
     const { board } = useSelector((storeState) => storeState.boardModule)
 
-    useEffectUpdate(() => {
+    useEffect(() => {
         const { currTask, currGroup } = boardService.getTaskAndGroup(
             board,
             taskId
         )
+        console.log('currTask:',currTask)
+        
         setTask(currTask)
         setGroup(currGroup)
     }, [board])
@@ -42,9 +43,9 @@ export const Checklist = () => {
         console.log('board:', board)
         console.log('group:', group)
         console.log('currTask:', currTask)
+        console.log('task:', task)
         ev.preventDefault()
     }
-    console.log('task:', task)
 
     return (
         <div className='checklist-popup'>
@@ -98,7 +99,7 @@ export const Checklist = () => {
                                             </ListSubheader>
                                             {task.checklists.map(
                                                 (checklist, idx) => {
-                                                        return <MenuItem value={1}>{checklist.title}</MenuItem>
+                                                        return <MenuItem key={idx} value={1}>{checklist.title}</MenuItem>
                                                 }
                                             )}
                                         </div>

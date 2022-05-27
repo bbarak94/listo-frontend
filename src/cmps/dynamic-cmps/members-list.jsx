@@ -1,12 +1,11 @@
 import { boardService } from '../../services/board.service'
-import { useState } from 'react'
-import { useEffectUpdate } from '../../hooks/useEffectUpdate'
+import { useState,useEffect } from 'react'
 import { DynamicPopup } from './dynamic-cmp'
 
 export const MembersList = ({ board, task }) => {
     const [currMembers, setCurrMembers] = useState([])
 
-    useEffectUpdate(() => {
+    useEffect(() => {
         let newMembers = []
         board.members.forEach((member) => {
             if (isMemberInTask(member.id)) {
