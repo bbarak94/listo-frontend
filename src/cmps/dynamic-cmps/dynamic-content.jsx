@@ -11,6 +11,8 @@ export function DynamicContent(props) {
             return <NewBoardPopup {...props} />
         case 'members':
             return <Members {...props} />
+        case 'members-prev':
+            return <Members {...props} />
         case 'member':
             return <Member {...props} />
         case 'plus-members':

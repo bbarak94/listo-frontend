@@ -3,6 +3,8 @@ import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
 import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded'
 import dates from '../../assets/img/task/navbar/dates.svg'
 import add from '../../assets/img/members/add.svg'
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+
 
 import { NewBoardPrev } from './new-board-prev'
 export function DynamicBtn(props) {
@@ -23,6 +25,14 @@ export function DynamicBtn(props) {
                         </div>
                         <h2>Members</h2>
                     </div>
+                </div>
+            )
+        case 'members-prev':
+            return (
+                <div {...props.bindTrigger(props.popupState)}>
+                    <button 
+                    // onClick={() => onHandleClick('members')}
+                    ><PersonOutlineIcon /><span>Change Members</span></button>
                 </div>
             )
         case 'member':
