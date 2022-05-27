@@ -10,7 +10,6 @@ import { labelService } from '../../services/label.service'
 import { boardService } from '../../services/board.service'
 import { updateTask } from '../../store/actions/board.action'
 export const Labels = ({board, group, task}) => {
-    console.log('board, group, task', board, group, task)
     // const { boardId, taskId } = useParams()
     const dispatch = useDispatch()
 

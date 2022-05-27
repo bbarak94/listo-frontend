@@ -8,7 +8,7 @@ import undo from '../assets/img/task/navbar/undo.svg'
 import archive from '../assets/img/task/navbar/archive.svg'
 import minus from '../assets/img/task/navbar/minus.png'
 
-export const ArchiveTask = ({ board, task }) => {
+export const ArchiveTask = ({ board, group, task }) => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -19,7 +19,6 @@ export const ArchiveTask = ({ board, task }) => {
         } else {
             task.archivedAt = Date.now()
         }
-        const group = boardService.getGroup(board, task.id)
         dispatch(updateTask(task, board._id, group.id))
     }
 
