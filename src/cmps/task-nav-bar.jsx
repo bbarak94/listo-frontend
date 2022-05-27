@@ -7,8 +7,8 @@ import dates from '../assets/img/task/navbar/dates.svg'
 import members from '../assets/img/task/navbar/members.svg'
 import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
-
 import {ArchiveTask} from '../cmps/archive-task'
+
 
 export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
 

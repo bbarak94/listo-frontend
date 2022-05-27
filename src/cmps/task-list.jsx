@@ -1,14 +1,19 @@
 import { TaskPreview } from './task-preview'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { useDispatch } from 'react-redux'
+import { updateGroup } from '../store/actions/board.action'
 
 export const TaskList = ({ board, group, setTaskEditExpand }) => {
-    const handleOnDragEnd = (result) => {
-        console.log('result:', result)
-        console.log('I moved task:', result.draggableId)
-        console.log('from index:',result.source.index)
-        console.log('to index:', result.destination.index)
-    }
+    const dispatch = useDispatch()
 
+    const handleOnDragEnd = (result) => {
+        const orderedTasks = [...group.tasks]
+        const [reorderedTask] = orderedTasks.splice(result.source.index, 1)
+        orderedTasks.splice(result.destination.index, 0, reorderedTask)
+        let newGroup = {...group}
+        newGroup.tasks = orderedTasks
+        dispatch(updateGroup(newGroup, board._id))
+    }
 
     // if (!task.archivedAt) {
     //     return <TaskPreview
@@ -31,7 +36,7 @@ export const TaskList = ({ board, group, setTaskEditExpand }) => {
                         ref={provided.innerRef}
                     >
                         {group.tasks.map((task, index) => {
-                                if (!task.archivedAt)  return (
+                                if (!task.archivedAt) return (
                                 <Draggable
                                     key={task.id}
                                     draggableId={task.id}

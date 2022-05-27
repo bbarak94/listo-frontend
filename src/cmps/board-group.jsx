@@ -7,7 +7,7 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
     return <article className="board-group flex column">
         <GroupTitleEdit
             groupTitle={group.title}
-            groupId={group.id}
+            group={group}
             boardId={board._id}
         />
         <TaskList
