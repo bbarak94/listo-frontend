@@ -1,7 +1,7 @@
 import { TaskPreview } from './task-preview'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-export const TaskList = ({ boardId, group, setTaskEditExpand }) => {
+export const TaskList = ({ board, group, setTaskEditExpand }) => {
     const handleOnDragEnd = (result) => {
         console.log('result:', result)
         console.log('I moved task:', result.draggableId)
@@ -46,7 +46,7 @@ export const TaskList = ({ boardId, group, setTaskEditExpand }) => {
                                             <TaskPreview
                                                 task={task}
                                                 // key={task.id}
-                                                boardId={boardId}
+                                                board={board}
                                                 group={group}
                                                 setTaskEditExpand={
                                                     setTaskEditExpand
