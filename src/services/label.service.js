@@ -1,5 +1,5 @@
 
-import { utilService } from "./util.service"
+// import { utilService } from "./util.service"
 
 export const labelService = {
     toggleLabel,
@@ -17,16 +17,10 @@ export const labelService = {
      const taskToUpdate = {...task}
     if (!taskToUpdate.labelIds) taskToUpdate.labelIds = []
     if (taskToUpdate.labelIds.includes(labelId)){
-        console.log("yes");
         taskToUpdate.labelIds =  taskToUpdate.labelIds.filter(l=>l!==labelId)
-        console.log('toggleLabel ~ taskToUpdate', taskToUpdate.labelIds)
     }else{
-        console.log("no");
         taskToUpdate.labelIds.unshift(labelId)
-        console.log('toggleLabel ~ taskToUpdate', taskToUpdate.labelIds)
     }
-    // console.log('toggleLabel ~ taskToUpdate', taskToUpdate)
-    // return Promise.resolve(taskToUpdate)
     return taskToUpdate
 }
 

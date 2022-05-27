@@ -54,13 +54,9 @@ export const TaskDetails = () => {
         <>
             <Screen cb={onHandleScreenClick} />
             <div className='task-details flex column'>
-                {!task.archivedAt && (
+                {task.archivedAt && (
                     <div className='task-archived-indication'>
-                        <img
-                            src={archive}
-                            alt='Custom Fields'
-                            style={{ width: '18px' }}
-                        />
+                        <img src={archive} alt='Custom Fields' style={{ width: '18px' }} />
                         <p>This card is archived.</p>
                     </div>
                 )}

@@ -95,14 +95,9 @@ export function removeBoard(boardId) {
 
 export function saveBoard(board) {
     return async (dispatch) => {
-        console.log('test')
-        console.log('board:',board)
-        
         const actionType = board._id ? 'UPDATE_BOARD' : 'ADD_BOARD'
         try {
             const savedBoard = await boardService.save(board)
-            console.log('savedBoard:',savedBoard)
-            
             dispatch({ type: actionType, board: savedBoard })
         } catch(err) {
             throw err

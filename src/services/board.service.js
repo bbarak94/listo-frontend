@@ -24,7 +24,7 @@ export const boardService = {
     addTask,
     updateTask,
     getTaskAndGroup,
-    deleteTask,
+    removeTaskFromBoard,
     getGroup
 }
 window.cs = boardService
@@ -225,19 +225,11 @@ function getGroup(board, taskId) {
 }
 
 
-function deleteTask(taskId, board) {
-    const currGroup = getGroup(board, taskId)
-    currGroup.tasks.filter(t => t.id !== taskId)
-    return board
-    // const boardToUpdate = {...board}
-    // boardToUpdate.groups.forEach((g) => {
-    //     g.tasks.forEach((t) => {
-    //         if (t.id === taskId) {
-    //             g.tasks.pop(t)
-    //         }
-    //     })
-    // })
-    // return boardToUpdate
+function removeTaskFromBoard(taskId, board) {
+    const boardToUpdate = { ...board }
+    const currGroup = getGroup(boardToUpdate, taskId)
+    currGroup.tasks = currGroup.tasks.filter(t => t.id !== taskId)
+    return boardToUpdate
 }
 
 

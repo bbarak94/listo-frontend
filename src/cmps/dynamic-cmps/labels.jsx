@@ -20,9 +20,9 @@ export const Labels = () => {
     const currGroupRef = useRef(null)
     
     useEffect(() => {
-        console.log('update')
+        // console.log('update')
         const { currGroup, currTask } = boardService.getTaskAndGroup(board, taskId)
-        console.log('useEffectUpdate ~ currGroup', currGroup)
+        // console.log('useEffectUpdate ~ currGroup', currGroup)
         currGroupRef.current = currGroup
         setTask(currTask)
     }, [board])
@@ -40,7 +40,7 @@ export const Labels = () => {
         return task.labelIds.includes(labelId)
     }
     
-    console.log('Labels ~ task', task)
+    // console.log('Labels ~ task', task)
     const colors = [
         '#7BC86C',
         '#F5DD29',

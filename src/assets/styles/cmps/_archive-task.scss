@@ -1,4 +1,4 @@
-.task-edit-btn-delete {
+.delete-task-btn {
     height: 32px;
     width: 170px;
     background-color: #b04632;
@@ -9,7 +9,9 @@
         cursor: pointer;
         background-color: darken($color: #b04632, $amount: 6);
     }
-
+    // img{
+    //     color: #ffff;
+    // }
     h2 {
         color: #ffff;
         font-size: 12px;
@@ -40,4 +42,12 @@
         margin-top: 10px;
     }
     
+}
+
+.undo-container{
+    img{
+        width: 13px;
+        height: 16px;
+        margin-top: 2px;
+    }
 }

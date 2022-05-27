@@ -523,7 +523,6 @@ function _createBoards() {
                         {
                             id: 't113',
                             title: 'Test Filter Component',
-                            archivedAt: 1589983468418,
                             style: {
                                 color: null,
                                 imgUrl: null,
@@ -693,7 +692,6 @@ function _createBoards() {
                         {
                             id: 't113',
                             title: 'Test Filter Component',
-                            archivedAt: 1589983468418,
                             style: {
                                 color: null,
                                 imgUrl: null,
@@ -863,7 +861,6 @@ function _createBoards() {
                         {
                             id: 't113',
                             title: 'Test Filter Component',
-                            archivedAt: 1589983468418,
                             style: {
                                 color: null,
                                 imgUrl: null,
@@ -1034,7 +1031,6 @@ function _createBoards() {
                         {
                             id: 't113',
                             title: 'Test Filter Component',
-                            archivedAt: 1589983468418,
                             style: {
                                 color: null,
                                 imgUrl: null,

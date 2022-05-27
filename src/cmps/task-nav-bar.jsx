@@ -5,7 +5,7 @@ import AttachFileIcon from '@mui/icons-material/AttachFile'
 import VideoLabelOutlinedIcon from '@mui/icons-material/VideoLabelOutlined'
 
 import { DynamicPopup } from './dynamic-cmps/dynamic-cmp'
-import { TaskArchive } from './archive-task'
+import { ArchiveTask } from './archive-task'
 import { Cover } from './dynamic-cmps/cover'
 import { AppModal } from '../cmps/app-modal'
 import { useState } from 'react'
@@ -70,7 +70,7 @@ export const TaskNavBar = ({ board, group, task }) => {
                     <h2 >Custom Fields</h2>
                 </div>
 
-                {/* <ArchiveTask  board={board} task={task} /> */}
+                <ArchiveTask  board={board} task={task} />
 
             </div>
             <AppModal
