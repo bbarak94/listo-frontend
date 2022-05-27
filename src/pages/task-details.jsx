@@ -33,7 +33,6 @@ export const TaskDetails = () => {
     const navigate = useNavigate()
 
     const { board } = useSelector((storeState) => storeState.boardModule)
-    const { coverColor, coverImg } = useSelector((storeState) => storeState.appModule)
     const [task, setTask] = useState(null)
     const currGroupRef = useRef(null)
 

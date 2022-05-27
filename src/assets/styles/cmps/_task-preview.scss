@@ -8,7 +8,7 @@
       border-radius: 3px 3px 0 0;
    }
 
-   .task-preview-img {
+   .task-preview-img-container {
       height: 163px;
 
       img {
@@ -20,7 +20,7 @@
    }
 
    .task-preview {
-      padding: 6px 8px 2px;
+      padding: 4px 8px 0;
       border-radius: 0.2em;
       box-shadow: 0 1px 0 #091e4240;
       background-color: $clr10;
@@ -58,6 +58,28 @@
          margin-bottom: 4px;
          word-wrap: break-word;
       }
+
+      .task-preview-date {
+         align-self: flex-start;
+         padding: 4px;
+         width: 68px;
+         border-radius: 3px;
+         font-size: 12px;
+         color: $clr8;
+         margin-bottom: 4px;
+
+            img{
+               display: inline;
+               margin-inline-end: 4px;
+               filter: invert(41%) sepia(27%) saturate(398%) hue-rotate(179deg) brightness(94%) contrast(86%);
+               width: 16px; 
+            }
+
+         &:hover {
+            background-color: #091e4211;
+         }
+      }
+
 
    }
 }
