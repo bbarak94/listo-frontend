@@ -14,15 +14,19 @@ export const labelService = {
 // }
 
  function toggleLabel(labelId, task) {
-    if (!task.labelIds) task.labelIds = []
-    if (task.labelIds.includes(labelId)){
-        
-        task.labelIds =  task.labelIds.filter(l=>l!==labelId)
+     const taskToUpdate = {...task}
+    if (!taskToUpdate.labelIds) taskToUpdate.labelIds = []
+    if (taskToUpdate.labelIds.includes(labelId)){
+        console.log("yes");
+        taskToUpdate.labelIds =  taskToUpdate.labelIds.filter(l=>l!==labelId)
+        console.log('toggleLabel ~ taskToUpdate', taskToUpdate.labelIds)
     }else{
-        task.labelIds.unshift(labelId)
+        console.log("no");
+        taskToUpdate.labelIds.unshift(labelId)
+        console.log('toggleLabel ~ taskToUpdate', taskToUpdate.labelIds)
     }
-    // console.log('toggleLabel ~ task', task)
-    return Promise.resolve(task)
+    // console.log('toggleLabel ~ taskToUpdate', taskToUpdate)
+    return Promise.resolve(taskToUpdate)
     // return task
 }
 

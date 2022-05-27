@@ -85,7 +85,7 @@ export const TaskDetails = () => {
                 <div className='task-main-layout flex'>
                     <div className='task- flex column'>
                         <div className='flex'>
-                            <MembersList board={board} task={task} />
+                            <MembersList board={board} task={task}/>
                             {task.labelIds && <LabelPreview board={board} task={task} />}
                             {task.dueDate && <DatePreview task={task} />}
                         </div>
@@ -94,7 +94,7 @@ export const TaskDetails = () => {
                             <textarea placeholder='Add a more detailed description...' />
                         </div>
                     </div>
-                    <TaskNavBar />
+                    <TaskNavBar board={board} task={task} />
                 </div>
             </div>
         </>
