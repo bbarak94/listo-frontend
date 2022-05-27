@@ -6,25 +6,25 @@ import { useEffect, useState } from 'react'
 export const MembersList = () => {
     const { taskId } = useParams()
     const { board } = useSelector((storeState) => storeState.boardModule)
-    const [currMembers, setCurrMembers] = useState([])
+    const { currTask } = boardService.getTaskAndGroup(board, taskId)
+    const [currMembers, setCurrMembers] = useState(currTask.memberIds || [])
+    console.log('currMembers:', currMembers)
 
     useEffect(() => {
-        const { currTask } = boardService.getTaskAndGroup(board, taskId)
-        console.log('board:', board)
-        console.log('taskId:', taskId)
-        console.log('currTask:', currTask)
-        board.members.forEach((m) => {
-            console.log('m:', m)
-            console.log('currTask.memberIds:', currTask.memberIds)
-            console.log('m.id:', m.id)
-            if (currTask.memberIds.includes(m.id)) {
-                console.log('m:', m)
-                console.log('m.id:', m.id)
-                setCurrMembers([m, ...currMembers])
-            }
-        })
-        console.log('currMembers:', currMembers)
+        // const { currTask } = boardService.getTaskAndGroup(board, taskId)
+        // const newCurrMembers = []
+        // currTask.memberIds.forEach((id) => {
+        // })
+        // const { currTask } = boardService.getTaskAndGroup(board, taskId)
+        // board.members.forEach((m) => {
+        //     if (!currTask.memberIds) currTask.memberIds = []
+        //     if (currTask.memberIds.includes(m.id)) {
+        //         setCurrMembers([m.id, ...currMembers])
+        //     }
+        // })
+        // console.log('currMembers:', currMembers)
     }, [])
+
     return (
         <div className='members-list-container flex'>
             <h1>Members</h1>
