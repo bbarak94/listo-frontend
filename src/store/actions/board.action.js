@@ -31,6 +31,12 @@ export function getActionUpdateBoard(board) {
         board,
     }
 }
+export function getActionSetTask(task) {
+    return {
+        type: 'SET_TASK',
+        task,
+    }
+}
 
 export function setBoard(boardId) {
     return async (dispatch) => {
@@ -39,6 +45,17 @@ export function setBoard(boardId) {
             dispatch(getActionSetBoard(board))
         } catch (err) {
             console.log('Cannot set board', err)
+        }
+    }
+}
+
+export function setTask(task) {
+    return async (dispatch) => {
+        try {
+            // const task = await boardService.getById(taskId)
+            dispatch(getActionSetTask(task))
+        } catch (err) {
+            console.log('Cannot set task', err)
         }
     }
 }

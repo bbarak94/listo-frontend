@@ -16,17 +16,7 @@ import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
 import { MembersList } from '../cmps/dynamic-cmps/members-list.jsx'
 import { DatePreview } from '../cmps/dynamic-cmps/date-preview'
 import { LabelPreview } from '../cmps/label-preview'
-
-// import TaskMembers from '../cmps/task-members.jsx'
-// import TaskLabels from '../cmps/task-labels.jsx'
-// import TaskDates from '../cmps/task-dates.jsx'
-// import TaskDescription from '../cmps/task-description.jsx'
-// import TaskLocation from '../cmps/task-location.jsx'
-// import TaskAttachments from '../cmps/task-attachments.jsx'
-// import TaskChecklist from '../cmps/task-checklist.jsx'
-// import TaskActivity from '../cmps/task-activity.jsx'
-// import TaskCover from '../cmps/task-cover.jsx'
-// import TaskCustonFields from '../cmps/task-custom-fields.jsx'
+import { TaskDetailsDesc } from '../cmps/task-details-desc'
 
 export const TaskDetails = () => {
     const { boardId, taskId } = useParams()
@@ -104,24 +94,18 @@ export const TaskDetails = () => {
                     <img src={close} alt='close' style={{ width: '21px' }} />
                 </div>
                 <div className='task-main-layout flex'>
-                    <div className='task- flex column'>
-                        <div className='flex'>
-                            {task.memberIds && (
-                                <MembersList board={board} task={task} />
-                            )}
-                            {task.labelIds && (
-                                <LabelPreview board={board} task={task} />
-                            )}
+                    <div className='task-details-content flex column'>
+                        <div className='flex align-center'>
+                            {task.memberIds && <MembersList board={board} task={task} />}
+                            {task.labelIds && <LabelPreview board={board} task={task} />}
                             {task.dueDate && <DatePreview task={task} />}
                         </div>
-                        <div className='task-desc'>
-                            <h3>Description</h3>
-                            <textarea placeholder='Add a more detailed description...' />
-                        </div>
+                        <TaskDetailsDesc task={task} boardId={boardId} groupId={currGroupRef.current.id} />
                     </div>
-                    <TaskNavBar board={board} task={task} />
+                    <TaskNavBar board={board} group={currGroupRef.current} task={task} />
                 </div>
             </div>
         </>
     )
 }
+

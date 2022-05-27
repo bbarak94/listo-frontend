@@ -51,6 +51,50 @@
 
     }
 
+    .task-details-content {
+        flex-grow: 1;
+
+        .task-desc {
+
+            h3 {
+                display: inline-block;
+                margin: 0 8px 12px 0;
+                font-weight: 500 ;
+            }
+
+            label:hover {
+                cursor: pointer;
+            }
+            
+            textarea {
+                background-color: $clr-opa2;
+                width: 98%;
+                font-size: 14px;
+                padding: 8px 12px;
+                margin: 4px 0;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $clr13;
+                }
+
+                &:focus{
+                    background-color: $clr10;
+                    box-shadow: inset 0 0 0 2px #0079bf;
+                }
+            }
+
+            .btn {
+                margin-inline-end: 4px;
+            }
+
+            .btn-cancel{
+                background-color: inherit;
+                color: inherit;
+            }
+        }
+    }
+
     .credit-card-icon {
         color: $clr8;
         margin-top: 2.4px;
@@ -83,14 +127,6 @@
         margin-top: 28px;
         margin-left: 34px;
     }
-
-    .task-desc {
-        width: 100%;
-        margin-right: 8px;
-        textarea {
-            width: 100%;
-        }
-    } 
 
 }
 

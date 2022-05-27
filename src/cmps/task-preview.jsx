@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 
 import { TaskEdit } from './task-edit'
@@ -9,10 +10,16 @@ import moment from 'moment'
 import clock from '../assets/img/task/navbar/dates.svg'
 import checkBox from '../assets/img/checkbox.svg'
 
-export const TaskPreview = ({ task, boardId, groupId }) => {
+import { setTask } from "../store/actions/board.action"
+
+export const TaskPreview = ({ task, boardId, group }) => {
 
     const [isTaskEditExpand, setTaskEditExpand] = useState(false)
     const [isMouseOver, setIsMouseOver] = useState(false)
+    const dispatch = useDispatch()
+
+    // useEffect(() => {
+    // }, [])
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
@@ -20,12 +27,16 @@ export const TaskPreview = ({ task, boardId, groupId }) => {
         setTaskEditExpand(true)
     }
 
+    const onSetTask = () => {
+        dispatch(setTask(task))
+    }
+
     const taskBorderRadius = (task.style.color || task.style.imgUrl) ? '0 0 3px 3px' : '3px'
 
     return (
         <section style={{ position: 'relative' }}>
             <Link to={`/board/${boardId}/task/${task.id}`}>
-                <div className="task-preview-container flex column">
+                <div className="task-preview-container flex column" onClick={onSetTask}>
                     {task.style.color &&
                         <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
                         </div>
@@ -53,7 +64,7 @@ export const TaskPreview = ({ task, boardId, groupId }) => {
                     </div>
                 </div>
             </Link>
-            {isTaskEditExpand && <TaskEdit task={task} boardId={boardId} groupId={groupId} setTaskEditExpand={setTaskEditExpand} />}
+            {isTaskEditExpand && <TaskEdit task={task} boardId={boardId} groupId={group.id} setTaskEditExpand={setTaskEditExpand} />}
             {isTaskEditExpand && <Screen cb={() => setTaskEditExpand(false)} />}
         </section>
     )

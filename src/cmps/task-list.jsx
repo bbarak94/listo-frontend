@@ -1,15 +1,15 @@
 import { TaskPreview } from "./task-preview"
 
-export const TaskList = ({ tasks, boardId, groupId, setTaskEditExpand }) => {
+export const TaskList = ({boardId, group, setTaskEditExpand }) => {
 
     return (
         <section className="task-list">
-            {tasks.map(task =>
+            {group.tasks.map(task =>
                 <TaskPreview
                     task={task}
                     key={task.id}
                     boardId={boardId}
-                    groupId={groupId}
+                    group={group}
                     setTaskEditExpand={setTaskEditExpand}
                 />
             )}

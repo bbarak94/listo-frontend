@@ -11,9 +11,8 @@ export const BoardGroup = ({ group, boardId, expandCardTitleGroupId, setExpandCa
             boardId={boardId}
         />
         <TaskList
-            tasks={group.tasks}
             boardId={boardId}
-            groupId={group.id}
+            group={group}
             setTaskEditExpand={setTaskEditExpand}
         />
         <AddTask
