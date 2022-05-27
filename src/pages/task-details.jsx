@@ -9,6 +9,7 @@ import { getBoard } from '../store/actions/board.action'
 import { boardService } from '../services/board.service'
 
 import close from '../assets/img/workspace/close.svg'
+import archive from '../assets/img/task/navbar/archive.svg'
 
 import { Screen } from '../cmps/screen'
 import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
@@ -60,6 +61,11 @@ export const TaskDetails = () => {
         <>
             <Screen cb={onHandleScreenClick} />
             <div className='task-details flex column'>
+                {!task.archivedAt && <div className='task-archived-indication' > 
+                <img src={archive} alt='Custom Fields'  style={{ width: '18px' }} />
+                <p>This card is archived.</p>
+                </div>}
+
                 {task.style.color && <div style={{ backgroundColor: task.style.color }} className='task-details-cover-color'></div>}
                 {task.style.imgUrl &&
                     <div className='task-details-cover-img'>
@@ -85,7 +91,7 @@ export const TaskDetails = () => {
                 <div className='task-main-layout flex'>
                     <div className='task- flex column'>
                         <div className='flex'>
-                            <MembersList board={board} task={task}/>
+                            <MembersList board={board} task={task} />
                             {task.labelIds && <LabelPreview board={board} task={task} />}
                             {task.dueDate && <DatePreview task={task} />}
                         </div>
