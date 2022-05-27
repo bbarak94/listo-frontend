@@ -1,0 +1,16 @@
+.label-preview-container {
+    display: flex;
+    flex-direction: column;
+
+    .label-preview-flex {
+        display: flex;
+
+        .label-preview {
+            margin: 0 2px;
+            border-radius: 3px;
+            min-width: 40px;
+            min-height: 30px;
+        }
+
+    }
+}

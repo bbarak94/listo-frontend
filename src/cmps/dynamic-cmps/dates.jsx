@@ -44,16 +44,16 @@ const CustomPickersDay = styled(PickersDay, {
 export const Dates = () => {
   const [value, setValue] = React.useState(new Date());
   const dispatch = useDispatch()
-    const { boardId, taskId } = useParams()
-    const [task, setTask] = useState(null)
-    const [group, setGroup] = useState(null)
-    const { board } = useSelector((storeState) => storeState.boardModule)
-    
-    useEffectUpdate(() => {
-        const { currTask, currGroup } = boardService.getTaskAndGroup(board, taskId)
-        setTask(currTask)
-        setGroup(currGroup)
-    }, [board])
+  const { boardId, taskId } = useParams()
+  const [task, setTask] = useState(null)
+  const [group, setGroup] = useState(null)
+  const { board } = useSelector((storeState) => storeState.boardModule)
+
+  useEffectUpdate(() => {
+    const { currTask, currGroup } = boardService.getTaskAndGroup(board, taskId)
+    setTask(currTask)
+    setGroup(currGroup)
+  }, [board])
 
   const renderWeekPickerDay = (date, selectedDates, pickersDayProps) => {
     if (!value) {
@@ -87,19 +87,23 @@ export const Dates = () => {
   if (!task) return <div>Loading...</div>
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <StaticDatePicker
-        displayStaticWrapperAs="desktop"
-        label="Week picker"
-        value={value}
-        onChange={(newValue) => {
-          setValue(newValue);
-        }}
-        renderDay={renderWeekPickerDay}
-        renderInput={(params) => <TextField {...params} />}
-        inputFormat="'Week of' MMM d"
-      />
+    <section style={{backgroundColor: '#fff', marginTop: '8px'}}>
+
+      <h4>Dates</h4>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <StaticDatePicker
+          displayStaticWrapperAs="desktop"
+          label="Week picker"
+          value={value}
+          onChange={(newValue) => {
+            setValue(newValue);
+          }}
+          renderDay={renderWeekPickerDay}
+          renderInput={(params) => <TextField {...params} />}
+          inputFormat="'Week of' MMM d"
+        />
+      </LocalizationProvider>
       <button onClick={onSaveDate} className='btn'>Save</button>
-    </LocalizationProvider>
+    </section>
   );
 }

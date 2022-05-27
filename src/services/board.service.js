@@ -190,7 +190,7 @@ async function updateTask(taskToUpdate, boardId, groupId) {
         const taskIdx = group.tasks.findIndex(task => task.id === taskToUpdate.id)
         group.tasks.splice(taskIdx, 1, taskToUpdate)
         save(board)
-        console.log('board:',board)
+        // console.log('board:',board)
         
         return board
     } catch (err) {

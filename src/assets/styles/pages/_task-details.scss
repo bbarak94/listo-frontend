@@ -11,6 +11,16 @@
 
 .task-details {
 
+    z-index: 100;
+    padding: 20px;
+    background-color: $clr11;
+    min-height: 90.5vh;
+    min-width: 72vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     .task-details-cover-color {
         height: 116px;
         width: 100%;
@@ -48,15 +58,6 @@
 
     }
 
-    z-index: 100;
-    padding: 20px;
-    background-color: $clr11;
-    min-height: 90.5vh;
-    min-width: 72vw;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
     .icon-container {
         justify-content: center;
@@ -126,4 +127,11 @@
 
     .task-nav-bar {}
 
+}
+
+.date-preview {
+    background-color: $clr-opa2;
+    margin: auto 0;
+    padding: 6px 12px;
+    border-radius: 3px;
 }
