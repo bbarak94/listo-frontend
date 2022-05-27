@@ -1,0 +1,70 @@
+.member-popup {
+   hr {
+      width: 90%;
+      color: $clr1;
+   }
+
+   height: 100%;
+   background: linear-gradient(to bottom,
+      #0079BF 0%,
+      #0079BF 42%,
+      white 0%,
+      white 58%);
+
+   min-width: 312px;
+   min-height: 230px;
+
+   .main-container {
+      margin: 30px 12px 0 12px;
+
+      .member-container {
+         width: 94px;
+         height: 94px;
+
+         img {
+            border-radius: 50%;
+         }
+      }
+
+      .member-title {
+         h1 {
+            color: white;
+            margin: 5px;
+            font-size: 18px;
+            font-weight: 500;
+         }
+
+         h3 {
+            color: white;
+            margin: -2px 4px;
+            font-weight: 400;
+            font-size: 14px;
+         }
+
+      }
+
+
+   }
+
+   .btn {
+      background-color: unset;
+      margin-top: 9px;
+      width: 100%;
+
+      &:hover {
+         cursor: pointer;            
+         background-color: darken($clr12, 10%);
+      }
+
+      h2 {
+         color: $clr1;
+         font-size: 16px;
+         font-weight: 400;
+
+      }
+   }
+
+
+
+
+}

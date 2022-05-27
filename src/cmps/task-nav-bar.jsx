@@ -1,11 +1,8 @@
-import members from '../assets/img/task/navbar/members.svg'
-import dates from '../assets/img/task/navbar/dates.svg'
 import custom from '../assets/img/task/navbar/custom.svg'
 import settings from '../assets/img/task/navbar/settings.svg'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import AttachFileIcon from '@mui/icons-material/AttachFile'
 import { DynamicPopup } from './dynamic-cmps/dynamic-cmp'
-import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded'
 
 export const TaskNavBar = () => {
     return (
@@ -23,12 +20,7 @@ export const TaskNavBar = () => {
             <DynamicPopup name={'members'} />
             <DynamicPopup name={'labels'} />
             <DynamicPopup name={'checklist'} />
-            <div className='task-edit-btn flex align-center'>
-                <div>
-                    <img src={dates} alt='Dates' style={{ width: '17px' }} />
-                </div>
-                <h2>Dates</h2>
-            </div>
+            <DynamicPopup name={'dates'} />
             <div className='task-edit-btn flex align-center'>
                 <div>
                     <AttachFileIcon
@@ -44,12 +36,6 @@ export const TaskNavBar = () => {
                 <h2>Location</h2>
             </div>
             <DynamicPopup name={'cover'} />
-            {/* <div className='task-edit-btn flex align-center'>
-                <div>
-                    <VideoLabelOutlinedIcon style={{ width: '16px' }} />
-                </div>
-                <h2>Cover</h2>
-            </div> */}
             <div className='task-edit-btn flex align-center'>
                 <div>
                     <img

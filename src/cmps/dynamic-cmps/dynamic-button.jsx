@@ -2,6 +2,9 @@ import members from '../../assets/img/task/navbar/members.svg'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
 import VideoLabelOutlinedIcon from '@mui/icons-material/VideoLabelOutlined'
 import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded'
+import dates from '../../assets/img/task/navbar/dates.svg'
+import add from '../../assets/img/members/add.svg'
+
 import { NewBoardPrev } from './new-board-prev'
 export function DynamicBtn(props) {
     switch (props.name) {
@@ -23,6 +26,13 @@ export function DynamicBtn(props) {
                     </div>
                 </div>
             )
+        case 'member':
+            return (
+                <div {...props.bindTrigger(props.popupState)}>
+                    <img src={props.member.imgUrl} />
+                </div>
+            )
+
         case 'checklist':
             return (
                 <div {...props.bindTrigger(props.popupState)}>
@@ -40,7 +50,10 @@ export function DynamicBtn(props) {
                     <div className='task-edit-btn flex align-center'>
                         <div>
                             <TurnedInNotRoundedIcon
-                                style={{ width: '16px', transform: 'rotate(45deg)' }}
+                                style={{
+                                    width: '16px',
+                                    transform: 'rotate(45deg)',
+                                }}
                             />
                         </div>
                         <h2>Labels</h2>
@@ -55,6 +68,29 @@ export function DynamicBtn(props) {
                             <VideoLabelOutlinedIcon style={{ width: '16px' }} />
                         </div>
                         <h2>Cover</h2>
+                    </div>
+                </div>
+            )
+        case 'dates':
+            return (
+                <div {...props.bindTrigger(props.popupState)}>
+                    <div className='task-edit-btn flex align-center'>
+                        <div>
+                            <img
+                                src={dates}
+                                alt='Dates'
+                                style={{ width: '17px' }}
+                            />
+                        </div>
+                        <h2>Dates</h2>
+                    </div>
+                </div>
+            )
+        case 'plus-members':
+            return (
+                <div {...props.bindTrigger(props.popupState)}>
+                    <div className='plus-container flex'>
+                        <img src={add} />
                     </div>
                 </div>
             )

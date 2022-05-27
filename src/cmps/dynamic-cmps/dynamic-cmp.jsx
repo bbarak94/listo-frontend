@@ -11,6 +11,7 @@ export function DynamicPopup(props) {
                 {(popupState) => (
                     <div>
                         <DynamicBtn
+                            member={props.member}
                             name={props.name}
                             bindTrigger={bindTrigger}
                             popupState={popupState}
@@ -26,7 +27,7 @@ export function DynamicPopup(props) {
                                 horizontal: 'left',
                             }}
                         >
-                            <DynamicContent name={props.name} />
+                            <DynamicContent member={props.member} name={props.name} />
                         </Popover>
                     </div>
                 )}

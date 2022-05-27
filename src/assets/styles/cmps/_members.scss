@@ -60,10 +60,16 @@
    }
 
    .member-container {
-      &:hover{
-      background-color: $clr15;
-
+      &:hover {
+         background-color: $clr15;
       }
+
+      img {
+         width: 36px;
+         height: 36px;
+         border-radius: 50%;
+      }
+
       gap: 6px;
       background-color: $clr14;
       align-items: center;
@@ -73,16 +79,48 @@
          font-weight: 400;
       }
 
-      img {
-         width: 36px;
-         height: 36px;
-         border-radius: 50%;
-      }
-      .check-icon{
+
+      .check-icon {
          width: 16px;
          position: absolute;
          right: 22px;
       }
    }
 
+}
+
+.members-list-container {
+   .members-avatars-container {
+
+      .member-container {
+         &:hover {
+            cursor: pointer;
+            border-radius: 50%;
+            opacity: .7;
+         }
+
+         img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+         }
+
+      }
+      .plus-container {
+         justify-content: center;
+         align-content: center;
+         background-color: $clr12;
+         width: 42px;
+         height: 42px;
+         border-radius: 50%;
+         img {
+            max-width: 20px;
+         }
+         &:hover{
+            cursor: pointer;
+            background-color: darken($color: $clr11, $amount: 10);
+            border-width: 15px;
+         }
+      }
+   }
 }

@@ -3,11 +3,17 @@ import { Checklist } from './checklist'
 import { Cover } from './cover'
 import { Labels } from './labels'
 import { Members } from './members'
+import { Member } from './member'
+import { Dates } from './dates'
 export function DynamicContent(props) {
     switch (props.name) {
         case 'new-board':
             return <NewBoardPopup {...props} />
         case 'members':
+            return <Members {...props} />
+        case 'member':
+            return <Member {...props} />
+        case 'plus-members':
             return <Members {...props} />
         case 'checklist':
             return <Checklist {...props} />
@@ -15,5 +21,7 @@ export function DynamicContent(props) {
             return <Cover {...props} />
         case 'labels':
             return <Labels {...props} />
+        case 'dates':
+            return <Dates {...props} />
     }
 }
