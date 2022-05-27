@@ -4,33 +4,39 @@ import { useParams } from 'react-router-dom'
 import { boardService } from '../../services/board.service'
 import CheckIcon from '@mui/icons-material/Check'
 import {updateTask} from '../../store/actions/board.action'
-export const Members = () => {
-    const { board } = useSelector((storeState) => storeState.boardModule)
+
+export const Members = ({task, board, group, handleClose}) => {
+    console.log('newTaskkk, board, group', task, board, group)
+
+    // const { board } = useSelector((storeState) => storeState.boardModule)
     const dispatch = useDispatch()
-    const { boardId, taskId } = useParams()
+    // const { boardId, taskId } = useParams()
 
     const isMemberInTask = (userId) => {
-        const { currTask } = boardService.getTaskAndGroup(
-            board,
-            taskId
-        )
-        return currTask.memberIds.includes(userId)
+        // const { currTask } = boardService.getTaskAndGroup(
+        //     board,
+        //     task.id
+        // )
+        return task.memberIds.includes(userId)
     }
 
     const onToggleMember = (member) => {
+        console.log('member:',member)
         const isMember = isMemberInTask(member.id)
-        const { currGroup, currTask } = boardService.getTaskAndGroup(
-            board,
-            taskId
-        )
-        const newTask = {...currTask}
+        // const { currGroup, currTask } = boardService.getTaskAndGroup(
+        //     board,
+        //     task.id
+        // )
+        const newTask = {...task}
         if(isMember){
             newTask.memberIds = newTask.memberIds.filter(m => m!==member.id)
         }else{
+            console.log('currTask:',currTask)
+            console.log('newTask:',newTask)
+            console.log('newTask.memberIds:',newTask.memberIds)
             newTask.memberIds.unshift(member.id)
         }
-        
-        dispatch(updateTask(newTask, boardId, currGroup.id ))
+        dispatch(updateTask(newTask, board._id, group.id ))
     }
     return (
         <div className='members-popup'>

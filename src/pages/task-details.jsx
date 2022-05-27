@@ -7,6 +7,7 @@ import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
 
 import { getBoard } from '../store/actions/board.action'
 import { boardService } from '../services/board.service'
+import { AppModal } from '../cmps/app-modal'
 
 import close from '../assets/img/workspace/close.svg'
 import archive from '../assets/img/task/navbar/archive.svg'
@@ -26,6 +27,16 @@ export const TaskDetails = () => {
     const { board } = useSelector((storeState) => storeState.boardModule)
     const [task, setTask] = useState(null)
     const currGroupRef = useRef(null)
+
+    const [isOpen, setIsOpen] = useState(false)
+    const [cmpType, setCmpType] = useState('')
+    const [member, setMember] = useState(null)
+
+    const onOpenModal = (type, member) => {
+        setIsOpen(true)
+        setCmpType(type)
+        setMember(member)
+    }
 
     useEffect(() => {
         loadBoard()
@@ -92,15 +103,24 @@ export const TaskDetails = () => {
                 <div className='task-main-layout flex'>
                     <div className='task-details-content flex column'>
                         <div className='flex align-center'>
-                            {task.memberIds && <MembersList board={board} task={task} />}
+                            {task.memberIds && <MembersList board={board} task={task} onOpenModal={onOpenModal}/>}
                             {task.labelIds && <LabelPreview board={board} task={task} />}
                             {task.dueDate && <DatePreview task={task} />}
                         </div>
                         <TaskDetailsDesc task={task} boardId={boardId} groupId={currGroupRef.current.id} />
                     </div>
-                    <TaskNavBar board={board} group={currGroupRef.current} task={task} />
+                    <TaskNavBar board={board} group={currGroupRef.current} task={task} onOpenModal={onOpenModal}/>
                 </div>
             </div>
+            <AppModal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                cmpType={cmpType}
+                task={task}
+                board={board}
+                group={currGroupRef.current }
+                member={member}
+            />
         </>
     )
 }

@@ -2,16 +2,16 @@ import { TaskList } from "./task-list"
 import { AddTask } from "./add-task"
 import { GroupTitleEdit } from "./group-title-edit"
 
-export const BoardGroup = ({ group, boardId, expandCardTitleGroupId, setExpandCardTitleId, setTaskEditExpand }) => {
+export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, setTaskEditExpand }) => {
 
     return <article className="board-group flex column">
         <GroupTitleEdit
             groupTitle={group.title}
             groupId={group.id}
-            boardId={boardId}
+            boardId={board._id}
         />
         <TaskList
-            boardId={boardId}
+            board={board}
             group={group}
             setTaskEditExpand={setTaskEditExpand}
         />
@@ -19,7 +19,7 @@ export const BoardGroup = ({ group, boardId, expandCardTitleGroupId, setExpandCa
             setExpandCardTitleId={setExpandCardTitleId}
             expandCardTitleGroupId={expandCardTitleGroupId}
             groupId={group.id}
-            boardId={boardId}
+            boardId={board._id}
         />
     </article>
 }

@@ -9,29 +9,29 @@ import { useEffectUpdate } from '../../hooks/useEffectUpdate'
 import { labelService } from '../../services/label.service'
 import { boardService } from '../../services/board.service'
 import { updateTask } from '../../store/actions/board.action'
-export const Labels = () => {
-
-    const { boardId, taskId } = useParams()
+export const Labels = ({board, group, task}) => {
+    console.log('board, group, task', board, group, task)
+    // const { boardId, taskId } = useParams()
     const dispatch = useDispatch()
 
-    const { board } = useSelector((storeState) => storeState.boardModule)
-    const [task, setTask] = useState(null)
+    // const { board } = useSelector((storeState) => storeState.boardModule)
+    // const [task, setTask] = useState(null)
     
-    const currGroupRef = useRef(null)
+    // const currGroupRef = useRef(null)
     
-    useEffect(() => {
-        // console.log('update')
-        const { currGroup, currTask } = boardService.getTaskAndGroup(board, taskId)
-        // console.log('useEffectUpdate ~ currGroup', currGroup)
-        currGroupRef.current = currGroup
-        setTask(currTask)
-    }, [board])
+    // useEffect(() => {
+    //     console.log('update')
+    //     const { currGroup, currTask } = boardService.getTaskAndGroup(board, taskId)
+    //     console.log('useEffectUpdate ~ currGroup', currGroup)
+    //     currGroupRef.current = currGroup
+    //     setTask(currTask)
+    // }, [board])
 
 
 
     const onToggleLabel = async (labelId) => {
         const updatedTask = await labelService.toggleLabel(labelId, task)
-        dispatch(updateTask(updatedTask, boardId, currGroupRef.current.id))
+        dispatch(updateTask(updatedTask, board._id, group.id))
     }
 
     const isLabelOnTask = (labelId) => {
@@ -40,7 +40,6 @@ export const Labels = () => {
         return task.labelIds.includes(labelId)
     }
     
-    // console.log('Labels ~ task', task)
     const colors = [
         '#7BC86C',
         '#F5DD29',

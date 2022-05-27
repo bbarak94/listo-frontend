@@ -1,14 +1,14 @@
 
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import { Labels } from './dynamic-cmps/labels'
 import { Members } from './dynamic-cmps/members'
 import { Cover } from './dynamic-cmps/cover'
 import { Dates } from './dynamic-cmps/dates'
+import { Member } from './dynamic-cmps/member'
+import { Checklist } from './dynamic-cmps/checklist'
 
 const style = {
     position: 'absolute',
@@ -21,21 +21,25 @@ const style = {
     bgcolor: 'background.paper',
     p: 0,
     borderRadius: '3px',
-      boxShadow: 24,
+    boxShadow: 24,
 }
 
-export function AppModal({ isOpen, setIsOpen, cmpType, task, boardId, groupId }) {
+export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member }) {
 
     const getType = () => {
         switch (cmpType) {
             case 'labels':
-                return <Labels task={task} boardId={boardId} groupId={groupId} handleClose={handleClose}/>
+                return <Labels task={task} board={board} group={group} handleClose={handleClose} />
             case 'members':
-                return <Members task={task} boardId={boardId} groupId={groupId} handleClose={handleClose}/>
+                return <Members task={task} board={board} group={group} handleClose={handleClose} />
+            case 'member':
+                return <Member task={task} board={board} group={group} handleClose={handleClose} member={member} />
             case 'cover':
-                return <Cover task={task} boardId={boardId} groupId={groupId} handleClose={handleClose}/>
+                return <Cover task={task} board={board} group={group} handleClose={handleClose} />
             case 'dates':
-                return <Dates task={task} boardId={boardId} groupId={groupId} handleClose={handleClose}/>
+                return <Dates task={task} board={board} group={group} handleClose={handleClose} />
+            case 'checklist':
+                return <Checklist task={task} board={board} group={group} handleClose={handleClose} />
         }
     }
 
@@ -50,8 +54,6 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, boardId, groupId })
         setOpen(isOpen)
     }, [isOpen])
 
-
-
     return (
         <div>
             <Modal
@@ -59,7 +61,7 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, boardId, groupId })
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
-                BackdropProps={{invisible: true}}
+                BackdropProps={{ invisible: true }}
             >
                 <Box sx={style}>
                     {getType()}
