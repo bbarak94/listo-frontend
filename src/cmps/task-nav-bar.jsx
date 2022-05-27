@@ -4,7 +4,9 @@ import LocationOnIcon from '@mui/icons-material/LocationOn'
 import AttachFileIcon from '@mui/icons-material/AttachFile'
 import { DynamicPopup } from './dynamic-cmps/dynamic-cmp'
 
-export const TaskNavBar = () => {
+import {TaskArchive} from './task-archive'
+
+export const TaskNavBar = ({board , task}) => {
     return (
         <div className='task-nav-bar flex column'>
             <div className='title-container flex'>
@@ -46,6 +48,9 @@ export const TaskNavBar = () => {
                 </div>
                 <h2>Custom Fields</h2>
             </div>
+
+            {/* <ArchiveTask  board={board} task={task} /> */}
+            
         </div>
     )
 }
