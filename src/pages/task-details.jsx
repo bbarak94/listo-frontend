@@ -72,7 +72,6 @@ export const TaskDetails = () => {
                         <p>This card is archived.</p>
                     </div>
                 )}
-
                 {task.style.color && (
                     <div
                         style={{ backgroundColor: task.style.color }}
@@ -104,14 +103,14 @@ export const TaskDetails = () => {
                 <div className='task-main-layout flex'>
                     <div className='task-details-content flex column'>
                         <div className='flex align-center'>
-                            {task.memberIds && <MembersList board={board} task={task} onOpenModal={onOpenModal}/>}
-                            {task.labelIds && <LabelPreview board={board} task={task} onOpenModal={onOpenModal}/>}
-                            {task.dueDate && <DatePreview task={task} />}
+                            {task.memberIds && <MembersList board={board} task={task} onOpenModal={onOpenModal} />}
+                            {task.labelIds && <LabelPreview board={board} task={task} onOpenModal={onOpenModal} />}
+                            {task.dueDate && <DatePreview board={board} task={task} onOpenModal={onOpenModal} />}
                         </div>
                         <TaskDetailsDesc task={task} boardId={boardId} groupId={currGroupRef.current.id} />
                         <TaskDetailsChecklists task={task} boardId={boardId} groupId={currGroupRef.current.id} />
                     </div>
-                    <TaskNavBar board={board} group={currGroupRef.current} task={task} onOpenModal={onOpenModal}/>
+                    <TaskNavBar board={board} group={currGroupRef.current} task={task} onOpenModal={onOpenModal} />
                 </div>
             </div>
             <AppModal
@@ -120,7 +119,7 @@ export const TaskDetails = () => {
                 cmpType={cmpType}
                 task={task}
                 board={board}
-                group={currGroupRef.current }
+                group={currGroupRef.current}
                 member={member}
             />
         </>

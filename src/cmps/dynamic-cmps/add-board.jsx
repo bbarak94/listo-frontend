@@ -32,55 +32,40 @@ export const AddBoard = ({ handleClose }) => {
         { name: 'bgColor5', color: '#89609e' }
     ]
 
+    const defaultBg = 'https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const [title, setTitle] = useState('')
-    // const [isActive, setActive] = useState(false)
-    const [selectedBg, setSelectedBg] = useState(null)
-    const [bgColor, setBgColor] = useState(null)
-    const [bgImage, setBgImage] = useState(null)
+    const [selectedBg, setSelectedBg] = useState(defaultBg)
 
     const onHandleChange = ({ target }) => {
         setTitle(target.value)
     }
 
-    const onHandleSubmit = (ev) => {
+    const onHandleSubmit = async (ev) => {
         ev.preventDefault()
         if (title === '') return
         const board = boardService.getEmptyBoard()
         board.title = title
-        board.style.bgColor = bgColor
-        board.style.bgImage = bgImage
-        if (!bgColor && !bgImage) board.style.bgImage = 'https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg'
+        board.style.background = selectedBg
+
         dispatch(saveBoard(board))
-        handleClose()
+            .then(newBoard => navigate(`/board/${newBoard._id}`))
     }
 
-    const onSetBgColor = (bgColor) => {
-        setSelectedBg(bgColor)
-        setBgImage(null)
-        setBgColor(bgColor)
-    }
-
-    const onSetBgImage = (imgUrl) => {
-        setSelectedBg(imgUrl)
-        setBgImage(imgUrl)
-        setBgColor(null)
-    }
-    console.log(selectedBg);
     return (
         <div className='new-board-menu flex column'>
             <h1 className='edit-new-board-title'> Create board</h1>
             <div className='new-board-img-container' style={{ backgroundImage: `url(${selectedBg})`, backgroundColor: selectedBg }}>
                 <img src={NewBoardImg} />
             </div>
-            <button className='btn' style={{ backgroundColor: 'grey' }} onClick={() => setSelectedBg(null)}>Remove Background</button>
             <section>
                 <label>Backgrounds</label>
                 <div className='new-board-bgs-container flex'>
                     {bgImages.map((bgImage, idx) =>
-                        <div key={idx} onClick={() => onSetBgImage(bgImage.imgUrl)} className='prev-bgImage'>
+                        <div key={idx} onClick={() => setSelectedBg(bgImage.imgUrl)} className='prev-bgImage'>
                             <img
                                 className={selectedBg === bgImage.imgUrl ? 'selected-bg' : ''}
                                 src={bgImage.imgUrl}
@@ -131,7 +116,7 @@ export const AddBoard = ({ handleClose }) => {
                         key={idx}
                         className={selectedBg === bgColor.color ? 'selected-bg prev-bgColor' : 'prev-bgColor'}
                         style={{ backgroundColor: bgColor.color }}
-                        onClick={() => onSetBgColor(bgColor.color)}
+                        onClick={() => setSelectedBg(bgColor.color)}
                     >
                     </div>
                 )}
