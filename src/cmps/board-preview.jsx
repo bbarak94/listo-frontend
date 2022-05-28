@@ -1,29 +1,28 @@
-import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const BoardPreview = ({ board }) => {
-    // console.log('board.style:', board.style)
+
     const navigation = useNavigate()
-   
+
     return (
         <div
             className='board-preview flex column'
             style={{
-                backgroundImage: `url(${board.style.bgImage})`,
-                backgroundColor: board.style.bgColor
+                backgroundImage: `url(${board.style.background})`,
+                backgroundColor: board.style.background,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
             }}
             onClick={() => {
                 navigation(`/board/${board._id}`)
             }}
         >
-            {/* <Link to={`/board/${board._id}`}> */}
-            <div>
+            {/* <div>
                 <h3>Template</h3>
-            </div>
+            </div> */}
             <div>
                 <h2>{board.title}</h2>
             </div>
-            {/* </Link> */}
         </div>
     )
 }

@@ -88,7 +88,7 @@ function _createBoards() {
     return [
         {
             _id: 'b101',
-            title: 'First Board',
+            title: 'Fashion designer',
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -97,8 +97,7 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                bgColor: null,
-                bgImage: 'https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg'
+                background: 'https://images.unsplash.com/photo-1519011985187-444d62641929?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f' },
@@ -288,7 +287,7 @@ function _createBoards() {
         },
         {
             _id: 'b102',
-            title: 'Second Board',
+            title: 'Ornamental board',
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -297,8 +296,7 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                bgColor: '#0079BF',
-                bgImage: null
+                background: 'https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f' },
@@ -491,7 +489,7 @@ function _createBoards() {
         },
         {
             _id: 'b103',
-            title: 'Third Board',
+            title: 'Grow process',
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -500,8 +498,7 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                bgColor: null,
-                bgImage: 'https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+                background: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f' },
@@ -671,7 +668,7 @@ function _createBoards() {
         },
         {
             _id: 'b104',
-            title: 'Fourth Board',
+            title: 'Dev Master',
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -680,8 +677,7 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                bgColor: null,
-                bgImage: 'https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg'
+                background: 'https://images.unsplash.com/photo-1594904351111-a072f80b1a71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f' },
@@ -866,7 +862,7 @@ function _createBoards() {
         },
         {
             _id: 'b105',
-            title: 'Fifth Board',
+            title: 'Free Spirit',
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -875,8 +871,7 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                bgColor: null,
-                bgImage: 'https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg'
+                background: 'https://images.unsplash.com/photo-1519834785169-98be25ec3f84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f' },
@@ -1044,200 +1039,200 @@ function _createBoards() {
                 },
             ],
         },
-        {
-            _id: 'b106',
-            title: 'Sixth Board',
-            archivedAt: null,
-            createdAt: 1589983468418,
-            createdBy: {
-                _id: 'u101',
-                fullname: 'Barak Braun',
-                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
-            },
-            style: {
-                bgColor: '#89609e',
-                bgImage: null
-            },
-            labels: [
-                { id: 'l108', title: 'Done', color: '#61bd4f' },
-                { id: 'l107', title: 'Progress', color: '#61bd33' },
-                { id: 'l101', title: '', color: '#61BD4F' },
-                { id: 'l102', title: '', color: '#F2D600' },
-                { id: 'l103', title: '', color: '#FF9F1A' },
-                { id: 'l104', title: '', color: '#EB5A46' },
-                { id: 'l105', title: '', color: '#C377E0' },
-                { id: 'l106', title: '', color: '#0079BF' },
-            ],
-            members: [
-                {
-                    id: 'u101',
-                    fullname: 'Barak Braun',
-                    username: 'barak',
-                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
-                },
-                {
-                    id: 'u102',
-                    fullname: 'Guy Elizarov',
-                    username: 'guy',
-                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
-                },
-                {
-                    id: 'u103',
-                    fullname: 'Itai Rotstein',
-                    username: 'itai',
-                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
-                },
-                {
-                    id: 'u104',
-                    fullname: 'Tommy Irmia',
-                    username: 'tommy',
-                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',
-                },
-            ],
-            groups: [
-                {
-                    id: 'g101',
-                    title: 'In Progress',
-                    archivedAt: 1589983468418,
-                    tasks: [
-                        {
-                            id: 't101',
-                            title: 'Replace logo',
-                            style: {
-                                color: null,
-                                imgUrl: null,
-                                isCoverSizeBig: false,
-                            },
-                            dueDate: null,
-                            archivedAt: null
-                        },
-                        {
-                            id: 't102',
-                            title: 'Add Samples',
-                            style: {
-                                color: null,
-                                imgUrl: null,
-                                isCoverSizeBig: false,
-                            },
-                            dueDate: null,
-                            archivedAt: null
-                        },
-                        {
-                            id: 't103',
-                            title: 'Make JSON Look Pretty',
-                            style: {
-                                color: null,
-                                imgUrl: null,
-                                isCoverSizeBig: false,
-                            },
-                            dueDate: null,
-                            archivedAt: null
-                        },
-                    ],
-                    style: {},
-                },
-                {
-                    id: 'g102',
-                    title: 'QA',
-                    tasks: [
-                        {
-                            id: 't113',
-                            title: 'Test Filter Component',
-                            style: {
-                                color: null,
-                                imgUrl: null,
-                                isCoverSizeBig: false,
-                            },
-                            dueDate: null,
-                        },
-                        {
-                            id: 't104',
-                            title: 'Test headers new button',
-                            status: 'in-progress',
-                            description: 'description',
-                            comments: [
-                                {
-                                    id: 'ZdPnm',
-                                    txt: 'I started testing it, will finish by tomorrow noon...',
-                                    createdAt: 1590999817436.0,
-                                    byMember: {
-                                        _id: 'u101',
-                                        fullname: 'Barak Braun',
-                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
-                                    },
-                                },
-                            ],
-                            checklists: [
-                                {
-                                    id: 'YEhaa',
-                                    title: 'First checklist',
-                                    todos: [
-                                        {
-                                            id: 'td131',
-                                            title: 'take one deep breath',
-                                            isDone: false,
-                                        },
-                                        {
-                                            id: 'td132',
-                                            title: 'Grab some beersss',
-                                            isDone: true,
-                                        },
-                                    ],
-                                },
-                                {
-                                    id: 'bbhmF',
-                                    title: 'Second checklist',
-                                    todos: [
-                                        {
-                                            id: 'td141',
-                                            title: 'First of all take a deep breath',
-                                            isDone: false,
-                                        },
-                                        {
-                                            id: 'td142',
-                                            title: 'Grab only one beer',
-                                            isDone: true,
-                                        },
-                                    ],
-                                },
-                            ],
-                            memberIds: ['u100', 'u101', 'u102', 'u103', 'u104'],
-                            labelIds: ['l101', 'l102'],
-                            createdAt: 1590999730348,
-                            dueDate: 16156215211,
-                            byMember: {
-                                _id: 'u102',
-                                username: 'guy',
-                                fullname: 'Guy Elizarov',
-                                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
-                            },
-                            style: {
-                                color: null,
-                                imgUrl: 'https://images.unsplash.com/photo-1631116616602-322db356c4fb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687',
-                                isCoverSizeBig: false,
-                            },
-                        },
-                    ],
-                    style: {},
-                },
-            ],
-            activities: [
-                {
-                    id: 'a101',
-                    txt: 'Changed Color',
-                    createdAt: 154514,
-                    byMember: {
-                        _id: 'u101',
-                        fullname: 'Barak Braun',
-                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
-                    },
-                    task: {
-                        id: 't107',
-                        title: 'Replace Logo',
-                    },
-                },
-            ],
-        },
+        // {
+        //     _id: 'b106',
+        //     title: 'Sixth Board',
+        //     archivedAt: null,
+        //     createdAt: 1589983468418,
+        //     createdBy: {
+        //         _id: 'u101',
+        //         fullname: 'Barak Braun',
+        //         imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+        //     },
+        //     style: {
+        //         bgColor: '#89609e',
+        //         bgImage: null
+        //     },
+        //     labels: [
+        //         { id: 'l108', title: 'Done', color: '#61bd4f' },
+        //         { id: 'l107', title: 'Progress', color: '#61bd33' },
+        //         { id: 'l101', title: '', color: '#61BD4F' },
+        //         { id: 'l102', title: '', color: '#F2D600' },
+        //         { id: 'l103', title: '', color: '#FF9F1A' },
+        //         { id: 'l104', title: '', color: '#EB5A46' },
+        //         { id: 'l105', title: '', color: '#C377E0' },
+        //         { id: 'l106', title: '', color: '#0079BF' },
+        //     ],
+        //     members: [
+        //         {
+        //             id: 'u101',
+        //             fullname: 'Barak Braun',
+        //             username: 'barak',
+        //             imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+        //         },
+        //         {
+        //             id: 'u102',
+        //             fullname: 'Guy Elizarov',
+        //             username: 'guy',
+        //             imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+        //         },
+        //         {
+        //             id: 'u103',
+        //             fullname: 'Itai Rotstein',
+        //             username: 'itai',
+        //             imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
+        //         },
+        //         {
+        //             id: 'u104',
+        //             fullname: 'Tommy Irmia',
+        //             username: 'tommy',
+        //             imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',
+        //         },
+        //     ],
+        //     groups: [
+        //         {
+        //             id: 'g101',
+        //             title: 'In Progress',
+        //             archivedAt: 1589983468418,
+        //             tasks: [
+        //                 {
+        //                     id: 't101',
+        //                     title: 'Replace logo',
+        //                     style: {
+        //                         color: null,
+        //                         imgUrl: null,
+        //                         isCoverSizeBig: false,
+        //                     },
+        //                     dueDate: null,
+        //                     archivedAt: null
+        //                 },
+        //                 {
+        //                     id: 't102',
+        //                     title: 'Add Samples',
+        //                     style: {
+        //                         color: null,
+        //                         imgUrl: null,
+        //                         isCoverSizeBig: false,
+        //                     },
+        //                     dueDate: null,
+        //                     archivedAt: null
+        //                 },
+        //                 {
+        //                     id: 't103',
+        //                     title: 'Make JSON Look Pretty',
+        //                     style: {
+        //                         color: null,
+        //                         imgUrl: null,
+        //                         isCoverSizeBig: false,
+        //                     },
+        //                     dueDate: null,
+        //                     archivedAt: null
+        //                 },
+        //             ],
+        //             style: {},
+        //         },
+        //         {
+        //             id: 'g102',
+        //             title: 'QA',
+        //             tasks: [
+        //                 {
+        //                     id: 't113',
+        //                     title: 'Test Filter Component',
+        //                     style: {
+        //                         color: null,
+        //                         imgUrl: null,
+        //                         isCoverSizeBig: false,
+        //                     },
+        //                     dueDate: null,
+        //                 },
+        //                 {
+        //                     id: 't104',
+        //                     title: 'Test headers new button',
+        //                     status: 'in-progress',
+        //                     description: 'description',
+        //                     comments: [
+        //                         {
+        //                             id: 'ZdPnm',
+        //                             txt: 'I started testing it, will finish by tomorrow noon...',
+        //                             createdAt: 1590999817436.0,
+        //                             byMember: {
+        //                                 _id: 'u101',
+        //                                 fullname: 'Barak Braun',
+        //                                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+        //                             },
+        //                         },
+        //                     ],
+        //                     checklists: [
+        //                         {
+        //                             id: 'YEhaa',
+        //                             title: 'First checklist',
+        //                             todos: [
+        //                                 {
+        //                                     id: 'td131',
+        //                                     title: 'take one deep breath',
+        //                                     isDone: false,
+        //                                 },
+        //                                 {
+        //                                     id: 'td132',
+        //                                     title: 'Grab some beersss',
+        //                                     isDone: true,
+        //                                 },
+        //                             ],
+        //                         },
+        //                         {
+        //                             id: 'bbhmF',
+        //                             title: 'Second checklist',
+        //                             todos: [
+        //                                 {
+        //                                     id: 'td141',
+        //                                     title: 'First of all take a deep breath',
+        //                                     isDone: false,
+        //                                 },
+        //                                 {
+        //                                     id: 'td142',
+        //                                     title: 'Grab only one beer',
+        //                                     isDone: true,
+        //                                 },
+        //                             ],
+        //                         },
+        //                     ],
+        //                     memberIds: ['u100', 'u101', 'u102', 'u103', 'u104'],
+        //                     labelIds: ['l101', 'l102'],
+        //                     createdAt: 1590999730348,
+        //                     dueDate: 16156215211,
+        //                     byMember: {
+        //                         _id: 'u102',
+        //                         username: 'guy',
+        //                         fullname: 'Guy Elizarov',
+        //                         imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+        //                     },
+        //                     style: {
+        //                         color: null,
+        //                         imgUrl: 'https://images.unsplash.com/photo-1631116616602-322db356c4fb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687',
+        //                         isCoverSizeBig: false,
+        //                     },
+        //                 },
+        //             ],
+        //             style: {},
+        //         },
+        //     ],
+        //     activities: [
+        //         {
+        //             id: 'a101',
+        //             txt: 'Changed Color',
+        //             createdAt: 154514,
+        //             byMember: {
+        //                 _id: 'u101',
+        //                 fullname: 'Barak Braun',
+        //                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+        //             },
+        //             task: {
+        //                 id: 't107',
+        //                 title: 'Replace Logo',
+        //             },
+        //         },
+        //     ],
+        // },
     ]
 }
 

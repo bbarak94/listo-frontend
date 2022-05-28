@@ -80,42 +80,45 @@ export const BoardDetails = () => {
 
     if (!board) return <div>Loading...</div>
     console.log('board', board)
-    return (<>
-        <div className="board-header flex">
-            <BoardHeaderNavBar board={board} onOpenModal={onOpenModal} />
-        </div>
-
-        <main
-            className='board-details flex'
+    return (
+        <section className='flex column'
             style={{
                 backgroundImage: `url(${board.style.background})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundColor: board.style.background
             }}>
-            <DragDropContext
-                // onDragEnd={handleOnDragEnd}
-                onDragEnd={handleOnDragEnd}
-            >
-                {board.groups.map((group) => (
-                    <BoardGroup
-                        group={group}
-                        key={group.id}
-                        board={board}
-                        expandCardTitleGroupId={expandCardTitleGroupId}
-                        setExpandCardTitleId={setExpandCardTitleId}
-                    />
-                ))}
-            </DragDropContext>
 
-            <AddGroup />
-            <Outlet />
-        </main>
-        <AppModal
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            cmpType={cmpType}
-            member={member}
-        />
-    </>)
+            <div className="board-header flex">
+                <BoardHeaderNavBar board={board} onOpenModal={onOpenModal} />
+            </div>
+
+            <main className='board-details flex'>
+
+                <DragDropContext
+                    // onDragEnd={handleOnDragEnd}
+                    onDragEnd={handleOnDragEnd}
+                >
+                    {board.groups.map((group) => (
+                        <BoardGroup
+                            group={group}
+                            key={group.id}
+                            board={board}
+                            expandCardTitleGroupId={expandCardTitleGroupId}
+                            setExpandCardTitleId={setExpandCardTitleId}
+                        />
+                    ))}
+                </DragDropContext>
+
+                <AddGroup />
+                <Outlet />
+            </main>
+            <AppModal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                cmpType={cmpType}
+                member={member}
+            />
+        </section>
+    )
 }
