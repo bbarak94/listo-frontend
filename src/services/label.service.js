@@ -3,6 +3,7 @@
 
 export const labelService = {
     toggleLabel,
+    getLabelsByIds
 }
 
 
@@ -12,6 +13,18 @@ export const labelService = {
 //     task.labelIds.unshift(label.id)
 //     return task
 // }
+
+function getLabelsByIds(labelIds, board){
+    if (!labelIds) return null
+    const labels = []
+    board.labels.forEach(label => {
+        if(labelIds.includes(label.id)){
+            labels.push(label)
+        }
+    })
+    console.log('getLabelsByIds ~ labels', labels)
+    return labels
+}
 
  function toggleLabel(labelId, task) {
      const taskToUpdate = {...task}

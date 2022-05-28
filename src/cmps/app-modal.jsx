@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
 import { Labels } from './dynamic-cmps/labels'
+import { AddLabel } from './dynamic-cmps/add-label'
 import { Members } from './dynamic-cmps/members'
 import { Cover } from './dynamic-cmps/cover'
 import { Dates } from './dynamic-cmps/dates'
@@ -32,6 +33,8 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         switch (cmpType) {
             case 'labels':
                 return <Labels task={task} board={board} group={group} handleClose={handleClose} />
+            case 'add-label':
+                return <AddLabel task={task} board={board} group={group} handleClose={handleClose} />
             case 'members':
                 return <Members task={task} board={board} group={group} handleClose={handleClose} />
             case 'member':
