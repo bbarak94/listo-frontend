@@ -4,6 +4,8 @@ import close from '../assets/img/workspace/close.svg'
 import starStroke from '../assets/img/workspace/star-stroke.svg'
 import clock from '../assets/img/workspace/clock.svg'
 import { SelectLabels } from '../cmps/select-labels'
+import {AppHeader} from '../cmps/app-header'
+
 
 
 export const Workspace = () => {
@@ -13,6 +15,7 @@ export const Workspace = () => {
 
     return (
         <div className='board-list'>
+        <AppHeader />
             <div className='title flex'>
                 <div className='flex align-center'>
                     <div className='icon-container'>

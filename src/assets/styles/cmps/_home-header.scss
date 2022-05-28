@@ -1,0 +1,31 @@
+.header{
+   font-family: Roboto;
+   padding: 1rem !important;
+   justify-content: space-between;
+   .header-logo{
+      cursor: pointer;
+      max-width: 126px;
+      
+   }
+   .header-btns{
+      align-items: center;
+      gap: 15px;
+   }
+
+   .login-btn{
+      font-size: 16px;
+      color: #1976d2;
+      &:hover{
+         cursor: pointer;
+         text-decoration: underline;      
+      }
+   }
+   .signup-btn{
+      :hover{
+         cursor: pointer;
+      }
+   }
+   Button {
+      text-transform: unset;
+   }
+}

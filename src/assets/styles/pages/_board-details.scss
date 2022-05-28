@@ -1,5 +1,13 @@
+.cover-img{
+object-fit: fill;
+height: 100vh;
+}
+
 .board-details {
-    height: calc(100vh - 72px);
+    position: relative;
+    top:42px;
+    height: calc(86vh);
+    // height: calc(100vh - 72px - 10px);
     overflow-x: auto;
     overflow-y: hidden;
     // margin-top: 20px;

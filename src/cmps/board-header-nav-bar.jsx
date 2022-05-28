@@ -2,12 +2,6 @@
 
 
 export const BoardHeaderNavBar = ({ board, onOpenModal }) => {
-
-
-
-
-
-
     return (<>
 
         <div className="board-header-right-container">
