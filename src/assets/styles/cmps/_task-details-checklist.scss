@@ -1,0 +1,45 @@
+.task-checklist {
+   .top-container {
+      margin: 20px 10px 8px 10px;
+      align-items: center;
+
+      .top-left-container {
+         gap: 10px;
+      }
+
+      h2 {
+         font-size: 18px;
+         font-weight: 500;
+      }
+
+      Button {
+         font-size: 16px;
+         background-color: $clr12;
+         margin-right: 5px;
+         text-transform: unset;
+
+
+
+         &:hover {
+            background-color: darken($color: $clr11, $amount: 5);
+         }
+
+         color: $clr1;
+      }
+   }
+
+   .add-btn {
+      font-size: 16px;
+      background-color: $clr12;
+      margin-right: 5px;
+      text-transform: unset;
+      max-width: 120px;
+
+      &:hover {
+         background-color: darken($color: $clr11, $amount: 5);
+      }
+
+      color: $clr1;
+   }
+
+}

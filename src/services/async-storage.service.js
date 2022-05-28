@@ -100,14 +100,14 @@ function _createBoards() {
                 background: '#00c2e0',
             },
             labels: [
-                { id: 'l108', title: 'Done', color: '#61bd4f', },
-                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l108', title: 'Done', color: '#61bd4f' },
+                { id: 'l107', title: 'Progress', color: '#61bd33' },
                 { id: 'l101', title: '', color: '#61BD4F' },
                 { id: 'l102', title: '', color: '#F2D600' },
                 { id: 'l103', title: '', color: '#FF9F1A' },
                 { id: 'l104', title: '', color: '#EB5A46' },
                 { id: 'l105', title: '', color: '#C377E0' },
-                { id: 'l106', title: '', color: '#0079BF' }
+                { id: 'l106', title: '', color: '#0079BF' },
             ],
             members: [
                 {
@@ -148,10 +148,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't102',
@@ -160,22 +160,23 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't103',
                             title: 'Make JSON Look Pretty',
-                            description: 'need to Make JSON Look Pretty argently',
+                            description:
+                                'need to Make JSON Look Pretty argently',
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -190,11 +191,11 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
                             memberIds: [],
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't104',
@@ -215,17 +216,33 @@ function _createBoards() {
                             ],
                             checklists: [
                                 {
-                                    id: 'YEhmF',
-                                    title: 'Checklist',
+                                    id: 'YEhaa',
+                                    title: 'First checklist',
                                     todos: [
                                         {
-                                            id: 'td101',
-                                            title: 'First take a deep breath',
+                                            id: 'td131',
+                                            title: 'take one deep breath',
                                             isDone: false,
                                         },
                                         {
-                                            id: 'td102',
-                                            title: 'Grab a beer',
+                                            id: 'td132',
+                                            title: 'Grab some beersss',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                                {
+                                    id: 'bbhmF',
+                                    title: 'Second checklist',
+                                    todos: [
+                                        {
+                                            id: 'td141',
+                                            title: 'First of all take a deep breath',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td142',
+                                            title: 'Grab only one beer',
                                             isDone: true,
                                         },
                                     ],
@@ -243,9 +260,9 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: 'https://images.unsplash.com/photo-1644797694478-d12d4eab8cd8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880',
-                                isCoverSizeBig: true
+                                isCoverSizeBig: true,
                             },
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -267,7 +284,6 @@ function _createBoards() {
                     },
                 },
             ],
-
         },
         {
             _id: 'b102',
@@ -283,14 +299,14 @@ function _createBoards() {
                 background: '#f2d600',
             },
             labels: [
-                { id: 'l108', title: 'Done', color: '#61bd4f', },
-                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l108', title: 'Done', color: '#61bd4f' },
+                { id: 'l107', title: 'Progress', color: '#61bd33' },
                 { id: 'l101', title: '', color: '#61BD4F' },
                 { id: 'l102', title: '', color: '#F2D600' },
                 { id: 'l103', title: '', color: '#FF9F1A' },
                 { id: 'l104', title: '', color: '#EB5A46' },
                 { id: 'l105', title: '', color: '#C377E0' },
-                { id: 'l106', title: '', color: '#0079BF' }
+                { id: 'l106', title: '', color: '#0079BF' },
             ],
             members: [
                 {
@@ -330,21 +346,40 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
+                            checklists: [
+                                {
+                                    id: 'YEcccaa',
+                                    title: 'Third checklist',
+                                    todos: [
+                                        {
+                                            id: 'td161',
+                                            title: 'take fifteen deep breathesssssss',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td171',
+                                            title: 'finish the DND Feature',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                            ],
                         },
+
                         {
                             id: 't102',
                             title: 'Add Samples',
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't103',
@@ -352,10 +387,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -383,17 +418,33 @@ function _createBoards() {
                             ],
                             checklists: [
                                 {
-                                    id: 'YEhmF',
-                                    title: 'Checklist',
+                                    id: 'YEhaa',
+                                    title: 'First checklist',
                                     todos: [
                                         {
-                                            id: 'td101',
-                                            title: 'First take a deep breath',
+                                            id: 'td131',
+                                            title: 'take one deep breath',
                                             isDone: false,
                                         },
                                         {
-                                            id: 'td102',
-                                            title: 'Grab a beer',
+                                            id: 'td132',
+                                            title: 'Grab some beersss',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                                {
+                                    id: 'bbhmF',
+                                    title: 'Second checklist',
+                                    todos: [
+                                        {
+                                            id: 'td141',
+                                            title: 'First of all take a deep breath',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td142',
+                                            title: 'Grab only one beer',
                                             isDone: true,
                                         },
                                     ],
@@ -411,9 +462,9 @@ function _createBoards() {
                             },
                             style: {
                                 color: '#7BC86C',
-                                imgUrl: null
+                                imgUrl: null,
                             },
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -435,7 +486,6 @@ function _createBoards() {
                     },
                 },
             ],
-
         },
         {
             _id: 'b103',
@@ -451,14 +501,14 @@ function _createBoards() {
                 background: '#51e898',
             },
             labels: [
-                { id: 'l108', title: 'Done', color: '#61bd4f', },
-                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l108', title: 'Done', color: '#61bd4f' },
+                { id: 'l107', title: 'Progress', color: '#61bd33' },
                 { id: 'l101', title: '', color: '#61BD4F' },
                 { id: 'l102', title: '', color: '#F2D600' },
                 { id: 'l103', title: '', color: '#FF9F1A' },
                 { id: 'l104', title: '', color: '#EB5A46' },
                 { id: 'l105', title: '', color: '#C377E0' },
-                { id: 'l106', title: '', color: '#0079BF' }
+                { id: 'l106', title: '', color: '#0079BF' },
             ],
             members: [
                 {
@@ -498,10 +548,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't102',
@@ -509,10 +559,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't103',
@@ -520,10 +570,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -538,10 +588,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't104',
@@ -591,9 +641,9 @@ function _createBoards() {
                             style: {
                                 color: '#F5DD29',
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -615,7 +665,6 @@ function _createBoards() {
                     },
                 },
             ],
-
         },
         {
             _id: 'b104',
@@ -631,14 +680,14 @@ function _createBoards() {
                 background: '#eb5a46',
             },
             labels: [
-                { id: 'l108', title: 'Done', color: '#61bd4f', },
-                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l108', title: 'Done', color: '#61bd4f' },
+                { id: 'l107', title: 'Progress', color: '#61bd33' },
                 { id: 'l101', title: '', color: '#61BD4F' },
                 { id: 'l102', title: '', color: '#F2D600' },
                 { id: 'l103', title: '', color: '#FF9F1A' },
                 { id: 'l104', title: '', color: '#EB5A46' },
                 { id: 'l105', title: '', color: '#C377E0' },
-                { id: 'l106', title: '', color: '#0079BF' }
+                { id: 'l106', title: '', color: '#0079BF' },
             ],
             members: [
                 {
@@ -678,10 +727,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't102',
@@ -689,10 +738,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't103',
@@ -700,10 +749,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -718,10 +767,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't104',
@@ -742,17 +791,33 @@ function _createBoards() {
                             ],
                             checklists: [
                                 {
-                                    id: 'YEhmF',
-                                    title: 'Checklist',
+                                    id: 'YEhaa',
+                                    title: 'First checklist',
                                     todos: [
                                         {
-                                            id: 'td101',
-                                            title: 'First take a deep breath',
+                                            id: 'td131',
+                                            title: 'take one deep breath',
                                             isDone: false,
                                         },
                                         {
-                                            id: 'td102',
-                                            title: 'Grab a beer',
+                                            id: 'td132',
+                                            title: 'Grab some beersss',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                                {
+                                    id: 'bbhmF',
+                                    title: 'Second checklist',
+                                    todos: [
+                                        {
+                                            id: 'td141',
+                                            title: 'First of all take a deep breath',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td142',
+                                            title: 'Grab only one beer',
                                             isDone: true,
                                         },
                                     ],
@@ -770,9 +835,9 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -793,8 +858,7 @@ function _createBoards() {
                         title: 'Replace Logo',
                     },
                 },
-            ],     
-
+            ],
         },
         {
             _id: 'b105',
@@ -811,14 +875,14 @@ function _createBoards() {
                 backgroundColor: '',
             },
             labels: [
-                { id: 'l108', title: 'Done', color: '#61bd4f', },
-                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l108', title: 'Done', color: '#61bd4f' },
+                { id: 'l107', title: 'Progress', color: '#61bd33' },
                 { id: 'l101', title: '', color: '#61BD4F' },
                 { id: 'l102', title: '', color: '#F2D600' },
                 { id: 'l103', title: '', color: '#FF9F1A' },
                 { id: 'l104', title: '', color: '#EB5A46' },
                 { id: 'l105', title: '', color: '#C377E0' },
-                { id: 'l106', title: '', color: '#0079BF' }
+                { id: 'l106', title: '', color: '#0079BF' },
             ],
             members: [
                 {
@@ -858,10 +922,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't102',
@@ -869,10 +933,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't103',
@@ -880,10 +944,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -898,10 +962,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't104',
@@ -951,9 +1015,9 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -975,7 +1039,6 @@ function _createBoards() {
                     },
                 },
             ],
-
         },
         {
             _id: 'b106',
@@ -992,14 +1055,14 @@ function _createBoards() {
                 backgroundColor: '',
             },
             labels: [
-                { id: 'l108', title: 'Done', color: '#61bd4f', },
-                { id: 'l107', title: 'Progress', color: '#61bd33', },
+                { id: 'l108', title: 'Done', color: '#61bd4f' },
+                { id: 'l107', title: 'Progress', color: '#61bd33' },
                 { id: 'l101', title: '', color: '#61BD4F' },
                 { id: 'l102', title: '', color: '#F2D600' },
                 { id: 'l103', title: '', color: '#FF9F1A' },
                 { id: 'l104', title: '', color: '#EB5A46' },
                 { id: 'l105', title: '', color: '#C377E0' },
-                { id: 'l106', title: '', color: '#0079BF' }
+                { id: 'l106', title: '', color: '#0079BF' },
             ],
             members: [
                 {
@@ -1039,10 +1102,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't102',
@@ -1050,10 +1113,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                         {
                             id: 't103',
@@ -1061,10 +1124,10 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null,
                         },
                     ],
                     style: {},
@@ -1079,9 +1142,9 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: null,
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
-                            dueDate: null
+                            dueDate: null,
                         },
                         {
                             id: 't104',
@@ -1102,17 +1165,33 @@ function _createBoards() {
                             ],
                             checklists: [
                                 {
-                                    id: 'YEhmF',
-                                    title: 'Checklist',
+                                    id: 'YEhaa',
+                                    title: 'First checklist',
                                     todos: [
                                         {
-                                            id: 'td101',
-                                            title: 'First take a deep breath',
+                                            id: 'td131',
+                                            title: 'take one deep breath',
                                             isDone: false,
                                         },
                                         {
-                                            id: 'td102',
-                                            title: 'Grab a beer',
+                                            id: 'td132',
+                                            title: 'Grab some beersss',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                                {
+                                    id: 'bbhmF',
+                                    title: 'Second checklist',
+                                    todos: [
+                                        {
+                                            id: 'td141',
+                                            title: 'First of all take a deep breath',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td142',
+                                            title: 'Grab only one beer',
                                             isDone: true,
                                         },
                                     ],
@@ -1131,7 +1210,7 @@ function _createBoards() {
                             style: {
                                 color: null,
                                 imgUrl: 'https://images.unsplash.com/photo-1631116616602-322db356c4fb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687',
-                                isCoverSizeBig: false
+                                isCoverSizeBig: false,
                             },
                         },
                     ],

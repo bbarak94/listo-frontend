@@ -11,9 +11,13 @@ import MenuItem from '@mui/material/MenuItem'
 import ListSubheader from '@mui/material/ListSubheader'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
+import { utilService } from '../../services/util.service'
+import { updateTask } from '../../store/actions/board.action'
 
-export const Checklist = ({board, group, task}) => {
+export const Checklist = ({ board, group, task }) => {
     const dispatch = useDispatch()
+    const [title, setTitle] = useState('Checklist')
+    const [fromChecklist, setFromChecklist] = useState('')
     // const [task, setTask] = useState(null)
     // const [group, setGroup] = useState(null)
     // const { boardId, taskId } = useParams()
@@ -25,7 +29,7 @@ export const Checklist = ({board, group, task}) => {
     //         taskId
     //     )
     //     console.log('currTask:',currTask)
-        
+
     //     setTask(currTask)
     //     setGroup(currGroup)
     // }, [board])
@@ -35,17 +39,29 @@ export const Checklist = ({board, group, task}) => {
         ev.target.select()
     }
 
-    const onHandleSubmit = (ev) => {
-        // const { currTask } = boardService.getTaskAndGroup(board, task.id)
-        // console.log('submitted')
-        // console.log('boardId:', board._id)
-        // console.log('taskId:', task.id)
-        // console.log('board:', board)
-        // console.log('group:', group)
-        // console.log('currTask:', task)
-        // console.log('task:', task)
-        ev.preventDefault()
+    const handleChecklistChange = (event) => {
+        setFromChecklist(event.target.value)
     }
+
+    const handleTitleChange = (ev) => {
+        setTitle(ev.target.value)
+    }
+
+    const handleSubmit = (ev) => {
+        console.log('title:', title)
+        console.log('fromChecklist:', fromChecklist)
+        const newTask = { ...task }
+
+        newTask.checklists.push({
+            id: utilService.makeId(),
+            title,
+            todos: [],
+        })
+        dispatch(updateTask(newTask, board._id, group.id))
+    }
+    console.log('task:', task)
+    console.log('task.checklists:', task.checklists)
+    console.log('board:', board)
 
     return (
         <div className='checklist-popup'>
@@ -55,8 +71,15 @@ export const Checklist = ({board, group, task}) => {
             <hr></hr>
             <h2>Title</h2>
             <div className='input-container flex colum'>
-                <form style={{ width: '96%' }} onSubmit={onHandleSubmit}>
+                <form style={{ width: '96%' }} onSubmit={handleSubmit}>
                     <OutlinedInput
+                        onChange={handleTitleChange}
+                        onSubmit={handleSubmit}
+                        onKeyDown={(ev) => {
+                            if (ev.keyCode === 13) {
+                                handleSubmit(ev)
+                            }
+                        }}
                         defaultValue='Checklist'
                         onFocus={(ev) => {
                             selectText(ev)
@@ -70,46 +93,45 @@ export const Checklist = ({board, group, task}) => {
                     {task && (
                         <div className='exicting-tasks-container'>
                             <h2>Copy items from...</h2>
-                            <FormControl
-                                className='form'
-                                sx={{ minWidth: '100%' }}
-                            >
-                                <InputLabel
-                                    className='label'
-                                    htmlFor='grouped-select'
-                                >
-                                    (None)
+                            <FormControl sx={{ m: 1, minWidth: 120 }}>
+                                <InputLabel htmlFor='grouped-select'>
+                                    None
                                 </InputLabel>
                                 <Select
-                                    className='checklist-select'
                                     defaultValue=''
                                     id='grouped-select'
-                                    label='Grouping'
+                                    label='None'
+                                    onChange={handleChecklistChange}
+                                    onSubmit={handleSubmit}
                                 >
                                     <MenuItem value=''>
                                         <em>None</em>
                                     </MenuItem>
-                                    {!task && <></>}
-
-                                    {task.checklists.length && (
-                                        <div>
-                                            <ListSubheader>
-                                                {task.title}
-                                                {/* {'test'} */}
-                                            </ListSubheader>
-                                            {task.checklists.map(
-                                                (checklist, idx) => {
-                                                        return <MenuItem key={idx} value={1}>{checklist.title}</MenuItem>
+                                    {/* {task.checklists.map((checklist, cIdx) => {
+                                        <ListSubheader key={cIdx}>{checklist.title}</ListSubheader>
+                                        {
+                                            checklist.todos.map(
+                                                (todo, tIdx) => {
+                                                    <MenuItem key={tIdx} value={1}>
+                                                        {todo.title}
+                                                    </MenuItem>
                                                 }
-                                            )}
-                                        </div>
-                                    )}
-                                    {/* <ListSubheader>Category 1</ListSubheader>
+                                            )
+                                        }
+                                    })} */}
+                                    <ListSubheader>task title</ListSubheader>
+                                    <MenuItem value={1}>
+                                        checklist name1
+                                    </MenuItem>
+                                    <MenuItem value={2}>
+                                        checklist name1
+                                    </MenuItem>
+                                    <ListSubheader>Category 1</ListSubheader>
                                     <MenuItem value={1}>Option 1</MenuItem>
                                     <MenuItem value={2}>Option 2</MenuItem>
                                     <ListSubheader>Category 2</ListSubheader>
                                     <MenuItem value={3}>Option 3</MenuItem>
-                                    <MenuItem value={4}>Option 4</MenuItem> */}
+                                    <MenuItem value={4}>Option 4</MenuItem>
                                 </Select>
                             </FormControl>
 
@@ -119,7 +141,7 @@ export const Checklist = ({board, group, task}) => {
                     <Button
                         variant='contained'
                         size='medium'
-                        onClick={onHandleSubmit}
+                        onClick={handleSubmit}
                     >
                         Add
                     </Button>

@@ -18,6 +18,7 @@ import { MembersList } from '../cmps/dynamic-cmps/members-list.jsx'
 import { DatePreview } from '../cmps/dynamic-cmps/date-preview'
 import { LabelPreview } from '../cmps/label-preview'
 import { TaskDetailsDesc } from '../cmps/task-details-desc'
+import { TaskDetailsChecklists } from '../cmps/task-details-checklists.jsx'
 
 export const TaskDetails = () => {
     const { boardId, taskId } = useParams()
@@ -108,6 +109,7 @@ export const TaskDetails = () => {
                             {task.dueDate && <DatePreview task={task} />}
                         </div>
                         <TaskDetailsDesc task={task} boardId={boardId} groupId={currGroupRef.current.id} />
+                        <TaskDetailsChecklists task={task} boardId={boardId} groupId={currGroupRef.current.id} />
                     </div>
                     <TaskNavBar board={board} group={currGroupRef.current} task={task} onOpenModal={onOpenModal}/>
                 </div>
