@@ -16,6 +16,21 @@
   }
 }
 
+@mixin boarder-header-btn {
+  padding: 4px 12px;
+  border-radius: 3px;
+  height: 32px;
+  line-height: 16px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
 @mixin close-btn {
   width: 32px;
   font-size: 22px;
