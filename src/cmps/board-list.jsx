@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loadBoards, saveBoard } from '../store/actions/board.action'
 import { BoardPreview } from './board-preview'
 
+import {AppHeader} from './app-header'
+
 import { NewBoardPrev } from './dynamic-cmps/new-board-prev'
 import { AppModal } from './app-modal'
 
@@ -24,6 +26,7 @@ export const BoardList = (props) => {
     return (
         <>
             <div className='board-list flex'>
+            <AppHeader />
                 {boards.map((board) => (
                     <BoardPreview board={board} key={board._id} />
                 ))}

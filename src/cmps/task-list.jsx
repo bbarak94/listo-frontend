@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { updateGroup } from '../store/actions/board.action'
 import { useEffect, useRef } from 'react'
 
-export const TaskList = ({ board, group, setTaskEditExpand }) => {
+export const TaskList = ({ board, group, setTaskEditExpand ,onOpenModal}) => {
     const dispatch = useDispatch()
     // const tasksRef = useRef([])
     
@@ -30,6 +30,7 @@ export const TaskList = ({ board, group, setTaskEditExpand }) => {
         {/* <Droppable droppableId='task-list'> */}
                 {(provided) => (
                     <ul
+                    style={{maxHeight: '660px', overflow: 'auto'}}
                         className='task-list'
                         {...provided.droppableProps}
                         ref={provided.innerRef}
@@ -48,6 +49,7 @@ export const TaskList = ({ board, group, setTaskEditExpand }) => {
                                             ref={provided.innerRef}
                                         >
                                             <TaskPreview
+                                            onOpenModal={onOpenModal}
                                                 task={task}
                                                 // key={task.id}
                                                 board={board}

@@ -389,7 +389,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            memberIds:[]
+                            memberIds:[],
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -401,7 +402,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            memberIds:[]
+                            memberIds:[],
+                            checklists:[]
                         },
                     ],
                     style: {},

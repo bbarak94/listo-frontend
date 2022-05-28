@@ -5,7 +5,7 @@ import { useEffect } from "react"
 import { useDispatch } from 'react-redux'
 import { updateGroup } from '../store/actions/board.action'
 
-export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, setTaskEditExpand }) => {
+export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, setTaskEditExpand,onOpenModal }) => {
  
 
     return <article className="board-group flex column">
@@ -18,6 +18,7 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
         />
 
         <TaskList
+        onOpenModal={onOpenModal}
             board={board}
             group={group}
             setTaskEditExpand={setTaskEditExpand}

@@ -26,7 +26,8 @@ export const boardService = {
     getTaskAndGroup,
     removeTaskFromBoard,
     getGroup,
-    getGroupById
+    getGroupById,
+    getMembersByIds
 }
 window.cs = boardService
 
@@ -236,6 +237,18 @@ function removeTaskFromBoard(taskId, board) {
     const currGroup = getGroup(boardToUpdate, taskId)
     currGroup.tasks = currGroup.tasks.filter(t => t.id !== taskId)
     return boardToUpdate
+}
+
+function getMembersByIds(memberIds, board){
+    if (!memberIds) return null
+    const members = []
+    board.members.forEach(member => {
+        if(memberIds.includes(member.id)){
+            members.push(member)
+        }
+    })
+    // console.log('getLabelsByIds ~ members', members)
+    return members
 }
 
 

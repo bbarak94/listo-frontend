@@ -5,7 +5,6 @@ import { Home } from './pages/home.jsx'
 import { BoardDetails } from './pages/board-details.jsx'
 import { Workspace } from './pages/workspace.jsx'
 import { TaskDetails } from './pages/task-details.jsx'
-import { AppHeader } from './cmps/app-header'
 import { LoginSignup } from './pages/login-signup.jsx'
 import configureStore from './configure-store.js'
 import {Provider} from 'react-redux'
@@ -19,7 +18,6 @@ export function RootCmp() {
         <Provider store={store}>
         <Router>
             <div className='root-cmp'>
-                <AppHeader />
                 <Routes>
                     <Route path='login' element={<LoginSignup />} />
                     <Route path='signup' element={<LoginSignup />} />
