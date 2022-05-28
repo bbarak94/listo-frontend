@@ -5,7 +5,7 @@ import { updateGroup } from '../store/actions/board.action'
 export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
     const [title, setTitle] = useState(groupTitle)
     const dispatch = useDispatch()
-
+    // const inputRef = inputRef()
     const onHandleChange = (ev) => {
         setTitle(ev.target.value)
     }
@@ -31,12 +31,15 @@ export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
     return (
         <div className='group-title'>
             <input
+                // ref={inputRef}
                 type='text'
                 onFocus={(ev) => ev.target.select()}
                 value={title}
                 onChange={onHandleChange}
                 onKeyDown={onEnterPress}
                 onBlur={onHandleSubmit}
+                onMouseDown={(ev)=>ev.preventDefault()}
+                onMouseUp={(ev)=>ev.target.focus()}
             />
         </div>
     )

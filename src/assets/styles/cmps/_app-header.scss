@@ -1,31 +1,77 @@
-.header{
+.app-header {
+   padding-left: 8px;
+   padding-right: 8px;
+   position: fixed;
+   color: white;
+   top: 0;
+   left: 0;
    font-family: Roboto;
-   padding: 1rem !important;
-   justify-content: space-between;
-   .header-logo{
-      cursor: pointer;
-      max-width: 126px;
-      
-   }
-   .header-btns{
-      align-items: center;
-      gap: 15px;
+   width: 100vw;
+   background-color: #026aa7;
+   min-height: 48px;
+   // padding: 1rem !important;
+
+   .app-header-navbar-container {
+      img{
+   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(103deg) brightness(105%) contrast(105%);
+   &:hover{
+
    }
 
-   .login-btn{
-      font-size: 16px;
-      color: #1976d2;
-      &:hover{
+      }
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      min-width: 36px;
+      min-height: 36px;
+      
+      
+      &:hover {
+         background-color: #4e97c2;
          cursor: pointer;
-         text-decoration: underline;      
+         // filter: invert(57%) sepia(7%) saturate(2848%) hue-rotate(158deg) brightness(95%) contrast(93%);
+      }
+      
+      
+   }
+   
+   .app-header-logo-static {
+      padding-left: 5px;
+      padding-right: 5px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &:hover {
+         background-color: #4e97c2;
+      }
+      
+      img {
+         &:hover {
+            background-color: #4e97c2;
+         }
+      }
+      
+      
+   }
+   
+   .app-header-btn-container {
+      gap: 8px;
+      justify-content: center;
+      align-content: center;
+
+      Button {
+         color: white;
+         text-transform: unset;
+         font-size: 16px;
+         font-weight: 100;
+         padding-left: 10px;
+
+
+         &:hover {
+            background-color: #4e97c2;
+         }
       }
    }
-   .signup-btn{
-      :hover{
-         cursor: pointer;
-      }
-   }
-   Button {
-      text-transform: unset;
-   }
+
+
 }

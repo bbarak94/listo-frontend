@@ -383,7 +383,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -394,7 +395,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                     ],
                     style: {},

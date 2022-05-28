@@ -1,12 +1,14 @@
 import hero from '../assets/img/hero/hero.png'
 import Button from '@mui/material/Button'
 import { Link, useNavigate } from 'react-router-dom'
+import { HomeHeader } from '../cmps/home-header'
 
 export const Home = () => {
    const navigation = useNavigate()
 
     return (
         <div className='home'>
+        <HomeHeader />
         <div className='home-main-layout flex '>
             <div className='home-left-container flex column'>
                 <h1>Listo helps teams move work forward.</h1>
