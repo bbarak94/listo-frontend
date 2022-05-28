@@ -27,7 +27,8 @@ export const boardService = {
     removeTaskFromBoard,
     getGroup,
     getGroupById,
-    getMembersByIds
+    getMembersByIds,
+    getEmptyTodo
 }
 window.cs = boardService
 
@@ -147,7 +148,7 @@ async function addGroup(title, boardId) {
 
 async function updateGroup(groupToUpdate, boardId) {
     try {
-        const board = await getById(boardId)        
+        const board = await getById(boardId)
         let groupIdx = board.groups.findIndex(currGroup => currGroup.id === groupToUpdate.id)
         board.groups.splice(groupIdx, 1, groupToUpdate)
         save(board)
@@ -228,7 +229,7 @@ function getGroup(board, taskId) {
     })
 }
 function getGroupById(board, groupId) {
-    return board.groups.find((g) => g.id===groupId )
+    return board.groups.find((g) => g.id === groupId)
 }
 
 
@@ -239,16 +240,24 @@ function removeTaskFromBoard(taskId, board) {
     return boardToUpdate
 }
 
-function getMembersByIds(memberIds, board){
+function getMembersByIds(memberIds, board) {
     if (!memberIds) return null
     const members = []
     board.members.forEach(member => {
-        if(memberIds.includes(member.id)){
+        if (memberIds.includes(member.id)) {
             members.push(member)
         }
     })
     // console.log('getLabelsByIds ~ members', members)
     return members
+}
+
+function getEmptyTodo() {
+    return {
+        id: utilService.makeId(),
+        title: '',
+        isDone: false
+    }
 }
 
 

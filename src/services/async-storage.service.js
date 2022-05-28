@@ -1091,6 +1091,366 @@ function _createBoards() {
                 },
             ],
         },
+        {
+            _id: 'b106',
+            title: 'Web Development',
+            archivedAt: null,
+            createdAt: 1589983468418,
+            createdBy: {
+                _id: 'u101',
+                fullname: 'Barak Braun',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+            },
+            style: {
+                background: 'https://images.unsplash.com/photo-1653629154317-b86cd180f93f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+            },
+            labels: [
+                { id: 'l108', title: 'Done', color: '#61bd4f' },
+                { id: 'l107', title: 'Progress', color: '#61bd33' },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' },
+            ],
+            members: [
+                {
+                    id: 'u101',
+                    fullname: 'Barak Braun',
+                    username: 'barak',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                },
+                {
+                    id: 'u102',
+                    fullname: 'Guy Elizarov',
+                    username: 'guy',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+                },
+                {
+                    id: 'u103',
+                    fullname: 'Itai Rotstein',
+                    username: 'itai',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
+                },
+                {
+                    id: 'u104',
+                    fullname: 'Tommy Irmia',
+                    username: 'tommy',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',
+                },
+            ],
+            groups: [
+                {
+                    id: 'g301',
+                    title: 'Incoming Bugs',
+                    archivedAt: 1589983468418,
+                    tasks: [
+                        {
+                            id: 't301',
+                            title: 'DND Feature',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            dueDate: null,
+                            archivedAt: null,
+                            checklists:[],
+                            memberIds:[]
+                        },
+                        {
+                            id: 't302',
+                            title: 'Add demo data',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            dueDate: null,
+                            archivedAt: null,
+                            checklists:[],
+                            memberIds:[]
+                        },
+                        {
+                            id: 't303',
+                            title: 'Make UI Look Pretty',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            dueDate: null,
+                            archivedAt: null,
+                            checklists:[],
+                            memberIds:[]
+                        },
+                    ],
+                    style: {},
+                },
+                {
+                    id: 'g302',
+                    title: 'In Progress',
+                    tasks: [
+                        {
+                            id: 't113',
+                            title: 'Checklists feature',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            dueDate: null,
+                            archivedAt: null,
+                            checklists:[],
+                            memberIds:['u101']
+                        },
+                        {
+                            id: 't306',
+                            title: 'Test responsive design',
+                            status: 'in-progress',
+                            description: 'description',
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
+                            checklists: [
+                                {
+                                    id: 'YEhmF',
+                                    title: 'Checklist',
+                                    todos: [
+                                        {
+                                            id: 'td101',
+                                            title: 'Prepare for 1st demonstration',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td102',
+                                            title: 'Enjoy the process',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                            ],
+                            memberIds: [],
+                            labelIds: ['l101', 'l102'],
+                            createdAt: 1590999730348,
+                            dueDate: 16156215211,
+                            byMember: {
+                                _id: 'u102',
+                                username: 'guy',
+                                fullname: 'Guy Elizarov',
+                                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+                            },
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            archivedAt: null
+                        },
+                    ],
+                    style: {},
+                },
+                {
+                    id: 'g303',
+                    title: 'QA',
+                    tasks: [
+                        {
+                            id: 't313',
+                            title: 'Animated logo on header',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            dueDate: null,
+                            archivedAt: null,
+                            checklists:[],
+                            memberIds:[]
+                        },
+                        {
+                            id: 't104',
+                            title: 'Test headers new button',
+                            status: 'in-progress',
+                            description: 'description',
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
+                            checklists: [
+                                {
+                                    id: 'YEhmF',
+                                    title: 'Checklist',
+                                    todos: [
+                                        {
+                                            id: 'td305',
+                                            title: 'Make pop-over modals',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td107',
+                                            title: 'Make nice closeup button',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                            ],
+                            memberIds: ['u101', 'u102','u103', 'u104'],
+                            labelIds: ['l101', 'l102'],
+                            createdAt: 1590999730348,
+                            dueDate: 16156215211,
+                            byMember: {
+                                _id: 'u102',
+                                username: 'guy',
+                                fullname: 'Guy Elizarov',
+                                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+                            },
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            archivedAt: null
+                        },
+                    ],
+                    style: {},
+                },
+                {
+                    id: 'g305',
+                    title: 'Ready For Launch',
+                    tasks: [
+                        {
+                            id: 't113',
+                            title: 'Make a filter component',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            dueDate: null,
+                            archivedAt: null,
+                            checklists:[
+                                {
+                                    id: 'YE2561mF',
+                                    title: 'UI',
+                                    todos: [
+                                        {
+                                            id: 'td405',
+                                            title: 'Create onChange handler',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td416',
+                                            title: 'Create on submit handler',
+                                            isDone: true,
+                                        },
+                                        {
+                                            id: 'td516',
+                                            title: 'Two way binding',
+                                            isDone: true,
+                                        },
+                                        {
+                                            id: 'td616',
+                                            title: 'Frontend filter',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                                
+
+                            ],
+                            memberIds:[]
+                        },
+                        {
+                            id: 't104',
+                            title: 'Test headers new button',
+                            status: 'in-progress',
+                            description: 'description',
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
+                            checklists: [
+                                {
+                                    id: 'YEhmF',
+                                    title: 'Checklist',
+                                    todos: [
+                                        {
+                                            id: 'td101',
+                                            title: 'First take a deep breath',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td102',
+                                            title: 'Grab a beer',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                            ],
+                            memberIds: ['u100', 'u101', 'u102', 'u103'],
+                            labelIds: ['l101', 'l102'],
+                            createdAt: 1590999730348,
+                            dueDate: 16156215211,
+                            byMember: {
+                                _id: 'u102',
+                                username: 'guy',
+                                fullname: 'Guy Elizarov',
+                                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+                            },
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            archivedAt: null
+                        },
+                    ],
+                    style: {},
+                },
+            ],
+            activities: [
+                {
+                    id: 'a101',
+                    txt: 'Changed Color',
+                    createdAt: 154514,
+                    byMember: {
+                        _id: 'u101',
+                        fullname: 'Barak Braun',
+                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                    },
+                    task: {
+                        id: 't107',
+                        title: 'Replace Logo',
+                    },
+                },
+            ],
+        },
         // {
         //     _id: 'b106',
         //     title: 'Sixth Board',
