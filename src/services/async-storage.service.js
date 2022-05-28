@@ -152,7 +152,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't102',
@@ -164,7 +165,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -177,7 +179,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                     ],
                     style: {},
@@ -196,7 +199,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             memberIds: [],
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't104',
@@ -554,7 +558,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't102',
@@ -565,7 +570,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -576,7 +582,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                     ],
                     style: {},
@@ -594,7 +601,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't104',
@@ -734,7 +742,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't102',
@@ -745,7 +754,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -756,7 +766,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                     ],
                     style: {},
@@ -774,7 +785,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't104',
@@ -929,7 +941,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't102',
@@ -940,7 +953,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -951,7 +965,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                     ],
                     style: {},
@@ -969,7 +984,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't104',
@@ -1109,7 +1125,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't102',
@@ -1120,7 +1137,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -1131,7 +1149,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                     ],
                     style: {},
@@ -1149,6 +1168,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
+                            archivedAt:null,
+                            checklists:[]
                         },
                         {
                             id: 't104',
