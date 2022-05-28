@@ -12,8 +12,9 @@ import checkBox from '../assets/img/checkbox.svg'
 
 import { setTask } from "../store/actions/board.action"
 import { labelService } from "../services/label.service"
+import { boardService } from "../services/board.service"
 
-export const TaskPreview = ({ task, board, group }) => {
+export const TaskPreview = ({ task, board, group, onOpenModal }) => {
 
     const [isTaskEditExpand, setTaskEditExpand] = useState(false)
     const [isMouseOver, setIsMouseOver] = useState(false)
@@ -38,38 +39,70 @@ export const TaskPreview = ({ task, board, group }) => {
         <section style={{ position: 'relative' }}>
             <Link to={`/board/${board._id}/task/${task.id}`}>
                 <div className="task-preview-container flex column" onClick={onSetTask}>
-                    {task.style.color &&
-                        <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
+                    <div className="task-preview">
+                        {task.style.color && <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
                         </div>
-                    }
-                    {task.style.imgUrl &&
-                        <div className="task-preview-img-container">
+                        }
+                        {task.style.imgUrl && <div className="task-preview-img-container">
                             <img src={task.style.imgUrl} />
                         </div>
-                    }
+                        }
 
-                    {task.labelIds && <div className="task-preview-labels flex" >
-                        {labelService.getLabelsByIds(task.labelIds, board).map(l => {
-                            return <div key={l.id} className="task-preview-label" style={{backgroundColor:l.color}}>
+                        {task.labelIds && <div className="task-preview-labels flex" >
+                            {labelService.getLabelsByIds(task.labelIds, board).map(l => {
+                                return <div key={l.id} className="task-preview-label" style={{ backgroundColor: l.color }}>
 
+                                </div>
+                            })}
+                        </div>}
+
+
+                        {/* <div className='members-list-container flex column'>
+                            <div className='members-avatars-container flex'>
+                                {boardService.getMembersByIds(task.memberIds, board)?.map((member) => {
+                                    return (
+                                        <div key={member.id} className='member-container flex' onClick={(ev) => {
+                                            ev.preventDefault()
+                                            onOpenModal('member', member)}}>
+                                            <img src={member.imgUrl} />
+                                        </div>
+                                    )
+                                })}
                             </div>
-                        })}
-                    </div>}
-                    <div className="task-preview">
+                        </div>  */}
+
                         <div className="flex space-between" style={{ borderRadius: taskBorderRadius }}>
                             <span className="task-preview-title">{task.title}</span>
                             <p className="edit-icon" onClick={onOpenTaskEdit}></p>
                         </div>
-                        {task.dueDate &&
-                            <div className="task-preview-date flex"
+
+
+
+                           
+
+                            {task.dueDate && <div className="task-preview-date flex"
                                 onMouseOver={() => setIsMouseOver(true)}
                                 onMouseOut={() => setIsMouseOver(false)}
                             >
                                 {!isMouseOver && <img src={clock} alt="" />}
                                 {isMouseOver && <img src={checkBox} alt="" />}
                                 <span>{moment(task.dueDate).format('MMMM D')}</span>
+                            </div>}
+
+                             <div className='members-list-container flex column'>
+                                <div className='members-avatars-container-task-preview flex'>
+                                    {boardService.getMembersByIds(task.memberIds, board)?.map((member) => {
+                                        return (
+                                            <div key={member.id} className='member-container flex' onClick={(ev) => {
+                                                ev.preventDefault()
+                                                onOpenModal('member', member)
+                                            }}>
+                                                <img src={member.imgUrl} />
+                                            </div>
+                                        )
+                                    })}
+                                </div>
                             </div>
-                        }
 
                     </div>
                 </div>

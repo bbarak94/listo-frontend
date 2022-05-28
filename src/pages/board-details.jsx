@@ -101,6 +101,7 @@ export const BoardDetails = () => {
                 >
                     {board.groups.map((group) => (
                         <BoardGroup
+                        onOpenModal= {onOpenModal}
                             group={group}
                             key={group.id}
                             board={board}
