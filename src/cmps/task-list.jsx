@@ -28,12 +28,11 @@ export const TaskList = ({ board, group, setTaskEditExpand }) => {
         // <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId={group.id}>
         {/* <Droppable droppableId='task-list'> */}
-                {(provided, snapshot) => (
+                {(provided) => (
                     <ul
                         className='task-list'
                         {...provided.droppableProps}
                         ref={provided.innerRef}
-                        style={{background: snapshot.isDraggingOver ? 'lightblue' : 'lightgrey'}}
                     >
                         {tasksToShow.map((task, index) => {
                             return (
