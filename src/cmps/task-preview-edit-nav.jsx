@@ -36,7 +36,6 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group }) => {
                 <button onClick={goToTaskDetails}><CreditCardIcon /><span>Open Card</span></button>
                 <button onClick={() => onHandleClick('labels')}><LabelIcon /><span>Edit labels</span></button>
                 <button onClick={() => onHandleClick('members')}><PersonOutlineIcon /><span>Change Members</span></button>
-                <button onClick={() => onHandleClick('members')}><PersonOutlineIcon /><span>Change Members</span></button>
                 <button onClick={() => onHandleClick('cover')}><WallpaperIcon /><span>Change Cover</span></button>
                 <button onClick={() => onHandleClick('move')}><ArrowForwardIcon /><span>Move</span></button>
                 <button onClick={() => onHandleClick('copy')}><ContentCopyIcon /><span>Copy</span></button>

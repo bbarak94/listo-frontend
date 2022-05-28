@@ -9,6 +9,7 @@ import { Cover } from './dynamic-cmps/cover'
 import { Dates } from './dynamic-cmps/dates'
 import { Member } from './dynamic-cmps/member'
 import { Checklist } from './dynamic-cmps/checklist'
+import { AddBoard } from './dynamic-cmps/add-board';
 
 const style = {
     position: 'absolute',
@@ -16,6 +17,7 @@ const style = {
     left: '50%',
     zIndex: 30,
     border: 'none',
+    outLine: 'none',
     transform: 'translate(-50%, -50%)',
     width: 'auto',
     bgcolor: 'background.paper',
@@ -40,13 +42,16 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
                 return <Dates task={task} board={board} group={group} handleClose={handleClose} />
             case 'checklist':
                 return <Checklist task={task} board={board} group={group} handleClose={handleClose} />
+            case 'add-board':
+                return <AddBoard task={task} board={board} group={group} handleClose={handleClose} />
         }
     }
 
     const [open, setOpen] = React.useState(isOpen);
     const handleOpen = () => setOpen(true);
+
     const handleClose = () => {
-        setOpen(false)
+        handleOpen(false)
         setIsOpen(false)
     }
 

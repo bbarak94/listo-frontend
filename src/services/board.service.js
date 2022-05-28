@@ -71,12 +71,14 @@ function getEmptyBoard() {
         style: {
             background: '#091e420a',
         },
-        labels: [{ id: 'l101', title: '', color: '#61BD4F' },
-        { id: 'l102', title: '', color: '#F2D600' },
-        { id: 'l103', title: '', color: '#FF9F1A' },
-        { id: 'l104', title: '', color: '#EB5A46' },
-        { id: 'l105', title: '', color: '#C377E0' },
-        { id: 'l106', title: '', color: '#0079BF' }],
+        labels: [
+            { id: 'l101', title: '', color: '#61BD4F' },
+            { id: 'l102', title: '', color: '#F2D600' },
+            { id: 'l103', title: '', color: '#FF9F1A' },
+            { id: 'l104', title: '', color: '#EB5A46' },
+            { id: 'l105', title: '', color: '#C377E0' },
+            { id: 'l106', title: '', color: '#0079BF' }
+        ],
         members: [
             {
                 _id: 'u100',
@@ -87,15 +89,18 @@ function getEmptyBoard() {
         groups: [
             {
                 id: utilService.makeId(),
-                title: '',
-                archivedAt: Date.now(),
-                tasks: [
-                    {
-                        id: 't101',
-                        title: 'Replace logo',
-                    },
-                ],
-                style: {},
+                title: 'Todo',
+                tasks: []
+            },
+            {
+                id: utilService.makeId(),
+                title: 'Doing',
+                tasks: []
+            },
+            {
+                id: utilService.makeId(),
+                title: 'Done',
+                tasks: []
             },
         ],
         activities: [
@@ -108,10 +113,6 @@ function getEmptyBoard() {
                     fullname: 'Guest',
                     imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
                 },
-                // task: {
-                //     id: 't107',
-                //     title: 'Replace Logo',
-                // },
             },
         ],
     }
@@ -145,10 +146,10 @@ async function addGroup(title, boardId) {
 async function updateGroup(groupToUpdate, boardId) {
     try {
         const board = await getById(boardId)
-        console.log('board:',board)
-        
+        console.log('board:', board)
+
         let groupIdx = board.groups.findIndex(currGroup => currGroup.id === groupToUpdate.id)
-        board.groups.splice(groupIdx,1,groupToUpdate)
+        board.groups.splice(groupIdx, 1, groupToUpdate)
         save(board)
         return board
     } catch (err) {
