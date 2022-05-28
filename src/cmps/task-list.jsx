@@ -2,41 +2,41 @@ import { TaskPreview } from './task-preview'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { useDispatch } from 'react-redux'
 import { updateGroup } from '../store/actions/board.action'
+import { useEffect, useRef } from 'react'
 
 export const TaskList = ({ board, group, setTaskEditExpand }) => {
     const dispatch = useDispatch()
+    // const tasksRef = useRef([])
+    
 
-    const handleOnDragEnd = (result) => {
-        const orderedTasks = [...group.tasks]
-        const [reorderedTask] = orderedTasks.splice(result.source.index, 1)
-        orderedTasks.splice(result.destination.index, 0, reorderedTask)
-        let newGroup = {...group}
-        newGroup.tasks = orderedTasks
-        dispatch(updateGroup(newGroup, board._id))
-    }
-
-    // if (!task.archivedAt) {
-    //     return <TaskPreview
-    //         task={task}
-    //         key={task.id}
-    //         boardId={boardId}
-    //         group={group}
-    //         setTaskEditExpand={setTaskEditExpand}
-    //     />
+    // useEffect(() => {
+    //     tasksRef.current = group.tasks.filter(task=> !task.archivedAt)
+    // }, [board])
+    
+    // const handleOnDragEnd = (result) => {
+    //     const orderedTasks = [...group.tasks]
+    //     const [reorderedTask] = orderedTasks.splice(result.source.index, 1)
+    //     orderedTasks.splice(result.destination.index, 0, reorderedTask)
+    //     let newGroup = { ...group }
+    //     newGroup.tasks = orderedTasks
+    //     dispatch(updateGroup(newGroup, board._id))
     // }
 
+    const tasksToShow = group.tasks.filter((task) => !task.archivedAt)
     return (
         // <section className='task-list'>
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Droppable droppableId='task-list'>
-                {(provided) => (
+        // <DragDropContext onDragEnd={handleOnDragEnd}>
+        <Droppable droppableId={group.id}>
+        {/* <Droppable droppableId='task-list'> */}
+                {(provided, snapshot) => (
                     <ul
                         className='task-list'
                         {...provided.droppableProps}
                         ref={provided.innerRef}
+                        style={{background: snapshot.isDraggingOver ? 'lightblue' : 'lightgrey'}}
                     >
-                        {group.tasks.map((task, index) => {
-                                if (!task.archivedAt) return (
+                        {tasksToShow.map((task, index) => {
+                            return (
                                 <Draggable
                                     key={task.id}
                                     draggableId={task.id}
@@ -66,7 +66,7 @@ export const TaskList = ({ board, group, setTaskEditExpand }) => {
                     </ul>
                 )}
             </Droppable>
-        </DragDropContext>
+        // </DragDropContext>
         // </section>
     )
 }

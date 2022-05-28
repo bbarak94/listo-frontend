@@ -150,7 +150,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't102',
@@ -161,7 +162,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't103',
@@ -172,7 +174,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                     ],
                     style: {},
@@ -190,7 +193,8 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            memberIds: []
+                            memberIds: [],
+                            archivedAt:null
                         },
                         {
                             id: 't104',
@@ -241,6 +245,7 @@ function _createBoards() {
                                 imgUrl: 'https://images.unsplash.com/photo-1644797694478-d12d4eab8cd8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880',
                                 isCoverSizeBig: true
                             },
+                            archivedAt:null
                         },
                     ],
                     style: {},
@@ -327,7 +332,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't102',
@@ -337,7 +343,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't103',
@@ -347,7 +354,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                     ],
                     style: {},
@@ -405,6 +413,7 @@ function _createBoards() {
                                 color: '#7BC86C',
                                 imgUrl: null
                             },
+                            archivedAt:null
                         },
                     ],
                     style: {},
@@ -491,7 +500,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't102',
@@ -501,7 +511,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't103',
@@ -511,7 +522,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                     ],
                     style: {},
@@ -528,7 +540,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't104',
@@ -580,6 +593,7 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
+                            archivedAt:null
                         },
                     ],
                     style: {},
@@ -666,7 +680,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't102',
@@ -676,7 +691,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't103',
@@ -686,7 +702,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                     ],
                     style: {},
@@ -703,7 +720,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't104',
@@ -754,6 +772,7 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
+                            archivedAt:null
                         },
                     ],
                     style: {},
@@ -841,7 +860,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't102',
@@ -851,7 +871,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't103',
@@ -861,7 +882,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                     ],
                     style: {},
@@ -878,7 +900,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't104',
@@ -930,6 +953,7 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
+                            archivedAt:null
                         },
                     ],
                     style: {},
@@ -1017,7 +1041,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't102',
@@ -1027,7 +1052,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                         {
                             id: 't103',
@@ -1037,7 +1063,8 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            dueDate: null
+                            dueDate: null,
+                            archivedAt:null
                         },
                     ],
                     style: {},

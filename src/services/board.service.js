@@ -25,7 +25,8 @@ export const boardService = {
     updateTask,
     getTaskAndGroup,
     removeTaskFromBoard,
-    getGroup
+    getGroup,
+    getGroupById
 }
 window.cs = boardService
 
@@ -144,9 +145,7 @@ async function addGroup(title, boardId) {
 
 async function updateGroup(groupToUpdate, boardId) {
     try {
-        const board = await getById(boardId)
-        console.log('board:',board)
-        
+        const board = await getById(boardId)        
         let groupIdx = board.groups.findIndex(currGroup => currGroup.id === groupToUpdate.id)
         board.groups.splice(groupIdx,1,groupToUpdate)
         save(board)
@@ -173,7 +172,8 @@ async function addTask(title, boardId, groupId) {
             color: null,
             imgUrl: null,
             isCoverSizeBig: false
-        }
+        },
+        archivedAt: null
     }
     try {
         const board = await getById(boardId)
@@ -224,6 +224,9 @@ function getGroup(board, taskId) {
     return board.groups.find((g) => {
         return g.tasks.find((t) => (t.id === taskId))
     })
+}
+function getGroupById(board, groupId) {
+    return board.groups.find((g) => g.id===groupId )
 }
 
 
