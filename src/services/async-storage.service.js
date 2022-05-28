@@ -97,7 +97,8 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                background: '#00c2e0',
+                bgColor: null,
+                bgImage: 'https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg'
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f', },
@@ -151,7 +152,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't102',
@@ -163,7 +164,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't103',
@@ -175,7 +176,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},
@@ -194,7 +195,7 @@ function _createBoards() {
                             },
                             dueDate: null,
                             memberIds: [],
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't104',
@@ -245,7 +246,7 @@ function _createBoards() {
                                 imgUrl: 'https://images.unsplash.com/photo-1644797694478-d12d4eab8cd8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880',
                                 isCoverSizeBig: true
                             },
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},
@@ -280,7 +281,8 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                background: '#f2d600',
+                bgColor: '#0079BF',
+                bgImage: null
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f', },
@@ -333,7 +335,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't102',
@@ -344,7 +346,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't103',
@@ -355,7 +357,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},
@@ -413,7 +415,7 @@ function _createBoards() {
                                 color: '#7BC86C',
                                 imgUrl: null
                             },
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},
@@ -448,7 +450,8 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                background: '#51e898',
+                bgColor: null,
+                bgImage: 'https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f', },
@@ -501,7 +504,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't102',
@@ -512,7 +515,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't103',
@@ -523,7 +526,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},
@@ -541,7 +544,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't104',
@@ -593,7 +596,7 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},
@@ -628,7 +631,8 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                background: '#eb5a46',
+                bgColor: null,
+                bgImage: 'https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg'
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f', },
@@ -681,7 +685,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't102',
@@ -692,7 +696,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't103',
@@ -703,7 +707,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},
@@ -721,7 +725,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't104',
@@ -772,7 +776,7 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},
@@ -793,7 +797,7 @@ function _createBoards() {
                         title: 'Replace Logo',
                     },
                 },
-            ],     
+            ],
 
         },
         {
@@ -807,8 +811,8 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                backgroundImg: null,
-                backgroundColor: '',
+                bgColor: null,
+                bgImage: 'https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg'
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f', },
@@ -861,7 +865,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't102',
@@ -872,7 +876,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't103',
@@ -883,7 +887,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},
@@ -901,7 +905,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't104',
@@ -953,7 +957,7 @@ function _createBoards() {
                                 imgUrl: null,
                                 isCoverSizeBig: false
                             },
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},
@@ -988,8 +992,8 @@ function _createBoards() {
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             style: {
-                backgroundImg: null,
-                backgroundColor: '',
+                bgColor: '#89609e',
+                bgImage: null
             },
             labels: [
                 { id: 'l108', title: 'Done', color: '#61bd4f', },
@@ -1042,7 +1046,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't102',
@@ -1053,7 +1057,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                         {
                             id: 't103',
@@ -1064,7 +1068,7 @@ function _createBoards() {
                                 isCoverSizeBig: false
                             },
                             dueDate: null,
-                            archivedAt:null
+                            archivedAt: null
                         },
                     ],
                     style: {},

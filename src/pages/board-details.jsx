@@ -85,7 +85,7 @@ export const BoardDetails = () => {
             <BoardHeaderNavBar board={board} onOpenModal={onOpenModal}/>
         </div>
 
-        <main className='board-details flex'>
+        <main className='board-details flex' style={{background: `url(${board.style.bgImage})`,backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: board.style.bgColor}}>
             <DragDropContext
                 // onDragEnd={handleOnDragEnd}
                 onDragEnd={handleOnDragEnd}
