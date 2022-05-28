@@ -50,7 +50,7 @@ export const TaskPreview = ({ task, board, group }) => {
 
                     {task.labelIds && <div className="task-preview-labels flex" >
                         {labelService.getLabelsByIds(task.labelIds, board).map(l => {
-                            return <div className="task-preview-label" style={{backgroundColor:l.color}}>
+                            return <div key={l.id} className="task-preview-label" style={{backgroundColor:l.color}}>
 
                             </div>
                         })}

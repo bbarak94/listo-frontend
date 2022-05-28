@@ -11,6 +11,7 @@ import { Dates } from './dynamic-cmps/dates'
 import { Member } from './dynamic-cmps/member'
 import { Checklist } from './dynamic-cmps/checklist'
 import { AddBoard } from './dynamic-cmps/add-board';
+import { WorkspaceNavModal } from './dynamic-cmps/workspace-nav-modal';
 
 const style = {
     position: 'absolute',
@@ -47,6 +48,8 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
                 return <Checklist task={task} board={board} group={group} handleClose={handleClose} />
             case 'add-board':
                 return <AddBoard task={task} board={board} group={group} handleClose={handleClose} />
+            case 'workspace-nav-modal':
+                return <WorkspaceNavModal task={task} board={board} group={group} handleClose={handleClose} />
         }
     }
 

@@ -1,29 +1,39 @@
 
 
 
-export const BoardHeaderNavBar = ({board})=>{
+export const BoardHeaderNavBar = ({ board, onOpenModal }) => {
 
 
 
 
 
 
+    return (<>
 
+        <div className="board-header-right-container">
+            <div className="board-title-btn">
+                <h2>{board.title}</h2>
+            </div>
+            <div className="star-btn"></div>
 
+            <div className="workspace-btn" onClick={() => onOpenModal('workspace-nav-modal')} >Workspace</div>
 
+            <div className='members-list-container flex column'>
+                <div className='members-avatars-container flex'>
+                    {board.members.map((member, idx) => {
+                        return (
+                            <div key={idx} className='member-container flex' onClick={() => onOpenModal('member', member)}>
+                                <img src={member.imgUrl} />
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </div>
 
-return(<>
+        <div className="board-header-left-container">
+            <div className="show-menu-btn">... Show menu </div>
+        </div>
 
-<div className="board-title"></div>
-<div className="show-menu"></div>
-<div className="star"></div>
-<div className="members-avatars-container flex"></div>
-
-
-</>
-
-)
-
-
-
+    </>)
 }

@@ -22,7 +22,7 @@ function getLabelsByIds(labelIds, board){
             labels.push(label)
         }
     })
-    console.log('getLabelsByIds ~ labels', labels)
+    // console.log('getLabelsByIds ~ labels', labels)
     return labels
 }
 
