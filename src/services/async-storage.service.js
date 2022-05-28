@@ -151,7 +151,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't102',
@@ -163,7 +164,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -176,7 +178,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                     ],
                     style: {},
@@ -195,7 +198,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             memberIds: [],
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't104',
@@ -551,7 +555,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't102',
@@ -562,7 +567,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -573,7 +579,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                     ],
                     style: {},
@@ -591,7 +598,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't104',
@@ -730,7 +738,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't102',
@@ -741,7 +750,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -752,7 +762,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                     ],
                     style: {},
@@ -770,7 +781,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't104',
@@ -924,7 +936,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't102',
@@ -935,7 +948,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't103',
@@ -946,7 +960,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                     ],
                     style: {},
@@ -964,7 +979,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            checklists:[]
                         },
                         {
                             id: 't104',
@@ -1039,6 +1055,7 @@ function _createBoards() {
                 },
             ],
         },
+<<<<<<< HEAD
         // {
         //     _id: 'b106',
         //     title: 'Sixth Board',
@@ -1233,6 +1250,207 @@ function _createBoards() {
         //         },
         //     ],
         // },
+=======
+        {
+            _id: 'b106',
+            title: 'Sixth Board',
+            archivedAt: null,
+            createdAt: 1589983468418,
+            createdBy: {
+                _id: 'u101',
+                fullname: 'Barak Braun',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+            },
+            style: {
+                bgColor: '#89609e',
+                bgImage: null
+            },
+            labels: [
+                { id: 'l108', title: 'Done', color: '#61bd4f' },
+                { id: 'l107', title: 'Progress', color: '#61bd33' },
+                { id: 'l101', title: '', color: '#61BD4F' },
+                { id: 'l102', title: '', color: '#F2D600' },
+                { id: 'l103', title: '', color: '#FF9F1A' },
+                { id: 'l104', title: '', color: '#EB5A46' },
+                { id: 'l105', title: '', color: '#C377E0' },
+                { id: 'l106', title: '', color: '#0079BF' },
+            ],
+            members: [
+                {
+                    id: 'u101',
+                    fullname: 'Barak Braun',
+                    username: 'barak',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                },
+                {
+                    id: 'u102',
+                    fullname: 'Guy Elizarov',
+                    username: 'guy',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+                },
+                {
+                    id: 'u103',
+                    fullname: 'Itai Rotstein',
+                    username: 'itai',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
+                },
+                {
+                    id: 'u104',
+                    fullname: 'Tommy Irmia',
+                    username: 'tommy',
+                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',
+                },
+            ],
+            groups: [
+                {
+                    id: 'g101',
+                    title: 'In Progress',
+                    archivedAt: 1589983468418,
+                    tasks: [
+                        {
+                            id: 't101',
+                            title: 'Replace logo',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            dueDate: null,
+                            archivedAt: null,
+                            checklists:[]
+                        },
+                        {
+                            id: 't102',
+                            title: 'Add Samples',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            dueDate: null,
+                            archivedAt: null,
+                            checklists:[]
+                        },
+                        {
+                            id: 't103',
+                            title: 'Make JSON Look Pretty',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            dueDate: null,
+                            archivedAt: null,
+                            checklists:[]
+                        },
+                    ],
+                    style: {},
+                },
+                {
+                    id: 'g102',
+                    title: 'QA',
+                    tasks: [
+                        {
+                            id: 't113',
+                            title: 'Test Filter Component',
+                            style: {
+                                color: null,
+                                imgUrl: null,
+                                isCoverSizeBig: false,
+                            },
+                            dueDate: null,
+                            archivedAt:null,
+                            checklists:[]
+                        },
+                        {
+                            id: 't104',
+                            title: 'Test headers new button',
+                            status: 'in-progress',
+                            description: 'description',
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
+                            checklists: [
+                                {
+                                    id: 'YEhaa',
+                                    title: 'First checklist',
+                                    todos: [
+                                        {
+                                            id: 'td131',
+                                            title: 'take one deep breath',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td132',
+                                            title: 'Grab some beersss',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                                {
+                                    id: 'bbhmF',
+                                    title: 'Second checklist',
+                                    todos: [
+                                        {
+                                            id: 'td141',
+                                            title: 'First of all take a deep breath',
+                                            isDone: false,
+                                        },
+                                        {
+                                            id: 'td142',
+                                            title: 'Grab only one beer',
+                                            isDone: true,
+                                        },
+                                    ],
+                                },
+                            ],
+                            memberIds: ['u100', 'u101', 'u102', 'u103', 'u104'],
+                            labelIds: ['l101', 'l102'],
+                            createdAt: 1590999730348,
+                            dueDate: 16156215211,
+                            byMember: {
+                                _id: 'u102',
+                                username: 'guy',
+                                fullname: 'Guy Elizarov',
+                                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+                            },
+                            style: {
+                                color: null,
+                                imgUrl: 'https://images.unsplash.com/photo-1631116616602-322db356c4fb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687',
+                                isCoverSizeBig: false,
+                            },
+                        },
+                    ],
+                    style: {},
+                },
+            ],
+            activities: [
+                {
+                    id: 'a101',
+                    txt: 'Changed Color',
+                    createdAt: 154514,
+                    byMember: {
+                        _id: 'u101',
+                        fullname: 'Barak Braun',
+                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                    },
+                    task: {
+                        id: 't107',
+                        title: 'Replace Logo',
+                    },
+                },
+            ],
+        },
+>>>>>>> 2b23307a6a57679f8b0a6fa37ac73c9c871fbfa3
     ]
 }
 

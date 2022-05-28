@@ -1,6 +1,6 @@
 .task-checklist {
    .top-container {
-      margin: 20px 10px 8px 10px;
+      margin: 14px 16px 6px 10px;
       align-items: center;
 
       .top-left-container {
@@ -40,6 +40,90 @@
       }
 
       color: $clr1;
+   }
+
+   .task-checklist-todo {
+      justify-content: space-between;
+      height: 40px;
+      padding: 0 12px;
+      align-items: center;
+      // background-color: $clr12;
+      &:hover{
+            cursor: pointer;
+            background-color: $clr13;
+   
+      }
+
+      .checkbox {
+         background-color: white;
+         min-width: 20px;
+         max-width: 20px;
+         min-height: 20px;
+         max-height: 20px;
+         border: 2px solid $clr1;
+         &:hover{
+            background-color: darken($color: $clr13, $amount: 1)
+         }
+      }
+      .checkbox-done {
+         background-color: #0079bf;
+         min-width: 20px;
+         max-width: 20px;
+         min-height: 20px;
+         max-height: 20px;
+         border: 2px solid transparent;
+         img{
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(104deg) brightness(103%) contrast(103%);
+            transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+         }
+         &:hover{
+            background-color: lighten($color: #3292ca, $amount: 10);
+         }
+      }
+
+      .todo-left-container {
+         align-items: center;
+         gap: 16px;
+      }
+
+      .todo-title {
+         font-size: 18px;
+         &:hover{
+            cursor: auto;
+         }
+      }
+      .todo-title-done{
+         text-decoration: line-through;
+      }
+
+      &:hover {
+         .todo-btns {
+            display: flex;
+
+         }
+      }
+
+      .todo-btns {
+         gap: 12px;
+
+         display: none;
+         margin-right: 6px;
+         align-content: center;
+
+         div {
+            display: flex;
+            min-width: 24px;
+            min-height: 24px;
+
+            // background-color: $clr11;
+            &:hover {
+               cursor: pointer;
+               background-color: darken($color: $clr12, $amount: 100);
+            }
+
+         }
+      }
    }
 
 }
