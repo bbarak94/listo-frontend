@@ -1,0 +1,28 @@
+
+
+.task-preview-labels{
+
+    flex-wrap: wrap;
+    .task-preview-label{
+        min-width: 40px;
+        min-height: 8px;
+        margin: 4px 2px;
+        border-radius: 5px;
+        &:hover{
+            // min-width: 56px;
+            // min-height: 16px;
+            // margin: 4px 2px;
+            // border-radius: 5px;
+        }
+
+    }
+
+    .task-preview-label-open{
+
+        min-width: 56px;
+        min-height: 16px;
+        margin: 4px 2px;
+        border-radius: 5px;
+    }
+
+}

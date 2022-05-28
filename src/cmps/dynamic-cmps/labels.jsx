@@ -6,18 +6,22 @@ import { useNavigate } from 'react-router-dom'
 
 import { useEffectUpdate } from '../../hooks/useEffectUpdate'
 
+import { AppModal } from '../app-modal'
+
 import { labelService } from '../../services/label.service'
 import { boardService } from '../../services/board.service'
 import { updateTask } from '../../store/actions/board.action'
-export const Labels = ({board, group, task}) => {
+export const Labels = ({ board, group, task }) => {
     // const { boardId, taskId } = useParams()
     const dispatch = useDispatch()
+    const [isOpen, setIsOpen] = useState(false)
+
 
     // const { board } = useSelector((storeState) => storeState.boardModule)
     // const [task, setTask] = useState(null)
-    
+
     // const currGroupRef = useRef(null)
-    
+
     // useEffect(() => {
     //     console.log('update')
     //     const { currGroup, currTask } = boardService.getTaskAndGroup(board, taskId)
@@ -38,7 +42,7 @@ export const Labels = ({board, group, task}) => {
         if (!task.labelIds) task.labelIds = []
         return task.labelIds.includes(labelId)
     }
-    
+
     const colors = [
         '#7BC86C',
         '#F5DD29',
@@ -51,7 +55,7 @@ export const Labels = ({board, group, task}) => {
         '#FF8ED4',
         '#172B4D'
     ]
-        
+
     return (
         <>
             {<div className="label">
@@ -67,8 +71,10 @@ export const Labels = ({board, group, task}) => {
                         )
                     })}
                 </ul>
-                <button> Create a new label</button>
+                <button onClick={()=>setIsOpen(true)} > Create a new label</button>
             </div>}
+
+            <AppModal  board={board} cmpType={'add-label'} isOpen={isOpen} setIsOpen={setIsOpen} />
 
 
             {/* {<div className="label-edit">
