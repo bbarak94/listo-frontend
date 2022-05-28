@@ -15,14 +15,14 @@ import { updateGroup, saveBoard } from '../store/actions/board.action'
 export const BoardDetails = () => {
     const params = useParams()
     const dispatch = useDispatch()
-    
+
     const [expandCardTitleGroupId, setExpandCardTitleId] = useState('')
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(null)
 
     const { board } = useSelector((storeState) => storeState.boardModule)
-        
+
     useEffect(() => {
         loadBoard()
     }, [params.boardId])
@@ -79,13 +79,20 @@ export const BoardDetails = () => {
     }
 
     if (!board) return <div>Loading...</div>
-
+    console.log('board', board)
     return (<>
         <div className="board-header flex">
-            <BoardHeaderNavBar board={board} onOpenModal={onOpenModal}/>
+            <BoardHeaderNavBar board={board} onOpenModal={onOpenModal} />
         </div>
 
-        <main className='board-details flex' style={{background: `url(${board.style.bgImage})`,backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: board.style.bgColor}}>
+        <main
+            className='board-details flex'
+            style={{
+                backgroundImage: `url(${board.style.background})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundColor: board.style.background
+            }}>
             <DragDropContext
                 // onDragEnd={handleOnDragEnd}
                 onDragEnd={handleOnDragEnd}
@@ -105,10 +112,10 @@ export const BoardDetails = () => {
             <Outlet />
         </main>
         <AppModal
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                cmpType={cmpType}
-                member={member}
-            />
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            cmpType={cmpType}
+            member={member}
+        />
     </>)
 }

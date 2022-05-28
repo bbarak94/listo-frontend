@@ -99,6 +99,7 @@ export function saveBoard(board) {
         try {
             const savedBoard = await boardService.save(board)
             dispatch({ type: actionType, board: savedBoard })
+            return savedBoard
         } catch(err) {
             throw err
         }

@@ -70,7 +70,7 @@ function getEmptyBoard() {
             imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg',
         },
         style: {
-            background: '#091e420a',
+            background: null,
         },
         labels: [
             { id: 'l101', title: '', color: '#61BD4F' },

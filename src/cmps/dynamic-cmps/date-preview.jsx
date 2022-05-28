@@ -1,25 +1,12 @@
 import moment from 'moment';
-import { useEffect, useState } from 'react';
-import { useEffectUpdate } from '../../hooks/useEffectUpdate';
 
-import { DynamicContent } from './dynamic-content';
-
-import { Dates } from './dates'
-
-export const DatePreview = ({ task }) => {
-
-    const [isDateExpand, setIsDateExpand] = useState(false)
-
-    useEffectUpdate(() => {
-        setIsDateExpand(false)
-    }, [task])
+export const DatePreview = ({ task, onOpenModal }) => {
 
     return (
         <section>
-            <div className="date-preview" onClick={() => setIsDateExpand(true)}>
+            <div className="date-preview" onClick={() => onOpenModal('dates')}>
                 <span>{moment(task.dueDate).format('MMMM D YYYY [at] h:mm a')}</span>
             </div>
-            {isDateExpand && <DynamicContent name={'dates'} />}
         </section>
     )
 }

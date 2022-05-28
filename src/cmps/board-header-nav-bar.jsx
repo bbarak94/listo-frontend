@@ -16,7 +16,7 @@ export const BoardHeaderNavBar = ({ board, onOpenModal }) => {
             </div>
 
             <div className="star-btn">
-                <input type="checkbox" class="star" checked />
+                {/* <input type="checkbox" className="star" checked /> */}
             </div>
 
             <div className="workspace-btn" onClick={() => onOpenModal('workspace-nav-modal')} >
