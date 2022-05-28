@@ -152,7 +152,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't102',
@@ -165,7 +166,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't103',
@@ -179,7 +181,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                     ],
                     style: {},
@@ -199,7 +202,8 @@ function _createBoards() {
                             dueDate: null,
                             memberIds: [],
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't104',
@@ -372,6 +376,7 @@ function _createBoards() {
                                     ],
                                 },
                             ],
+                            memberIds:[]
                         },
 
                         {
@@ -383,7 +388,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            memberIds:[]
                         },
                         {
                             id: 't103',
@@ -394,7 +400,8 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
-                            archivedAt: null
+                            archivedAt: null,
+                            memberIds:[]
                         },
                     ],
                     style: {},
@@ -556,7 +563,23 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[
+                                {
+                                    title: 'Borders',
+                                    todos: [
+                                        {
+                                            title: 'Make it linear',
+                                            isDone: false
+                                        },
+                                        {
+                                            title: 'Show Tommy',
+                                            isDone: true
+                                        }
+                                    ]
+                                }
+                            ],
+                            memberIds:[],
+                            description:'Changes to logo design, brighter colors ASAP, Guy on it until thursday'
                         },
                         {
                             id: 't102',
@@ -568,7 +591,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't103',
@@ -580,7 +604,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                     ],
                     style: {},
@@ -599,7 +624,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't104',
@@ -739,7 +765,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't102',
@@ -751,7 +778,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't103',
@@ -763,7 +791,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                     ],
                     style: {},
@@ -782,7 +811,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't104',
@@ -937,7 +967,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't102',
@@ -949,7 +980,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't103',
@@ -961,7 +993,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                     ],
                     style: {},
@@ -980,7 +1013,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[]
+                            checklists:[],
+                            memberIds:[]
                         },
                         {
                             id: 't104',

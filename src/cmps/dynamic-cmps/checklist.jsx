@@ -18,21 +18,6 @@ export const Checklist = ({ board, group, task }) => {
     const dispatch = useDispatch()
     const [title, setTitle] = useState('Checklist')
     const [fromChecklist, setFromChecklist] = useState('')
-    // const [task, setTask] = useState(null)
-    // const [group, setGroup] = useState(null)
-    // const { boardId, taskId } = useParams()
-    // const { board } = useSelector((storeState) => storeState.boardModule)
-
-    // useEffect(() => {
-    //     const { currTask, currGroup } = boardService.getTaskAndGroup(
-    //         board,
-    //         taskId
-    //     )
-    //     console.log('currTask:',currTask)
-
-    //     setTask(currTask)
-    //     setGroup(currGroup)
-    // }, [board])
 
     function selectText(ev) {
         ev.target.focus()

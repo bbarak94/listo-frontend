@@ -1,6 +1,6 @@
 import Logo from '../assets/img/listo.svg'
 import Button from '@mui/material/Button'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const AppHeader = () => {
     const navigation = useNavigate()

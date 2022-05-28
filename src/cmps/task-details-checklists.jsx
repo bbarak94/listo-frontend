@@ -8,7 +8,6 @@ export const TaskDetailsChecklists = ({ task, boardId, groupId }) => {
                 return (
                     <TaskDetailsChecklist 
                         key={idx} checklist={checklist} task={task} boardId={boardId} groupId={groupId}
-
                     />
                 )
             })}
