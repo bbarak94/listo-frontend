@@ -1,0 +1,48 @@
+.board-header {
+    flex-wrap: wrap;
+    // padding: 0 10px;
+    justify-content: space-between;
+
+    .board-header-right-container {
+        display: flex;
+        align-items: center;
+
+        &>* {
+            margin-left: 10px;
+        }
+
+        .board-title-btn {
+            @include btn;
+        }
+
+        .workspace-btn {}
+
+        .star-btn {}
+
+        .members-list-container {
+            margin: 0;
+        }
+    }
+
+    .board-header-left-container {
+        display: flex;
+        align-items: center;
+
+        .show-menu-btn {}
+    }
+}
+
+.view-workspace-btn {
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    line-height: 3;
+    width: 117%;
+    min-height: 30px;
+
+    &:hover {
+        background-color: rgba(9, 30, 66, 0.0784313725);
+        cursor: pointer;
+    }
+}

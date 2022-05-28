@@ -1,27 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { useState } from 'react'
-import { useEffectUpdate } from '../../hooks/useEffectUpdate'
+import { useDispatch } from 'react-redux'
 
 import { updateTask } from '../../store/actions/board.action'
-
-import { boardService } from '../../services/board.service'
 
 import cover1 from '../../assets/img/cover1.png'
 import cover2 from '../../assets/img/cover2.png'
 
 export const Cover = ({ task, board, group, handleClose }) => {
     const dispatch = useDispatch()
-    // const { boardId, taskId } = useParams()
-    // const [task, setTask] = useState(null)
-    // const [group, setGroup] = useState(null)
-    // const { board } = useSelector((storeState) => storeState.boardModule)
-
-    // useEffectUpdate(() => {
-    // const { task, currGroup } = boardService.getTaskAndGroup(board, task.id)
-    // setTask(currTask)
-    // setGroup(currGroup)
-    // }, [board])
 
     const colors = [
         '#7BC86C',

@@ -1,19 +1,24 @@
 .board-preview-btn {
    cursor: pointer;
    background-color: #091e420a;
-   min-height: 104px;
-   min-width: 194px;
-   margin: 14px 0;
+   // min-height: 104px;
+   // min-width: 194px;
+   // margin: 14px 0;
    padding: 0;
+
+   &:hover{
+      filter: brightness(70%);
+      background-color: #091e4223;
+   }
 
    div {
       margin: auto;
-      min-width: 100%;
-      min-height: 100%;
+      // min-width: 100%;
+      // min-height: 100%;
       border-radius: 4px;
    }
 
-   h2 {
+   h3 {
       color: #172b4d;
       margin: auto;
       font-size: 14px;
@@ -22,10 +27,12 @@
 
 .new-board-img-container {
    max-width: 200px;
+   padding: 8px;
+   border-radius: 3px;
 }
 
 .new-board-menu {
-   justify-content: space-around;
+   justify-content: space-evenly;
    align-items: center;
    min-height: 700px;
    min-width: 360px;
@@ -67,26 +74,34 @@
 .new-board-bgs-container {
    margin-top: 4px;
    gap: 5px;
+
+   .prev-bgImage {
+
+      // height: 100%;
+
+      width: 64px;
+      // height: 40px;
+      img {
+        
+         object-fit: cover;
+         height: 40px;
+        
+         border-radius: 3px;
+         cursor: pointer;
+      }
+
+      &:hover {
+         filter: brightness(89%);
+         // opacity: 0.7;
+         // border-width: 15px;
+      }
+
+   }
 }
 
-.prev-bg {
-
-   height: 100%;
-
-   img {
-      border-radius: 3px;
-   }
-
-   &:hover {
-      cursor: pointer;
-      // background-color: darken($color: $clr11, $amount: 50);
-      opacity: 0.5;
-      border-width: 15px;
-   }
-
-   .selected {
-      border: solid 1px #172b4d;
-   }
+.selected-bg {
+   box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #0079BF;
+   background-image: url();
 }
 
 
@@ -94,57 +109,56 @@
    gap: 5px;
 }
 
-.prev-bgc {
+.prev-bgColor {
    width: 40px;
    height: 32px;
    border-radius: 3px;
+   cursor: pointer;
 
    &:hover {
-      background-color: darken($color: #000000, $amount: 0);
-      cursor: pointer;
-      border-width: 15px;
+      filter: brightness(87%);
    }
 }
 
-.prev-bgc1 {
-   &:hover {
-      background-color: darken($color: $clr-bgs1, $amount: 5)
-   }
+// .prev-bgColor1 {
+//    &:hover {
+//       background-color: darken($color: $clr-bgs1, $amount: 5)
+//    }
 
-   background: $clr-bgs1;
-}
+//    background: $clr-bgs1;
+// }
 
-.prev-bgc2 {
-   &:hover {
-      background-color: darken($color: $clr-bgs2, $amount: 5)
-   }
+// .prev-bgColor2 {
+//    &:hover {
+//       background-color: darken($color: $clr-bgs2, $amount: 5)
+//    }
 
-   background: $clr-bgs2;
-}
+//    background: $clr-bgs2;
+// }
 
-.prev-bgc3 {
-   &:hover {
-      background-color: darken($color: $clr-bgs3, $amount: 5)
-   }
+// .prev-bgColor3 {
+//    &:hover {
+//       background-color: darken($color: $clr-bgs3, $amount: 5)
+//    }
 
-   background: $clr-bgs3;
-}
+//    background: $clr-bgs3;
+// }
 
-.prev-bgc4 {
-   &:hover {
-      background-color: darken($color: $clr-bgs4, $amount: 5)
-   }
+// .prev-bgColor4 {
+//    &:hover {
+//       background-color: darken($color: $clr-bgs4, $amount: 5)
+//    }
 
-   background: $clr-bgs4;
-}
+//    background: $clr-bgs4;
+// }
 
-.prev-bgc5 {
-   &:hover {
-      background-color: darken($color: $clr-bgs5, $amount: 5)
-   }
+// .prev-bgColor5 {
+//    &:hover {
+//       background-color: darken($color: $clr-bgs5, $amount: 5)
+//    }
 
-   background: $clr-bgs5;
-}
+//    background: $clr-bgs5;
+// }
 
 .prev-bgc-more {
    &:hover {
@@ -158,5 +172,3 @@
    justify-content: center;
    align-items: center;
 }
-
-.bg1 {}
