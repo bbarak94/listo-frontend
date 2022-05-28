@@ -1,17 +1,21 @@
-import CreditCardIcon from '@mui/icons-material/CreditCard';
-import LabelIcon from '@mui/icons-material/Label';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import WallpaperIcon from '@mui/icons-material/Wallpaper';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import ScheduleIcon from '@mui/icons-material/Schedule';
-import ArchiveIcon from '@mui/icons-material/Archive';
-import { DynamicPopup } from './dynamic-cmps/dynamic-cmp';
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-import { AppModal } from './app-modal';
-import { useState } from 'react';
+import CreditCardIcon from '@mui/icons-material/CreditCard'
+import LabelIcon from '@mui/icons-material/Label'
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
+import WallpaperIcon from '@mui/icons-material/Wallpaper'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import ScheduleIcon from '@mui/icons-material/Schedule'
+import ArchiveIcon from '@mui/icons-material/Archive'
+
+import { AppModal } from './app-modal'
+import { updateTask } from '../store/actions/board.action'
 
 export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group }) => {
+
+    const dispatch = useDispatch()
 
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
@@ -21,19 +25,22 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group }) => {
         setCmpType(type)
     }
 
+    const onToggleTaskToArchive = () => {
+        task.archivedAt = Date.now()
+        dispatch(updateTask(task, board._id, group.id))
+    }
+
     return (
         <>
             <nav className="task-edit-nav">
                 <button onClick={goToTaskDetails}><CreditCardIcon /><span>Open Card</span></button>
                 <button onClick={() => onHandleClick('labels')}><LabelIcon /><span>Edit labels</span></button>
                 <button onClick={() => onHandleClick('members')}><PersonOutlineIcon /><span>Change Members</span></button>
-                <DynamicPopup name={'members-prev'} />
-                {/* <button onClick={() => onHandleClick('members')}><PersonOutlineIcon /><span>Change Members</span></button> */}
                 <button onClick={() => onHandleClick('cover')}><WallpaperIcon /><span>Change Cover</span></button>
                 <button onClick={() => onHandleClick('move')}><ArrowForwardIcon /><span>Move</span></button>
                 <button onClick={() => onHandleClick('copy')}><ContentCopyIcon /><span>Copy</span></button>
                 <button onClick={() => onHandleClick('dates')}><ScheduleIcon /><span>Edit Dates</span></button>
-                <button onClick={() => onHandleClick('archive')}><ArchiveIcon /><span>Archive</span></button>
+                <button onClick={() => onToggleTaskToArchive()}><ArchiveIcon /><span>Archive</span></button>
             </nav>
             <AppModal
                 isOpen={isOpen}

@@ -1,5 +1,5 @@
 .board-details {
-    height: 100vh;
+    height: calc(100vh - 72px);
     overflow-x: auto;
     overflow-y: hidden;
     
@@ -9,4 +9,11 @@
         border-radius: 3px;
         background-color: $clr13;
     }
+    
+}
+
+.board-header{
+    min-height: 52px;
+    min-width: 100%;
+    background-color: #fff;
 }

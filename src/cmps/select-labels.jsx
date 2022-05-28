@@ -34,13 +34,13 @@ export function SelectLabels({ categories }) {
         </Select>
         <FormHelperText>With label + helper text</FormHelperText>
       </FormControl> */}
-            <FormControl sx={{ m: 1, minWidth: 240 }}>
+            <FormControl sx={{ m: 1, minWidth: 200 }}>
                 <Select
                     value={category}
                     onChange={handleChange}
                     displayEmpty
                     inputProps={{ 'aria-label': 'Without label' }}
-                    style={{maxHeight:36, color:'#5e6c84'}}
+                    style={{maxHeight:36, color:'#5e6c84', fontSize: '14px', fontStyle: 'normal'}}
                 >
                     <MenuItem value=''>
                         <em>choose a category</em>

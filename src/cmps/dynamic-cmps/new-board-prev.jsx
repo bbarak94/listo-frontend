@@ -1,12 +1,26 @@
-export function NewBoardPrev({ popupState, bindTrigger }) {
+import { useState } from 'react'
+
+import { AppModal } from '../app-modal'
+
+export function NewBoardPrev() {
+
+    const [isOpen, setIsOpen] = useState(false)
+
+    const onAddBoard = () => {
+        setIsOpen(true)
+    }
     return (
-        <div
-            {...bindTrigger(popupState)}
-            className='board-preview-btn flex column align-center justify-center'
-        >
-            <div className="flex">
-                <h2>create new board</h2>
+        <>
+            <div onClick={onAddBoard} className='board-preview-btn flex column align-center justify-center'>
+                <div className="flex">
+                    <h2>create new board</h2>
+                </div>
             </div>
-        </div>
+            <AppModal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                cmpType={'add-board'}
+            />
+        </>
     )
 }

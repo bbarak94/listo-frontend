@@ -10,8 +10,7 @@ import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
 import {ArchiveTask} from '../cmps/archive-task'
 
 
-
-export const TaskNavBar = ({ onOpenModal, board, task }) => {
+export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
 
     return (
         <>
@@ -105,7 +104,7 @@ export const TaskNavBar = ({ onOpenModal, board, task }) => {
                     <h2 >Custom Fields</h2>
                 </div>
 
-                <ArchiveTask  board={board} task={task} />
+                <ArchiveTask board={board} group={group} task={task} />
 
             </div>
         </>

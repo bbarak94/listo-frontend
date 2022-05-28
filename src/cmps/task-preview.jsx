@@ -11,9 +11,10 @@ import clock from '../assets/img/task/navbar/dates.svg'
 import checkBox from '../assets/img/checkbox.svg'
 
 import { setTask } from "../store/actions/board.action"
+import { labelService } from "../services/label.service"
 
 export const TaskPreview = ({ task, board, group }) => {
-    
+
     const [isTaskEditExpand, setTaskEditExpand] = useState(false)
     const [isMouseOver, setIsMouseOver] = useState(false)
     const dispatch = useDispatch()
@@ -46,6 +47,14 @@ export const TaskPreview = ({ task, board, group }) => {
                             <img src={task.style.imgUrl} />
                         </div>
                     }
+
+                    {task.labelIds && <div className="task-preview-labels flex" >
+                        {labelService.getLabelsByIds(task.labelIds, board).map(l => {
+                            return <div className="task-preview-label" style={{backgroundColor:l.color}}>
+
+                            </div>
+                        })}
+                    </div>}
                     <div className="task-preview">
                         <div className="flex space-between" style={{ borderRadius: taskBorderRadius }}>
                             <span className="task-preview-title">{task.title}</span>
@@ -61,6 +70,7 @@ export const TaskPreview = ({ task, board, group }) => {
                                 <span>{moment(task.dueDate).format('MMMM D')}</span>
                             </div>
                         }
+
                     </div>
                 </div>
             </Link>

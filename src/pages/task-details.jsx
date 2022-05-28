@@ -104,7 +104,7 @@ export const TaskDetails = () => {
                     <div className='task-details-content flex column'>
                         <div className='flex align-center'>
                             {task.memberIds && <MembersList board={board} task={task} onOpenModal={onOpenModal}/>}
-                            {task.labelIds && <LabelPreview board={board} task={task} />}
+                            {task.labelIds && <LabelPreview board={board} task={task} onOpenModal={onOpenModal}/>}
                             {task.dueDate && <DatePreview task={task} />}
                         </div>
                         <TaskDetailsDesc task={task} boardId={boardId} groupId={currGroupRef.current.id} />

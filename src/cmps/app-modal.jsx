@@ -4,11 +4,13 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
 import { Labels } from './dynamic-cmps/labels'
+import { AddLabel } from './dynamic-cmps/add-label'
 import { Members } from './dynamic-cmps/members'
 import { Cover } from './dynamic-cmps/cover'
 import { Dates } from './dynamic-cmps/dates'
 import { Member } from './dynamic-cmps/member'
 import { Checklist } from './dynamic-cmps/checklist'
+import { AddBoard } from './dynamic-cmps/add-board';
 
 const style = {
     position: 'absolute',
@@ -16,6 +18,7 @@ const style = {
     left: '50%',
     zIndex: 30,
     border: 'none',
+    outLine: 'none',
     transform: 'translate(-50%, -50%)',
     width: 'auto',
     bgcolor: 'background.paper',
@@ -30,6 +33,8 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         switch (cmpType) {
             case 'labels':
                 return <Labels task={task} board={board} group={group} handleClose={handleClose} />
+            case 'add-label':
+                return <AddLabel task={task} board={board} group={group} handleClose={handleClose} />
             case 'members':
                 return <Members task={task} board={board} group={group} handleClose={handleClose} />
             case 'member':
@@ -40,13 +45,16 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
                 return <Dates task={task} board={board} group={group} handleClose={handleClose} />
             case 'checklist':
                 return <Checklist task={task} board={board} group={group} handleClose={handleClose} />
+            case 'add-board':
+                return <AddBoard task={task} board={board} group={group} handleClose={handleClose} />
         }
     }
 
     const [open, setOpen] = React.useState(isOpen);
     const handleOpen = () => setOpen(true);
+
     const handleClose = () => {
-        setOpen(false)
+        handleOpen(false)
         setIsOpen(false)
     }
 
