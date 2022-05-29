@@ -1,31 +1,23 @@
-.board-list {
+.workspace {
    max-width: 825px;
    color: $clr1;
    margin: auto;
+   position: relative;
+   top: 80px;
+   padding: 0px 17px;
+
+   .board-list{
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+   }
 
    .title {
-      .close {
-         background-color: $clr11;
-         &:hover{
-            cursor: pointer;
-            background-color: darken($color: $clr11, $amount: 5);
-            border-width: 15px;
-         }
-
-         img {
-            max-width: 20px;
-         }
-
-      }
-
-      justify-content: space-between;
 
       h2 {
          font-size: 20px;
          margin: 0;
-
       }
-
       .icon-container {
          height: 32px;
          width: 32px;

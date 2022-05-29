@@ -70,7 +70,7 @@
         // margin-inline-start: 36px;
 
         h1 {
-            margin-bottom: 8px;
+            margin-bottom: 7px;
         }
 
 
@@ -78,11 +78,12 @@
             margin-bottom: 6px;
 
             .desc-header {
-                margin: 0 0 12px 0;
+                margin: 0 0 8px 0;
 
                 h3 {
                     position: relative;
                     right: 4px;
+                    margin-top: 2px;
 
                     // display: inline-block;
                     font-weight: 500;
@@ -98,7 +99,7 @@
                 margin-bottom: 10px;
                 background-color: $clr-opa2;
                 margin-left: 44px;
-                width: 89%;
+                width: 88.5%;
                 font-size: 14px;
                 padding: 8px 12px;
                 // margin: 4px 0;
@@ -213,7 +214,7 @@
     .task-previews {}
 
     .task-nav-bar {
-        margin-right: 10px;
+        margin-right: 12px;
     }
 
 }
@@ -228,7 +229,8 @@
 
     .date-preview {
         
-        max-width: 160px;
+        min-width: 155px;
+        max-width: 155px;
         padding: 12px 8px;
         display: flex;
         flex-direction: column;

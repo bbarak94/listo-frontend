@@ -171,6 +171,7 @@ a {
   max-width: 825px;
   color: #172B4D;
   margin: auto;
+  padding: 0 50px;
 }
 
 .board-list .title {

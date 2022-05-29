@@ -14,32 +14,32 @@ export const Workspace = () => {
         'Popular', 'Small business', 'Design', 'Education', 'Engineering-IT', 'Marketing', 'Human-resources', 'Operations', 'Sales-CRM'
     ]
 
-    return (
-        <div className='board-list'>
-            <AppHeader />
-            <div className='title flex workspace-main-layout'>
+    return (<>
+        <AppHeader />
+        <div className='workspace'>
+            <div className='title flex column'>
                 <div className='flex align-center'>
                     <div className='icon-container'>
                         <img src={templates} alt='templates' style={{ width: '25px' }} />
                     </div>
                     <h2>Most popular templates</h2>
                 </div>
-                <div className='icon-container close flex align-center justify-center'>
+                {/* <div className='icon-container close flex align-center justify-center'>
                     <img src={close} alt='close' style={{ width: '25px' }} />
-                </div>
-            </div>
-            <div className='flex align-center workspace-main-layout'>
-                <h3>
-                    Get going faster with a template from the Listo
-                    community or
-                </h3>
-                <div>
-                    <SelectLabels categories={categories} />
+                </div> */}
+                <div className='flex align-center '>
+                    <h3>
+                        Get going faster with a template from the Listo
+                        community or
+                    </h3>
+                    <div>
+                        <SelectLabels categories={categories} />
+                    </div>
                 </div>
             </div>
             <BoardList />
         </div>
-    )
+    </>)
 }
 
 {/* <div className='title flex'>

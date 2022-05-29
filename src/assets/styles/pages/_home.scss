@@ -4,13 +4,14 @@
    margin-top: 150px;
    // justify-content: space-between;
    justify-content: center;
+   gap: 40px;
 }
 
 .home-left-container {
    min-height: 315px;
    max-width: 580px;
    h1 {
-      margin: 8px;
+      padding: 0;
       font-size: 44px;
    }
    p {

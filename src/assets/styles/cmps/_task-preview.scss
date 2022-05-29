@@ -11,8 +11,12 @@
          border-radius: 3px 3px 0 0;
       }
 
-      .task-preview-img-container {
-         height: 163px;
+      .task-preview {
+         width: 100%;
+         border-radius: 0.2em;
+         box-shadow: 0 1px 0 #091e4240;
+         background-color: $clr10;
+         position: relative;
 
          img {
             object-fit: cover;
@@ -20,13 +24,14 @@
             border-radius: 3px 3px 0 0;
 
          }
-      }
 
-      .task-preview {
-         border-radius: 0.2em;
-         box-shadow: 0 1px 0 #091e4240;
-         background-color: $clr10;
-         // position: relative;
+         // }
+
+         // .task-preview {
+         //    border-radius: 0.2em;
+         //    box-shadow: 0 1px 0 #091e4240;
+         //    background-color: $clr10;
+         //    // position: relative;
 
          &:hover {
             background-color: darken($clr10, 5%);
@@ -87,6 +92,64 @@
       }
 
       .members-list-container {
+         padding: 4px 8px 0;
+         position: relative;
+      }
+
+      .members-avatars-container-task-preview {
+         justify-content: flex-end;
+         gap: 3px;
+         margin-bottom: 8px;
+
+         .task-preview-title {
+            width: 100%;
+
+            span {
+               background-color: lightblue;
+               // min-width: 100%;
+            }
+         }
+
+         .task-preview-date {
+
+            gap: 2px;
+
+            span {
+               margin: auto;
+            }
+
+            padding: 4px 8px 0;
+            // padding: 4px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: $clr8;
+            margin-bottom: 4px;
+
+            img {
+               margin-top: 1px;
+               margin-inline-end: 4px;
+               filter: invert(41%) sepia(27%) saturate(398%) hue-rotate(179deg) brightness(94%) contrast(86%);
+               width: 16px;
+            }
+
+            .member-container {
+               img {
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+               }
+            }
+         }
+
+      }
+
+      .preview-title {
+         padding: 6px 8px 0 8px;
+         // padding: 4px 8px 0;
+      }
+
+      .members-list-container {
+         margin-left: auto;
          padding: 4px 8px 0;
          position: relative;
       }

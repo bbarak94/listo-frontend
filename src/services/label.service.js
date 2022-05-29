@@ -1,11 +1,12 @@
 
-// import { utilService } from "./util.service"
+import { utilService } from "./util.service"
 
 export const labelService = {
     toggleLabel,
-    getLabelsByIds
+    getLabelsByIds,
+    getBasicColors,
+    getEmptyLabel
 }
-
 
 // function addLabelToTask(label, task) {
 //     if (!label.id) label.id = utilService.makeId()
@@ -14,27 +15,36 @@ export const labelService = {
 //     return task
 // }
 
-function getLabelsByIds(labelIds, board){
+function getLabelsByIds(labelIds, board) {
     if (!labelIds) return null
     const labels = []
     board.labels.forEach(label => {
-        if(labelIds.includes(label.id)){
+        if (labelIds.includes(label.id)) {
             labels.push(label)
         }
     })
-    // console.log('getLabelsByIds ~ labels', labels)
     return labels
 }
 
- function toggleLabel(labelId, task) {
-     const taskToUpdate = {...task}
+function toggleLabel(labelId, task) {
+    const taskToUpdate = { ...task }
     if (!taskToUpdate.labelIds) taskToUpdate.labelIds = []
-    if (taskToUpdate.labelIds.includes(labelId)){
-        taskToUpdate.labelIds =  taskToUpdate.labelIds.filter(l=>l!==labelId)
-    }else{
+    if (taskToUpdate.labelIds.includes(labelId)) {
+        taskToUpdate.labelIds = taskToUpdate.labelIds.filter(l => l !== labelId)
+    } else {
         taskToUpdate.labelIds.unshift(labelId)
     }
     return taskToUpdate
 }
 
+function getBasicColors() {
+    return ['#61BD4F', '#F2D600', '#FF9F1A', '#EB5A46', '#C377E0', '#0079BF', '#00C2E0', '#51E898', '#FF78CB', '#344563']
+}
 
+function getEmptyLabel() {
+    return {
+        id: utilService.makeId(),
+        title: '',
+        color: ''
+    }
+}

@@ -1,11 +1,10 @@
 .board-group {
     align-self: flex-start;
     position: relative;
-    margin: 0 9px;
+    margin: 0 4px;
     // z-index: 0;
     // max-height: calc(86vh);
     max-height: 100%;
-    margin: 0 4px;
     width: 272px;
     border-radius: 3px;
     background-color: $clr13;
@@ -60,7 +59,10 @@
     }
 
     .group-title {
-        padding: 10px 15.5px;
+        padding: 7px 12px 0;
+        input{
+            padding-right: 10px;
+        }
     }
 
     .group-title input {
