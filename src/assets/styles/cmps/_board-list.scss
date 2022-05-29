@@ -1,7 +1,8 @@
 .board-list {
    position: relative;
    top: 80px;
-   justify-content: space-between;
+   gap: 20px;
+   // justify-content: space-between;
    max-width: 950px;
    flex-wrap: wrap;
 

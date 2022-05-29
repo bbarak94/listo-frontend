@@ -1,10 +1,11 @@
 import { BoardList } from '../cmps/board-list'
+import {AppHeader} from '../cmps/app-header'
+import { SelectLabels } from '../cmps/select-labels'
+
 import templates from '../assets/img/workspace/templates.svg'
 import close from '../assets/img/workspace/close.svg'
 import starStroke from '../assets/img/workspace/star-stroke.svg'
 import clock from '../assets/img/workspace/clock.svg'
-import { SelectLabels } from '../cmps/select-labels'
-import {AppHeader} from '../cmps/app-header'
 
 
 
@@ -45,7 +46,7 @@ export const Workspace = () => {
                 </div>
             </div>
             <BoardList />
-            <div className='title flex'>
+            {/* <div className='title flex'>
                 <div className='flex align-center'>
                     <div className='icon-container'>
                         <img
@@ -56,8 +57,8 @@ export const Workspace = () => {
                     </div>
                     <h2>Starred boards</h2>
                 </div>
-            </div>
-            <div className='title flex'>
+            </div> */}
+            {/* <div className='title flex'>
                 <div className='flex align-center'>
                     <div className='icon-container'>
                         <img
@@ -68,7 +69,7 @@ export const Workspace = () => {
                     </div>
                     <h2>Recently viewed</h2>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

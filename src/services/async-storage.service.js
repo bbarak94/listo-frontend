@@ -152,8 +152,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't102',
@@ -166,8 +166,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't103',
@@ -181,8 +181,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                     ],
                     style: {},
@@ -202,8 +202,8 @@ function _createBoards() {
                             dueDate: null,
                             memberIds: [],
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't104',
@@ -376,7 +376,7 @@ function _createBoards() {
                                     ],
                                 },
                             ],
-                            memberIds:[]
+                            memberIds: []
                         },
 
                         {
@@ -389,8 +389,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            memberIds:[],
-                            checklists:[]
+                            memberIds: [],
+                            checklists: []
                         },
                         {
                             id: 't103',
@@ -402,8 +402,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            memberIds:[],
-                            checklists:[]
+                            memberIds: [],
+                            checklists: []
                         },
                     ],
                     style: {},
@@ -560,12 +560,12 @@ function _createBoards() {
                             title: 'Replace logo',
                             style: {
                                 color: null,
-                                imgUrl: null,
+                                imgUrl: 'https://www.howtogeek.com/wp-content/uploads/csit/2021/01/24b43beb.jpg?height=200p&trim=2,2,2,2',
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[
+                            checklists: [
                                 {
                                     title: 'Borders',
                                     todos: [
@@ -580,8 +580,8 @@ function _createBoards() {
                                     ]
                                 }
                             ],
-                            memberIds:[],
-                            description:'Changes to logo design, brighter colors ASAP, Guy on it until thursday'
+                            memberIds: [],
+                            description: 'Changes to logo design, brighter colors ASAP, Guy on it until thursday'
                         },
                         {
                             id: 't102',
@@ -593,8 +593,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't103',
@@ -606,8 +606,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                     ],
                     style: {},
@@ -626,8 +626,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't104',
@@ -767,8 +767,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't102',
@@ -780,8 +780,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't103',
@@ -793,8 +793,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                     ],
                     style: {},
@@ -813,8 +813,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't104',
@@ -969,8 +969,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't102',
@@ -982,8 +982,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't103',
@@ -995,8 +995,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                     ],
                     style: {},
@@ -1015,8 +1015,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't104',
@@ -1156,21 +1156,21 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't302',
                             title: 'Add demo data',
                             style: {
                                 color: null,
-                                imgUrl: null,
+                                imgUrl: 'https://images.unsplash.com/photo-1632882765546-1ee75f53becb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80',
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't303',
@@ -1182,8 +1182,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                     ],
                     style: {},
@@ -1202,8 +1202,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:['u101']
+                            checklists: [],
+                            memberIds: ['u101']
                         },
                         {
                             id: 't306',
@@ -1243,7 +1243,7 @@ function _createBoards() {
                             memberIds: [],
                             labelIds: ['l101', 'l102'],
                             createdAt: 1590999730348,
-                            dueDate: 16156215211,
+                            dueDate: 1653806055000,
                             byMember: {
                                 _id: 'u102',
                                 username: 'guy',
@@ -1274,8 +1274,8 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[],
-                            memberIds:[]
+                            checklists: [],
+                            memberIds: []
                         },
                         {
                             id: 't104',
@@ -1312,10 +1312,10 @@ function _createBoards() {
                                     ],
                                 },
                             ],
-                            memberIds: ['u101', 'u102','u103', 'u104'],
+                            memberIds: ['u101', 'u102', 'u103', 'u104'],
                             labelIds: ['l101', 'l102'],
                             createdAt: 1590999730348,
-                            dueDate: 16156215211,
+                            dueDate: 1651213844000,
                             byMember: {
                                 _id: 'u102',
                                 username: 'guy',
@@ -1346,7 +1346,7 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
-                            checklists:[
+                            checklists: [
                                 {
                                     id: 'YE2561mF',
                                     title: 'UI',
@@ -1373,13 +1373,13 @@ function _createBoards() {
                                         },
                                     ],
                                 },
-                                
+
 
                             ],
-                            memberIds:[]
+                            memberIds: []
                         },
                         {
-                            id: 't104',
+                            id: 't645',
                             title: 'Test headers new button',
                             status: 'in-progress',
                             description: 'description',
@@ -1414,9 +1414,9 @@ function _createBoards() {
                                 },
                             ],
                             memberIds: ['u100', 'u101', 'u102', 'u103'],
-                            labelIds: ['l101', 'l102'],
+                            labelIds: ['l101', 'l103', 'l105'],
                             createdAt: 1590999730348,
-                            dueDate: 16156215211,
+                            dueDate: 1648535444000,
                             byMember: {
                                 _id: 'u102',
                                 username: 'guy',
@@ -1425,7 +1425,7 @@ function _createBoards() {
                             },
                             style: {
                                 color: null,
-                                imgUrl: null,
+                                imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/18/React_Native_Logo.png',
                                 isCoverSizeBig: false,
                             },
                             archivedAt: null

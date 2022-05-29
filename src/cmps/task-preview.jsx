@@ -51,7 +51,6 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
                         {task.labelIds && <div className="task-preview-labels flex" >
                             {labelService.getLabelsByIds(task.labelIds, board).map(l => {
                                 return <div key={l.id} className="task-preview-label" style={{ backgroundColor: l.color }}>
-
                                 </div>
                             })}
                         </div>}
@@ -78,8 +77,8 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
 
 
 
-                           
 
+                        <div className="flex space-between">
                             {task.dueDate && <div className="task-preview-date flex"
                                 onMouseOver={() => setIsMouseOver(true)}
                                 onMouseOut={() => setIsMouseOver(false)}
@@ -89,7 +88,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
                                 <span>{moment(task.dueDate).format('MMMM D')}</span>
                             </div>}
 
-                             <div className='members-list-container flex column'>
+                            <div className='members-list-container flex column'>
                                 <div className='members-avatars-container-task-preview flex'>
                                     {boardService.getMembersByIds(task.memberIds, board)?.map((member) => {
                                         return (
@@ -103,7 +102,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
                                     })}
                                 </div>
                             </div>
-
+                        </div>
                     </div>
                 </div>
             </Link>

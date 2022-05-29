@@ -11,7 +11,7 @@
 
 .task-details {
     z-index: 100;
-    padding: 20px;
+    // padding: 20px;
     background-color: $clr11;
     min-height: 80.5vh;
     min-width: 72vw;
@@ -23,7 +23,7 @@
     .task-details-cover-color {
         height: 116px;
         width: 100%;
-        margin: -20px auto;
+        // margin: -20px auto;
         margin-bottom: 10px;
     }
 
@@ -52,12 +52,14 @@
 
     .task-details-content {
         flex-grow: 1;
+        margin-inline-end: 16px;
+
 
         .task-desc {
 
             h3 {
                 display: inline-block;
-                margin: 0 8px 12px 0;
+                margin: 12px 8px 12px 0;
                 font-weight: 500 ;
             }
 
@@ -67,7 +69,7 @@
             
             textarea {
                 background-color: $clr-opa2;
-                width: 98%;
+                width: 100%;
                 font-size: 14px;
                 padding: 8px 12px;
                 margin: 4px 0;
@@ -113,7 +115,8 @@
 
         &:hover {
             cursor: pointer;
-            background-color: darken($color: $clr11, $amount: 5);
+            // background-color: darken($color: $clr11, $amount: 5);
+            background-color: rgba(0, 0, 0, 0.096);
             border-radius: 50%;
         }
 
@@ -173,8 +176,13 @@
 }
 
 .date-preview {
+    text-align: start;
     background-color: $clr-opa2;
-    margin: auto 0;
-    padding: 6px 12px;
+    // margin: auto 0;
+    padding: 16px 12px 0;
     border-radius: 3px;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-end;
+
 }

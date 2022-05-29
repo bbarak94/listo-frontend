@@ -115,7 +115,7 @@ export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
 
     const onAddTodo = () => {
         const todo = boardService.getEmptyTodo()
-        // checklist = {...checklist}
+        todo.title = title
         checklist.todos.push(todo)
         dispatch(updateTask(task, boardId, groupId))
     }
@@ -140,8 +140,8 @@ export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
         <div className='task-checklist flex column'>
             <div className='top-container flex space-between'>
                 <div className='top-left-container flex'>
-                    <div>
-                        <CheckBoxOutlinedIcon style={{ width: '26px' }} />
+                    <div >
+                        <CheckBoxOutlinedIcon style={{ width: '26px'}} />
                     </div>
                     <h2>{checklist.title}</h2>
                 </div>

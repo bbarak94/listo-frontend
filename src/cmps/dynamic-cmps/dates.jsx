@@ -12,7 +12,7 @@ import { updateTask } from '../../store/actions/board.action'
 export const Dates = ({ task, board, group, handleClose }) => {
 
   const dispatch = useDispatch()
-  const [date, setDate] = React.useState(new Date(task.dueDate))
+  const [date, setDate] = React.useState(new Date())
 
   const onHandleSave = () => {
     const taskToUpdate = { ...task }
@@ -20,10 +20,11 @@ export const Dates = ({ task, board, group, handleClose }) => {
     dispatch(updateTask(taskToUpdate, board._id, group.id))
     handleClose(false)
   }
+  console.log('date', date)
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <div className='flex column justify-center align-center' style={{padding: '14px'}}>
+      <div className='flex column justify-center align-center' style={{ padding: '14px' }}>
         <h4>Dates</h4>
         <Grid item xs={12} md={6}>
           <CalendarPicker date={date} onChange={(newDate) => setDate(newDate)} />

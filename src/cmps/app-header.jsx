@@ -1,7 +1,7 @@
 import navBar from '../assets/img/header/navbar.svg'
 import downArrow from '../assets/img/header/down-arrow.svg'
 import Button from '@mui/material/Button'
-import {  useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -22,6 +22,9 @@ export const AppHeader = () => {
                 <div
                     className='app-header-logo-static flex'
                     style={{ width: '80px' }}
+                    onClick={() => {
+                        navigation(`/`)
+                    }}
                 >
                     <img
                         src='https://res.cloudinary.com/bbarak94/image/upload/v1653768105/ListoStatic2_z2ecxu.gif'
@@ -35,9 +38,7 @@ export const AppHeader = () => {
                             ev.target.src =
                                 'https://res.cloudinary.com/bbarak94/image/upload/v1653768105/ListoStatic2_z2ecxu.gif'
                         }}
-                        onClick={() => {
-                        navigation(`/`)
-                    }}
+
                     />
                 </div>
 

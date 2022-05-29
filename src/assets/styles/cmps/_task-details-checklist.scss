@@ -1,7 +1,6 @@
 .task-checklist {
-
    .top-container {
-      margin: 14px 16px 6px 10px;
+      // margin: 14px 16px 6px -4px;
       align-items: center;
 
       .top-left-container {
@@ -45,8 +44,7 @@
 
    .task-checklist-todo {
       justify-content: space-between;
-      height: 40px;
-      padding: 0 12px;
+      height: 30px;
       align-items: center;
 
       // background-color: $clr12;
@@ -58,12 +56,12 @@
 
       .checkbox {
          background-color: white;
-         min-width: 20px;
-         max-width: 20px;
-         min-height: 20px;
-         max-height: 20px;
+         min-width: 15px;
+         max-width: 15px;
+         min-height: 15px;
+         max-height: 15px;
          border: 2px solid $clr1;
-
+         border-radius: 3px;
          &:hover {
             background-color: darken($color: $clr13, $amount: 1)
          }
@@ -71,16 +69,20 @@
 
       .checkbox-done {
          background-color: #0079bf;
-         min-width: 20px;
-         max-width: 20px;
-         min-height: 20px;
-         max-height: 20px;
+         min-width: 15px;
+         max-width: 15px;
+         min-height: 15px;
+         max-height: 15px;
          border: 2px solid transparent;
-
+         border-radius: 3px;
+            
          img {
             filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(104deg) brightness(103%) contrast(103%);
             transform: scaleX(-1);
             -webkit-transform: scaleX(-1);
+            position: relative;
+            right: 2px;
+            bottom: 2px;
          }
 
          &:hover {
@@ -94,7 +96,7 @@
       }
 
       .todo-title {
-         font-size: 18px;
+         font-size: 14px;
 
          &:hover {
             cursor: auto;

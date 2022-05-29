@@ -14,7 +14,7 @@ import Select from '@mui/material/Select'
 import { utilService } from '../../services/util.service'
 import { updateTask } from '../../store/actions/board.action'
 
-export const Checklist = ({ board, group, task }) => {
+export const Checklist = ({ board, group, task, handleClose }) => {
     const dispatch = useDispatch()
     const [title, setTitle] = useState('Checklist')
     const [fromChecklist, setFromChecklist] = useState('')
@@ -43,6 +43,7 @@ export const Checklist = ({ board, group, task }) => {
             todos: [],
         })
         dispatch(updateTask(newTask, board._id, group.id))
+        handleClose()
     }
     console.log('task:', task)
     console.log('task.checklists:', task.checklists)

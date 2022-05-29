@@ -56,7 +56,7 @@ export const TaskDetails = () => {
         dispatch(getBoard(boardId))
     }
 
-    const onHandleScreenClick = () => {
+    const onCloseTaskDetails = () => {
         navigate(`/board/${boardId}`)
     }
 
@@ -64,7 +64,7 @@ export const TaskDetails = () => {
 
     return (
         <>
-            <Screen cb={onHandleScreenClick} />
+            <Screen cb={onCloseTaskDetails} />
             <div className='task-details flex column'>
                 {task.archivedAt && (
                     <div className='task-archived-indication'>
@@ -97,20 +97,22 @@ export const TaskDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className='icon-container close flex'>
-                    <img src={close} alt='close' style={{ width: '21px' }} />
-                </div>
-                <div className='task-main-layout flex'>
-                    <div className='task-details-content flex column'>
-                        <div className='flex align-center'>
-                            {task.memberIds && <MembersList board={board} task={task} onOpenModal={onOpenModal} />}
-                            {task.labelIds && <LabelPreview board={board} task={task} onOpenModal={onOpenModal} />}
-                            {task.dueDate && <DatePreview board={board} task={task} onOpenModal={onOpenModal} />}
-                        </div>
-                        <TaskDetailsDesc task={task} boardId={boardId} groupId={currGroupRef.current.id} />
-                        <TaskDetailsChecklists task={task} boardId={boardId} groupId={currGroupRef.current.id} />
+                <div className='task-details-inner-container' style={{ padding: '20px' }}>
+                    <div className='icon-container close flex' onClick={onCloseTaskDetails}>
+                        <img src={close} alt='close' style={{ width: '21px' }} />
                     </div>
-                    <TaskNavBar board={board} group={currGroupRef.current} task={task} onOpenModal={onOpenModal} />
+                    <div className='task-main-layout flex'>
+                        <div className='task-details-content flex column'>
+                            <div className='upper-content flex '>
+                                {task.memberIds && <MembersList board={board} task={task} onOpenModal={onOpenModal} />}
+                                {task.labelIds && <LabelPreview board={board} task={task} onOpenModal={onOpenModal} />}
+                                {task.dueDate && <DatePreview board={board} task={task} onOpenModal={onOpenModal} />}
+                            </div>
+                            <TaskDetailsDesc task={task} boardId={boardId} groupId={currGroupRef.current.id} />
+                            <TaskDetailsChecklists task={task} boardId={boardId} groupId={currGroupRef.current.id} />
+                        </div>
+                        <TaskNavBar board={board} group={currGroupRef.current} task={task} onOpenModal={onOpenModal} />
+                    </div>
                 </div>
             </div>
             <AppModal
