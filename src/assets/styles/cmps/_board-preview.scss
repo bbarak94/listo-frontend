@@ -1,11 +1,11 @@
 .board-preview {
    flex: 1 0 22%;
    max-width: 23.5%;
-   min-height: 96px;
    min-width: 22%;
-   // margin-top: 2%;
+   min-height: 96px;
+   margin-top: 2%;
    padding: 8px;
-   border-radius: 6px;
+   border-radius: 4px;
    cursor: pointer;
 
    &:hover {
@@ -34,5 +34,14 @@
 
       }
    }
+
+}
+
+.workspace-main-layout{
+
+   margin: 40px 16px 0;
+   max-width: 825px;
+   min-width: 288px;
+   width: 100%;
 
 }
