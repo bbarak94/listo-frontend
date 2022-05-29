@@ -44,6 +44,7 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand }) => {
             <div className="task-title-edit">
                 <form onSubmit={onHandleSubmit}>
                     <textarea
+                        dir="auto"
                         onKeyDown={onEnterPress}
                         onChange={onHandleChange}
                         onFocus={(ev) => ev.target.select()}

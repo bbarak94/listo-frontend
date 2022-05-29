@@ -1157,7 +1157,8 @@ function _createBoards() {
                             dueDate: null,
                             archivedAt: null,
                             checklists: [],
-                            memberIds: []
+                            memberIds: [],
+                            labelIds: []
                         },
                         {
                             id: 't302',
