@@ -12,25 +12,8 @@ import { labelService } from '../../services/label.service'
 import { boardService } from '../../services/board.service'
 import { updateTask } from '../../store/actions/board.action'
 export const Labels = ({ board, group, task }) => {
-    // const { boardId, taskId } = useParams()
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false)
-
-
-    // const { board } = useSelector((storeState) => storeState.boardModule)
-    // const [task, setTask] = useState(null)
-
-    // const currGroupRef = useRef(null)
-
-    // useEffect(() => {
-    //     console.log('update')
-    //     const { currGroup, currTask } = boardService.getTaskAndGroup(board, taskId)
-    //     console.log('useEffectUpdate ~ currGroup', currGroup)
-    //     currGroupRef.current = currGroup
-    //     setTask(currTask)
-    // }, [board])
-
-
 
     const onToggleLabel = async (labelId) => {
         const updatedTask = await labelService.toggleLabel(labelId, task)
@@ -74,20 +57,7 @@ export const Labels = ({ board, group, task }) => {
                 <button onClick={()=>setIsOpen(true)} > Create a new label</button>
             </div>}
 
-            <AppModal  board={board} cmpType={'add-label'} isOpen={isOpen} setIsOpen={setIsOpen} />
-
-
-            {/* {<div className="label-edit">
-                <p>Create label</p>
-                <hr />
-                <input type="text" />
-                <div className='cover-colors'>
-                    {colors.map((color, idx) =>
-                        <button key={idx} style={{ backgroundColor: color }}></button>
-                    )}
-                </div>
-                <button> create new label</button>
-            </div>} */}
+            <AppModal  board={board} cmpType={'edit-label'} isOpen={isOpen} setIsOpen={setIsOpen} />
         </>
     )
 }
