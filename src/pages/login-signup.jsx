@@ -9,12 +9,14 @@ import OutlinedInput from '@mui/material/OutlinedInput'
 import AppleIcon from '@mui/icons-material/Apple'
 import microsoft from '../assets/img/login-signup/microsoft.png'
 import google from '../assets/img/login-signup/google.png'
+import { ContactlessOutlined } from '@mui/icons-material'
 
 export function LoginSignup() {
     const navigation = useNavigate()
     const location = useLocation()
     // const params = useParams()
     console.log('location.pathname:', location.pathname)
+    console.log('Shinuy katan')
     return (
         <div className='login-signup flex justify-center'>
             <div className='login-logo-container'>
