@@ -1,10 +1,17 @@
 .task-checklist {
    .top-container {
       // margin: 14px 16px 6px -4px;
+      margin-right: 18px;
+      margin-top: 10px;
       align-items: center;
 
       .top-left-container {
-         gap: 10px;
+         h2{
+            position: relative;
+            right: 4px;
+            margin-top: 2px;
+            font-size: 16px;
+         }
       }
 
       h2 {
@@ -43,6 +50,7 @@
    }
 
    .task-checklist-todo {
+      margin-inline-start: 46px;
       justify-content: space-between;
       height: 30px;
       align-items: center;
@@ -147,6 +155,10 @@
       border-radius: 3px;
       box-shadow: inset 0 0 0 2px #0079bf;
       line-height: 20px;
+   }
+   Button{
+      margin-left: 46px ;
+      margin-top: 8px;
    }
 
 }

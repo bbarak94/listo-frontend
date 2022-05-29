@@ -103,7 +103,7 @@ export const TaskDetails = () => {
                     </div>
                     <div className='task-main-layout flex'>
                         <div className='task-details-content flex column'>
-                            <div className='upper-content flex '>
+                            <div className='upper-content flex'>
                                 {task.memberIds && <MembersList board={board} task={task} onOpenModal={onOpenModal} />}
                                 {task.labelIds && <LabelPreview board={board} task={task} onOpenModal={onOpenModal} />}
                                 {task.dueDate && <DatePreview board={board} task={task} onOpenModal={onOpenModal} />}

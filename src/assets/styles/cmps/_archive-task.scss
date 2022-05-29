@@ -22,8 +22,10 @@
 
 .task-archived-indication {
     display: flex;
+    position: relative;
+    bottom: 20px;
     align-content: center;
-    justify-content: start;
+    // justify-content: start;
     min-width: 100%;
     background-color: #FDFAE5;
     background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.05) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0.05) 75%, transparent 75%, transparent);
@@ -32,14 +34,15 @@
     height: 50px;
 
     p{
+        align-self: center;
         font-size: 16px;
         line-height: 60px;
         margin: 0;
     }
     img{
-        margin-left: 20px;
-        margin-right: 5px;
-        margin-top: 10px;
+        margin-left: 18px;
+        margin-right: 14px;
+        // margin-top: 10px;
     }
     
 }

@@ -1,11 +1,11 @@
 .label-preview-container {
     display: flex;
     flex-direction: column;
-    margin: 0 8px;
-    padding: 4px;
+
+    margin: 0 16px;
+    // padding: 4px;
 
     h1 {
-
         font-size: 12px;
         color: #5e6c84;
         font-weight: 500;
@@ -13,6 +13,7 @@
     }
 
     .label-preview-flex {
+        margin-top: 2px;
         display: flex;
 
         .label-preview {
@@ -20,7 +21,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 3px;
+            padding: 0 12px;
             margin: 0 2px;
             border-radius: 3px;
             min-width: 40px;
