@@ -5,12 +5,10 @@ import { useEffect } from "react"
 import { useDispatch } from 'react-redux'
 import { updateGroup } from '../store/actions/board.action'
 
-export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, setTaskEditExpand,onOpenModal }) => {
- 
+export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, setTaskEditExpand, onOpenModal }) => {
 
     return <article className="board-group flex column">
-        
-        
+
         <GroupTitleEdit
             groupTitle={group.title}
             group={group}
@@ -18,7 +16,7 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
         />
 
         <TaskList
-        onOpenModal={onOpenModal}
+            onOpenModal={onOpenModal}
             board={board}
             group={group}
             setTaskEditExpand={setTaskEditExpand}
@@ -29,7 +27,6 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
             groupId={group.id}
             boardId={board._id}
         />
-   
     </article>
 }
 

@@ -1,10 +1,14 @@
 .task-list {
+    padding: 0 4px;
+    max-height: 660px;
+    overflow: auto;
+    margin: 4px;
 
-
+  
 
     li {
         list-style: none;
     }
 
-    padding: 0 4px;
+
 }
