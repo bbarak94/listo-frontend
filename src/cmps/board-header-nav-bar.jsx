@@ -9,9 +9,9 @@ export const BoardHeaderNavBar = ({ board, onOpenModal }) => {
                 <h2>{board.title}</h2>
             </div>
 
-            <div className="star-btn">
+            {/* <div className="star-btn"> */}
                 {/* <input type="checkbox" className="star" checked /> */}
-            </div>
+            {/* </div> */}
 
             <div className="workspace-btn" onClick={() => onOpenModal('workspace-nav-modal')} >
                 <span>  Workspace</span>
