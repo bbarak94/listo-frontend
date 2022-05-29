@@ -3,6 +3,35 @@
     position: relative;
     margin: 0 9px;
     // z-index: 0;
+    // max-height: calc(86vh);
+    max-height: 100%;
+    margin: 0 4px;
+    width: 272px;
+    border-radius: 3px;
+    background-color: $clr13;
+
+
+    // ::-webkit-scrollbar-track-piece {
+    //     background-color: #091e4214;
+    // }
+    // ::-webkit-scrollbar {
+    //     // background-color: #091e4214;
+        
+    //     border-radius: 10px;
+    //     width: 8px;
+    //     height: 8px;
+    // }
+
+    // /* Handle */
+    // ::-webkit-scrollbar-thumb {
+    //     background: red;
+    //     border-radius: 10px;
+    // }
+
+    // /* Handle on hover */
+    // ::-webkit-scrollbar-thumb:hover {
+    //     background: #b30000;
+    // }
 
     .add-card {
         color: $clr8;

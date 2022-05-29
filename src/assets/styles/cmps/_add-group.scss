@@ -4,6 +4,11 @@
     align-self: flex-start;
     background-color: $clr13;
     padding: 4px;
+    max-height: calc(86vh);
+    margin: 0 4px;
+    min-width: 272px;
+    border-radius: 3px;
+    background-color: $clr13;
 
     input {
         display: block;

@@ -91,7 +91,7 @@ export const BoardDetails = () => {
 
     return (
         <section
-            className='cover-img flex column'
+            className='board-app cover-img flex column'
             style={{
                 backgroundImage: `url(${board.style.background})`,
                 backgroundSize: 'cover',

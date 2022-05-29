@@ -20,13 +20,15 @@ export const AddGroup = () => {
         dispatch(addGroup(title, params.boardId))
         setTitle('')
     }
-    return <div className="add-group">
-        <form onSubmit={onHandleSubmit}>
-            <input type="text" placeholder="Enter list title..." onChange={onHandleChange} value={title} />
-            <div className='add-group-actions flex'>
-                <button className="btn">Add list</button>
-                <span className='close-btn'></span>
-            </div>
-        </form>
-    </div>
+    return (
+        <div className="add-group">
+            <form onSubmit={onHandleSubmit}>
+                <input type="text" placeholder="Enter list title..." onChange={onHandleChange} value={title} />
+                <div className='add-group-actions flex'>
+                    <button className="btn">Add list</button>
+                    <span className='close-btn'></span>
+                </div>
+            </form>
+        </div>
+    )
 }
