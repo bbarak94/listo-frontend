@@ -14,11 +14,15 @@
     // padding: 20px;
     background-color: $clr11;
     min-height: 80.5vh;
-    min-width: 72vw;
+    min-width: 768px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    .inner-container{
+        padding: 16px;
+    }
 
     .task-details-cover-color {
         height: 116px;
@@ -57,11 +61,15 @@
 
         .task-desc {
 
-            h3 {
-                display: inline-block;
-                margin: 12px 8px 12px 0;
-                font-weight: 500 ;
+            .desc-header {
+                margin: 0 0 12px 0;
+
+                h3 {
+                    // display: inline-block;
+                    font-weight: 500 ;
+                }
             }
+
 
             label:hover {
                 cursor: pointer;
@@ -72,7 +80,7 @@
                 width: 100%;
                 font-size: 14px;
                 padding: 8px 12px;
-                margin: 4px 0;
+                // margin: 4px 0;
                 cursor: pointer;
 
                 &:hover {
@@ -99,7 +107,7 @@
     .credit-card-icon {
         color: $clr8;
         margin-top: 2.4px;
-        margin-left: 3px;
+        // margin-left: 3px;
 
     }
 
@@ -137,7 +145,7 @@
 
     .left-side {
         gap: 18px;
-
+        margin-left: 16px;
         .title {
             gap: 7px;
 

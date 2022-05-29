@@ -3,16 +3,18 @@ import { useDispatch } from "react-redux"
 
 import { updateTask } from "../store/actions/board.action"
 
+import ListIcon from '@mui/icons-material/List';
+
 export const TaskDetailsDesc = ({ task, boardId, groupId }) => {
 
     const [description, setDescription] = useState(task.description)
     const [isTxtAreaOpen, setTxtAreaOpen] = useState(false)
     const dispatch = useDispatch()
 
-    const onHandleChange = ({target}) => {
+    const onHandleChange = ({ target }) => {
         console.log(target.value);
         setDescription(target.value)
-        
+
     }
 
     const onHandleSubmit = () => {
@@ -24,11 +26,14 @@ export const TaskDetailsDesc = ({ task, boardId, groupId }) => {
     }
     return (
         <div className='task-desc'>
-            <h3>Description</h3>
+            <div className="desc-header flex">
+                <ListIcon />
+                <h3>Description</h3>
+            </div>
             {/* {task.desc !== '' && <label htmlFor="desc" onMouseOver={(ev)=> ev.preventDefault()} onClick={() => setTxtAreaOpen(true)}>Edit</label>} */}
             <textarea
                 id="desc"
-                style={{ height: isTxtAreaOpen ? '108px' : '', transition: 'height 1s'}}
+                style={{ height: isTxtAreaOpen ? '108px' : '', transition: 'height 1s' }}
                 placeholder='Add a more detailed description...'
                 onFocus={(ev) => ev.target.select()}
                 onBlur={onHandleSubmit}

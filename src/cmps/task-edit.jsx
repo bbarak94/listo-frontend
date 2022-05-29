@@ -42,7 +42,7 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand }) => {
     return (
         <section className="task-edit">
             <div className="task-title-edit">
-                < form onSubmit={onHandleSubmit}>
+                <form onSubmit={onHandleSubmit}>
                     <textarea
                         onKeyDown={onEnterPress}
                         onChange={onHandleChange}
