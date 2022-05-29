@@ -30,7 +30,7 @@
         height: 116px;
         width: 100%;
         margin: -20px auto;
-        margin-bottom: 10px;
+        margin-bottom: 14px;
     }
 
     .task-details-cover-img {
@@ -38,6 +38,8 @@
         height: 200px;
         margin-top: -20px;
         background-color: lightblue;
+        margin-bottom: 12px;
+
 
         .cover-img-container {
             width: 400px;
@@ -227,12 +229,12 @@
     .date-preview {
         
         max-width: 160px;
-        padding: 12px;
+        padding: 12px 8px;
         display: flex;
         flex-direction: column;
         height: 15px;
         justify-content: center;
-        margin-top: 16px;
+        margin-top: 14px;
         margin-bottom: 15px;
 
         h1 {
