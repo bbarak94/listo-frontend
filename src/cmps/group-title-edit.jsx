@@ -32,6 +32,7 @@ export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
         <div className='group-title'>
             <input
                 // ref={inputRef}
+                dir="auto"
                 type='text'
                 onFocus={(ev) => ev.target.select()}
                 value={title}

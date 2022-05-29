@@ -1,0 +1,124 @@
+.login-signup {
+   height: 100vh;
+
+   .login-logo-container {
+      display: block;
+      height: 43px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 34px;
+      margin-bottom: 40px;
+   }
+
+   main {
+      width: 400px;
+      height: 585px;
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+      max-width: 585px;
+      justify-content: center;
+      align-items: center;
+      min-width: 350px;
+      padding: 25px 40px;
+      margin: auto;
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      h1 {
+         color: #5e6c84;
+         font-size: 16px;
+         font-weight: 700;
+         letter-spacing: -.01em;
+         line-height: 28px;
+         margin-bottom: 25px;
+         margin-top: 10px;
+         text-align: center;
+      }
+
+      
+      .signup,.login{
+         .user-input {
+            background-color: #fafbfc;
+            border: 2px solid #dfe1e6;
+            border-radius: 3px;
+            font-size: 14px;
+            height: 54px;
+            margin-bottom: 16.8px;
+            max-width: 400px;
+            outline: none;
+            // padding: 0.5em;
+            width: 100%;
+         }
+         
+         .login-btn {
+            color: white;
+            background: #5AAC44;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 400;
+         }
+         .signup-btn {
+            color: white;
+            background: #E2E4E6;
+            color: hsl(0,0%,55%);
+            font-size: 14px;
+            width: 100%;
+            font-weight: 500;
+            min-width: 290px;
+
+         }
+      }
+      .microsoft-container,.google-container{
+         display: flex;
+         justify-content: center;
+         align-content: center;
+      }
+
+      .social-btn {
+         display: flex;
+         justify-content: center;
+         align-content: center;
+         background: #fff;
+         color: rgba(0, 0, 0, 0.54);
+         box-shadow: rgb(0 0 0 / 20%) 1px 1px 5px 0;
+         border-color: transparent;
+         text-align: center;
+         border-radius: 3px;
+         width: 99%;
+         height: 39px;
+         padding-top: 0;
+         margin-bottom: 12px;
+         -webkit-transition: background-color .2s ease-in-out 0s, border-color .2s ease-in-out 0s;
+         transition: background-color .2s ease-in-out 0s, border-color .2s ease-in-out 0s;
+         h2{
+            color: $clr16;
+            font-size: 14px;
+            margin-top: auto;
+         }
+
+      }
+   }
+
+
+
+   .right-container,
+   .left-container {
+      position: fixed;
+      bottom: 0;
+   }
+
+   .right-container {
+      right: 0;
+   }
+
+   .left-container {
+      left: 0;
+   }
+
+}
