@@ -54,24 +54,16 @@ export const AppHeader = () => {
                         />
                     </div>
                 </Button>
-                <Button className='app-header-btn'>
+                <Button className='app-header-btn' >
                     Starred
                     <div className='app-header-navbar-container'>
-                        <img
-                            src={downArrow}
-                            alt='navigate'
-                            style={{ width: '22px' }}
-                        />
+                        <img  src={downArrow}  alt='navigate'  style={{ width: '22px' }} />
                     </div>
                 </Button>
                 <Button className='app-header-btn'>
                     Templates
                     <div className='app-header-navbar-container'>
-                        <img
-                            src={downArrow}
-                            alt='navigate'
-                            style={{ width: '22px' }}
-                        />
+                        <img src={downArrow} alt='navigate'  style={{ width: '22px' }} />
                     </div>
                 </Button>
             </div>

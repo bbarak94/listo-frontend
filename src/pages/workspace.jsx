@@ -15,8 +15,8 @@ export const Workspace = () => {
     ]
 
     return (<>
-            <AppHeader />
-        <div className='board-list'>
+        <AppHeader />
+        <div className='workspace'>
             <div className='title flex column'>
                 <div className='flex align-center'>
                     <div className='icon-container'>
@@ -39,7 +39,7 @@ export const Workspace = () => {
             </div>
             <BoardList />
         </div>
-                </>)
+    </>)
 }
 
 {/* <div className='title flex'>

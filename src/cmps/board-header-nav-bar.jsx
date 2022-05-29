@@ -3,20 +3,13 @@
 
 export const BoardHeaderNavBar = ({ board, onOpenModal }) => {
     return (<>
-
         <div className="board-header-right-container">
             <div className="board-title-btn">
                 <h2>{board.title}</h2>
             </div>
-
-            {/* <div className="star-btn"> */}
-                {/* <input type="checkbox" className="star" checked /> */}
-            {/* </div> */}
-
             <div className="workspace-btn" onClick={() => onOpenModal('workspace-nav-modal')} >
                 <span>  Workspace</span>
             </div>
-
             <div className='members-list-container flex column'>
                 <div className='members-avatars-container flex'>
                     {board.members.map((member, idx) => {
