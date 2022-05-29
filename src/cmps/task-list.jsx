@@ -30,7 +30,7 @@ export const TaskList = ({ board, group, setTaskEditExpand ,onOpenModal}) => {
         {/* <Droppable droppableId='task-list'> */}
                 {(provided) => (
                     <ul
-                    style={{maxHeight: '660px', overflow: 'auto'}}
+                    // style={{maxHeight: '660px', overflow: 'auto'}}
                         className='task-list'
                         {...provided.droppableProps}
                         ref={provided.innerRef}
