@@ -31,13 +31,16 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand }) => {
     const onUpdateTitle = () => {
         task = { ...task, title: title }
         dispatch(updateTask(task, board._id, group.id))
-        setTaskEditExpand(false)
+        
+        setTaskEditExpand(null)
     }
 
     const goToTaskDetails = () => {
         navigate(`/board/${board._id}/task/${task.id}`)
-        setTaskEditExpand(false)
+        setTaskEditExpand(null)
     }
+
+    if (!task) return
 
     return (
         <section className="task-edit">

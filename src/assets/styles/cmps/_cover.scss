@@ -17,6 +17,16 @@
         width: 40px;
     }
 
+    .btn {
+        background-color: $clr15;
+        color: inherit;
+        margin: 0 auto;
+
+        &:hover{
+            background-color: $clr13;
+        }
+    }
+
     h4 {
         font-size: 12px;
         color: $clr8;

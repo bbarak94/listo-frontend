@@ -23,6 +23,7 @@ export const AddGroup = () => {
     return (
         <div className="add-group">
             <form onSubmit={onHandleSubmit}>
+                <button className='add-group-btn'>Add another list</button>
                 <input type="text" placeholder="Enter list title..." onChange={onHandleChange} value={title} />
                 <div className='add-group-actions flex'>
                     <button className="btn">Add list</button>

@@ -10,35 +10,28 @@ import moment from 'moment'
 import clock from '../assets/img/task/navbar/dates.svg'
 import checkBox from '../assets/img/checkbox.svg'
 
-import { setTask } from "../store/actions/board.action"
+// import { setTask } from "../store/actions/board.action"
 import { labelService } from "../services/label.service"
 import { boardService } from "../services/board.service"
 
-export const TaskPreview = ({ task, board, group, onOpenModal }) => {
+export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand, taskEditExpandId }) => {
 
-    const [isTaskEditExpand, setTaskEditExpand] = useState(false)
+
     const [isMouseOver, setIsMouseOver] = useState(false)
-    const dispatch = useDispatch()
-
-    // useEffect(() => {
-    // }, [])
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
         ev.stopPropagation()
-        setTaskEditExpand(true)
-    }
 
-    const onSetTask = () => {
-        dispatch(setTask(task))
+        setTaskEditExpand(task.id)
     }
 
     const taskBorderRadius = (task.style.color || task.style.imgUrl) ? '0 0 3px 3px' : '3px'
 
     return (
-        <section style={{ position: 'relative' }}>
+        <div className="task-preview-helper">
             <Link to={`/board/${board._id}/task/${task.id}`}>
-                <div className="task-preview-container flex column" onClick={onSetTask}>
+                <div className="task-preview-container flex column">
                     <div className="task-preview">
                         {task.style.color && <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
                         </div>
@@ -106,8 +99,8 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
                     </div>
                 </div>
             </Link>
-            {isTaskEditExpand && <TaskEdit task={task} board={board} group={group} setTaskEditExpand={setTaskEditExpand} />}
-            {isTaskEditExpand && <Screen cb={() => setTaskEditExpand(false)} />}
-        </section>
+            {taskEditExpandId === task.id && <TaskEdit task={task} board={board} group={group} setTaskEditExpand={setTaskEditExpand} />}
+            {/* {taskEditExpandId === task.id && <Screen cb={() => setTaskEditExpand(null)} />} */}
+        </div>
     )
 }

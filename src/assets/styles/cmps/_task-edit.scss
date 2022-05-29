@@ -1,15 +1,18 @@
 .task-edit {
-    position: relative;
-    bottom: 40px;
+    position: absolute;
+    // top: 0.1px;
+    // left: 0.1px;
+    // top: 1px;
+    // right: 17px;
+    z-index: 20;
     .task-title-edit {
-        position: absolute;
-        top: 0;
-        left: 5px;
-        z-index: 20;
+        position: relative;
+        top: -472px;
+        left: 4px;
 
         textArea {
             padding: 6px 8px 2px;
-            width: 254px;
+            width: 240px;
             height: 96px;
         }
 
@@ -21,12 +24,31 @@
 
     }
     .task-edit-nav {
-        position: absolute;
-        z-index: 20;
-        left: 270px;
+        position: relative;
+        top: -472px;
+        left: 4px;
 
         button {
             display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            border-radius: 3px;
+            color: #e6e6e6;
+            margin: 0 0 4px 8px;
+            padding: 6px 12px 6px 8px;
+            transition: transform 85ms ease-in;
+            cursor: pointer;
+            
+            &:hover{
+                transform: translateX(5px);
+            }
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+
         }
     }
 }

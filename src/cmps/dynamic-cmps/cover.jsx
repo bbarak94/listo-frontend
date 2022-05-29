@@ -6,6 +6,7 @@ import cover1 from '../../assets/img/cover1.png'
 import cover2 from '../../assets/img/cover2.png'
 
 export const Cover = ({ task, board, group, handleClose }) => {
+
     const dispatch = useDispatch()
 
     const colors = [
@@ -31,6 +32,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
     ]
 
     const onSetCoverColor = (color) => {
+        console.log('color', color)
         const taskToUpdate = { ...task }
         taskToUpdate.style.color = color
         taskToUpdate.style.imgUrl = null
@@ -38,6 +40,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
     }
 
     const onSetCoverImg = (imgUrl) => {
+        console.log('imgUrl', imgUrl)
         const taskToUpdate = { ...task }
         taskToUpdate.style.color = null
         taskToUpdate.style.imgUrl = imgUrl
@@ -64,11 +67,11 @@ export const Cover = ({ task, board, group, handleClose }) => {
                     <img onClick={() => setCoverSize(true)} src={cover2} style={{ boxShadow: selectedSize }} />
                 </div>
             </div>
-            <button onClick={() => onSetCoverColor(null)}>Remove cover</button>
+            <div className='btn' onClick={() => onSetCoverColor(null)}>Remove cover</div>
             <h4>Colors</h4>
             <div className='cover-colors'>
                 {colors.map((color, idx) =>
-                    <button onClick={() => onSetCoverColor(color)} key={idx} style={{ backgroundColor: color }}></button>
+                    <div onClick={() => onSetCoverColor(color)} key={idx} style={{ backgroundColor: color }}></div>
                 )}
             </div>
             <h4>Photos from Unsplash</h4>

@@ -30,5 +30,13 @@
         margin-top: 4px;
     }
 
+    .add-group-btn {
+        @include boarder-header-btn;
 
+        span {
+            color: #172b4d;
+        }
+    }
 }
+
+

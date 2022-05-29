@@ -27,9 +27,9 @@ export const TaskDetailsDesc = ({ task, boardId, groupId }) => {
     return (
         <div className='task-desc'>
             <div className="desc-header flex">
-            <div className="task-details-left-icon desc-icon-container">
-                <ListIcon className="desc-icon"/>
-            </div>
+                <div className="task-details-left-icon desc-icon-container">
+                    <ListIcon className="desc-icon" />
+                </div>
                 <h3>Description</h3>
             </div>
             {/* {task.desc !== '' && <label htmlFor="desc" onMouseOver={(ev)=> ev.preventDefault()} onClick={() => setTxtAreaOpen(true)}>Edit</label>} */}

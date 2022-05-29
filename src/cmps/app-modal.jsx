@@ -72,7 +72,7 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
-                BackdropProps={{ invisible: true }}
+                BackdropProps={{ invisible: false}}
             >
                 <Box sx={style}>
                     {getType()}

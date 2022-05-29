@@ -117,12 +117,13 @@ export const TaskDetails = () => {
             </div>
             <AppModal
                 isOpen={isOpen}
-                setIsOpen={setIsOpen}
+                cb={setIsOpen}
                 cmpType={cmpType}
                 task={task}
                 board={board}
                 group={currGroupRef.current}
                 member={member}
+                isParentTaskDetails={true}
             />
         </>
     )
