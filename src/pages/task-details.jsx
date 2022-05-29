@@ -97,7 +97,7 @@ export const TaskDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className='task-details-inner-container' style={{ padding: '20px' }}>
+                <div className='inner-container'>
                     <div className='icon-container close flex' onClick={onCloseTaskDetails}>
                         <img src={close} alt='close' style={{ width: '21px' }} />
                     </div>

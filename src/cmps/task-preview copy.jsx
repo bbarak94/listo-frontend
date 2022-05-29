@@ -74,8 +74,8 @@ export const TaskPreview = ({ task, board, group }) => {
                     </div>
                 </div>
             </Link>
-            {isTaskEditExpand && <TaskEdit task={task} board={board} group={group} setTaskEditExpand={setTaskEditExpand} />}
-            {isTaskEditExpand && <Screen cb={() => setTaskEditExpand(false)} />}
+            {/* {isTaskEditExpand && <TaskEdit task={task} board={board} group={group} setTaskEditExpand={setTaskEditExpand} />} */}
+            {/* {isTaskEditExpand && <Screen cb={() => setTaskEditExpand(false)} />} */}
         </section>
     )
 }
