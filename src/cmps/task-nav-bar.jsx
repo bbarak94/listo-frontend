@@ -17,13 +17,13 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
             <div className='task-nav-bar flex column'>
                 <div className='title-container flex'>
                     <h1 className='title'>Add to card</h1>
-                    <div>
+                    {/* <div>
                         <img
                             src={settings}
                             alt='Settings'
                             style={{ width: '16px' }}
                         />
-                    </div>
+                    </div> */}
                 </div>
                 <div onClick={() => onOpenModal('members')}>
                     <div className='task-edit-btn flex align-center'>
