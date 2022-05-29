@@ -12,11 +12,7 @@ export const AppHeader = () => {
             <div className='app-header-btn-container flex'>
                 <div className='app-header-navbar-container'>
 
-                    <img
-                        src={navBar}
-                        alt='navigate'
-                        style={{ width: '22px' }}
-                    />
+                    <img src={navBar} alt='navigate' style={{ width: '22px' }} />
                 </div>
 
                 <div
@@ -26,11 +22,8 @@ export const AppHeader = () => {
                         navigation(`/`)
                     }}
                 >
-                    <img
-                        src='https://res.cloudinary.com/bbarak94/image/upload/v1653768105/ListoStatic2_z2ecxu.gif'
-                        alt='navigate'
-                        style={{ maxWidth: '110px' }}
-                        onMouseOver={(ev) => {
+                    <img src='https://res.cloudinary.com/bbarak94/image/upload/v1653768105/ListoStatic2_z2ecxu.gif'
+                        alt='navigate' style={{ maxWidth: '110px' }} onMouseOver={(ev) => {
                             ev.target.src =
                                 'https://res.cloudinary.com/bbarak94/image/upload/v1653770099/Listo2-3_modsj8.gif'
                         }}
@@ -38,7 +31,6 @@ export const AppHeader = () => {
                             ev.target.src =
                                 'https://res.cloudinary.com/bbarak94/image/upload/v1653768105/ListoStatic2_z2ecxu.gif'
                         }}
-
                     />
                 </div>
 

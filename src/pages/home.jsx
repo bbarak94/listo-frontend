@@ -19,9 +19,7 @@ export const Home = () => {
                     </p>
 
 
-                    <Button onClick={() => {
-                        navigation(`/workspace`)
-                    }} variant='contained' size='medium'>
+                    <Button style={{ textTransform: "unset" }} onClick={() => { navigation(`/workspace`) }} variant='contained' size='medium'>
                         Start Demo
                     </Button>
                 </div>
@@ -30,10 +28,9 @@ export const Home = () => {
                     <img
                         src={hero}
                         alt='home'
-                    // style={{ width: '25px' }}
                     />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
