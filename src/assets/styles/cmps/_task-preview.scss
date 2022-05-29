@@ -20,7 +20,6 @@
    }
 
    .task-preview {
-      padding: 4px 8px 0;
       border-radius: 0.2em;
       box-shadow: 0 1px 0 #091e4240;
       background-color: $clr10;
@@ -59,7 +58,8 @@
       }
 
       .task-preview-date {
-         // align-self: flex-end;
+         padding: 4px 8px 0;
+
          padding: 4px;
          border-radius: 3px;
          font-size: 12px;
@@ -79,17 +79,23 @@
 
    }
 
+   .preview-title {
+      padding: 4px 8px 0;
+   }
 
-   .members-list-container{
+   .members-list-container {
+      padding: 4px 8px 0;
+
       position: relative;
    }
 
-   .members-avatars-container-task-preview{
+   .members-avatars-container-task-preview {
       justify-content: flex-end;
       gap: 3px;
       margin-bottom: 8px;
-      .member-container{
-         img{
+
+      .member-container {
+         img {
             width: 28px;
             height: 28px;
             border-radius: 50%;
@@ -97,5 +103,3 @@
       }
    }
 }
-
-

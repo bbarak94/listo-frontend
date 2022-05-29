@@ -70,7 +70,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
                             </div>
                         </div>  */}
 
-                        <div className="flex space-between" style={{ borderRadius: taskBorderRadius }}>
+                        <div className="preview-title flex space-between" style={{ borderRadius: taskBorderRadius }}>
                             <span className="task-preview-title">{task.title}</span>
                             <p className="edit-icon" onClick={onOpenTaskEdit}></p>
                         </div>
