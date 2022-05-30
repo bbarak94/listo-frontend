@@ -19,6 +19,10 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
 
     const [isMouseOver, setIsMouseOver] = useState(false)
     const [style, setStyle] = useState({ top: '', left: '', width: '' })
+    const dispatch = useDispatch()
+    const noColorIndication = '#B3BAC5'
+    // useEffect(() => {
+    // }, [])
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
@@ -69,12 +73,23 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                         </div>
                         }
 
-                        {task.labelIds && <div className="task-preview-labels flex" >
-                            {labelService.getLabelsByIds(task.labelIds, board).map(l => {
-                                return <div key={l.id} className="task-preview-label" style={{ backgroundColor: l.color }}>
-                                </div>
-                            })}
-                        </div>}
+                        {task.labelIds && (
+                            <div className='task-preview-labels flex'>
+                                {labelService
+                                    .getLabelsByIds(task.labelIds, board)
+                                    .map((l) => {
+                                        return (l.color !== noColorIndication && <div
+                                            key={l.id}
+                                            className='task-preview-label'
+                                            style={{
+                                                backgroundColor: l.color,
+                                            }}
+                                        ></div>
+                                        )
+                                    })}
+                            </div>
+                        )}
+
 
                         {/* <div className='members-list-container flex column'>
                             <div className='members-avatars-container flex'>

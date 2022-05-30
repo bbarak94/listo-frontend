@@ -28,14 +28,14 @@ const style = {
     boxShadow: 24,
 }
 
-export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member }) {
+export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member, labelId }) {
 
     const getType = () => {
         switch (cmpType) {
             case 'labels':
                 return <Labels task={task} board={board} group={group} handleClose={handleClose} />
             case 'edit-label':
-                return <EditLabel task={task} board={board} group={group} handleClose={handleClose} />
+                return <EditLabel task={task} board={board} group={group} labelId={labelId} handleClose={handleClose} />
             case 'members':
                 return <Members task={task} board={board} group={group} handleClose={handleClose} />
             case 'member':

@@ -4,6 +4,7 @@ import { utilService } from "./util.service"
 export const labelService = {
     toggleLabel,
     getLabelsByIds,
+    getLabel,
     getBasicColors,
     getEmptyLabel
 }
@@ -43,8 +44,11 @@ function getBasicColors() {
 
 function getEmptyLabel() {
     return {
-        id: utilService.makeId(),
         title: '',
         color: ''
     }
+}
+
+function getLabel(labelId, board) {
+    return board.labels?.find(l => l.id === labelId)
 }
