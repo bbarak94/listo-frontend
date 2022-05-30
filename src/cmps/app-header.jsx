@@ -109,10 +109,10 @@ export const AppHeader = () => {
                     </div>
                 </Button>
                 {user?.imgUrl && (
-                    <div className='wellcome flex align-center'>
+                    <div className='welcome flex align-center'>
                     <h3 className='logout-btn' onClick={onLogout}>logout</h3>
-                        <h1 className='wellcome-msg'>
-                            Wellcome {user.fullname}
+                        <h1 className='welcome-msg'>
+                            Welcome {user.fullname}
                         </h1>
                         <div
                             className='user-container flex'
