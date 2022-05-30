@@ -10,7 +10,7 @@ import { AddGroup } from '../cmps/add-group'
 import { BoardHeaderNavBar } from '../cmps/board-header-nav-bar'
 import { AppModal } from '../cmps/app-modal'
 import { boardService } from '../services/board.service'
-import {AppHeader} from '../cmps/app-header'
+import { AppHeader } from '../cmps/app-header'
 
 export const BoardDetails = () => {
     const params = useParams()
@@ -21,9 +21,10 @@ export const BoardDetails = () => {
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(null)
     const [modalPosition, setModalPosition] = useState({})
+    const [labelExpandClass, setLabelExpand] = useState('')
 
     const { board } = useSelector((storeState) => storeState.boardModule)
-    
+
 
     useEffect(() => {
         loadBoard()
@@ -34,12 +35,15 @@ export const BoardDetails = () => {
     }
 
 
-
     const handleOnDragStart = (result) => {
         console.log('drag start')
     }
+
     const handleOnDragEnd = (result) => {
+
         if (!result.destination) return
+        console.log('result:', result)
+
         const {
             source: { droppableId: sourceGroupId, index: sourceIdx },
             destination: {
@@ -48,40 +52,45 @@ export const BoardDetails = () => {
             },
             draggableId: draggedTaskId,
         } = result
-        const { currGroup: sourceGroup, currTask } =
-            boardService.getTaskAndGroup(board, draggedTaskId)
-        // const sourceGroupId = source.droppableId
-        // const destinationGroupId = destination.droppableId
-        const sourceNewTasks = [...sourceGroup.tasks]
-        const [draggedTask] = sourceNewTasks.splice(sourceIdx, 1)
-        if (sourceGroupId === destinationGroupId) {
-            sourceNewTasks.splice(destinationIdx, 0, draggedTask)
-            let newSourceGroup = { ...sourceGroup }
-            newSourceGroup.tasks = sourceNewTasks
-            dispatch(updateGroup(newSourceGroup, board._id))
-        }
-
-        if (sourceGroupId !== destinationGroupId) {
-            // sourceNewTasks.splice(source.index, 1)
-            const destinationGroup = boardService.getGroupById(
-                board,
-                destinationGroupId
-            )
-            let newSourceGroup = { ...sourceGroup }
-            newSourceGroup.tasks = sourceNewTasks
-            const destinationNewTasks = [...destinationGroup.tasks]
-            destinationNewTasks.splice(destinationIdx, 0, draggedTask)
-            let newDestinationGroup = { ...destinationGroup }
-            newDestinationGroup.tasks = destinationNewTasks
+        if (result.type === 'group') {
+            console.log('result:', result)
+            const group = boardService.getGroupById(board, result.draggableId)
             const newBoard = { ...board }
-            //////////////////Replace with getGroupById with find..
-            newBoard.groups.map((group) => {
-                if (group.id === sourceGroupId) group.tasks = sourceNewTasks
-                if (group.id === destinationGroupId)
-                    group.tasks = destinationNewTasks
-            })
-            /////////////////////
+            newBoard.groups.splice(result.source.index, 1)
+            newBoard.groups.splice(result.destination.index, 0, group)
             dispatch(saveBoard(newBoard))
+            return
+        }
+        if (result.type === 'task') {
+            const { currGroup: sourceGroup, currTask } =
+                boardService.getTaskAndGroup(board, draggedTaskId)
+            const sourceNewTasks = [...sourceGroup.tasks]
+            const [draggedTask] = sourceNewTasks.splice(sourceIdx, 1)
+            if (sourceGroupId === destinationGroupId) {
+                sourceNewTasks.splice(destinationIdx, 0, draggedTask)
+                let newSourceGroup = { ...sourceGroup }
+                newSourceGroup.tasks = sourceNewTasks
+                dispatch(updateGroup(newSourceGroup, board._id))
+            }
+            if (sourceGroupId !== destinationGroupId) {
+                const destinationGroup = boardService.getGroupById(
+                    board,
+                    destinationGroupId
+                )
+                let newSourceGroup = { ...sourceGroup }
+                newSourceGroup.tasks = sourceNewTasks
+                const destinationNewTasks = [...destinationGroup.tasks]
+                destinationNewTasks.splice(destinationIdx, 0, draggedTask)
+                let newDestinationGroup = { ...destinationGroup }
+                newDestinationGroup.tasks = destinationNewTasks
+                const newBoard = { ...board }
+                newBoard.groups.map((group) => {
+                    if (group.id === sourceGroupId) group.tasks = sourceNewTasks
+                    if (group.id === destinationGroupId)
+                        group.tasks = destinationNewTasks
+                })
+                dispatch(saveBoard(newBoard))
+            }
         }
     }
 
@@ -89,12 +98,12 @@ export const BoardDetails = () => {
         setIsOpen(true)
         setCmpType(type)
         setMember(member)
-        
+
         let elemRect = ev.target.parentNode.getBoundingClientRect()
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
         const height = ev.target.offsetHeight
-        setModalPosition({top, left, height})
+        setModalPosition({ top, left, height })
     }
 
     if (!board) return <div>Loading...</div>
@@ -109,28 +118,68 @@ export const BoardDetails = () => {
                 backgroundColor: board.style.background,
             }}
         >
-        <AppHeader />
+            <AppHeader />
 
             <div className='board-header flex'>
-                <BoardHeaderNavBar board={board} onOpenModal={onOpenModal} />
+                <BoardHeaderNavBar board={board} />
             </div>
             <main className='board-details flex'>
                 <DragDropContext
                     onDragEnd={handleOnDragEnd}
                     onDragStart={handleOnDragStart}
                 >
-                    {board.groups.map((group) => (
-                        <BoardGroup
-                        onOpenModal= {onOpenModal}
-                            group={group}
-                            key={group.id}
-                            board={board}
-                            expandCardTitleGroupId={expandCardTitleGroupId}
-                            setExpandCardTitleId={setExpandCardTitleId}
-                        />
-                    ))}
-                </DragDropContext>
+                    {/* //////////////////////////////// */}
+                    {/* Droppable HERE */}
+                    {/* direction horizontal */}
+                    {/* id props provider */}
 
+
+                    {/* DRAGABLE TYPE props group or task two line down in map */}
+                    <Droppable droppableId={board._id} direction="horizontal" type='group'>
+                        {(provided) => (
+                            <div
+                                className='flex'
+                                {...provided.droppableProps}
+                                ref={provided.innerRef}
+                            >
+                                {board.groups.map((group, index) => (
+                                    <div
+                                        key={group.id}
+                                        index={index}
+                                    >
+                                        <Draggable
+                                            key={group.id}
+                                            draggableId={group.id}
+                                            index={index}
+                                            type='group'
+                                        // isDragDisabled={taskEditExpandId ? true : false}
+                                        >
+                                            {(provided, snapshot) => (
+                                                <div
+                                                    {...provided.draggableProps}
+                                                    {...provided.dragHandleProps}
+                                                    ref={provided.innerRef}
+                                                    key={group.id}
+                                                >
+                                                    <BoardGroup
+                                                        onOpenModal={onOpenModal}
+                                                        group={group}
+                                                        board={board}
+                                                        expandCardTitleGroupId={expandCardTitleGroupId}
+                                                        setExpandCardTitleId={setExpandCardTitleId}
+                                                        labelExpandClass={labelExpandClass}
+                                                        setLabelExpand={setLabelExpand}
+                                                    />
+                                                </div>
+                                            )}
+                                        </Draggable>
+                                    </div>
+                                ))}
+                                {provided.placeholder}
+                            </div>
+                        )}
+                    </Droppable>
+                </DragDropContext>
                 <AddGroup />
                 <Outlet />
             </main>

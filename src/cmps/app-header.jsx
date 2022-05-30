@@ -7,9 +7,14 @@ import { AppModal } from './app-modal'
 import { useState } from 'react'
 import {logout} from '../store/actions/user.action'
 import { useDispatch } from 'react-redux'
+import {userService} from '../services/user.service'
 
 export const AppHeader = () => {
-    const { user } = useSelector((storeState) => storeState.userModule)
+    const user = userService.getLoggedinUser()
+    if(user?.password) delete user.password
+    
+    // const { user } = useSelector((storeState) => storeState.userModule)
+    const [isLoggedIn,setLoggedIn] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(user)
@@ -23,10 +28,10 @@ export const AppHeader = () => {
         setMember(member)
     }
 
-
-
     const onLogout = async () =>{
+        setLoggedIn(!isLoggedIn)
         dispatch(logout())
+
     }
 
 
@@ -104,10 +109,10 @@ export const AppHeader = () => {
                     </div>
                 </Button>
                 {user?.imgUrl && (
-                    <div className='wellcome flex align-center'>
+                    <div className='welcome flex align-center'>
                     <h3 className='logout-btn' onClick={onLogout}>logout</h3>
-                        <h1 className='wellcome-msg'>
-                            Wellcome {user.fullname}
+                        <h1 className='welcome-msg'>
+                            Welcome {user.fullname}
                         </h1>
                         <div
                             className='user-container flex'

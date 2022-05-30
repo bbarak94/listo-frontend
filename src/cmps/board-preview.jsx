@@ -1,8 +1,25 @@
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
+import { saveBoard } from '../store/actions/board.action'
+
+import star from '../assets/img/workspace/star-stroke.svg'
+import starFill from '../assets/img/workspace/star-fill.svg'
 
 export const BoardPreview = ({ board }) => {
 
+    const [isMouseOver, setMouseOver] = useState(false)
     const navigation = useNavigate()
+    const dispatch = useDispatch()
+
+    const onStarBoard = (ev, isStar) => {
+        console.log(ev);
+        // ev.preventDefault()
+        ev.stopPropagation()
+        board.isStar = isStar
+        dispatch(saveBoard(board))
+    }
 
     return (
         <div
@@ -16,13 +33,18 @@ export const BoardPreview = ({ board }) => {
             onClick={() => {
                 navigation(`/board/${board._id}`)
             }}
+            onMouseOver={() => setMouseOver(true)}
+            onMouseLeave={() => setMouseOver(false)}
         >
             {/* <div>
                 <h3>Template</h3>
             </div> */}
+
             <div>
                 <h2>{board.title}</h2>
             </div>
+            {!board.isStar && isMouseOver && <img className='stroke' src={star} alt="" onClick={(ev) => onStarBoard(ev, true)} />}
+            {board.isStar && <img className='fill' src={starFill} alt="" onClick={(ev) => onStarBoard(ev, false)} />}
         </div>
     )
 }

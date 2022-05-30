@@ -3,7 +3,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd'
 
 import { useState } from 'react'
 
-export const TaskList = ({ board, group, onOpenModal, setIsScrollBar }) => {
+export const TaskList = ({ board, group, onOpenModal, setIsScrollBar, setLabelExpand, labelExpandClass, }) => {
 
     const [taskEditExpandId, setTaskEditExpand] = useState(null)
 
@@ -24,10 +24,11 @@ export const TaskList = ({ board, group, onOpenModal, setIsScrollBar }) => {
     // }
 
     const tasksToShow = group.tasks.filter((task) => !task.archivedAt)
+
     return (
         // <section className='task-list'>
         // <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId={group.id}>
+        <Droppable droppableId={group.id} direction="vertical" type='task'> 
             {/* <Droppable droppableId='task-list'> */}
             {(provided) => (
                 <ul
@@ -42,7 +43,8 @@ export const TaskList = ({ board, group, onOpenModal, setIsScrollBar }) => {
                                 key={task.id}
                                 draggableId={task.id}
                                 index={index}
-                                isDragDisabled={taskEditExpandId !== true}
+                                isDragDisabled={taskEditExpandId ? true : false}
+                                type="task"
                             >
                                 {(provided) => (
                                     <li
@@ -59,6 +61,8 @@ export const TaskList = ({ board, group, onOpenModal, setIsScrollBar }) => {
                                             setTaskEditExpand={setTaskEditExpand}
                                             taskEditExpandId={taskEditExpandId}
                                             setIsScrollBar={setIsScrollBar}
+                                            setLabelExpand={setLabelExpand}
+                                            labelExpandClass={labelExpandClass}
                                         />
                                     </li>
                                 )}

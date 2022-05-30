@@ -11,6 +11,29 @@
         display: flex;
         align-items: center;
 
+        .board-star {
+            @include boarder-header-btn;
+            width: 32px;
+            margin: 0;
+
+            img {
+                width: 19px;
+                position: relative;
+                left: -5px;
+            }
+
+            &:hover {
+                .stroke {
+                    filter: invert(65%) sepia(96%) saturate(489%) hue-rotate(9deg) brightness(105%) contrast(105%);
+                }
+            }
+
+            .fill {
+                filter: invert(65%) sepia(96%) saturate(489%) hue-rotate(9deg) brightness(105%) contrast(105%);
+            }
+
+        }
+
         &>*:not(:first-child) {
             margin-left: 10px;
         }
@@ -25,7 +48,7 @@
 
             &:hover {
                 cursor: pointer;
-                background-color: rgba(0, 0, 0, 0.2);
+                background-color: #00000033;
             }
         }
 

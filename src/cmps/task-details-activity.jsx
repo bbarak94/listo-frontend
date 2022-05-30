@@ -28,7 +28,10 @@ export const TaskDetailsActivity = ({ activity, task, board, groupId }) => {
                 <h1>
                     {activity.byMember.fullname}{' '}
                     <span>
-                        {activity.txt} {task.title}
+                        {activity.txt}
+                    </span>{' '}
+                    <span className='board-title'>
+                            {(activity?.task?.title)?activity.task.title: board.title}
                     </span>{' '}
                 </h1>
             </div>

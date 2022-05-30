@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { TaskEdit } from './task-edit'
@@ -10,19 +9,16 @@ import moment from 'moment'
 import clock from '../assets/img/task/navbar/dates.svg'
 import checkBox from '../assets/img/checkbox.svg'
 
-// import { setTask } from "../store/actions/board.action"
 import { labelService } from "../services/label.service"
 import { boardService } from "../services/board.service"
 
-export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand, taskEditExpandId, setIsScrollBar }) => {
-
+export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand, taskEditExpandId, setLabelExpand, labelExpandClass, setIsScrollBar }) => {
 
     const [isMouseOver, setIsMouseOver] = useState(false)
     const [style, setStyle] = useState({ top: '', left: '', width: '' })
-    const dispatch = useDispatch()
+
     const noColorIndication = '#B3BAC5'
-    // useEffect(() => {
-    // }, [])
+
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
@@ -40,26 +36,21 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
         const width = ev.target.parentNode.offsetWidth
         // if (width === 248) setIsScrollBar(true)
 
-        // console.log(ev.target.parentNode)
-        // console.log(ev.target);
-        // console.log('x', window.width - ev.target.get)
-        // console.log('y', window.width - ev.target.offsetY)
         setStyle({ top, left, width })
         setTaskEditExpand(task.id)
 
-
-
-        // function outputsize() {
-        //     const width = ev.target.offsetWidth
-        // }
-        // outputsize()
-
-        // new ResizeObserver(outputsize).observe(ev.target)
     }
 
     const taskBorderRadius =
         task.style.color || task.style.imgUrl ? '0 0 3px 3px' : '3px'
 
+    const onExpandLabels = (ev) => {
+        ev.preventDefault()
+        ev.stopPropagation()
+
+        labelExpandClass = (labelExpandClass === 'expand') ? 'shrink' : 'expand'
+        setLabelExpand(labelExpandClass)
+    }
     return (
         <div className="task-preview-helper">
             <Link to={`/board/${board._id}/task/${task.id}`}>
@@ -81,11 +72,12 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                     .map((l) => {
                                         return (l.color !== noColorIndication && <div
                                             key={l.id}
-                                            className='task-preview-label'
+                                            className={`task-preview-label ${labelExpandClass}`}
                                             style={{
                                                 backgroundColor: l.color,
                                             }}
-                                        ></div>
+                                            onClick={onExpandLabels}
+                                        >{labelExpandClass === 'expand' && l.title}</div>
                                         )
                                     })}
                             </div>
@@ -159,7 +151,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                                     return (
                                                         <div
                                                             key={member.id}
-                                                            className='member-container flex' 
+                                                            className='member-container flex'
                                                             onClick={(ev) => {
                                                                 ev.preventDefault()
                                                                 onOpenModal(ev, 'member', member)
