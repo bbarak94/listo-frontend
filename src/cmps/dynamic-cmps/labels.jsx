@@ -11,7 +11,7 @@ import { AppModal } from '../app-modal'
 import { labelService } from '../../services/label.service'
 import { boardService } from '../../services/board.service'
 import { updateTask } from '../../store/actions/board.action'
-export const Labels = ({ board, group, task }) => {
+export const Labels = ({ board, group, task ,handleClose}) => {
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false)
 
@@ -54,10 +54,11 @@ export const Labels = ({ board, group, task }) => {
                         )
                     })}
                 </ul>
-                <button onClick={()=>setIsOpen(true)} > Create a new label</button>
+                <button onClick={()=>{setIsOpen(true)}} > Create a new label</button>
             </div>}
 
-            <AppModal  board={board} cmpType={'edit-label'} isOpen={isOpen} setIsOpen={setIsOpen} />
+            {/* <AppModal  board={board} cmpType={'edit-label'} labelId={labelId} isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+            <AppModal  board={board} cmpType={'edit-label'}  isOpen={isOpen} setIsOpen={setIsOpen} />
         </>
     )
 }

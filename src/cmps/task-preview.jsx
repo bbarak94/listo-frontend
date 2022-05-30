@@ -18,7 +18,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
     const [isTaskEditExpand, setTaskEditExpand] = useState(false)
     const [isMouseOver, setIsMouseOver] = useState(false)
     const dispatch = useDispatch()
-
+    const noColorIndication = '#B3BAC5'
     // useEffect(() => {
     // }, [])
 
@@ -35,7 +35,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
     const taskBorderRadius =
         task.style.color || task.style.imgUrl ? '0 0 3px 3px' : '3px'
 
-    console.log('board:', board)
+    // console.log('board:', board)
 
     return (
         <section style={{ position: 'relative' }}>
@@ -62,8 +62,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
                                 {labelService
                                     .getLabelsByIds(task.labelIds, board)
                                     .map((l) => {
-                                        return (
-                                            <div
+                                        return (l.color !== noColorIndication && <div
                                                 key={l.id}
                                                 className='task-preview-label'
                                                 style={{
@@ -93,10 +92,10 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
                             className='preview-title flex space-between'
                             style={{ borderRadius: taskBorderRadius }}
                         >
-                            <div 
-                            className='task-preview-title'>
+                            <div
+                                className='task-preview-title'>
                                 <span
-                                    
+
                                 >
                                     {task.title}
                                 </span>
@@ -110,57 +109,57 @@ export const TaskPreview = ({ task, board, group, onOpenModal }) => {
                         {(task.memberIds?.length ||
                             task.labelIds?.length ||
                             task.dueDate) && (
-                            <div className='flex space-between'>
-                                {task.dueDate && (
-                                    <div
-                                        className='task-preview-date flex'
-                                        onMouseOver={() => setIsMouseOver(true)}
-                                        onMouseOut={() => setIsMouseOver(false)}
-                                    >
-                                        {!isMouseOver && (
-                                            <img src={clock} alt='' />
-                                        )}
-                                        {isMouseOver && (
-                                            <img src={checkBox} alt='' />
-                                        )}
-                                        <span>
-                                            {moment(task.dueDate).format(
-                                                'MMMM D'
+                                <div className='flex space-between'>
+                                    {task.dueDate && (
+                                        <div
+                                            className='task-preview-date flex'
+                                            onMouseOver={() => setIsMouseOver(true)}
+                                            onMouseOut={() => setIsMouseOver(false)}
+                                        >
+                                            {!isMouseOver && (
+                                                <img src={clock} alt='' />
                                             )}
-                                        </span>
-                                    </div>
-                                )}
+                                            {isMouseOver && (
+                                                <img src={checkBox} alt='' />
+                                            )}
+                                            <span>
+                                                {moment(task.dueDate).format(
+                                                    'MMMM D'
+                                                )}
+                                            </span>
+                                        </div>
+                                    )}
 
-                                <div className='members-list-container flex column'>
-                                    <div className='members-avatars-container-task-preview flex'>
-                                        {boardService
-                                            .getMembersByIds(
-                                                task.memberIds,
-                                                board
-                                            )
-                                            ?.map((member) => {
-                                                return (
-                                                    <div
-                                                        key={member.id}
-                                                        className='member-container flex'
-                                                        onClick={(ev) => {
-                                                            ev.preventDefault()
-                                                            onOpenModal(
-                                                                'member',
-                                                                member
-                                                            )
-                                                        }}
-                                                    >
-                                                        <img
-                                                            src={member.imgUrl}
-                                                        />
-                                                    </div>
+                                    <div className='members-list-container flex column'>
+                                        <div className='members-avatars-container-task-preview flex'>
+                                            {boardService
+                                                .getMembersByIds(
+                                                    task.memberIds,
+                                                    board
                                                 )
-                                            })}
+                                                ?.map((member) => {
+                                                    return (
+                                                        <div
+                                                            key={member.id}
+                                                            className='member-container flex'
+                                                            onClick={(ev) => {
+                                                                ev.preventDefault()
+                                                                onOpenModal(
+                                                                    'member',
+                                                                    member
+                                                                )
+                                                            }}
+                                                        >
+                                                            <img
+                                                                src={member.imgUrl}
+                                                            />
+                                                        </div>
+                                                    )
+                                                })}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
                     </div>
                 </div>
             </Link>
