@@ -106,6 +106,8 @@ export const BoardDetails = () => {
         setModalPosition({ top, left, height })
     }
 
+    const [taskEditExpandId, setTaskEditExpand] = useState(null)
+
     if (!board) return <div>Loading...</div>
 
     return (
@@ -152,7 +154,8 @@ export const BoardDetails = () => {
                                             draggableId={group.id}
                                             index={index}
                                             type='group'
-                                        // isDragDisabled={taskEditExpandId ? true : false}
+                                            isDragDisabled={taskEditExpandId ? true : false}
+                                            pointerEvents= 'none'
                                         >
                                             {(provided, snapshot) => (
                                                 <div
@@ -169,6 +172,8 @@ export const BoardDetails = () => {
                                                         setExpandCardTitleId={setExpandCardTitleId}
                                                         labelExpandClass={labelExpandClass}
                                                         setLabelExpand={setLabelExpand}
+                                                        setTaskEditExpand={setTaskEditExpand}
+                                                        taskEditExpandId={taskEditExpandId}
                                                     />
                                                 </div>
                                             )}
