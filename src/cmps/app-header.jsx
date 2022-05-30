@@ -10,7 +10,6 @@ import { useDispatch } from 'react-redux'
 
 export const AppHeader = () => {
     const { user } = useSelector((storeState) => storeState.userModule)
-    console.log('user:', user)
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(user)

@@ -23,6 +23,7 @@ export const BoardDetails = () => {
     const [modalPosition, setModalPosition] = useState({})
 
     const { board } = useSelector((storeState) => storeState.boardModule)
+    
 
     useEffect(() => {
         loadBoard()

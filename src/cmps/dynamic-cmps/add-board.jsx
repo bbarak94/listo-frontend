@@ -13,16 +13,38 @@ import bg4 from '../../assets/img/backgrounds/4.jpg'
 import { saveBoard } from '../../store/actions/board.action'
 import { boardService } from '../../services/board.service'
 import { useState } from 'react'
-
+import { useSelector } from 'react-redux'
 
 export const AddBoard = ({ handleClose }) => {
+    const { user } = useSelector((storeState) => storeState.userModule)
+    const guest = {
+        _id: 'u100',
+        fullname: 'Guest',
+        username: 'guest',
+        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg',
+    }
 
     const bgImages = [
-        { name: 'bgImage1', imgUrl: 'https://images.unsplash.com/photo-1605022112646-57c826be7a10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' },
-        { name: 'bgImage2', imgUrl: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1244&q=80' },
-        { name: 'bgImage3', imgUrl: 'https://images.unsplash.com/photo-1603687669452-b136a84b14b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' },
-        { name: 'bgImage4', imgUrl: 'https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' },
-        { name: 'bgImage5', imgUrl: 'https://images.unsplash.com/photo-1566411526231-fdbdcf3235c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' }
+        {
+            name: 'bgImage1',
+            imgUrl: 'https://images.unsplash.com/photo-1605022112646-57c826be7a10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+        },
+        {
+            name: 'bgImage2',
+            imgUrl: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1244&q=80',
+        },
+        {
+            name: 'bgImage3',
+            imgUrl: 'https://images.unsplash.com/photo-1603687669452-b136a84b14b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+        },
+        {
+            name: 'bgImage4',
+            imgUrl: 'https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+        },
+        {
+            name: 'bgImage5',
+            imgUrl: 'https://images.unsplash.com/photo-1566411526231-fdbdcf3235c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+        },
     ]
 
     const bgColors = [
@@ -30,10 +52,11 @@ export const AddBoard = ({ handleClose }) => {
         { name: 'bgColor2', color: '#D29034' },
         { name: 'bgColor3', color: '#519839' },
         { name: 'bgColor4', color: '#b04632' },
-        { name: 'bgColor5', color: '#89609e' }
+        { name: 'bgColor5', color: '#89609e' },
     ]
 
-    const defaultBg = 'https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+    const defaultBg =
+        'https://images.unsplash.com/photo-1455659817273-f96807779a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -48,33 +71,52 @@ export const AddBoard = ({ handleClose }) => {
     const onHandleSubmit = async (ev) => {
         ev.preventDefault()
         if (title === '') return
-        const board = boardService.getEmptyBoard()
+        var board
+        if (user) {
+            board = await boardService.getEmptyBoard(user)
+        } else {
+            board = await boardService.getEmptyBoard(guest)
+        }
         board.title = title
         board.style.background = selectedBg
 
-        dispatch(saveBoard(board))
-            .then(newBoard => navigate(`/board/${newBoard._id}`))
+        dispatch(saveBoard(board)).then((newBoard) =>
+            navigate(`/board/${newBoard._id}`)
+        )
     }
 
     return (
         <div className='new-board-menu flex column'>
             <h1 className='edit-new-board-title'> Create board</h1>
-            <div className='new-board-img-container' style={{ backgroundImage: `url(${selectedBg})`, backgroundColor: selectedBg }}>
+            <div
+                className='new-board-img-container'
+                style={{
+                    backgroundImage: `url(${selectedBg})`,
+                    backgroundColor: selectedBg,
+                }}
+            >
                 <img src={NewBoardImg} />
             </div>
             <section>
                 <label>Backgrounds</label>
                 <div className='new-board-bgs-container flex'>
-                    {bgImages.map((bgImage, idx) =>
-                        <div key={idx} onClick={() => setSelectedBg(bgImage.imgUrl)} className='prev-bgImage'>
+                    {bgImages.map((bgImage, idx) => (
+                        <div
+                            key={idx}
+                            onClick={() => setSelectedBg(bgImage.imgUrl)}
+                            className='prev-bgImage'
+                        >
                             <img
-                                className={selectedBg === bgImage.imgUrl ? 'selected-bg' : ''}
+                                className={
+                                    selectedBg === bgImage.imgUrl
+                                        ? 'selected-bg'
+                                        : ''
+                                }
                                 src={bgImage.imgUrl}
                                 alt='background'
                             />
                         </div>
-                    )}
-
+                    ))}
 
                     {/* <div id='bg1' onClick={onHandleClick} className='prev-bg prev-bg1'>
                         <img
@@ -108,19 +150,21 @@ export const AddBoard = ({ handleClose }) => {
                             style={{ width: '64px', height: '40px' }}
                         />
                     </div> */}
-
                 </div>
             </section>
             <div className='new-board-colors-container flex'>
-                {bgColors.map((bgColor, idx) =>
+                {bgColors.map((bgColor, idx) => (
                     <div
                         key={idx}
-                        className={selectedBg === bgColor.color ? 'selected-bg prev-bgColor' : 'prev-bgColor'}
+                        className={
+                            selectedBg === bgColor.color
+                                ? 'selected-bg prev-bgColor'
+                                : 'prev-bgColor'
+                        }
                         style={{ backgroundColor: bgColor.color }}
                         onClick={() => setSelectedBg(bgColor.color)}
-                    >
-                    </div>
-                )}
+                    ></div>
+                ))}
                 {/* <div className='prev-bgColor prev-bgc1'></div>
                 <div className='prev-bgColor prev-bgc2'></div>
                 <div className='prev-bgColor prev-bgc3'></div>
@@ -134,7 +178,9 @@ export const AddBoard = ({ handleClose }) => {
             {/* <ColorTextFields /> */}
             <div className='flex column'>
                 <form onSubmit={onHandleSubmit}>
-                    <label style={{ display: 'block' }} htmlFor='board-title'>Board title<span style={{ color: 'red' }}>*</span></label>
+                    <label style={{ display: 'block' }} htmlFor='board-title'>
+                        Board title<span style={{ color: 'red' }}>*</span>
+                    </label>
                     <input
                         id='board-title'
                         onChange={onHandleChange}
@@ -144,7 +190,9 @@ export const AddBoard = ({ handleClose }) => {
                         autoFocus
                     />
                 </form>
-                <h2 style={{ fontSize: '14px', marginTop: '4px' }}>👋Board title is required</h2>
+                <h2 style={{ fontSize: '14px', marginTop: '4px' }}>
+                    👋Board title is required
+                </h2>
             </div>
             <Button
                 className='create-board-btn'

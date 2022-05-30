@@ -139,8 +139,8 @@ export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
         <div className='task-checklist flex column'>
             <div className='top-container flex space-between'>
                 <div className='top-left-container flex'>
-                <div className="task-details-left-icon checklist-icon-container">
-                        <CheckBoxOutlinedIcon style={{ width: '26px'}} />
+                    <div className="task-details-left-icon checklist-icon-container">
+                        <CheckBoxOutlinedIcon style={{ width: '26px' }} />
                     </div>
                     <h2>{checklist.title}</h2>
                 </div>

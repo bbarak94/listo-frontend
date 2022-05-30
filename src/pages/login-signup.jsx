@@ -19,11 +19,13 @@ export function LoginSignup() {
     const navigation = useNavigate()
     const location = useLocation()
     const dispatch = useDispatch()
+    const [fullname, setFullname] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [msg, setMsg] = useState('')
     const onLogin = async (ev = null) => {
         console.log('login:')
+        console.log('fullname:', fullname)
         console.log('username:', username)
         console.log('password:', password)
         const credentials = { username, password }
@@ -41,11 +43,15 @@ export function LoginSignup() {
     // if (ev) ev.preventDefault()
     // this.props.onLogin(this.state.credentials)
     // this.clearState()
+    
+    
+    
+
 
     const onSignup = (ev = null) => {
         console.log('signup:')
         console.log('username:', username)
-        const credentials = { username, password }
+        const credentials = { username,fullname, password,imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg' }
         dispatch(signup(credentials))
 
         // if (
@@ -62,6 +68,9 @@ export function LoginSignup() {
         const field = ev.target.name
         const value = ev.target.value
         switch (field) {
+            case 'fullname':
+                setFullname(value)
+                break
             case 'username':
                 setUsername(value)
                 break
@@ -119,6 +128,15 @@ export function LoginSignup() {
                     <div className='signup'>
                         <form className='signup-form' onSubmit={onSignup}>
                             <h1>Signup to Listo</h1>
+                            <OutlinedInput
+                                onChange={handleChange}
+                                autoFocus
+                                className='user-input'
+                                placeholder='Enter fullname'
+                                variant='filled'
+                                type='text'
+                                name='fullname'
+                            />
                             <OutlinedInput
                                 onChange={handleChange}
                                 autoFocus

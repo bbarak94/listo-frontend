@@ -19,6 +19,7 @@ import { DatePreview } from '../cmps/dynamic-cmps/date-preview'
 import { LabelPreview } from '../cmps/label-preview'
 import { TaskDetailsDesc } from '../cmps/task-details-desc'
 import { TaskDetailsChecklists } from '../cmps/task-details-checklists.jsx'
+import { TaskDetailsActivities } from '../cmps/task-details-activities.jsx'
 
 export const TaskDetails = () => {
     const { boardId, taskId } = useParams()
@@ -77,7 +78,11 @@ export const TaskDetails = () => {
             <div className='task-details flex column'>
                 {task.archivedAt && (
                     <div className='task-archived-indication'>
-                        <img src={archive} alt='Custom Fields' style={{ width: '18px' }} />
+                        <img
+                            src={archive}
+                            alt='Custom Fields'
+                            style={{ width: '18px' }}
+                        />
                         <p>This card is archived.</p>
                     </div>
                 )}
@@ -107,20 +112,63 @@ export const TaskDetails = () => {
                     </div>
                 </div>
                 <div className='inner-container'>
-                    <div className='icon-container close flex' onClick={onCloseTaskDetails}>
-                        <img src={close} alt='close' style={{ width: '21px' }} />
+                    <div
+                        className='icon-container close flex'
+                        onClick={onCloseTaskDetails}
+                    >
+                        <img
+                            src={close}
+                            alt='close'
+                            style={{ width: '21px' }}
+                        />
                     </div>
                     <div className='task-main-layout flex'>
                         <div className='task-details-content flex column'>
                             <div className='upper-content flex'>
-                                {task.memberIds && <MembersList board={board} task={task} onOpenModal={onOpenModal} />}
-                                {task.labelIds && <LabelPreview board={board} task={task} onOpenModal={onOpenModal} />}
-                                {task.dueDate && <DatePreview board={board} task={task} onOpenModal={onOpenModal} />}
+                                {task.memberIds && (
+                                    <MembersList
+                                        board={board}
+                                        task={task}
+                                        onOpenModal={onOpenModal}
+                                    />
+                                )}
+                                {task.labelIds && (
+                                    <LabelPreview
+                                        board={board}
+                                        task={task}
+                                        onOpenModal={onOpenModal}
+                                    />
+                                )}
+                                {task.dueDate && (
+                                    <DatePreview
+                                        board={board}
+                                        task={task}
+                                        onOpenModal={onOpenModal}
+                                    />
+                                )}
                             </div>
-                            <TaskDetailsDesc task={task} boardId={boardId} groupId={currGroupRef.current.id} />
-                            <TaskDetailsChecklists task={task} boardId={boardId} groupId={currGroupRef.current.id} />
+                            <TaskDetailsDesc
+                                task={task}
+                                boardId={boardId}
+                                groupId={currGroupRef.current.id}
+                            />
+                            <TaskDetailsChecklists
+                                task={task}
+                                boardId={boardId}
+                                groupId={currGroupRef.current.id}
+                            />
+                            <TaskDetailsActivities
+                                task={task}
+                                board={board}
+                                groupId={currGroupRef.current.id}
+                            />
                         </div>
-                        <TaskNavBar board={board} group={currGroupRef.current} task={task} onOpenModal={onOpenModal} />
+                        <TaskNavBar
+                            board={board}
+                            group={currGroupRef.current}
+                            task={task}
+                            onOpenModal={onOpenModal}
+                        />
                     </div>
                 </div>
             </div>
@@ -137,4 +185,3 @@ export const TaskDetails = () => {
         </>
     )
 }
-
