@@ -28,7 +28,7 @@ export const TaskList = ({ board, group, onOpenModal, setIsScrollBar, setLabelEx
     return (
         // <section className='task-list'>
         // <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId={group.id} direction="vertical">
+        <Droppable droppableId={group.id} direction="vertical" type='task'> 
             {/* <Droppable droppableId='task-list'> */}
             {(provided) => (
                 <ul
@@ -44,6 +44,7 @@ export const TaskList = ({ board, group, onOpenModal, setIsScrollBar, setLabelEx
                                 draggableId={task.id}
                                 index={index}
                                 isDragDisabled={taskEditExpandId ? true : false}
+                                type="task"
                             >
                                 {(provided) => (
                                     <li

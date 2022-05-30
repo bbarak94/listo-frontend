@@ -174,6 +174,8 @@ async function updateGroup(groupToUpdate, boardId) {
         const board = await getById(boardId)
         let groupIdx = board.groups.findIndex(currGroup => currGroup.id === groupToUpdate.id)
         board.groups.splice(groupIdx, 1, groupToUpdate)
+        console.log('groupToUpdate:',groupToUpdate)
+        
         // const newActivity = createActivity('updated',newTask)
         // board.activities.unshift(newActivity)
         save(board)

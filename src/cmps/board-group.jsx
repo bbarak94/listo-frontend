@@ -4,7 +4,7 @@ import { TaskList } from "./task-list"
 import { AddTask } from "./add-task"
 import { GroupTitleEdit } from "./group-title-edit"
 
-export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal, labelExpandClass, setLabelExpand }) => {
+export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal, labelExpandClass, setLabelExpand, isDragging }) => {
 
     const [isScrollBar, setIsScrollBar] = useState('')
     
