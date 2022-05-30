@@ -33,8 +33,6 @@ export const Checklist = ({ board, group, task, handleClose }) => {
     }
 
     const handleSubmit = (ev) => {
-        console.log('title:', title)
-        console.log('fromChecklist:', fromChecklist)
         const newTask = { ...task }
 
         newTask.checklists.push({
@@ -45,9 +43,6 @@ export const Checklist = ({ board, group, task, handleClose }) => {
         dispatch(updateTask(newTask, board._id, group.id))
         handleClose()
     }
-    console.log('task:', task)
-    console.log('task.checklists:', task.checklists)
-    console.log('board:', board)
 
     return (
         <div className='checklist-popup'>

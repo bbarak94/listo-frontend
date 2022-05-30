@@ -10,7 +10,6 @@ export function SelectLabels({ categories }) {
     // console.log('categories:', categories)
 
     const handleChange = (event) => {
-        console.log(event.target.value)
         // setAge(event.target.value)
     }
 

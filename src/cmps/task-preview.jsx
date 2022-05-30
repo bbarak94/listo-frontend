@@ -18,23 +18,48 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
 
 
     const [isMouseOver, setIsMouseOver] = useState(false)
+    const [style, setStyle] = useState({ top: '', left: '', width: '' })
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
         ev.stopPropagation()
 
+        // ****** Task edit relative to task preview *********
+        // const bodyRect = document.body.getBoundingClientRect()
+        let elemRect = ev.target.parentNode.getBoundingClientRect()
+        let top = elemRect.top - window.pageYOffset
+        let left = elemRect.left - window.pageXOffset
+        // const top = elemRect.top - bodyRect.top
+        // const left = elemRect.left - bodyRect.left
+
+        // ****** Task edit width relative to task preview width *********
+        const width = ev.target.parentNode.offsetWidth
+
+        // console.log(ev.target.parentNode)
+        // console.log(ev.target);
+        // console.log('x', window.width - ev.target.get)
+        // console.log('y', window.width - ev.target.offsetY)
+        setStyle({ top, left, width })
         setTaskEditExpand(task.id)
+
+
+
+        // function outputsize() {
+        //     const width = ev.target.offsetWidth
+        // }
+        // outputsize()
+
+        // new ResizeObserver(outputsize).observe(ev.target)
     }
 
     const taskBorderRadius =
         task.style.color || task.style.imgUrl ? '0 0 3px 3px' : '3px'
 
-    console.log('board:', board)
-
     return (
         <div className="task-preview-helper">
             <Link to={`/board/${board._id}/task/${task.id}`}>
                 <div className="task-preview-container flex column">
+
                     <div className="task-preview">
                         {task.style.color && <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
                         </div>
@@ -51,46 +76,28 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                             })}
                         </div>}
 
-                        {task.labelIds && (
-                            <div className='task-preview-labels flex'>
-                                {labelService
-                                    .getLabelsByIds(task.labelIds, board)
-                                    .map((l) => {
-                                        return (
-                                            <div
-                                                key={l.id}
-                                                className='task-preview-label'
-                                                style={{
-                                                    backgroundColor: l.color,
-                                                }}
-                                            ></div>
-                                        )
-                                    })}
-                            </div>
-                        )}
-
                         {/* <div className='members-list-container flex column'>
                             <div className='members-avatars-container flex'>
-                                {boardService.getMembersByIds(task.memberIds, board)?.map((member) => {
+                            {boardService.getMembersByIds(task.memberIds, board)?.map((member) => {
                                     return (
                                         <div key={member.id} className='member-container flex' onClick={(ev) => {
                                             ev.preventDefault()
                                             onOpenModal('member', member)}}>
                                             <img src={member.imgUrl} />
+                                            </div>
+                                            )
+                                        })}
                                         </div>
-                                    )
-                                })}
-                            </div>
-                        </div>  */}
+                                    </div>  */}
 
                         <div
                             className='preview-title flex space-between'
                             style={{ borderRadius: taskBorderRadius }}
                         >
-                            <div 
-                            className='task-preview-title'>
+                            <div
+                                className='task-preview-title'>
                                 <span
-                                    
+
                                 >
                                     {task.title}
                                 </span>
@@ -104,62 +111,63 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                         {(task.memberIds?.length ||
                             task.labelIds?.length ||
                             task.dueDate) && (
-                            <div className='flex space-between'>
-                                {task.dueDate && (
-                                    <div
-                                        className='task-preview-date flex'
-                                        onMouseOver={() => setIsMouseOver(true)}
-                                        onMouseOut={() => setIsMouseOver(false)}
-                                    >
-                                        {!isMouseOver && (
-                                            <img src={clock} alt='' />
-                                        )}
-                                        {isMouseOver && (
-                                            <img src={checkBox} alt='' />
-                                        )}
-                                        <span>
-                                            {moment(task.dueDate).format(
-                                                'MMMM D'
+                                <div className='flex space-between'>
+                                    {task.dueDate && (
+                                        <div
+                                            className='task-preview-date flex'
+                                            onMouseOver={() => setIsMouseOver(true)}
+                                            onMouseOut={() => setIsMouseOver(false)}
+                                        >
+                                            {!isMouseOver && (
+                                                <img src={clock} alt='' />
                                             )}
-                                        </span>
-                                    </div>
-                                )}
+                                            {isMouseOver && (
+                                                <img src={checkBox} alt='' />
+                                            )}
+                                            <span>
+                                                {moment(task.dueDate).format(
+                                                    'MMMM D'
+                                                )}
+                                            </span>
+                                        </div>
+                                    )}
 
-                                <div className='members-list-container flex column'>
-                                    <div className='members-avatars-container-task-preview flex'>
-                                        {boardService
-                                            .getMembersByIds(
-                                                task.memberIds,
-                                                board
-                                            )
-                                            ?.map((member) => {
-                                                return (
-                                                    <div
-                                                        key={member.id}
-                                                        className='member-container flex'
-                                                        onClick={(ev) => {
-                                                            ev.preventDefault()
-                                                            onOpenModal(
-                                                                'member',
-                                                                member
-                                                            )
-                                                        }}
-                                                    >
-                                                        <img
-                                                            src={member.imgUrl}
-                                                        />
-                                                    </div>
+                                    <div className='members-list-container flex column'>
+                                        <div className='members-avatars-container-task-preview flex'>
+                                            {boardService
+                                                .getMembersByIds(
+                                                    task.memberIds,
+                                                    board
                                                 )
-                                            })}
+                                                ?.map((member) => {
+                                                    return (
+                                                        <div
+                                                            key={member.id}
+                                                            className='member-container flex'
+                                                            onClick={(ev) => {
+                                                                ev.preventDefault()
+                                                                onOpenModal(
+                                                                    'member',
+                                                                    member
+                                                                )
+                                                            }}
+                                                        >
+                                                            <img
+                                                                src={member.imgUrl}
+                                                            />
+                                                        </div>
+                                                    )
+                                                })}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
                     </div>
                 </div>
             </Link>
-            {taskEditExpandId === task.id && <TaskEdit task={task} board={board} group={group} setTaskEditExpand={setTaskEditExpand} />}
-            {/* {taskEditExpandId === task.id && <Screen cb={() => setTaskEditExpand(null)} />} */}
+            {taskEditExpandId === task.id && <Screen cb={() => setTaskEditExpand(null)} />}
+            {taskEditExpandId === task.id && <TaskEdit task={task} board={board} group={group} setTaskEditExpand={setTaskEditExpand} style={style} />}
         </div>
+
     )
 }

@@ -12,7 +12,7 @@ import { updateTask } from '../../store/actions/board.action'
 export const Dates = ({ task, board, group, handleClose }) => {
 
   const dispatch = useDispatch()
-  const [date, setDate] = React.useState(new Date())
+  const [date, setDate] = React.useState(new Date)
 
   const onHandleSave = () => {
     const taskToUpdate = { ...task }
@@ -20,7 +20,6 @@ export const Dates = ({ task, board, group, handleClose }) => {
     dispatch(updateTask(taskToUpdate, board._id, group.id))
     handleClose(false)
   }
-  console.log('date', date)
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>

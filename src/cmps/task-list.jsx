@@ -1,11 +1,9 @@
 import { TaskPreview } from './task-preview'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import { useDispatch } from 'react-redux'
-import { updateGroup } from '../store/actions/board.action'
-import { useEffect, useRef, useState } from 'react'
+import { Droppable, Draggable } from 'react-beautiful-dnd'
+
+import { useState } from 'react'
 
 export const TaskList = ({ board, group, onOpenModal, setTask }) => {
-    const dispatch = useDispatch()
 
     const [taskEditExpandId, setTaskEditExpand] = useState(null)
 
@@ -26,6 +24,7 @@ export const TaskList = ({ board, group, onOpenModal, setTask }) => {
     // }
 
     const tasksToShow = group.tasks.filter((task) => !task.archivedAt)
+    console.log(taskEditExpandId);
     return (
         // <section className='task-list'>
         // <DragDropContext onDragEnd={handleOnDragEnd}>
@@ -44,7 +43,7 @@ export const TaskList = ({ board, group, onOpenModal, setTask }) => {
                                 key={task.id}
                                 draggableId={task.id}
                                 index={index}
-                                isDragDisabled={taskEditExpandId}
+                                isDragDisabled={taskEditExpandId !== true}
                             >
                                 {(provided) => (
                                     <li

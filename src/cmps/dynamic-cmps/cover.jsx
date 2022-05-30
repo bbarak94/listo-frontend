@@ -32,7 +32,6 @@ export const Cover = ({ task, board, group, handleClose }) => {
     ]
 
     const onSetCoverColor = (color) => {
-        console.log('color', color)
         const taskToUpdate = { ...task }
         taskToUpdate.style.color = color
         taskToUpdate.style.imgUrl = null
@@ -40,7 +39,6 @@ export const Cover = ({ task, board, group, handleClose }) => {
     }
 
     const onSetCoverImg = (imgUrl) => {
-        console.log('imgUrl', imgUrl)
         const taskToUpdate = { ...task }
         taskToUpdate.style.color = null
         taskToUpdate.style.imgUrl = imgUrl

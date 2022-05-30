@@ -2,7 +2,6 @@
 
     margin-inline-end: 8px;
     align-self: flex-start;
-    background-color: $clr13;
     padding: 4px;
     max-height: calc(86vh);
     margin: 0 4px;
@@ -10,9 +9,10 @@
     border-radius: 3px;
     background-color: $clr13;
 
-    form{
-        padding: 2px 4px 4px 4px ;
+    form {
+        padding: 2px 4px 4px 4px;
     }
+
     input {
         display: block;
         width: 100%;
@@ -31,15 +31,27 @@
 
     .add-group-actions {
         margin-top: 4px;
+        transition: transform .5s;
     }
 
     .add-group-btn {
         @include boarder-header-btn;
+        // font-size: 14px;
+        // border: none;
+        // padding: 8px 12px;
+        // border-radius: 3px;
+        // background-color: #ffffff33;
+        // color: #fff;
+        // cursor: pointer;
+
+        width: 100%;
+
+        &:hover{
+            background-color: #8080808a;
+        }
 
         span {
             color: #172b4d;
         }
     }
 }
-
-

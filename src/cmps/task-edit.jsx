@@ -5,7 +5,11 @@ import { useNavigate } from "react-router-dom"
 import { updateTask } from "../store/actions/board.action"
 import { TaskEditPreviewNav } from "./task-preview-edit-nav"
 
-export const TaskEdit = ({ task, board, group, setTaskEditExpand }) => {
+export const TaskEdit = ({ task, board, group, setTaskEditExpand, style }) => {
+
+    // let elemRect = ev.target.parentNode.getBoundingClientRect()
+    // let top = elemRect.top - window.pageYOffset
+    // let left = elemRect.left - window.pageXOffset
 
     const [title, setTitle] = useState(task.title)
     const dispatch = useDispatch()
@@ -31,7 +35,7 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand }) => {
     const onUpdateTitle = () => {
         task = { ...task, title: title }
         dispatch(updateTask(task, board._id, group.id))
-        
+
         setTaskEditExpand(null)
     }
 
@@ -43,10 +47,11 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand }) => {
     if (!task) return
 
     return (
-        <section className="task-edit">
+        <section className="task-edit" style={style}>
             <div className="task-title-edit">
-                <form onSubmit={onHandleSubmit}>
+                <form onSubmit={onHandleSubmit} >
                     <textarea
+                        style={{ width: style.width }}
                         dir="auto"
                         onKeyDown={onEnterPress}
                         onChange={onHandleChange}
@@ -63,6 +68,7 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand }) => {
                 task={task}
                 board={board}
                 group={group}
+                style={style}
             />
         </section>
     )

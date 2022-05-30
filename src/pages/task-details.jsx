@@ -56,8 +56,9 @@ export const TaskDetails = () => {
         dispatch(getBoard(boardId))
     }
 
-    const onCloseTaskDetails = () => {
+    const onCloseTaskDetails = (ev) => {
         navigate(`/board/${boardId}`)
+        console.log('ev', ev)
     }
 
     if (!task) return <h1>Loading...</h1>
@@ -117,13 +118,12 @@ export const TaskDetails = () => {
             </div>
             <AppModal
                 isOpen={isOpen}
-                cb={setIsOpen}
+                setIsOpen={setIsOpen}
                 cmpType={cmpType}
                 task={task}
                 board={board}
                 group={currGroupRef.current}
                 member={member}
-                isParentTaskDetails={true}
             />
         </>
     )

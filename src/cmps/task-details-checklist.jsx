@@ -121,7 +121,6 @@ export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
     }
 
     const onToggleTodo = (todoId) => {
-        console.log('todoId:', todoId)
         const newTask = { ...task }
         const taskId = task.id
         newTask.checklists.map((c) => {

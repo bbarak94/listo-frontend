@@ -12,7 +12,6 @@ export const TaskDetailsDesc = ({ task, boardId, groupId }) => {
     const dispatch = useDispatch()
 
     const onHandleChange = ({ target }) => {
-        console.log(target.value);
         setDescription(target.value)
 
     }
