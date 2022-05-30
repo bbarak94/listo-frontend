@@ -45,7 +45,6 @@ export const TaskDetails = () => {
         let left = elemRect.left - window.pageXOffset
         const height = ev.target.offsetHeight
         setPosition({top, left, height})
- 
     }
 
     useEffect(() => {

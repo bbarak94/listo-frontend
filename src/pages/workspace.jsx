@@ -17,43 +17,77 @@ export const Workspace = () => {
     return (<>
         <AppHeader />
         <div className='workspace'>
-            <div className='title flex column'>
-                <div className='flex align-center'>
+
+            <section className='starred-boards'>
+                { }
+            </section>
+            {/* <div className='title flex column'> */}
+
+            {/* <div className='flex align-center'>
                     <div className='icon-container'>
                         <img src={templates} alt='templates' style={{ width: '25px' }} />
                     </div>
                     <h2>Most popular templates</h2>
-                </div>
-                {/* <div className='icon-container close flex align-center justify-center'>
+                </div> */}
+
+            {/* <div className='icon-container close flex align-center justify-center'>
                     <img src={close} alt='close' style={{ width: '25px' }} />
                 </div> */}
-                <div className='flex align-center '>
-                    <h3>
+
+            {/* <div className='flex align-center '> */}
+
+            {/* <div className='title flex'> */}
+
+            {/* <div className='starred-boards flex'>
+                <img
+                    src={starStroke}
+                    alt='star'
+                    style={{ width: '25px' }}
+                />
+                <h2>Starred boards</h2>
+            </div> */}
+
+            {/* <div className='flex align-center'>
+                <div className='icon-container'>
+                    <img
+                        src={clock}
+                        alt='clock'
+                        style={{ width: '25px' }}
+                    />
+                </div>
+                <h2>Recently viewed</h2>
+            </div> */}
+
+            {/* </div> */}
+
+            {/* <h3>
                         Get going faster with a template from the Listo
                         community or
                     </h3>
                     <div>
                         <SelectLabels categories={categories} />
-                    </div>
-                </div>
-            </div>
+                    </div> */}
+
+            {/* </div> */}
+            {/* </div> */}
+
             <BoardList />
         </div>
     </>)
 }
 
 {/* <div className='title flex'>
-        <div className='flex align-center'>
-            <div className='icon-container'>
-                <img
-                    src={starStroke}
-                    alt='star'
-                    style={{ width: '25px' }}
-                />
-            </div>
-            <h2>Starred boards</h2>
+    <div className='flex align-center'>
+        <div className='icon-container'>
+            <img
+                src={starStroke}
+                alt='star'
+                style={{ width: '25px' }}
+            />
         </div>
-    </div> */}
+        <h2>Starred boards</h2>
+    </div>
+</div> */}
 {/* <div className='title flex'>
         <div className='flex align-center'>
             <div className='icon-container'>

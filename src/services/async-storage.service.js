@@ -89,6 +89,7 @@ function _createBoards() {
         {
             _id: 'b101',
             title: 'Fashion designer',
+            isStar: true,
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -296,6 +297,7 @@ function _createBoards() {
         {
             _id: 'b102',
             title: 'Ornamental board',
+            isStar: false,
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -503,6 +505,7 @@ function _createBoards() {
         {
             _id: 'b103',
             title: 'Grow process',
+            isStar: true,
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -705,6 +708,7 @@ function _createBoards() {
         {
             _id: 'b104',
             title: 'Dev Master',
+            isStar: false,
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -907,6 +911,7 @@ function _createBoards() {
         {
             _id: 'b105',
             title: 'Free Spirit',
+            isStar: true,
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
@@ -1094,6 +1099,7 @@ function _createBoards() {
         {
             _id: 'b106',
             title: 'Web Development',
+            isStar: false,
             archivedAt: null,
             createdAt: 1589983468418,
             createdBy: {
