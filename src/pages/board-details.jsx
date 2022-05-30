@@ -20,6 +20,7 @@ export const BoardDetails = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(null)
+    const [modalPosition, setModalPosition] = useState({})
 
     const { board } = useSelector((storeState) => storeState.boardModule)
 
@@ -83,10 +84,16 @@ export const BoardDetails = () => {
         }
     }
 
-    const onOpenModal = (type, member) => {
+    const onOpenModal = (ev, type, member) => {
         setIsOpen(true)
         setCmpType(type)
         setMember(member)
+        
+        let elemRect = ev.target.parentNode.getBoundingClientRect()
+        let top = elemRect.top - window.pageYOffset
+        let left = elemRect.left - window.pageXOffset
+        const height = ev.target.offsetHeight
+        setModalPosition({top, left, height})
     }
 
     if (!board) return <div>Loading...</div>
@@ -131,6 +138,7 @@ export const BoardDetails = () => {
                 setIsOpen={setIsOpen}
                 cmpType={cmpType}
                 member={member}
+                position={modalPosition}
             />
         </section>
     )

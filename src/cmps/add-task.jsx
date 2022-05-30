@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { addTask } from "../store/actions/board.action"
 
-export const AddTask = ({ setExpandCardTitleId, expandCardTitleGroupId, groupId, boardId }) => {
+export const AddTask = ({ setExpandCardTitleId, expandCardTitleGroupId, groupId, boardId, isScrollBar }) => {
 
     const [title, setTitle] = useState('')
     const dispatch = useDispatch()
@@ -28,9 +28,9 @@ export const AddTask = ({ setExpandCardTitleId, expandCardTitleGroupId, groupId,
         dispatch(addTask(title, boardId, groupId))
         setTitle('')
     }
-
+    
     return (
-        <div className="task-composer">
+        <div className="task-composer" style={{width: isScrollBar ? '248px' : '256px' }}>
             {expandCardTitleGroupId !== groupId && <div className="add-card flex align-center" onClick={() => setExpandCardTitleId(groupId)}>
                 <span className="add-icon"></span>
                 <span className="add-card-txt">Add a card</span>

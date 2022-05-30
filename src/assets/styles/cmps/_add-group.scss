@@ -9,9 +9,9 @@
     border-radius: 3px;
     background-color: $clr13;
 
-    form {
-        padding: 2px 4px 4px 4px;
-    }
+    // form {
+    //     padding: 2px 4px 4px 4px;
+    // }
 
     input {
         display: block;
@@ -25,33 +25,42 @@
     }
 
     button {
-        float: left;
+        // float: left;
         margin-inline-end: 4px;
     }
 
     .add-group-actions {
         margin-top: 4px;
-        transition: transform .5s;
+        position: relative;
     }
 
-    .add-group-btn {
-        @include boarder-header-btn;
-        // font-size: 14px;
-        // border: none;
-        // padding: 8px 12px;
-        // border-radius: 3px;
-        // background-color: #ffffff33;
-        // color: #fff;
-        // cursor: pointer;
+}
+.add-group-btn {
+    @include boarder-header-btn;
+    color: #fff;
+    min-width: 272px;
+    height: 36px;
 
-        width: 100%;
+    .add-icon {
+        margin-inline-end: 4px;
+        font-size: 16px;
+    }
 
-        &:hover{
-            background-color: #8080808a;
-        }
+    .add-icon::before {
+        background-image: url(../../img/icon/add.svg);
+        filter: invert(97%) sepia(0%) saturate(7451%) hue-rotate(98deg) brightness(115%) contrast(101%);
+        background-size: 16px 16px;
+        display: inline-block;
+        width: 16px;
+        height: 14px;
+        content: "";
+    }
 
-        span {
-            color: #172b4d;
-        }
+    &:hover{
+        background-color: #8080808a;
+    }
+
+    span {
+        color: #172b4d;
     }
 }

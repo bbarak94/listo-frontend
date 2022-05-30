@@ -32,11 +32,19 @@ export const TaskDetails = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(null)
+    const [position, setPosition] = useState({})
 
-    const onOpenModal = (type, member) => {
+    const onOpenModal = (ev, type, member) => {
         setIsOpen(true)
         setCmpType(type)
         setMember(member)
+
+        let elemRect = ev.target.parentNode.getBoundingClientRect()
+        let top = elemRect.top - window.pageYOffset
+        let left = elemRect.left - window.pageXOffset
+        const height = ev.target.offsetHeight
+        setPosition({top, left, height})
+ 
     }
 
     useEffect(() => {
@@ -124,6 +132,7 @@ export const TaskDetails = () => {
                 board={board}
                 group={currGroupRef.current}
                 member={member}
+                position={position}
             />
         </>
     )

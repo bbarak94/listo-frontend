@@ -1,5 +1,4 @@
 import custom from '../assets/img/task/navbar/custom.svg'
-import settings from '../assets/img/task/navbar/settings.svg'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import AttachFileIcon from '@mui/icons-material/AttachFile'
 import VideoLabelOutlinedIcon from '@mui/icons-material/VideoLabelOutlined'
@@ -25,7 +24,7 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                         />
                     </div> */}
                 </div>
-                <div onClick={() => onOpenModal('members')}>
+                <div onClick={(ev) => onOpenModal(ev, 'members',)}>
                     <div className='task-edit-btn flex align-center'>
                         <div>
                             <img
@@ -37,7 +36,7 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                         <h2>Members</h2>
                     </div>
                 </div>
-                <div onClick={() => onOpenModal('labels')}>
+                <div onClick={(ev) => onOpenModal(ev, 'labels')}>
                     <div className='task-edit-btn flex align-center'>
                         <div>
                             <TurnedInNotRoundedIcon
@@ -50,7 +49,7 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                         <h2>Labels</h2>
                     </div>
                 </div>
-                <div onClick={() => onOpenModal('checklist')}>
+                <div onClick={(ev) => onOpenModal(ev, 'checklist')}>
                     <div className='task-edit-btn flex align-center'>
                         <div>
                             <CheckBoxOutlinedIcon style={{ width: '16px' }} />
@@ -59,7 +58,7 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                     </div>
                 </div>
                 {/* <DynamicPopup name={'checklist'} /> */}
-                <div onClick={() => onOpenModal('dates')}>
+                <div onClick={(ev) => onOpenModal(ev, 'dates')}>
                     <div className='task-edit-btn flex align-center'>
                         <div>
                             <img
@@ -86,7 +85,7 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                     <h2>Location</h2>
                 </div>
                 <div>
-                    <div className='task-edit-btn flex align-center' onClick={() => onOpenModal('cover')}>
+                    <div className='task-edit-btn flex align-center' onClick={(ev) => onOpenModal(ev, 'cover')}>
                         <div>
                             <VideoLabelOutlinedIcon style={{ width: '16px' }} />
                         </div>

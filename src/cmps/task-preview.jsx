@@ -14,7 +14,7 @@ import checkBox from '../assets/img/checkbox.svg'
 import { labelService } from "../services/label.service"
 import { boardService } from "../services/board.service"
 
-export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand, taskEditExpandId }) => {
+export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand, taskEditExpandId, setIsScrollBar }) => {
 
 
     const [isMouseOver, setIsMouseOver] = useState(false)
@@ -38,6 +38,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
 
         // ****** Task edit width relative to task preview width *********
         const width = ev.target.parentNode.offsetWidth
+        // if (width === 248) setIsScrollBar(true)
 
         // console.log(ev.target.parentNode)
         // console.log(ev.target);
@@ -158,13 +159,10 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                                     return (
                                                         <div
                                                             key={member.id}
-                                                            className='member-container flex'
+                                                            className='member-container flex' 
                                                             onClick={(ev) => {
                                                                 ev.preventDefault()
-                                                                onOpenModal(
-                                                                    'member',
-                                                                    member
-                                                                )
+                                                                onOpenModal(ev, 'member', member)
                                                             }}
                                                         >
                                                             <img

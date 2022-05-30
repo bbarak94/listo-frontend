@@ -26,7 +26,7 @@ export const MembersList = ({ board, task, onOpenModal }) => {
             <div className='members-avatars-container flex'>
                 {currMembers.map((member, idx) => {
                     return (
-                        <div key={idx} className='member-container flex' onClick={() => onOpenModal('member', member)}>
+                        <div key={idx} className='member-container flex' onClick={(ev) => onOpenModal(ev, 'member', member)}>
                             <img src={member.imgUrl} />
                         </div>
                     )

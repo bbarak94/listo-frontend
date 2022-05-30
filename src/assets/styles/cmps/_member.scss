@@ -1,18 +1,21 @@
 .member-popup {
+
+   height: 100%;
+   background: linear-gradient(to bottom,
+         #0079BF 0%,
+         #0079BF 42%,
+         white 0%,
+         white 58%);
+
+   min-width: 312px;
+   min-height: 230px;
+   border-radius: 3px;
+
    hr {
       width: 90%;
       color: $clr1;
    }
 
-   height: 100%;
-   background: linear-gradient(to bottom,
-      #0079BF 0%,
-      #0079BF 42%,
-      white 0%,
-      white 58%);
-
-   min-width: 312px;
-   min-height: 230px;
 
    .main-container {
       margin: 30px 12px 0 12px;
@@ -52,7 +55,7 @@
       width: 100%;
 
       &:hover {
-         cursor: pointer;            
+         cursor: pointer;
          background-color: darken($clr12, 10%);
       }
 

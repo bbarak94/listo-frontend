@@ -18,9 +18,10 @@
     min-height: 90.5vh;
     min-width: 768px;
     position: fixed;
-    top: 50%;
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 3px;
 
     .inner-container {
         padding: 8px;

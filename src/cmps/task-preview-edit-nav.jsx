@@ -19,12 +19,19 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group, style 
 
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
+    const [position, setPosition] = useState({})
 
     const onHandleClick = (ev, type) => {
         // ev.preventDefault()
 
         setIsOpen(true)
         setCmpType(type)
+
+        let elemRect = ev.target.parentNode.getBoundingClientRect()
+        let top = elemRect.top - window.pageYOffset
+        let left = elemRect.left - window.pageXOffset
+        const height = ev.target.offsetHeight
+        setPosition({top, left, height})
     }
 
     const onToggleTaskToArchive = () => {
@@ -51,6 +58,7 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group, style 
                 task={task}
                 board={board}
                 group={group}
+                position={position}
             />
         </>
     )

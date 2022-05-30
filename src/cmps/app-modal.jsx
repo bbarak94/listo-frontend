@@ -13,22 +13,8 @@ import { Checklist } from './dynamic-cmps/checklist'
 import { AddBoard } from './dynamic-cmps/add-board';
 import { WorkspaceNavModal } from './dynamic-cmps/workspace-nav-modal';
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    zIndex: 30,
-    border: 'none',
-    outLine: 'none',
-    transform: 'translate(-50%, -50%)',
-    width: 'auto',
-    bgcolor: 'background.paper',
-    p: 0,
-    borderRadius: '3px',
-    boxShadow: 24,
-}
-
-export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member, labelId }) {
+export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member, labelId, position = { top: '50%', left: '50%' } }) {
+    console.log('position', position)
 
     const getType = () => {
         switch (cmpType) {
@@ -65,20 +51,34 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         setOpen(isOpen)
     }, [isOpen])
 
+    const style = {
+        position: 'absolute',
+        top: position.top + position.height,
+        left: position.left,
+        zIndex: 30,
+        border: 'none',
+        outLine: 'none',
+        width: 'auto',
+        bgcolor: 'background.paper',
+        p: 0,
+        borderRadius: '3px',
+        boxShadow: 24,
+    }
+
     return (
-        <div>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-                BackdropProps={{ invisible: true}}
-                // BackdropProps={{ open: false}}
-            >
-                <Box sx={style}>
-                    {getType()}
-                </Box>
-            </Modal>
-        </div>
+        // <div>
+        <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            BackdropProps={{ invisible: true }}
+        // BackdropProps={{ open: false}}
+        >
+            <Box sx={style}>
+                {getType()}
+            </Box>
+        </Modal>
+        // </div>
     );
 }

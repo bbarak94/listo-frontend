@@ -3,7 +3,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd'
 
 import { useState } from 'react'
 
-export const TaskList = ({ board, group, onOpenModal, setTask }) => {
+export const TaskList = ({ board, group, onOpenModal, setIsScrollBar }) => {
 
     const [taskEditExpandId, setTaskEditExpand] = useState(null)
 
@@ -59,6 +59,7 @@ export const TaskList = ({ board, group, onOpenModal, setTask }) => {
                                             group={group}
                                             setTaskEditExpand={setTaskEditExpand}
                                             taskEditExpandId={taskEditExpandId}
+                                            setIsScrollBar={setIsScrollBar}
                                         />
                                     </li>
                                 )}

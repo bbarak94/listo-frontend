@@ -1,13 +1,12 @@
+import { useState } from "react"
+
 import { TaskList } from "./task-list"
 import { AddTask } from "./add-task"
 import { GroupTitleEdit } from "./group-title-edit"
-import { TaskEdit } from "./task-edit"
-import { Screen } from "./screen"
-import { useEffect, useState } from "react"
-import { useDispatch } from 'react-redux'
-import { updateGroup } from '../store/actions/board.action'
 
 export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal }) => {
+
+    const [isScrollBar, setIsScrollBar] = useState(false)
 
     return (
         <>
@@ -23,6 +22,7 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
                     onOpenModal={onOpenModal}
                     board={board}
                     group={group}
+                    setIsScrollBar={setIsScrollBar}
                 />
 
                 <AddTask
@@ -30,6 +30,7 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
                     expandCardTitleGroupId={expandCardTitleGroupId}
                     groupId={group.id}
                     boardId={board._id}
+                    isScrollBar={isScrollBar}
                 />
             </article>
 

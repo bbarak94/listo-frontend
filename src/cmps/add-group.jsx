@@ -23,20 +23,23 @@ export const AddGroup = () => {
         setTitle('')
         setAddGroupOpen(false)
     }
-    const style = isAddGroupOpen ? { transform: 'translateY(0)', } : { transform: 'translateY(-38px)', }
-    return (
-        <div className="add-group" style={{ backgroundColor: 'transparent' }}>
+
+    return (<>
+        {!isAddGroupOpen && <div className='add-group-btn' onClick={() => setAddGroupOpen(true)}>
+            <span className="add-icon"></span>
+            Add another list
+        </div>}
+        {isAddGroupOpen && <div className="add-group">
             <form onSubmit={onHandleSubmit}>
-                {!isAddGroupOpen && <div className='add-group-btn' onClick={() => setAddGroupOpen(true)}>Add another list</div>}
-                {isAddGroupOpen && <div>
-                    <input type="text" placeholder="Enter list title..." onChange={onHandleChange} value={title} />
-                    <div className='add-group-actions flex' style={style}>
+                <div>
+                    <input type="text" placeholder="Enter list title..." onChange={onHandleChange} value={title} autoFocus />
+                    <div className='add-group-actions flex'>
                         <button className="btn">Add list</button>
                         <span className='close-btn' onClick={() => setAddGroupOpen(false)}></span>
                     </div>
-
-                </div>}
+                </div>
             </form>
-        </div>
+        </div>}
+    </>
     )
 }
