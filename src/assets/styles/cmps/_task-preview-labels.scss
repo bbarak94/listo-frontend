@@ -1,29 +1,85 @@
-
-
-.task-preview-labels{
-      padding: 4px 8px 0;
-
+.task-preview-labels {
+    padding: 4px 8px 0;
     flex-wrap: wrap;
-    .task-preview-label{
+
+    .task-preview-label {
         min-width: 40px;
         min-height: 8px;
         margin: 4px 2px;
         border-radius: 5px;
-        &:hover{
-            // min-width: 56px;
-            // min-height: 16px;
-            // margin: 4px 2px;
-            // border-radius: 5px;
+        color: $clr10;
+        font-size: 12px;
+        text-align: center;
+        font-weight: 500;
+
+        span {
+            opacity: 0;
+            
+
+            &.shrink {
+                opacity: 0;
+                transition: opacity 13s;
+            }
+
+            &.expand {
+                opacity: 1;
+                transition: opacity 13s;
+
+            }
+        }
+
+        &.expand {
+            animation-name: task-expand;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+
+            @keyframes task-expand {
+                0% {
+                    min-width: 40px;
+                    min-height: 8px;
+                }
+
+                50% {
+                    min-width: 56px;
+                    min-height: 8px;
+                }
+
+                100% {
+                    min-width: 56px;
+                    min-height: 16px;
+                }
+            }
+        }
+
+        &.shrink {
+            animation-name: task-shrink;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+
+            @keyframes task-shrink {
+                0% {
+                    min-width: 56px;
+                    min-height: 16px;
+
+                }
+
+                50% {
+                    min-width: 56px;
+                    min-height: 8px;
+                }
+
+                100% {
+                    min-width: 40px;
+                    min-height: 8px;
+                }
+            }
+        }
+
+        &.label-hover {
+            &:hover {
+                filter: brightness(87%);
+            }
         }
 
     }
-
-    .task-preview-label-open{
-
-        min-width: 56px;
-        min-height: 16px;
-        margin: 4px 2px;
-        border-radius: 5px;
-    }
-
 }

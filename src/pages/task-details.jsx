@@ -67,7 +67,6 @@ export const TaskDetails = () => {
 
     const onCloseTaskDetails = (ev) => {
         navigate(`/board/${boardId}`)
-        console.log('ev', ev)
     }
 
     if (!task) return <h1>Loading...</h1>

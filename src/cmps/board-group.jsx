@@ -4,10 +4,10 @@ import { TaskList } from "./task-list"
 import { AddTask } from "./add-task"
 import { GroupTitleEdit } from "./group-title-edit"
 
-export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal }) => {
+export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal, labelExpandClass, setLabelExpand }) => {
 
-    const [isScrollBar, setIsScrollBar] = useState(false)
-
+    const [isScrollBar, setIsScrollBar] = useState('')
+    
     return (
         <>
             <article className="board-group flex column">
@@ -23,6 +23,8 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
                     board={board}
                     group={group}
                     setIsScrollBar={setIsScrollBar}
+                    setLabelExpand={setLabelExpand}
+                    labelExpandClass={labelExpandClass}
                 />
 
                 <AddTask
@@ -30,7 +32,7 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
                     expandCardTitleGroupId={expandCardTitleGroupId}
                     groupId={group.id}
                     boardId={board._id}
-                    isScrollBar={isScrollBar}
+                    // isScrollBar={isScrollBar}
                 />
             </article>
 
