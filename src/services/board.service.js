@@ -29,8 +29,7 @@ export const boardService = {
     getGroup,
     getGroupById,
     getMembersByIds,
-    getEmptyTodo,
-    createActivity
+    getEmptyTodo
 }
 window.cs = boardService
 
@@ -282,7 +281,6 @@ function getMembersByIds(memberIds, board) {
             members.push(member)
         }
     })
-    // console.log('getLabelsByIds ~ members', members)
     return members
 }
 
