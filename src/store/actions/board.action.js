@@ -121,7 +121,6 @@ export function addGroup(groupTitle, boardId) {
 }
 
 export function updateGroup(group, boardId) {
-    console.log('ttttttttttttttttttttttttttttt')
         return async (dispatch) => {
         try {
             const board = await boardService.updateGroup(

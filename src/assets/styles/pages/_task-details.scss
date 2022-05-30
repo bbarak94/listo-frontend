@@ -9,13 +9,20 @@
     z-index: 10;
 }
 
+
+
 .task-details {
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    overflow: scroll;
     padding-top: 20px;
     z-index: 100;
     background-color: $clr11;
     margin: auto;
     margin-top: -2px;
     min-height: 90.5vh;
+    max-height: 90.5vh;
     min-width: 768px;
     position: fixed;
     top: 53%;

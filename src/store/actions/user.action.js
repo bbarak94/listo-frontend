@@ -15,7 +15,7 @@ export function login(credentials) {
     return async (dispatch) => {
         try {
             const user = await userService.login(credentials)
-            console.log('user:',user)
+            // console.log('user:',user)
             
             dispatch({
                 type: 'SET_USER',

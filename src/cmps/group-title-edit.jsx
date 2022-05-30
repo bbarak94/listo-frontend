@@ -23,7 +23,7 @@ export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
     }
 
     const onHandleSubmit = (ev) => {
-        console.log('ev.target.value:',ev.target.value)
+        // console.log('ev.target.value:',ev.target.value)
         if (ev.target.value) ev.preventDefault()
         onUpdateGroup(ev.target.value)
     }

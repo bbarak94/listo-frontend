@@ -28,11 +28,17 @@
    .task-details-activity {
       gap: 12px;
       margin-left: 42px;
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
       .txt {
          align-items: center;
-         padding-top: 4px;
-         gap: 5px;
+         position: relative;
+         .date{
+            font-size: 13px;
+            align-self: flex-start;
+            font-weight: 300;
+            position: relative;
+            bottom: 6px;
+         }
          
          h1 {
             font-size: 16px;

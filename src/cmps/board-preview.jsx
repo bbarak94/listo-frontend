@@ -14,7 +14,7 @@ export const BoardPreview = ({ board }) => {
     const dispatch = useDispatch()
 
     const onStarBoard = (ev, isStar) => {
-        console.log(ev);
+        // console.log(ev);
         // ev.preventDefault()
         ev.stopPropagation()
         board.isStar = isStar

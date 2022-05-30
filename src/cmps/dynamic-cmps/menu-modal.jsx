@@ -14,8 +14,8 @@ import { useNavigate } from 'react-router-dom'
 export const MenuModal = ({ handleClose }) => {
     const { board } = useSelector((storeState) => storeState.boardModule)
     const navigate = useNavigate()
-    console.log('board:', board)
-    console.log('board.activities:', board.activities)
+    // console.log('board:', board)
+    // console.log('board.activities:', board.activities)
     // const { user } = useSelector((storeState) => storeState.userModule)
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
@@ -46,9 +46,9 @@ export const MenuModal = ({ handleClose }) => {
                             <div
                                 className='user-container flex'
                                 onClick={async () => {
-                                     console.log('activity.byMember._id:',activity.byMember._id)
+                                    //  console.log('activity.byMember._id:',activity.byMember._id)
                                     const member = await userService.getById(activity.byMember._id)
-                                    console.log('member:',member)                                    
+                                    // console.log('member:',member)                                    
                                     onOpenModal('member', member)
                                 }}
                             >
@@ -81,7 +81,9 @@ export const MenuModal = ({ handleClose }) => {
                                     )}
 
                                 </h1>
-                                <h2 className='date'>{moment(activity.createdAt).format('MMMM D YYYY [at] h:mm a')}</h2>
+                                {(Date.now()-activity.createdAt < 5000) && <h2 className='date'> just now </h2>}
+                                {(Date.now()-activity.createdAt > 5000) && <h2 className='date'>{(moment(activity.createdAt).fromNow())}</h2>}
+                                {/* <h2 className='date'>{moment(activity.createdAt).format('MMMM D YYYY [at] h:mm a')}</h2> */}
                             </div>
                         </div>
                     )
