@@ -149,7 +149,7 @@ function unsubscribe(listener) {
 
 async function addGroup(title, boardId) {
     const user = userService.getLoggedinUser()
-    console.log('user:', user)
+    // console.log('user:', user)
     const newGroup = {
         id: utilService.makeId(),
         title,
@@ -208,7 +208,7 @@ async function addTask(title, boardId, groupId) {
     try {
         const board = await getById(boardId)
         let group = board.groups.find(group => group.id === groupId)
-        console.log('group from service', group)
+        // console.log('group from service', group)
         group.tasks.push(newTask)
         // const newActivity = await createActivity('added a task',newTask)
         // board.activities.unshift(newActivity)

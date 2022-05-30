@@ -6,7 +6,7 @@ import Button from '@mui/material/Button'
 import { useState } from 'react'
 export const TaskDetailsActivities = ({ task, board, groupId }) => {
     const [isActivitiesOpen, setIsActivitiesOpen] = useState(false)
-    console.log('board.activities:',board.activities)
+    // console.log('board.activities:',board.activities)
     
     return (
         <div className='task-details-activities'>

@@ -33,10 +33,10 @@ function onUserUpdate(user) {
 }
 
 async function getById(userId) {
-    console.log('userId:',userId)
+    // console.log('userId:',userId)
     
     const user = await storageService.get('user', userId)
-    console.log('user:',user)
+    // console.log('user:',user)
     
     // const user = await httpService.get(`user/${userId}`)
     // gWatchedUser = user;

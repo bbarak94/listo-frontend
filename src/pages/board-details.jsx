@@ -35,14 +35,20 @@ export const BoardDetails = () => {
     }
 
 
-    const handleOnDragStart = (result) => {
-        console.log('drag start')
+    const handleOnDragStart = (ev) => {
+        console.log('ev:',ev)
     }
 
+    const onMouseDown = (ev) => {
+        console.log('ev.target.parentNode:',ev.target.parentNode)
+        // ev.target.parentNode.parentNode.style.transform = 'rotate(-12deg)'
+    }
+    const onMouseUp = (ev) => {
+    }
+    
     const handleOnDragEnd = (result) => {
 
         if (!result.destination) return
-        console.log('result:', result)
 
         const {
             source: { droppableId: sourceGroupId, index: sourceIdx },
@@ -53,7 +59,7 @@ export const BoardDetails = () => {
             draggableId: draggedTaskId,
         } = result
         if (result.type === 'group') {
-            console.log('result:', result)
+            // console.log('result:', result)
             const group = boardService.getGroupById(board, result.draggableId)
             const newBoard = { ...board }
             newBoard.groups.splice(result.source.index, 1)
@@ -126,8 +132,10 @@ export const BoardDetails = () => {
             <main className='board-details flex'>
                 <DragDropContext
                     onDragEnd={handleOnDragEnd}
-                    onDragStart={handleOnDragStart}
-                >
+                    // onDragStart={(ev) => handleOnDragStart(ev)}
+                    onMouseDown={(ev)=> onMouseDown()}
+                    onMouseUp={(ev)=> onMouseUp()}
+                                    >
                     {/* //////////////////////////////// */}
                     {/* Droppable HERE */}
                     {/* direction horizontal */}
@@ -160,6 +168,7 @@ export const BoardDetails = () => {
                                                     {...provided.dragHandleProps}
                                                     ref={provided.innerRef}
                                                     key={group.id}
+                                                    onMouseDown={onMouseDown}
                                                 >
                                                     <BoardGroup
                                                         onOpenModal={onOpenModal}
