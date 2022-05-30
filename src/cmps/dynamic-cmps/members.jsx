@@ -6,7 +6,6 @@ import CheckIcon from '@mui/icons-material/Check'
 import {updateTask} from '../../store/actions/board.action'
 
 export const Members = ({task, board, group, handleClose}) => {
-    console.log('newTaskkk, board, group', task, board, group)
 
     // const { board } = useSelector((storeState) => storeState.boardModule)
     const dispatch = useDispatch()

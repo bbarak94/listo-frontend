@@ -21,6 +21,7 @@ export const BoardDetails = () => {
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(null)
     const [modalPosition, setModalPosition] = useState({})
+    const [labelExpandClass, setLabelExpand] = useState('')
 
     const { board } = useSelector((storeState) => storeState.boardModule)
     
@@ -127,6 +128,8 @@ export const BoardDetails = () => {
                             board={board}
                             expandCardTitleGroupId={expandCardTitleGroupId}
                             setExpandCardTitleId={setExpandCardTitleId}
+                            labelExpandClass={labelExpandClass}
+                            setLabelExpand={setLabelExpand}
                         />
                     ))}
                 </DragDropContext>

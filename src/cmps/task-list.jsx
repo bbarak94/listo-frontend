@@ -3,7 +3,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd'
 
 import { useState } from 'react'
 
-export const TaskList = ({ board, group, onOpenModal, setIsScrollBar }) => {
+export const TaskList = ({ board, group, onOpenModal, setIsScrollBar, setLabelExpand, labelExpandClass, }) => {
 
     const [taskEditExpandId, setTaskEditExpand] = useState(null)
 
@@ -24,6 +24,7 @@ export const TaskList = ({ board, group, onOpenModal, setIsScrollBar }) => {
     // }
 
     const tasksToShow = group.tasks.filter((task) => !task.archivedAt)
+
     return (
         // <section className='task-list'>
         // <DragDropContext onDragEnd={handleOnDragEnd}>
@@ -42,7 +43,7 @@ export const TaskList = ({ board, group, onOpenModal, setIsScrollBar }) => {
                                 key={task.id}
                                 draggableId={task.id}
                                 index={index}
-                                isDragDisabled={taskEditExpandId !== true}
+                                isDragDisabled={taskEditExpandId ? true : false}
                             >
                                 {(provided) => (
                                     <li
@@ -59,6 +60,8 @@ export const TaskList = ({ board, group, onOpenModal, setIsScrollBar }) => {
                                             setTaskEditExpand={setTaskEditExpand}
                                             taskEditExpandId={taskEditExpandId}
                                             setIsScrollBar={setIsScrollBar}
+                                            setLabelExpand={setLabelExpand}
+                                            labelExpandClass={labelExpandClass}
                                         />
                                     </li>
                                 )}
