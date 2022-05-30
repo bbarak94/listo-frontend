@@ -16,11 +16,14 @@
         display: block;
         margin: 12px 0 0;
     }
-    input{
+
+    input {
         @include nice-input(#B3BAC5);
-        &:focus{
+
+        &:focus {
             @include nice-input;
         }
+
         width: 100%;
     }
 }
@@ -38,8 +41,14 @@
         &:hover {
             opacity: 0.8;
         }
+
+        &.selected-clr {
+            box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #0079BF;
+        }
     }
+
 }
+
 
 .no-color-label-container {
 
@@ -58,6 +67,10 @@
 
         &:hover {
             opacity: 0.8;
+        }
+
+        &.selected-clr {
+            box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #0079BF;
         }
     }
 

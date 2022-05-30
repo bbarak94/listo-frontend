@@ -1,5 +1,8 @@
+.task-preview-helper {
+   position: relative;
+}
 .task-preview-container {
-
+   position: relative;
    margin: 8px 4px 8px;
 
    .task-preview-color {
@@ -15,7 +18,6 @@
          object-fit: cover;
          height: 100%;
          border-radius: 3px 3px 0 0;
-
       }
    }
 
@@ -49,8 +51,6 @@
                filter: invert(19%) sepia(100%) saturate(11%) hue-rotate(345deg) brightness(99%) contrast(91%);
             }
          }
-
-
       }
 
       .task-preview-title {
@@ -63,7 +63,6 @@
       }
 
       .task-preview-date {
-
          gap: 2px;
 
          span {
@@ -88,7 +87,6 @@
             background-color: #091e4211;
          }
       }
-
    }
 
    .preview-title {
@@ -115,5 +113,185 @@
          }
       }
    }
-
 }
+
+
+
+
+
+
+// .task-preview-helper {
+//    // position: relative;
+
+//    .task-preview-container {
+
+//       margin: 8px 4px 8px;
+
+//       .task-preview-color {
+//          width: 100%;
+//          height: 32px;
+//          border-radius: 3px 3px 0 0;
+//       }
+
+//       .task-preview-img-container {
+//          height: 163px;
+
+
+//          img {
+//             object-fit: cover;
+//             height: 100%;
+//             border-radius: 3px 3px 0 0;
+
+//          }
+//       }
+
+//       .task-preview {
+//          width: 100%;
+//          border-radius: 0.2em;
+//          box-shadow: 0 1px 0 #091e4240;
+//          background-color: $clr10;
+//          position: relative;
+
+//          // .task-preview {
+//          //    border-radius: 0.2em;
+//          //    box-shadow: 0 1px 0 #091e4240;
+//          //    background-color: $clr10;
+//          //    // position: relative;
+
+//             &:hover {
+//                background-color: darken($clr10, 5%);
+
+//                .edit-icon {
+//                   padding: 14px;
+//                   margin: 0;
+//                   background-image: url(../../img/icon/pencil.svg);
+//                   filter: invert(54%) sepia(6%) saturate(1076%) hue-rotate(180deg) brightness(87%) contrast(97%);
+//                   background-size: 12px 22px;
+//                   background-repeat: no-repeat;
+//                   background-position: center;
+//                   width: 8px;
+//                   height: 8px;
+//                   position: relative;
+//                   right: -6px;
+//                   top: -2px;
+//                   border-radius: 3px;
+
+//                   &:hover {
+//                      background-color: $clr13;
+//                      filter: invert(19%) sepia(100%) saturate(11%) hue-rotate(345deg) brightness(99%) contrast(91%);
+//                   }
+//                }
+
+
+//             }
+
+//             .task-preview-title {
+//                display: block;
+//                margin-bottom: 4px;
+//             }
+
+//             .task-preview-date {
+//                padding: 4px 8px 0;
+
+//                padding: 4px;
+//                border-radius: 3px;
+//                font-size: 12px;
+//                color: $clr8;
+//                margin-bottom: 4px;
+
+//                img {
+//                   margin-inline-end: 4px;
+//                   filter: invert(41%) sepia(27%) saturate(398%) hue-rotate(179deg) brightness(94%) contrast(86%);
+//                   width: 16px;
+//                }
+
+//                &:hover {
+//                   background-color: #091e4211;
+//                }
+//             }
+
+//          }
+
+//          <<<<<<< HEAD .preview-title {
+//             padding: 4px 8px 0;
+//          }
+
+//          .members-list-container {
+//             padding: 4px 8px 0;
+//             position: relative;
+//          }
+
+//          .members-avatars-container-task-preview {
+//             justify-content: flex-end;
+//             gap: 3px;
+//             margin-bottom: 8px;
+
+//             =======.task-preview-title {
+//                width: 100%;
+
+//                span {
+//                   background-color: lightblue;
+//                   // min-width: 100%;
+//                }
+//             }
+
+//             .task-preview-date {
+
+//                gap: 2px;
+
+//                span {
+//                   margin: auto;
+//                }
+
+//                padding: 4px 8px 0;
+//                // padding: 4px;
+//                border-radius: 3px;
+//                font-size: 12px;
+//                color: $clr8;
+//                margin-bottom: 4px;
+
+//                img {
+//                   margin-top: 1px;
+//                   margin-inline-end: 4px;
+//                   filter: invert(41%) sepia(27%) saturate(398%) hue-rotate(179deg) brightness(94%) contrast(86%);
+//                   width: 16px;
+//                }
+
+//                >>>>>>>d641e47745588622119f544aead9471cbe784d46 .member-container {
+//                   img {
+//                      width: 28px;
+//                      height: 28px;
+//                      border-radius: 50%;
+//                   }
+//                }
+//             }
+
+//          }
+
+//          <<<<<<< HEAD=======.preview-title {
+//             padding: 6px 8px 0 8px;
+//             // padding: 4px 8px 0;
+//          }
+
+//          .members-list-container {
+//             margin-left: auto;
+//             padding: 4px 8px 0;
+//             position: relative;
+//          }
+
+//          .members-avatars-container-task-preview {
+//             justify-content: flex-end;
+//             gap: 3px;
+//             margin-bottom: 8px;
+
+//             .member-container {
+//                img {
+//                   width: 28px;
+//                   height: 28px;
+//                   border-radius: 50%;
+//                }
+//             }
+//          }
+
+//          >>>>>>>d641e47745588622119f544aead9471cbe784d46
+//       }

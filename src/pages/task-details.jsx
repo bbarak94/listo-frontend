@@ -56,8 +56,9 @@ export const TaskDetails = () => {
         dispatch(getBoard(boardId))
     }
 
-    const onCloseTaskDetails = () => {
+    const onCloseTaskDetails = (ev) => {
         navigate(`/board/${boardId}`)
+        console.log('ev', ev)
     }
 
     if (!task) return <h1>Loading...</h1>

@@ -13,14 +13,16 @@ import ArchiveIcon from '@mui/icons-material/Archive'
 import { AppModal } from './app-modal'
 import { updateTask } from '../store/actions/board.action'
 
-export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group }) => {
+export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group, style }) => {
 
     const dispatch = useDispatch()
 
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
 
-    const onHandleClick = (type) => {
+    const onHandleClick = (ev, type) => {
+        // ev.preventDefault()
+
         setIsOpen(true)
         setCmpType(type)
     }
@@ -34,13 +36,13 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group }) => {
         <>
             <nav className="task-edit-nav">
                 <button onClick={goToTaskDetails}><CreditCardIcon /><span>Open Card</span></button>
-                <button onClick={() => onHandleClick('labels')}><LabelIcon /><span>Edit labels</span></button>
-                <button onClick={() => onHandleClick('members')}><PersonOutlineIcon /><span>Change Members</span></button>
-                <button onClick={() => onHandleClick('cover')}><WallpaperIcon /><span>Change Cover</span></button>
-                <button onClick={() => onHandleClick('move')}><ArrowForwardIcon /><span>Move</span></button>
-                <button onClick={() => onHandleClick('copy')}><ContentCopyIcon /><span>Copy</span></button>
-                <button onClick={() => onHandleClick('dates')}><ScheduleIcon /><span>Edit Dates</span></button>
-                <button onClick={() => onToggleTaskToArchive()}><ArchiveIcon /><span>Archive</span></button>
+                <button onClick={(ev) => onHandleClick(ev, 'labels')}><LabelIcon /><span>Edit labels</span></button>
+                <button onClick={(ev) => onHandleClick(ev, 'members')}><PersonOutlineIcon /><span>Change Members</span></button>
+                <button onClick={(ev) => onHandleClick(ev, 'cover')}><WallpaperIcon /><span>Change Cover</span></button>
+                <button onClick={(ev) => onHandleClick(ev, 'move')}><ArrowForwardIcon /><span>Move</span></button>
+                <button onClick={(ev) => onHandleClick(ev, 'copy')}><ContentCopyIcon /><span>Copy</span></button>
+                <button onClick={(ev) => onHandleClick(ev, 'dates')}><ScheduleIcon /><span>Edit Dates</span></button>
+                <button onClick={(ev) => onToggleTaskToArchive()}><ArchiveIcon /><span>Archive</span></button>
             </nav>
             <AppModal
                 isOpen={isOpen}
