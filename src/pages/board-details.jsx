@@ -22,6 +22,7 @@ export const BoardDetails = () => {
     const [member, setMember] = useState(null)
 
     const { board } = useSelector((storeState) => storeState.boardModule)
+    
 
     useEffect(() => {
         loadBoard()

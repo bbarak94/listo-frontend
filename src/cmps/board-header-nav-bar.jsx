@@ -1,7 +1,14 @@
 
 
+import { useState } from 'react'
+import { AppModal } from './app-modal'
 
 export const BoardHeaderNavBar = ({ board, onOpenModal }) => {
+    
+    
+    const [isOpen, setIsOpen] = useState(false)
+    const [cmpType, setCmpType] = useState('')
+    
     return (<>
         <div className="board-header-right-container">
             <div className="board-title-btn">
@@ -25,7 +32,13 @@ export const BoardHeaderNavBar = ({ board, onOpenModal }) => {
 
         <div className="board-header-left-container">
 
-            <div className="show-menu-btn"><span>... Show menu</span> </div>
+            <div className="show-menu-btn" onClick={() => onOpenModal('menu')}><span>... Show menu</span> </div>
+            <AppModal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                cmpType={cmpType}
+                board={board}
+            />
 
         </div>
 

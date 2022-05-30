@@ -12,6 +12,7 @@ import { Member } from './dynamic-cmps/member'
 import { Checklist } from './dynamic-cmps/checklist'
 import { AddBoard } from './dynamic-cmps/add-board';
 import { WorkspaceNavModal } from './dynamic-cmps/workspace-nav-modal';
+import { MenuModal } from './dynamic-cmps/menu-modal.jsx';
 
 const style = {
     position: 'absolute',
@@ -29,7 +30,6 @@ const style = {
 }
 
 export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member, labelId }) {
-
     const getType = () => {
         switch (cmpType) {
             case 'labels':
@@ -50,6 +50,8 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
                 return <AddBoard task={task} board={board} group={group} handleClose={handleClose} />
             case 'workspace-nav-modal':
                 return <WorkspaceNavModal task={task} board={board} group={group} handleClose={handleClose} />
+            case 'menu':
+                return <MenuModal task={task} board={board} group={group} handleClose={handleClose} />
         }
     }
 

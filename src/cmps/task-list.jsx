@@ -24,7 +24,6 @@ export const TaskList = ({ board, group, onOpenModal, setTask }) => {
     // }
 
     const tasksToShow = group.tasks.filter((task) => !task.archivedAt)
-    console.log(taskEditExpandId);
     return (
         // <section className='task-list'>
         // <DragDropContext onDragEnd={handleOnDragEnd}>

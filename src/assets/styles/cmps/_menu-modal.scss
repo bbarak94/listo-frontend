@@ -1,0 +1,58 @@
+.menu-modal{
+   padding: 12px;
+   min-width: 340px;
+   .title-container{
+      padding: 8px 10px;
+      h1{
+         font-size: 18px;
+      }
+   }
+   .activities{
+      padding: 8px;
+      gap: 10px;      
+
+      .activities-header{
+         align-content: center;   
+         gap: 10px;
+         // height: 30px;
+         padding: 8px;
+         .activity-icon-container{
+         }
+         h3{
+            margin-top: 1px;
+            font-size: 16px;
+         }
+         &:hover{
+            background-color: darken($color: $clr13, $amount: 1);
+            cursor: pointer;
+         }
+      }
+   }
+
+   .menu-modal-activities{
+      gap: 8px;
+      margin-left: 4px;
+      align-items: center;
+      .txt {
+         gap: 5px;
+         h1{
+            font-size: 16px;
+            font-weight: 500;
+            span{
+               font-size: 14px;
+               font-weight: 400;
+            }
+         }
+       
+         a{
+            font-size: 14px;
+               font-weight: 400;
+            text-decoration: underline;
+            &:hover{
+               cursor: pointer;
+            }
+         }
+      }
+
+   }
+}
