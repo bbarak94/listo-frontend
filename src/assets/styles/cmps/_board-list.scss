@@ -1,6 +1,19 @@
-// .board-list {
-//    position: relative;
-//    top: 80px;
-//    gap: 20px;
-//    flex-wrap: wrap;
-// }
+.board-list {
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+
+    .title-container {
+        align-items: flex-end;
+
+        img {
+            margin-right: 14px
+        }
+    }
+
+    h2 {
+        font-size: 16px;
+        margin: 0;
+    }
+
+}

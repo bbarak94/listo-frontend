@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+import moment from 'moment'
 
 import FormatListBulletedRoundedIcon from '@mui/icons-material/FormatListBulletedRounded'
 
@@ -44,8 +45,10 @@ export const MenuModal = ({ handleClose }) => {
                         <div className='menu-modal-activities flex' key={idx}>
                             <div
                                 className='user-container flex'
-                                onClick={() => {
-                                    const member = userService.getById(activity.byMember.id)
+                                onClick={async () => {
+                                     console.log('activity.byMember._id:',activity.byMember._id)
+                                    const member = await userService.getById(activity.byMember._id)
+                                    console.log('member:',member)                                    
                                     onOpenModal('member', member)
                                 }}
                             >
@@ -58,17 +61,27 @@ export const MenuModal = ({ handleClose }) => {
                                     }}
                                 />
                             </div>
-                            <div className='txt flex'>
+                            <div className='txt flex column'>
                                 <h1>
                                     {activity.byMember.fullname}{' '}
                                     <span>
                                         {activity.txt}
-                                        {' to '}
+                                      
                                     </span>
-                                    <a onClick={() =>{
-                                        navigate(`/board/${board.id}/task/${activity.task.id}`)}}> {activity.task.title}</a>
+                                    {(activity?.task) && (
+                                        <span>
+                                            {/* <span>{' to '} </span> */}
+                                            <a onClick={() => {
+                                                navigate(`/board/${board._id}/task/${activity.task.id}`)
+                                            }}> {activity.task.title}</a>
+                                        </span>
+                                    )}
+                                    {(!activity?.task) && (
+                                        <span className='board-name'>{' '}{board.title}</span>
+                                    )}
 
                                 </h1>
+                                <h2 className='date'>{moment(activity.createdAt).format('MMMM D YYYY [at] h:mm a')}</h2>
                             </div>
                         </div>
                     )

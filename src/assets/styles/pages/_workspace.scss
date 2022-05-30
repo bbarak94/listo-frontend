@@ -6,27 +6,5 @@
    top: 80px;
    padding: 0px 17px;
 
-   .board-list{
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-   }
 
-   .title {
-
-      h2 {
-         font-size: 20px;
-         margin: 0;
-      }
-      .icon-container {
-         height: 32px;
-         width: 32px;
-      }
-   }
-
-   h3 {
-      color: $clr8;
-      font-size: 14px;
-      margin: 0;
-   }
 }
