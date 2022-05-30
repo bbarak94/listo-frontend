@@ -28,8 +28,7 @@ export const boardService = {
     getGroup,
     getGroupById,
     getMembersByIds,
-    getEmptyTodo,
-    createActivity
+    getEmptyTodo
 }
 window.cs = boardService
 
@@ -249,7 +248,6 @@ function getMembersByIds(memberIds, board) {
             members.push(member)
         }
     })
-    // console.log('getLabelsByIds ~ members', members)
     return members
 }
 
@@ -258,23 +256,6 @@ function getEmptyTodo() {
         id: utilService.makeId(),
         title: '',
         isDone: false
-    }
-}
-
-function createActivity(task,user,txt) {
-    const newActivity = {
-        id: utilService.makeId(),
-        txt,
-        createdAt: new Date.now(),
-        byMember:{
-            _id:user._id,
-            fullname: user.fullname,
-            imgUrl: user.imgUrl
-        },
-        task: {
-            id: task._id,
-            title: task.title,
-        },
     }
 }
 
