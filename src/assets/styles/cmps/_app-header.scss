@@ -1,4 +1,28 @@
 .app-header {
+   .wellcome{
+      position: absolute;
+      right: 3px;
+      align-self: flex-end;
+      gap: 8px;
+      .wellcome-msg{
+         font-size: 16px;
+
+      }
+      .logout-btn{
+         color: red;
+         font-size: 12px;
+         margin-right: 4px;
+         &:hover{
+            cursor: pointer;
+            text-decoration: underline;
+         }
+      }
+   }
+.user-container{
+   border-radius: 50%;
+}
+
+
    padding-left: 8px;
    padding-right: 8px;
    position: fixed;

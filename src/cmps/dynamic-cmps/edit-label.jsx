@@ -11,9 +11,9 @@ export const EditLabel = ({ board }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     
-    useForm({
+    // useForm({
 
-    },onCreatLabel)
+    // },onCreatLabel)
 
     // const [title, setTitle] = useState('')
 

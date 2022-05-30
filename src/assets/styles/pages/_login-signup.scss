@@ -1,4 +1,15 @@
 .login-signup {
+
+   .msg{
+      color: red;
+   }
+   a{
+      color: blue;
+      &:hover{
+         text-decoration: underline;
+         cursor: pointer;
+      }
+   }
    height: 100vh;
 
    .login-logo-container {
@@ -23,7 +34,7 @@
       padding: 25px 40px;
       margin: auto;
       position: fixed;
-      top: 40%;
+      top: 500px;
       left: 50%;
       transform: translate(-50%, -50%);
       display: flex;
@@ -56,25 +67,33 @@
             width: 100%;
          }
          
-         .login-btn {
+         .login-btn,.signup-btn {
             color: white;
             background: #5AAC44;
             width: 100%;
             font-size: 16px;
             font-weight: 400;
-         }
-         .signup-btn {
-            color: white;
-            background: #E2E4E6;
-            color: hsl(0,0%,55%);
-            font-size: 14px;
-            width: 100%;
-            font-weight: 500;
             min-width: 290px;
 
          }
+         // .signup-btn {
+         //    color: white;
+         //    background: #E2E4E6;
+         //    color: hsl(0,0%,55%);
+         //    font-size: 14px;
+         //    width: 100%;
+         //    font-weight: 500;
+         //    min-width: 290px;
+         // }
       }
       .microsoft-container,.google-container{
+         margin-right: 6px;
+         display: flex;
+         justify-content: center;
+         align-content: center;
+      }
+      .apple-container{
+         margin-right: 4px;
          display: flex;
          justify-content: center;
          align-content: center;
@@ -92,7 +111,6 @@
          border-radius: 3px;
          width: 99%;
          height: 39px;
-         padding-top: 0;
          margin-bottom: 12px;
          -webkit-transition: background-color .2s ease-in-out 0s, border-color .2s ease-in-out 0s;
          transition: background-color .2s ease-in-out 0s, border-color .2s ease-in-out 0s;

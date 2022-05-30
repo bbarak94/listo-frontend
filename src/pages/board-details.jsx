@@ -3,15 +3,15 @@ import { useParams, Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-import { setBoard } from '../store/actions/board.action'
+import { updateGroup, saveBoard, setBoard } from '../store/actions/board.action'
 
 import { BoardGroup } from '../cmps/board-group'
 import { AddGroup } from '../cmps/add-group'
 import { BoardHeaderNavBar } from '../cmps/board-header-nav-bar'
 import { AppModal } from '../cmps/app-modal'
 import { boardService } from '../services/board.service'
-import { updateGroup, saveBoard } from '../store/actions/board.action'
 import {AppHeader} from '../cmps/app-header'
+
 export const BoardDetails = () => {
     const params = useParams()
     const dispatch = useDispatch()
@@ -30,6 +30,8 @@ export const BoardDetails = () => {
     const loadBoard = async () => {
         dispatch(setBoard(params.boardId))
     }
+
+
 
     const handleOnDragStart = (result) => {
         console.log('drag start')
