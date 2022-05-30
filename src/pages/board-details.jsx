@@ -112,7 +112,7 @@ export const BoardDetails = () => {
         <AppHeader />
 
             <div className='board-header flex'>
-                <BoardHeaderNavBar board={board} onOpenModal={onOpenModal} />
+                <BoardHeaderNavBar board={board} />
             </div>
             <main className='board-details flex'>
                 <DragDropContext

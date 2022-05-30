@@ -6,6 +6,7 @@ import {
     getActionAddBoard,
     getActionUpdateBoard,
 } from '../store/actions/board.action'
+import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'board'
 const boardChannel = new BroadcastChannel('boardChannel')
@@ -62,16 +63,12 @@ async function save(board) {
     return savedBoard
 }
 
-function getEmptyBoard() {
+async function getEmptyBoard() {
     const newBoard = {
         title: 'New Board',
         archivedAt: null,
         createdAt: Date.now(),
-        createdBy: {
-            _id: 'u100',
-            fullname: 'Guest',
-            imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg',
-        },
+        createdBy: await userService.getLoggedinUser(),
         style: {
             background: null,
         },
@@ -87,7 +84,31 @@ function getEmptyBoard() {
             {
                 _id: 'u100',
                 fullname: 'Guest',
+                username: 'guest',
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg',
+            }, {
+                id: 'u101',
+                fullname: 'Barak Braun',
+                username: 'barak',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+            },
+            {
+                id: 'u102',
+                fullname: 'Guy Elizarov',
+                username: 'guy',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
+            },
+            {
+                id: 'u103',
+                fullname: 'Itai Rotstein',
+                username: 'itai',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
+            },
+            {
+                id: 'u104',
+                fullname: 'Tommy Irmia',
+                username: 'tommy',
+                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',
             },
         ],
         groups: [
@@ -110,13 +131,9 @@ function getEmptyBoard() {
         activities: [
             {
                 id: utilService.makeId(),
-                txt: 'Guest created a board',
+                txt: 'created a board',
                 createdAt: Date.now(),
-                byMember: {
-                    _id: 'u100',
-                    fullname: 'Guest',
-                    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
-                },
+                byMember: await userService.getLoggedinUser(),
             },
         ],
     }
@@ -131,6 +148,8 @@ function unsubscribe(listener) {
 }
 
 async function addGroup(title, boardId) {
+    const user = userService.getLoggedinUser()
+    console.log('user:', user)
     const newGroup = {
         id: utilService.makeId(),
         title,
@@ -138,8 +157,11 @@ async function addGroup(title, boardId) {
     }
     try {
         const board = await getById(boardId)
-        board.groups.push(newGroup)
 
+
+
+
+        board.groups.push(newGroup)
         save(board)
         return board
     } catch (err) {
@@ -152,6 +174,8 @@ async function updateGroup(groupToUpdate, boardId) {
         const board = await getById(boardId)
         let groupIdx = board.groups.findIndex(currGroup => currGroup.id === groupToUpdate.id)
         board.groups.splice(groupIdx, 1, groupToUpdate)
+        // const newActivity = createActivity('updated',newTask)
+        // board.activities.unshift(newActivity)
         save(board)
         return board
     } catch (err) {
@@ -184,6 +208,8 @@ async function addTask(title, boardId, groupId) {
         let group = board.groups.find(group => group.id === groupId)
         console.log('group from service', group)
         group.tasks.push(newTask)
+        // const newActivity = await createActivity('added a task',newTask)
+        // board.activities.unshift(newActivity)
         save(board)
         return board
     } catch (err) {
@@ -197,6 +223,8 @@ async function updateTask(taskToUpdate, boardId, groupId) {
         let group = board.groups.find(group => group.id === groupId)
         const taskIdx = group.tasks.findIndex(task => task.id === taskToUpdate.id)
         group.tasks.splice(taskIdx, 1, taskToUpdate)
+        const newActivity = createActivity('made changes to list', taskToUpdate)
+        board.activities.unshift(newActivity)
         save(board)
         // console.log('board:',board)
 
@@ -236,7 +264,10 @@ function getGroupById(board, groupId) {
 
 function removeTaskFromBoard(taskId, board) {
     const boardToUpdate = { ...board }
+    const { currTask } = getTaskAndGroup(board, taskId)
     const currGroup = getGroup(boardToUpdate, taskId)
+    const newActivity = createActivity('deleted a task from', currTask)
+    board.activities.unshift(newActivity)
     currGroup.tasks = currGroup.tasks.filter(t => t.id !== taskId)
     return boardToUpdate
 }
@@ -261,19 +292,17 @@ function getEmptyTodo() {
     }
 }
 
-function createActivity(task,user,txt) {
-    const newActivity = {
+// function createActivity(task,user,txt) {
+function createActivity(txt, task) {
+    return {
+        byMember: userService.getLoggedinUser(),
         id: utilService.makeId(),
+        createdAt: Date.now(),
         txt,
-        createdAt: new Date.now(),
-        byMember:{
-            _id:user._id,
-            fullname: user.fullname,
-            imgUrl: user.imgUrl
-        },
         task: {
-            id: task._id,
+            id: task.id,
             title: task.title,
+            txt:txt
         },
     }
 }

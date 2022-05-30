@@ -55,6 +55,8 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
 
     const style = {
         position: 'absolute',
+        // top: position.top,
+        right:position.right,
         top: position.top + position.height,
         left: position.left,
         zIndex: 30,
@@ -66,6 +68,10 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         borderRadius: '3px',
         boxShadow: 24,
     }
+    if(cmpType === 'menu'){
+        style.top = '36px'
+    }
+    
 
     return (
         // <div>

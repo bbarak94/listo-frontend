@@ -33,7 +33,11 @@ function onUserUpdate(user) {
 }
 
 async function getById(userId) {
+    console.log('userId:',userId)
+    
     const user = await storageService.get('user', userId)
+    console.log('user:',user)
+    
     // const user = await httpService.get(`user/${userId}`)
     // gWatchedUser = user;
 
@@ -92,8 +96,14 @@ function saveLocalUser(user) {
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
-}
+    const loggedInUser =  JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    return (loggedInUser || {_id: 'u100',
+    fullname: 'Guest',
+    username: 'guest',
+    imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg'})
+
+    }
+
 
 // ;(async ()=>{
 //     await userService.signup({fullname: 'Puki Norma', username: 'user1', password:'123',score: 10000, isAdmin: false})
