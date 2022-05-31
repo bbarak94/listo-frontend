@@ -6,7 +6,7 @@
    // margin: 14px 0;
    padding: 0;
 
-   &:hover{
+   &:hover {
       filter: brightness(70%);
       background-color: #091e4223;
    }
@@ -29,6 +29,7 @@
    max-width: 200px;
    padding: 8px;
    border-radius: 3px;
+   background-size: contain;
 }
 
 .new-board-menu {
@@ -81,12 +82,13 @@
       // height: 100%;
 
       width: 64px;
+
       // height: 40px;
       img {
-        
+
          object-fit: cover;
          height: 40px;
-        
+
          border-radius: 3px;
          cursor: pointer;
       }

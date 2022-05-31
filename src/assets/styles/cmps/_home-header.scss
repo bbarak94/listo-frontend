@@ -2,7 +2,13 @@
    font-family: Roboto;
    padding: 1rem !important;
    justify-content: space-between;
-   
+   background-color: rgba(255,255,255,0);
+   position: sticky;
+   top: 0;
+   transition: background-color 1s, box-shadow 1s;
+   z-index: 5;
+   background: #eae6ff;
+
    .header-logo{
       cursor: pointer;
       max-width: 126px;
@@ -29,4 +35,10 @@
    Button {
       text-transform: unset;
    }
+
+   &.scroll {
+      background-color: $clr10;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+   }
 }
+

@@ -2,11 +2,12 @@ import { useDispatch } from 'react-redux'
 
 import { updateTask } from '../../store/actions/board.action'
 
-import cover1 from '../../assets/img/cover1.png'
-import cover2 from '../../assets/img/cover2.png'
+import cover1 from '../../assets/img/cover/cover1.svg'
+import cover2 from '../../assets/img/cover/cover2.svg'
+import { useState } from 'react'
 
 export const Cover = ({ task, board, group, handleClose }) => {
-
+    
     const dispatch = useDispatch()
 
     const colors = [
@@ -46,12 +47,20 @@ export const Cover = ({ task, board, group, handleClose }) => {
     }
 
     const setCoverSize = (isBig) => {
-        let taskToUpdate = { ...task }
+        const taskToUpdate = { ...task }
         taskToUpdate.style.isCoverSizeBig = isBig
+        dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
 
+    const sizeStyle = {
+        backgroundColor: task.style.color,
+        backgroundImage: `url(${task.style.imgUrl})`
+    }
+
+    const selectedBgClass = task.style.isCoverSizeBig ? 'selectedBgClass' : ''
+
     if (!task) return <div>Loading...</div>
-    const selectedSize = task.style.isCoverSizeBig ? '0 0 0 2px #FFFFFF, 0 0 0 4px #0079BF' : ''
+    // const selectedSize = task.style.isCoverSizeBig ? '0 0 0 2px #FFFFFF, 0 0 0 4px #0079BF' : ''
     return (
         <div className="cover">
             <div className="popup-header flex align-center justify-center">
@@ -61,21 +70,21 @@ export const Cover = ({ task, board, group, handleClose }) => {
             <div>
                 <h4>Size</h4>
                 <div className='cover-size flex justify-center'>
-                    <img onClick={() => setCoverSize(false)} src={cover1} style={{ boxShadow: selectedSize }} />
-                    <img onClick={() => setCoverSize(true)} src={cover2} style={{ boxShadow: selectedSize }} />
+                    <img style={sizeStyle} className={task.isCoverSizeBig ? 'selected' : ''} onClick={() => setCoverSize(false)} src={cover1} />
+                    <img style={sizeStyle} className={task.isCoverSizeBig ? 'selected' : ''} onClick={() => setCoverSize(true)} src={cover2} />
                 </div>
             </div>
             <div className='btn' onClick={() => onSetCoverColor(null)}>Remove cover</div>
             <h4>Colors</h4>
-            <div className='cover-colors'>
+            <div className={`cover-colors`}>
                 {colors.map((color, idx) =>
-                    <div onClick={() => onSetCoverColor(color)} key={idx} style={{ backgroundColor: color }}></div>
+                    <div className={`cover-container ${selectedBgClass}`} onClick={() => onSetCoverColor(color)} key={idx} style={{ backgroundColor: color }}></div>
                 )}
             </div>
             <h4>Photos from Unsplash</h4>
             <div className='cover-imgs'>
                 {imgUrls.map((url, idx) =>
-                    <div key={idx} className="img-container" onClick={() => onSetCoverImg(url)}><img src={url} alt="" /></div>
+                    <div key={idx} className={`img-container ${selectedBgClass}`} onClick={() => onSetCoverImg(url)}><img src={url} alt="" /></div>
                 )}
             </div>
         </div>

@@ -77,7 +77,9 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                                 backgroundColor: l.color,
                                             }}
                                             onClick={onExpandLabels}
-                                        >{labelExpandClass === 'expand' && l.title}</div>
+                                        >
+                                            {/* {labelExpandClass === 'expand' && l.title} */}
+                                        </div>
                                         )
                                     })}
                             </div>
