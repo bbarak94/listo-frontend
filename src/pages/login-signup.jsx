@@ -1,20 +1,19 @@
-import { Navigate, useLocation, useNavigate } from 'react-router-dom'
-import { HomeHeader } from '../cmps/home-header'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useLocation, useNavigate } from 'react-router-dom'
+
+import OutlinedInput from '@mui/material/OutlinedInput'
+import AppleIcon from '@mui/icons-material/Apple'
+import Button from '@mui/material/Button'
+
 import logoSvg from '../assets/img/login-signup/logo.svg'
 import leftImg from '../assets/img/login-signup/left.svg'
 import rightImg from '../assets/img/login-signup/right.svg'
-import Button from '@mui/material/Button'
-import OutlinedInput from '@mui/material/OutlinedInput'
-
-import AppleIcon from '@mui/icons-material/Apple'
 import microsoft from '../assets/img/login-signup/microsoft.png'
 import google from '../assets/img/login-signup/google.png'
-import { ContactlessOutlined } from '@mui/icons-material'
-import { useState } from 'react'
+
 import { login, signup } from '../store/actions/user.action'
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { useEffectUpdate } from '../hooks/useEffectUpdate'
+
 export function LoginSignup() {
     const navigation = useNavigate()
     const location = useLocation()
@@ -23,45 +22,18 @@ export function LoginSignup() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [msg, setMsg] = useState('')
+
     const onLogin = async (ev = null) => {
-        // console.log('login:')
-        // console.log('fullname:', fullname)
-        // console.log('username:', username)
-        // console.log('password:', password)
         const credentials = { username, password }
         const res = await dispatch(login(credentials))
-        if(res) navigation('/workspace')
+        if (res) navigation('/workspace')
         else setMsg('can\'t login, try again')
-
     }
 
-    // if (
-    //     !this.state.credentials.username ||
-    //     !this.state.credentials.password
-    // )
-    //     return
-    // if (ev) ev.preventDefault()
-    // this.props.onLogin(this.state.credentials)
-    // this.clearState()
-    
-    
-    
-
-
     const onSignup = (ev = null) => {
-        // console.log('signup:')
-        // console.log('username:', username)
-        const credentials = { username,fullname, password,imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg' }
-        dispatch(signup(credentials))
-
-        // if (
-        //     !this.state.credentials.username ||
-        //     !this.state.credentials.password
-        // )
-        //     return
-        // if (ev) ev.preventDefault()
-        // this.props.onSignup(this.state.credentials)
-        // this.clearState()
+        const credentials = { username, fullname, password, imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg' }
+        const res = dispatch(signup(credentials))
+        if (res) navigation('/workspace')
     }
 
     const handleChange = (ev) => {
@@ -83,12 +55,8 @@ export function LoginSignup() {
     return (
         <div className='login-signup flex justify-center'>
             <div className='login-logo-container'>
-                <img
-                    className='login-logo'
-                    src={logoSvg}
-                    alt='Logo'
-                    style={{ width: '200px' }}
-                    onClick={() => {
+                <img className='login-logo' src={logoSvg} alt='Logo'
+                    style={{ width: '200px' }} onClick={() => {
                         navigation(`/`)
                     }}
                 />
@@ -99,25 +67,11 @@ export function LoginSignup() {
                     <div className='login'>
                         <form className='login-form' onSubmit={onLogin}>
                             <h1>Log in to Listo</h1>
-                            <OutlinedInput
-                                onChange={handleChange}
-                                autoFocus
-                                className='user-input'
-                                placeholder='Enter username'
-                                variant='filled'
-                                type='text'
-                                name='username'
-                            />
-                            <OutlinedInput
-                                onChange={handleChange}
-                                autoFocus
-                                className='user-input'
-                                placeholder='Enter password'
-                                variant='filled'
-                                type='password'
-                                autoComplete='off'
-                                name='password'
-                            />
+                            <OutlinedInput onChange={handleChange} autoFocus className='user-input'
+                                placeholder='Enter username' variant='filled' type='text' name='username' />
+                            <OutlinedInput onChange={handleChange} autoFocus className='user-input'
+                                placeholder='Enter password' variant='filled' type='password' autoComplete='off'
+                                name='password' />
                             <Button onClick={onLogin} className='login-btn'>
                                 Log in
                             </Button>
@@ -128,15 +82,8 @@ export function LoginSignup() {
                     <div className='signup'>
                         <form className='signup-form' onSubmit={onSignup}>
                             <h1>Signup to Listo</h1>
-                            <OutlinedInput
-                                onChange={handleChange}
-                                autoFocus
-                                className='user-input'
-                                placeholder='Enter fullname'
-                                variant='filled'
-                                type='text'
-                                name='fullname'
-                            />
+                            <OutlinedInput onChange={handleChange} autoFocus className='user-input'
+                                placeholder='Enter fullname' variant='filled' type='text' name='fullname' />
                             <OutlinedInput
                                 onChange={handleChange}
                                 autoFocus
@@ -200,14 +147,14 @@ export function LoginSignup() {
                 <hr></hr>
                 {location.pathname === '/login' && (
                     <div>
-                    {msg && (<h2 className='msg'></h2>)}
-                    <a
-                        onClick={() => {
-                            navigation(`/signup`)
-                        }}
-                    >
-                        Sign up for an account
-                    </a>
+                        {msg && (<h2 className='msg'></h2>)}
+                        <a
+                            onClick={() => {
+                                navigation(`/signup`)
+                            }}
+                        >
+                            Sign up for an account
+                        </a>
                     </div>
                 )}
                 {location.pathname === '/signup' && (

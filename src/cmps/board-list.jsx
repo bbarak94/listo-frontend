@@ -28,6 +28,7 @@ export const BoardList = (props) => {
     if (!boards) return <h1>loading...</h1>
     const starredBoards = boards.filter(board => board.isStar)
     const allBoards = boards.filter(board => !board.isStar)
+    console.log('BoardList ~ boards', boards)
     return (
         <section className="board-list">
             <section className='starred-boards '>
@@ -41,7 +42,7 @@ export const BoardList = (props) => {
                 </div>
                 <section className='board-list flex'>
                     {starredBoards.map((board) => (
-                        <BoardPreview board={board} key={board._id} />
+                        <BoardPreview board={board} key={board._id+'stared'} />
                     ))}
                 </section>
             </section>
@@ -49,11 +50,7 @@ export const BoardList = (props) => {
             <section>
                 <div className='flex align-center'>
                     <div className='title-container flex'>
-                        <img
-                            src={clock}
-                            alt='clock'
-                            style={{ width: '25px' }}
-                        />
+                        <img  src={clock} alt='clock' style={{ width: '25px' }}  />
                     </div>
                     <h2>Recently viewed</h2>
                 </div>

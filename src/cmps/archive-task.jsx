@@ -23,7 +23,7 @@ export const ArchiveTask = ({ board, group, task }) => {
     }
 
     const onDeleteTask = async () => {
-        const updatedBoard = boardService.removeTaskFromBoard(task.id, board)
+        const updatedBoard = boardService.removeTaskFromBoard(board, task.id)
         dispatch(saveBoard(updatedBoard))
         navigate(`/board/${board._id}`)
     }

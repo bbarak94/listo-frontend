@@ -7,7 +7,7 @@ export function loadUsers() {
             dispatch({ type: 'SET_USERS', users })
         } catch (err) {
             console.log('UserActions: err in loadUsers', err)
-        } 
+        }
     }
 }
 
@@ -15,8 +15,8 @@ export function login(credentials) {
     return async (dispatch) => {
         try {
             const user = await userService.login(credentials)
-            // console.log('user:',user)
-            
+            console.log('return ~ user', user)
+
             dispatch({
                 type: 'SET_USER',
                 user,
@@ -36,6 +36,7 @@ export function signup(credentials) {
                 type: 'SET_USER',
                 user,
             })
+            return user
         } catch (err) {
             console.log('Cannot signup', err)
         }

@@ -3,16 +3,16 @@ import Button from '@mui/material/Button'
 import { Link, useNavigate } from 'react-router-dom'
 import { HomeHeader } from '../cmps/home-header'
 import { useEffect } from 'react'
-import {loadUsers} from '../store/actions/user.action'
+// import {loadUsers} from '../store/actions/user.action'
 import { useDispatch } from 'react-redux'
 
 export const Home = () => {
 
     const navigation = useNavigate()
     const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(loadUsers())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(loadUsers())
+    // }, [])
 
 
     return (

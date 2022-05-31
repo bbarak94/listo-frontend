@@ -31,7 +31,7 @@ export const AppHeader = () => {
     const onLogout = async () =>{
         setLoggedIn(!isLoggedIn)
         dispatch(logout())
-
+        navigation('/')
     }
 
 
