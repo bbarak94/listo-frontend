@@ -35,8 +35,8 @@ export const TaskDetailsActivity = ({ activity, task, board, groupId }) => {
                             {(activity?.task?.title)?activity.task.title: board.title}
                     </span>{' '}
                 </h1>
-                {(Date.now()-activity.createdAt < 5000) && <h2 className='date'> just now </h2>}
-                {(Date.now()-activity.createdAt > 5000) && <h2 className='date'>{(moment(activity.createdAt).fromNow())}</h2>}
+                {(Date.now()-activity.createdAt < 30000) && <h2 className='date'> just now </h2>}
+                {(Date.now()-activity.createdAt > 30000) && <h2 className='date'>{(moment(activity.createdAt).fromNow())}</h2>}
             </div>
         </div>
     )

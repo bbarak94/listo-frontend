@@ -10,6 +10,7 @@ import { AppModal } from './app-modal'
 
 import starStroke from '../assets/img/workspace/star-stroke.svg'
 import clock from '../assets/img/workspace/clock.svg'
+import trello from '../assets/img/asset 11.svg'
 
 export const BoardList = (props) => {
     const { boards } = useSelector((storeState) => storeState.boardModule)
@@ -26,12 +27,13 @@ export const BoardList = (props) => {
     }, [])
 
     if (!boards) return <h1>loading...</h1>
+
     const starredBoards = boards.filter(board => board.isStar)
     const allBoards = boards.filter(board => !board.isStar)
     console.log('BoardList ~ boards', boards)
     return (
         <section className="board-list">
-            <section className='starred-boards '>
+            <section>
                 <div className='title-container flex'>
                     <img
                         src={starStroke}
@@ -48,17 +50,19 @@ export const BoardList = (props) => {
             </section>
 
             <section>
-                <div className='flex align-center'>
                     <div className='title-container flex'>
-                        <img  src={clock} alt='clock' style={{ width: '25px' }}  />
+                        <img
+                            src={trello}
+                            alt='clock'
+                            style={{ width: '25px' }}
+                        />
+                        <h2>All boards</h2>
                     </div>
-                    <h2>Recently viewed</h2>
-                </div>
                 <div className='board-list flex'>
                     <div onClick={() => onAddBoard()} className='board-preview board-preview-btn flex column align-center justify-center'>
                         <h3>create new board</h3>
                     </div>
-                    {allBoards.map((board) => (
+                    {boards.map((board) => (
                         <BoardPreview board={board} key={board._id} />
                     ))}
                 </div>

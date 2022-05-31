@@ -85,7 +85,7 @@
 
 
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateTask } from '../store/actions/board.action'
 import { LinearProgress } from '@mui/material'
@@ -97,27 +97,57 @@ import done from '../assets/img/todo/done.svg'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
 import Button from '@mui/material/Button'
 
+import { AppModal } from '../cmps/app-modal'
+
+
 import { LinearWithValueLabel } from './helpers/linear-progress-with-label'
 import { boardService } from '../services/board.service'
+import { useEffectUpdate } from '../hooks/useEffectUpdate'
 
-export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
+export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
     const [title, setTitle] = useState('')
-    const [isTxtOpen, setTxtOpen] = useState(false)
-
+    const [isTxtOpen, setIsTxtOpen] = useState(false)
     const dispatch = useDispatch()
+
+
+
+
+
+
+
+
+
+    const getDonePercentage = () => {
+        var doneCount = 0
+        checklist?.todos.forEach(todo => {
+            if (todo.isDone) doneCount++
+        })
+        if (!doneCount) return 0
+        return +100 / (checklist.todos?.length / doneCount)
+
+    }
+
     const onDeleteChecklist = () => {
         const newTask = { ...task }
         newTask.checklists = newTask.checklists.filter(
             (c) => c.id !== checklist.id
         )
-        dispatch(updateTask(newTask, boardId, groupId))
+        dispatch(updateTask(newTask, board._id, groupId))
+    }
+
+    const onCloseTxt = (ev) => {
+        console.log('ev:', ev)
+        ev.preventDefault()
+        ev.stopPropagation()
+        setIsTxtOpen(false)
     }
 
     const onAddTodo = () => {
         const todo = boardService.getEmptyTodo()
         todo.title = title
         checklist.todos.push(todo)
-        dispatch(updateTask(task, boardId, groupId))
+        dispatch(updateTask(task, board._id, groupId))
+        setIsTxtOpen(false)
     }
 
     const onToggleTodo = (todoId) => {
@@ -132,8 +162,30 @@ export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
                 })
             }
         })
-        dispatch(updateTask(newTask, boardId, groupId))
+        dispatch(updateTask(newTask, board._id, groupId))
     }
+
+    const onRemoveTodo = (todoId) => {
+        const newTask = { ...task }
+        const taskId = task.id
+        var cIdxx
+        var tIdxx
+        newTask.checklists.map((c, cIdx) => {
+            if (c.id === checklist.id) {
+                return c.todos.map((t, tIdx) => {
+                    if (t.id === todoId) {
+                        cIdxx = cIdx
+                        tIdxx = tIdx
+                        return
+                    }
+                })
+            }
+        })
+        newTask.checklists[cIdxx].todos.splice(tIdxx, 1)
+        dispatch(updateTask(newTask, board._id, groupId))
+    }
+
+
 
     return (
         <div className='task-checklist flex column'>
@@ -147,7 +199,7 @@ export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
 
                 <Button onClick={onDeleteChecklist}>Delete</Button>
             </div>
-            {/* <LinearWithValueLabel /> */}
+            <LinearWithValueLabel value={getDonePercentage()} />
 
             {checklist.todos.map((todo, idx) => {
                 return (
@@ -167,13 +219,13 @@ export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
                             )}
                             {!todo.isDone && (
                                 <div
-                                    onClick={() => onToggleTodo(todo.id)}
+                                    onClick={() => {
+                                        onToggleTodo(todo.id)
+                                    }}
+
                                     className='checkbox'
                                 ></div>
                             )}
-
-                            {/* <div className='unchecked'></div> */}
-
                             {!todo.isDone && (
                                 <div className='todo-title'>{todo.title}</div>
                             )}
@@ -199,7 +251,8 @@ export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
                                     style={{ width: '20px' }}
                                 />
                             </div>
-                            <div>
+
+                            <div onClick={() => onRemoveTodo(todo.id)}>
                                 <img
                                     src={more}
                                     alt='More'
@@ -211,18 +264,23 @@ export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
                 )
             })}
             {isTxtOpen && <div className="add-todo">
-                <input
-                    id='board-title'
+                <textarea
+                    className='todo-title'
                     onChange={(ev) => setTitle(ev.target.value)}
                     value={title}
                     autoComplete='off'
                     spellCheck='false'
                     autoFocus
+                    placeholder='Add an item'
+                // onBlur={setIsTxtOpen(false)}
                 />
-                <button className='btn' onClick={onAddTodo}>Save</button>
+                <button className='btn add-todo-btn' onClick={onAddTodo}>Add</button>
+                <button className='btn cancel-todo-btn' onClick={onCloseTxt}>Cancel</button>
             </div>}
 
-            <Button onClick={() => setTxtOpen(true)} className='add-btn'>Add an item</Button>
+            <Button onClick={() => setIsTxtOpen(true)} className='add-btn'>Add an item</Button>
+
+
         </div>
     )
 }

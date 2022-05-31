@@ -115,8 +115,6 @@ export const Checklist = ({ board, group, task, handleClose }) => {
                                     <MenuItem value={4}>Option 4</MenuItem>
                                 </Select>
                             </FormControl>
-
-                            {/* <h1>{task.checklists[0].title}</h1> */}
                         </div>
                     )}
                     <Button

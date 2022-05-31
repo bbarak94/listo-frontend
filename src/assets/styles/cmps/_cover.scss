@@ -77,11 +77,16 @@
         margin: 0 auto;
         border-radius: 5px;
         width: 138px;
+        
+        .selected {
+            border: solid 2px black;
+        }
     }
 
     .cover-size *{
         margin: 0 4px;
         border-radius: 3px;
+
 
         &:hover{
             filter: invert(19%) sepia(100%) saturate(11%) hue-rotate(345deg) brightness(99%) contrast(91%);

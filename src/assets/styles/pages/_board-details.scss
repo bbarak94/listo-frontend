@@ -2,19 +2,19 @@
     padding: 0 4px;
     position: relative;
     top: 12px;
-    height: calc(100vh - 90px);
+    // height: calc(100vh - 90px);
     overflow-x: auto;
-    overflow-y: hidden;
-    
+    // overflow-y: hidden;
+
     // padding: 0 4px;
     // position: relative;
     // top: 12px;
     // height: calc(91.2vh);
     // overflow-x: auto;
     // overflow-y: hidden;
-    
-    
-    
+
+
+
     // height: calc(100vh - 72px - 10px);
     // margin-top: 20px;
 
@@ -25,5 +25,10 @@
     //     background-color: $clr13;
     // }
 
-    
+    [data-rbd-drag-handle-context-id="1"] {
+        // cursor: -webkit-grab;
+        cursor: initial;
+    }
+
+
 }

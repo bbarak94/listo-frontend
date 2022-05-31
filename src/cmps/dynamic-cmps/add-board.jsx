@@ -27,7 +27,7 @@ export const AddBoard = ({ handleClose }) => {
     const bgImages = [
         {
             name: 'bgImage1',
-            imgUrl: 'https://images.unsplash.com/photo-1605022112646-57c826be7a10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+            imgUrl: 'https://images.unsplash.com/photo-1621428047980-d773eb8b5f59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
         },
         {
             name: 'bgImage2',
@@ -35,7 +35,7 @@ export const AddBoard = ({ handleClose }) => {
         },
         {
             name: 'bgImage3',
-            imgUrl: 'https://images.unsplash.com/photo-1603687669452-b136a84b14b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+            imgUrl: 'https://images.unsplash.com/photo-1622723702582-8d810755fa04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
         },
         {
             name: 'bgImage4',
@@ -43,7 +43,7 @@ export const AddBoard = ({ handleClose }) => {
         },
         {
             name: 'bgImage5',
-            imgUrl: 'https://images.unsplash.com/photo-1566411526231-fdbdcf3235c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+            imgUrl: 'https://images.unsplash.com/photo-1651869377815-d263cecb6dc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
         },
     ]
 

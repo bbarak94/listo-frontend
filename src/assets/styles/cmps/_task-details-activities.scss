@@ -6,10 +6,11 @@
 
    .activity-header {
       justify-content: space-between;
-
+      align-items: center;
+      
       Button {
          margin-right: 22px;
-         font-size: 16px;
+         // font-size: 16px;
          background-color: rgba(9, 30, 67, 0.0392156863);
          text-transform: unset;
          color: #172B4D;
