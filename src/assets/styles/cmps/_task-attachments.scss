@@ -1,0 +1,26 @@
+.task-attachments {
+   margin-top: 12px;
+
+   .attachment-header {
+
+      .task-details-left-icon {
+         margin-left: 7px;
+         margin-right: 12px;
+
+      }
+
+
+   }
+   h1{
+      font-size: 16.5px;
+      font-weight: 500;
+
+   }
+   .imgs-container{
+      justify-content: center;
+      .img-container{
+         align-content: center;
+         max-width: 50%;
+      }
+   }
+}

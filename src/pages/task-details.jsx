@@ -18,6 +18,7 @@ import { MembersList } from '../cmps/dynamic-cmps/members-list.jsx'
 import { DatePreview } from '../cmps/dynamic-cmps/date-preview'
 import { LabelPreview } from '../cmps/label-preview'
 import { TaskDetailsDesc } from '../cmps/task-details-desc'
+import { TaskDetailsAttachments } from '../cmps/task-details-attachments.jsx'
 import { TaskDetailsChecklists } from '../cmps/task-details-checklists.jsx'
 import { TaskDetailsActivities } from '../cmps/task-details-activities.jsx'
 
@@ -146,6 +147,11 @@ export const TaskDetails = () => {
                                 )}
                             </div>
                             <TaskDetailsDesc
+                                task={task}
+                                boardId={boardId}
+                                groupId={currGroupRef.current.id}
+                            />
+                            <TaskDetailsAttachments
                                 task={task}
                                 boardId={boardId}
                                 groupId={currGroupRef.current.id}

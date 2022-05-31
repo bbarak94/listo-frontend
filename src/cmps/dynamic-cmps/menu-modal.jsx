@@ -41,6 +41,7 @@ export const MenuModal = ({ handleClose }) => {
                     <h3>Activity</h3>
                 </div>
                 {board.activities.map((activity, idx) => {
+                    console.log('activity:',activity)                    
                     return (
                         <div className='menu-modal-activities flex' key={idx}>
                             <div
