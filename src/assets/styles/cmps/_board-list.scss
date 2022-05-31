@@ -7,7 +7,8 @@
         align-items: flex-end;
 
         img {
-            margin-right: 14px
+            margin-right: 14px;
+            filter: invert(34%) sepia(13%) saturate(1161%) hue-rotate(180deg) brightness(86%) contrast(92%);
         }
     }
 
