@@ -152,6 +152,18 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             archivedAt: null,
                             checklists: [],
                             memberIds: []
@@ -166,6 +178,18 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             archivedAt: null,
                             checklists: [],
                             memberIds: []
@@ -181,6 +205,18 @@ function _createBoards() {
                                 isCoverSizeBig: false,
                             },
                             dueDate: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             archivedAt: null,
                             checklists: [],
                             memberIds: []
@@ -202,9 +238,21 @@ function _createBoards() {
                             },
                             dueDate: null,
                             memberIds: [],
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             archivedAt: null,
                             checklists: [],
-                            memberIds: []
+
                         },
                         {
                             id: 't104',
@@ -215,6 +263,16 @@ function _createBoards() {
                                 {
                                     id: 'ZdPnm',
                                     txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                                {
+                                    id: 'Zd63171Pnm',
+                                    txt: 'I star, will finufrudfu by tomorrow noon...',
                                     createdAt: 1590999817436.0,
                                     byMember: {
                                         _id: 'u101',
@@ -376,6 +434,18 @@ function _createBoards() {
                                             isDone: true,
                                         },
                                     ],
+                                    comments: [
+                                        {
+                                            id: 'ZdPnm',
+                                            txt: 'I started testing it, will finish by tomorrow noon...',
+                                            createdAt: 1590999817436.0,
+                                            byMember: {
+                                                _id: 'u101',
+                                                fullname: 'Barak Braun',
+                                                imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                            },
+                                        },
+                                    ],
                                 },
                             ],
                             memberIds: []
@@ -391,6 +461,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             memberIds: [],
                             checklists: []
                         },
@@ -404,6 +486,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             memberIds: [],
                             checklists: []
                         },
@@ -584,6 +678,18 @@ function _createBoards() {
                                 }
                             ],
                             memberIds: [],
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             description: 'Changes to logo design, brighter colors ASAP, Guy on it until thursday'
                         },
                         {
@@ -596,6 +702,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             checklists: [],
                             memberIds: []
                         },
@@ -609,6 +727,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             checklists: [],
                             memberIds: []
                         },
@@ -629,6 +759,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             checklists: [],
                             memberIds: []
                         },
@@ -771,6 +913,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             checklists: [],
                             memberIds: []
                         },
@@ -784,6 +938,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             checklists: [],
                             memberIds: []
                         },
@@ -797,6 +963,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             checklists: [],
                             memberIds: []
                         },
@@ -818,6 +996,18 @@ function _createBoards() {
                             dueDate: null,
                             archivedAt: null,
                             checklists: [],
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             memberIds: []
                         },
                         {
@@ -974,6 +1164,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             checklists: [],
                             memberIds: []
                         },
@@ -988,6 +1190,18 @@ function _createBoards() {
                             dueDate: null,
                             archivedAt: null,
                             checklists: [],
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             memberIds: []
                         },
                         {
@@ -1001,6 +1215,18 @@ function _createBoards() {
                             dueDate: null,
                             archivedAt: null,
                             checklists: [],
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             memberIds: []
                         },
                     ],
@@ -1021,6 +1247,18 @@ function _createBoards() {
                             dueDate: null,
                             archivedAt: null,
                             checklists: [],
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             memberIds: []
                         },
                         {
@@ -1163,6 +1401,18 @@ function _createBoards() {
                             dueDate: null,
                             archivedAt: null,
                             checklists: [],
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             memberIds: [],
                             labelIds: []
                         },
@@ -1176,6 +1426,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             checklists: [],
                             memberIds: []
                         },
@@ -1190,6 +1452,18 @@ function _createBoards() {
                             dueDate: null,
                             archivedAt: null,
                             checklists: [],
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             memberIds: []
                         },
                     ],
@@ -1209,6 +1483,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             checklists: [],
                             memberIds: ['u101']
                         },
@@ -1282,6 +1568,18 @@ function _createBoards() {
                             dueDate: null,
                             archivedAt: null,
                             checklists: [],
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             memberIds: []
                         },
                         {
@@ -1322,6 +1620,18 @@ function _createBoards() {
                             memberIds: ['u101', 'u102', 'u103', 'u104'],
                             labelIds: ['l101', 'l102'],
                             createdAt: 1590999730348,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             dueDate: 1651213844000,
                             byMember: {
                                 _id: 'u102',
@@ -1353,6 +1663,18 @@ function _createBoards() {
                             },
                             dueDate: null,
                             archivedAt: null,
+                            comments: [
+                                {
+                                    id: 'ZdPnm',
+                                    txt: 'I started testing it, will finish by tomorrow noon...',
+                                    createdAt: 1590999817436.0,
+                                    byMember: {
+                                        _id: 'u101',
+                                        fullname: 'Barak Braun',
+                                        imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
+                                    },
+                                },
+                            ],
                             checklists: [
                                 {
                                     id: 'YE2561mF',

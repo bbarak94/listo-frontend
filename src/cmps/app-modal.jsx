@@ -8,6 +8,7 @@ import { EditLabel } from './dynamic-cmps/edit-label'
 import { Members } from './dynamic-cmps/members'
 import { Cover } from './dynamic-cmps/cover'
 import { Dates } from './dynamic-cmps/dates'
+import { Attachments } from './dynamic-cmps/attachments.jsx'
 import { Member } from './dynamic-cmps/member'
 import { Checklist } from './dynamic-cmps/checklist'
 import { AddBoard } from './dynamic-cmps/add-board';
@@ -30,6 +31,8 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
                 return <Cover task={task} board={board} group={group} handleClose={handleClose} />
             case 'dates':
                 return <Dates task={task} board={board} group={group} handleClose={handleClose} />
+            case 'attachment':
+                return <Attachments task={task} board={board} group={group} handleClose={handleClose} />
             case 'checklist':
                 return <Checklist task={task} board={board} group={group} handleClose={handleClose} />
             case 'add-board':

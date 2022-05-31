@@ -44,7 +44,7 @@ export const TaskDetails = () => {
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
         const height = ev.target.offsetHeight
-        setPosition({top, left, height})
+        setPosition({ top, left, height })
     }
 
     useEffect(() => {
@@ -152,8 +152,9 @@ export const TaskDetails = () => {
                             />
                             <TaskDetailsChecklists
                                 task={task}
-                                boardId={boardId}
+                                board={board}
                                 groupId={currGroupRef.current.id}
+                                onOpenModal={onOpenModal}
                             />
                             <TaskDetailsActivities
                                 task={task}

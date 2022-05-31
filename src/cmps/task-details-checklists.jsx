@@ -1,5 +1,5 @@
 import { TaskDetailsChecklist } from './task-details-checklist'
-export const TaskDetailsChecklists = ({ task, boardId, groupId }) => {
+export const TaskDetailsChecklists = ({ task, board, groupId }) => {
     return (
         <>
             {task.checklists.map((checklist, idx) => {
@@ -8,7 +8,7 @@ export const TaskDetailsChecklists = ({ task, boardId, groupId }) => {
                         key={idx}
                         checklist={checklist}
                         task={task}
-                        boardId={boardId}
+                        board={board}
                         groupId={groupId}
                     />
                 )

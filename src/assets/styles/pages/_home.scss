@@ -1,10 +1,18 @@
+
+.home{
+   display: flex;
+   flex-direction: column;
+}
+
+
 .home-main-layout {
-   margin: 40px;
    height: 315px;
-   margin-top: 150px;
-   // justify-content: space-between;
    justify-content: center;
    gap: 40px;
+   padding-bottom: 75;
+
+   // margin: 40px;
+   // margin-top: 150px;
 }
 
 .home-left-container {

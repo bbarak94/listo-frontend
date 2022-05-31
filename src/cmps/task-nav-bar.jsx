@@ -6,7 +6,7 @@ import dates from '../assets/img/task/navbar/dates.svg'
 import members from '../assets/img/task/navbar/members.svg'
 import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
-import {ArchiveTask} from '../cmps/archive-task'
+import { ArchiveTask } from '../cmps/archive-task'
 
 
 export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
@@ -70,13 +70,16 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                         <h2>Dates</h2>
                     </div>
                 </div>
-                <div className='task-edit-btn flex align-center'>
-                    <div>
-                        <AttachFileIcon
-                            style={{ width: '16px', transform: 'rotate(45deg)' }}
-                        />
+                <div onClick={(ev) => onOpenModal(ev, 'attachment')}>
+                    <div className='task-edit-btn flex align-center'>
+
+                        <div>
+                            <AttachFileIcon
+                                style={{ width: '16px', transform: 'rotate(45deg)' }}
+                            />
+                        </div>
+                        <h2>Attachment</h2>
                     </div>
-                    <h2>Attachment</h2>
                 </div>
                 <div className='task-edit-btn flex align-center'>
                     <div>
