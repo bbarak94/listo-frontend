@@ -22,7 +22,7 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group, taskEd
     const [position, setPosition] = useState({})
 
     const onHandleClick = (ev, type) => {
-        console.log('ev', ev.currentTarget)
+
         setIsOpen(true)
         setCmpType(type)
 
@@ -64,44 +64,3 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group, taskEd
     )
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* {editors.map((editor, idx) =>
-                <button key={idx}>{editor.icon}{editor.title}</button>
-            )} */}
-
-
-
-    // const card = <CreditCardIcon />
-    // const label = <LabelIcon />
-    // const member = <PersonOutlineIcon />
-    // const cover = <WallpaperIcon />
-    // const move = <ArrowForwardIcon />
-    // const copy = <ContentCopyIcon />
-    // const dates = <ScheduleIcon />
-    // const archive = <ArchiveIcon />
-
-    // const editors = [
-    //     { title: 'Open Card', icon: card },
-    //     { title: 'Edit labels', icon: label },
-    //     { title: 'Change Members', icon: member },
-    //     { title: 'Change Cover', icon: cover },
-    //     { title: 'Move', icon: move },
-    //     { title: 'Copy', icon: copy },
-    //     { title: 'Edit Dates', icon: dates },
-    //     { title: 'Archive', icon: archive },
-    // ]

@@ -15,7 +15,6 @@ const NO_COLOR_INDICATION = '#B3BAC5'
 
 export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand, taskEditExpandId, setLabelExpand, labelExpandClass }) => {
 
-
     const [isMouseOver, setIsMouseOver] = useState(false)
     const [style, setStyle] = useState({ top: '', left: '', width: '' })
 
@@ -37,8 +36,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
         labelExpandClass = (labelExpandClass === 'expand') ? 'shrink' : 'expand'
         setLabelExpand(labelExpandClass)
     }
-    console.log('task.id', task.id)
-    console.log('task', task.labelIds)
+
     return (
         <div className="task-preview-helper">
             <Link to={`/board/${board._id}/task/${task.id}`}>
@@ -83,12 +81,11 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                 {task.dueDate && (
                                     <div className='task-preview-date flex'
                                         onMouseOver={() => setIsMouseOver(true)}
-                                        onMouseOut={() => setIsMouseOver(false)}  >
+                                        onMouseOut={() => setIsMouseOver(false)}
+                                    >
 
-                                        {!isMouseOver && <>
-                                            <img src={clock} alt='' />
-                                            <img src={checkBox} alt='' />
-                                        </>}
+                                        {!isMouseOver && <img src={clock} alt='' />}
+                                        {isMouseOver && <img src={checkBox} alt='' />}
 
                                         <span>
                                             {moment(task.dueDate).format('MMMM D')}

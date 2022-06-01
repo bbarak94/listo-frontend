@@ -30,7 +30,7 @@ export const TaskDetails = () => {
     const currGroupRef = useRef(null)
 
     const [task, setTask] = useState(null)
-   console.log('task', task)
+
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(null)
@@ -45,7 +45,8 @@ export const TaskDetails = () => {
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
         const height = ev.currentTarget.offsetHeight
-        setPosition({ top, left, height })
+        top += height
+        setPosition({ top, left })
     }
 
     useEffect(() => {

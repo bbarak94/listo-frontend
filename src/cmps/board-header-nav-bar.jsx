@@ -23,8 +23,9 @@ export const BoardHeaderNavBar = ({ board }) => {
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
         const height = ev.currentTarget.offsetHeight
+        top += height
 
-        setModalPosition({ top, left, height })
+        setModalPosition({ top, left })
         setIsOpen(true)
         setCmpType(type)
         setMember(member)

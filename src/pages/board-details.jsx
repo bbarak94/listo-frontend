@@ -119,7 +119,8 @@ export const BoardDetails = () => {
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
         const height = ev.currentTarget.offsetHeight
-        setModalPosition({ top, left, height })
+        top += height
+        setModalPosition({ top, left })
     }
 
     if (!board) return <div>Loading...</div>

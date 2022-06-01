@@ -16,6 +16,7 @@ import { WorkspaceNavModal } from './dynamic-cmps/workspace-nav-modal';
 import { MenuModal } from './dynamic-cmps/menu-modal.jsx';
 
 const buttonHeight = 32
+const buttonWidth = 170
 
 export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member, labelId, position = { top: '50%', left: '50%' } }) {
     const getType = () => {
@@ -46,7 +47,6 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
     }
 
     const getCmpHeight = (cmpType) => {
-
         switch (cmpType) {
             case 'labels':
                 return 411
@@ -54,6 +54,8 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
                 return 330
             case 'members':
                 return 310
+            case 'member':
+                return 230
             case 'cover':
                 return 471
             case 'dates':
@@ -62,6 +64,27 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
                 return 180
             case 'checklist':
                 return 293
+        }
+    }
+
+    const getCmpWidth = (cmpType) => {
+        switch (cmpType) {
+            case 'labels':
+                return 300
+            case 'edit-label':
+                return 308
+            case 'members':
+                return 300
+            case 'member':
+                return 311
+            case 'cover':
+                return 304
+            case 'dates':
+                return 348
+            case 'attachment':
+                return 330
+            case 'checklist':
+                return 330
         }
     }
 
@@ -98,6 +121,8 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
 
     const cmpHeight = getCmpHeight(cmpType)
     if (style.top + cmpHeight > window.innerHeight) style.top -= (cmpHeight + buttonHeight)
+    const cmpWidth = getCmpWidth(cmpType)
+    if (style.left + cmpWidth > window.innerWidth) style.left -= (cmpWidth)
 
     return (
         <Modal
