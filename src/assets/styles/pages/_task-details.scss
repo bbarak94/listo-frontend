@@ -45,7 +45,10 @@
     }
 }
 
+
+
 .task-details {
+    
     ::-webkit-scrollbar {
         display: none;
     }
@@ -214,6 +217,12 @@
         margin-left: 34px;
     }
 
+}
+@media (max-width: 640px) {
+.task-details{
+    max-width: 100%;
+    max-height: 100%;
+}
 }
 
 

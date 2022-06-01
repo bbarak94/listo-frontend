@@ -11,6 +11,7 @@ import { BoardHeaderNavBar } from '../cmps/board-header-nav-bar'
 import { AppModal } from '../cmps/app-modal'
 import { AppHeader } from '../cmps/app-header'
 
+import { boardService } from '../services/board.service'
 import { updateGroup, setBoard, saveBoard , updateBoardToStore } from '../store/actions/board.action'
 import { socketService, SOCKET_EVENT_UPDATE_BOARD } from '../services/socket.service'
 
