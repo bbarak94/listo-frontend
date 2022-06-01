@@ -56,12 +56,8 @@ export function LoginSignup() {
         <div className='login-signup flex justify-center'>
             <div className='login-logo-container'>
                 <img className='login-logo' src={logoSvg} alt='Logo'
-                    style={{ width: '200px' }} onClick={() => {
-                        navigation(`/`)
-                    }}
-                />
+                    style={{ width: '200px' }} onClick={() => { navigation(`/`) }} />
             </div>
-
             <main>
                 {location.pathname === '/login' && (
                     <div className='login'>
@@ -84,25 +80,12 @@ export function LoginSignup() {
                             <h1>Signup to Listo</h1>
                             <OutlinedInput onChange={handleChange} autoFocus className='user-input'
                                 placeholder='Enter fullname' variant='filled' type='text' name='fullname' />
-                            <OutlinedInput
-                                onChange={handleChange}
-                                autoFocus
-                                className='user-input'
-                                placeholder='Enter username'
-                                variant='filled'
-                                type='text'
-                                name='username'
-                            />
-                            <OutlinedInput
-                                onChange={handleChange}
-                                autoFocus
-                                className='user-input'
-                                placeholder='Enter password'
-                                variant='filled'
-                                type='password'
-                                autoComplete='off'
-                                name='password'
-                            />
+                            <OutlinedInput onChange={handleChange}
+                                autoFocus className='user-input' placeholder='Enter username'
+                                variant='filled' type='text' name='username' />
+                            <OutlinedInput onChange={handleChange} autoFocus className='user-input'
+                                placeholder='Enter password' variant='filled'
+                                type='password' autoComplete='off' name='password' />
                             <Button onClick={onSignup} className='signup-btn'>
                                 Signup
                             </Button>
@@ -112,29 +95,15 @@ export function LoginSignup() {
                 <h3>or</h3>
                 <Button className='social-btn google-btn'>
                     <div className='google-container'>
-                        <img
-                            className='google-logo'
-                            src={google}
-                            alt='Logo'
-                            style={{ width: '20px' }}
-                            onClick={() => {
-                                navigation(`/`)
-                            }}
-                        />
+                        <img className='google-logo' src={google} alt='Logo' style={{ width: '20px' }}
+                            onClick={() => { navigation(`/`) }} />
                     </div>
                     <h2>Continue with Google</h2>
                 </Button>
                 <Button className='social-btn microsoft-btn'>
                     <div className='microsoft-container'>
-                        <img
-                            className='microsoft-logo'
-                            src={microsoft}
-                            alt='Microsoft logo'
-                            style={{ width: '20px' }}
-                            onClick={() => {
-                                navigation(`/`)
-                            }}
-                        />
+                        <img className='microsoft-logo' src={microsoft} alt='Microsoft logo'
+                            style={{ width: '20px' }} onClick={() => { navigation(`/`) }} />
                     </div>
                     <h2>Continue with Microsoft</h2>
                 </Button>
@@ -148,41 +117,25 @@ export function LoginSignup() {
                 {location.pathname === '/login' && (
                     <div>
                         {msg && (<h2 className='msg'></h2>)}
-                        <a
-                            onClick={() => {
-                                navigation(`/signup`)
-                            }}
-                        >
+                        <a onClick={() => { navigation(`/signup`) }} >
                             Sign up for an account
                         </a>
                     </div>
                 )}
                 {location.pathname === '/signup' && (
-                    <a
-                        onClick={() => {
-                            navigation(`/login`)
-                        }}
-                    >
+                    <a onClick={() => { navigation(`/login`) }} >
                         Already have an account? Log In
                     </a>
                 )}
             </main>
 
             <div className='left-container'>
-                <img
-                    className='left-img'
-                    src={leftImg}
-                    alt='image'
-                    style={{ width: '400px' }}
-                />
+                <img className='left-img' src={leftImg} alt='image'
+                    style={{ width: '400px' }} />
             </div>
             <div className='right-container'>
-                <img
-                    className='right-img'
-                    src={rightImg}
-                    alt='image'
-                    style={{ width: '400px' }}
-                />
+                <img className='right-img' src={rightImg}
+                    alt='image' style={{ width: '400px' }} />
             </div>
             {/* <h1>{location.pathname.substring(1)} page</h1> */}
         </div>

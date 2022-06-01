@@ -35,7 +35,6 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand, style }) => {
     const onUpdateTitle = () => {
         task = { ...task, title: title }
         dispatch(updateTask(task, board._id, group.id))
-
         setTaskEditExpand(null)
     }
 

@@ -63,8 +63,7 @@ export const BoardHeaderNavBar = ({ board }) => {
             <div className="show-menu-btn" onClick={() => {
                 setModalPosition({ top: '43px', right: '0' })
                 setIsOpen(true)
-                setCmpType('menu')
-            }}>
+                setCmpType('menu') }}>
                 <span>... Show menu</span> </div>
 
             <AppModal
