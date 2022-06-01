@@ -205,7 +205,8 @@ export const TaskDetailsComments = ({ task, board, groupId }) => {
                         spellCheck='false'
                         //   autoFocus
                         rows={1}
-                        placeholder={comment.txt}
+                        style={{caretColor: 'transparent'}}
+                        defaultValue={comment.txt}
                      // onBlur={setIsTxtOpen(false)}
                      />
                      <div className="comment-btns flex">
