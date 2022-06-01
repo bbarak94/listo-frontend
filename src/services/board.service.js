@@ -218,6 +218,7 @@ function _getEmptyTask(title) {
         comments: [],
         checklists: [],
         memberIds: [],
+        attachments: [],
         labelIds: [],
         createdAt: Date.now(),
         dueDate: null,
