@@ -12,6 +12,8 @@ import { useNavigate } from 'react-router-dom'
 
 
 export const MenuModal = ({ handleClose, board }) => {
+    console.log('board:',board)
+    
     // const { board } = useSelector((storeState) => storeState.boardModule)
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false)

@@ -1,11 +1,25 @@
 
+import { useDispatch } from 'react-redux'
 import { cloudinaryService } from '../../services/cloudinary-service'
+import { utilService } from '../../services/util.service'
+import {updateTask} from '../../store/actions/board.action'
+
 export const Attachments = ({ task, board, group, handleClose }) => {
-
-
+   const dispatch = useDispatch()
    const onUploadImg = async (ev) => {
       const thumbnail = await cloudinaryService.uploadImg(ev)
       console.log('thumbnail:',thumbnail)
+      const newAtt={
+         id:utilService.makeId(),
+         title:'1',
+         url:thumbnail,
+         createdAt:Date.now()
+      }
+      const newTask = {...task}
+      newTask.attachments.unshift(newAtt)
+      dispatch(updateTask(newTask, board._id, group.id))
+
+         
       
    }
 
