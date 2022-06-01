@@ -3,8 +3,6 @@ import { useParams, Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-import { boardService } from '../services/board.service'
-
 import { BoardGroup } from '../cmps/board-group'
 import { AddGroup } from '../cmps/add-group'
 import { BoardHeaderNavBar } from '../cmps/board-header-nav-bar'

@@ -46,9 +46,9 @@ export const Cover = ({ task, board, group, handleClose }) => {
         dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
 
-    const setCoverSize = (isBig) => {
+    const setCoverSize = () => {
         const taskToUpdate = { ...task }
-        taskToUpdate.style.isCoverSizeBig = isBig
+        taskToUpdate.style.isCoverSizeBig = !taskToUpdate.style.isCoverSizeBig
         dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
 
@@ -77,7 +77,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
                 <h4>Size</h4>
                 {/* ********Cover Method Selection******** */}
                 <div className="_3DrR3DNGRm88rQ">
-                    <div role="button" className="isvr-Reb94vq0g c2K-XOKpsarOtb _2pFmKTmyH7T3W8" onClick={() => setCoverSize(false)}>
+                    <div role="button" className="isvr-Reb94vq0g c2K-XOKpsarOtb _2pFmKTmyH7T3W8" onClick={setCoverSize}>
                         <div className="_28YCxuL0b0PLJg" style={task.style.isCoverSizeBig ? {} : sizeStyle}>
                         </div>
                         <div className="_2_NkiO6b3w-TwP" >
@@ -95,7 +95,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
                             </div>
                         </div>
                     </div>
-                    <div role="button" className="isvr-Reb94vq0g _3bvxiZCqVvPKiY _2pFmKTmyH7T3W8" style={task.style.isCoverSizeBig ? sizeStyle : {}} onClick={() => setCoverSize(true)}>
+                    <div role="button" className="isvr-Reb94vq0g _3bvxiZCqVvPKiY _2pFmKTmyH7T3W8" style={task.style.isCoverSizeBig ? sizeStyle : {}} onClick={setCoverSize}>
                         <div className="_2_NkiO6b3w-TwP">
                             <div className="_3zyygYjXmBCuZ8">
                             </div>
@@ -134,7 +134,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
                         className={`img-container`}
                         onClick={() => onSetCoverImg(url)}
                     >
-                        <img className={selectedBg === url && 'selectedBgClass'} src={url} alt="" />
+                        <img className={(selectedBg === url) ? 'selectedBgClass' : ''} src={url} alt="" />
                     </div>
                 )}
             </div>
