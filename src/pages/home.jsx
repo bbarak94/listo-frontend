@@ -52,7 +52,7 @@ export const Home = () => {
                     Start with a Listo board, lists, and cards. Customize and expand with more features as your teamwork grows. Manage projects, organize tasks, and build team spirit—all in one place.
                 </p>
 
-                <button className='btn' onClick={() => { navigation(`/signup`) }}>
+                <button className='btn' onClick={() => { navigation(`/workspace`) }}>
                     Start Doing →
                 </button>
 
