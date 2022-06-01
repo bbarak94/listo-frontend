@@ -25,10 +25,10 @@ export const TaskDetails = () => {
     const { boardId, taskId } = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
     const { board } = useSelector((storeState) => storeState.boardModule)
-    const [task, setTask] = useState(null)
     const currGroupRef = useRef(null)
+
+    const [task, setTask] = useState(null)
 
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
@@ -69,21 +69,11 @@ export const TaskDetails = () => {
     }
 
     if (!task) return <h1>Loading...</h1>
-
+  
     return (
         <>
             <Screen cb={onCloseTaskDetails} />
             <div className='task-details flex column'>
-                {task.archivedAt && (
-                    <div className='task-archived-indication'>
-                        <img
-                            src={archive}
-                            alt='Custom Fields'
-                            style={{ width: '18px' }}
-                        />
-                        <p>This card is archived.</p>
-                    </div>
-                )}
                 {task.style.color && (
                     <div
                         style={{ backgroundColor: task.style.color }}
@@ -95,6 +85,16 @@ export const TaskDetails = () => {
                         <div className='cover-img-container'>
                             <img src={task.style.imgUrl} alt='' />
                         </div>
+                    </div>
+                )}
+                {task.archivedAt && (
+                    <div className='task-archived-indication'>
+                        <img
+                            src={archive}
+                            alt='Custom Fields'
+                            style={{ width: '18px' }}
+                        />
+                        <p>This card is archived.</p>
                     </div>
                 )}
                 <div className='task-details-header flex'>

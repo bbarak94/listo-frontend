@@ -1,6 +1,7 @@
 .cover {
     padding: 0 12px 12px;
     width: 304px;
+    gap: 12px;
 
     .popup-header {
         position: relative;
@@ -18,19 +19,24 @@
     }
 
     .btn {
+        align-self: center;
         background-color: $clr15;
         color: inherit;
-        margin: 0 auto;
+        // margin: 0 auto;
 
-        &:hover{
+        &:hover {
             background-color: $clr13;
         }
+    }
+
+    .selectedBgClass {
+        box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #0079BF;
     }
 
     h4 {
         font-size: 12px;
         color: $clr8;
-        margin: 16px 0 4px;
+        // margin: 16px 0 4px;
     }
 
     .cover-colors {
@@ -73,22 +79,22 @@
         }
     }
 
-    .cover-size{
+    .cover-size {
         margin: 0 auto;
         border-radius: 5px;
         width: 138px;
-        
+
         .selected {
             border: solid 2px black;
         }
     }
 
-    .cover-size *{
+    .cover-size * {
         margin: 0 4px;
         border-radius: 3px;
 
 
-        &:hover{
+        &:hover {
             filter: invert(19%) sepia(100%) saturate(11%) hue-rotate(345deg) brightness(99%) contrast(91%);
         }
 

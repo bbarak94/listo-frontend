@@ -35,16 +35,16 @@ export const BoardDetails = () => {
     }
 
 
-    const handleOnDragStart = (ev) => {
-        console.log('ev:',ev)
-    }
+    // const handleOnDragStart = (ev) => {
+    //     console.log('ev:',ev)
+    // }
 
-    const onMouseDown = (ev) => {
-        console.log('ev.target.parentNode:',ev.target.parentNode)
-        // ev.target.parentNode.parentNode.style.transform = 'rotate(-12deg)'
-    }
-    const onMouseUp = (ev) => {
-    }
+    // const onMouseDown = (ev) => {
+    //     console.log('ev.target.parentNode:',ev.target.parentNode)
+    //     // ev.target.parentNode.parentNode.style.transform = 'rotate(-12deg)'
+    // }
+    // const onMouseUp = (ev) => {
+    // }
     
     const handleOnDragEnd = (result) => {
 
@@ -135,8 +135,8 @@ export const BoardDetails = () => {
                 <DragDropContext
                     onDragEnd={handleOnDragEnd}
                     // onDragStart={(ev) => handleOnDragStart(ev)}
-                    onMouseDown={(ev)=> onMouseDown()}
-                    onMouseUp={(ev)=> onMouseUp()}
+                    // onMouseDown={(ev)=> onMouseDown()}
+                    // onMouseUp={(ev)=> onMouseUp()}
                                     >
                     {/* //////////////////////////////// */}
                     {/* Droppable HERE */}
@@ -171,7 +171,7 @@ export const BoardDetails = () => {
                                                     {...provided.dragHandleProps}
                                                     ref={provided.innerRef}
                                                     key={group.id}
-                                                    onMouseDown={onMouseDown}
+                                                    // onMouseDown={onMouseDown}
                                                 >
                                                     <BoardGroup
                                                         onOpenModal={onOpenModal}

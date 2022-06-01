@@ -9,18 +9,57 @@
     z-index: 10;
 }
 
+.task-details-header {
+    width: 100%;
+    margin-top: 16px;
 
+    .left-side {
+        gap: 10px;
+        margin-left: 16px;
+
+        .title {
+            h2 {}
+        }
+
+        .title {
+            gap: 7px;
+
+            h1 {
+                font-size: 20px;
+                font-weight: 500;
+                margin: 0;
+            }
+
+            h2 {
+                color: $clr8;
+                font-size: 14px;
+                font-weight: 400;
+                margin: 0 0 0 1px;
+
+                span {
+                    cursor: pointer;
+                    text-decoration: underline;
+
+                    &:hover {
+                        color: $clr1;
+                    }
+                }
+            }
+        }
+    }
+}
 
 .task-details {
-    ::-webkit-scrollbar{
+    ::-webkit-scrollbar {
         display: none;
     }
+
     overflow: auto;
-    padding-top: 20px;
+    // padding-top: 20px;
     z-index: 100;
     background-color: $clr11;
     margin: auto;
-    margin-top: -2px;
+    // margin-top: -2px;
     min-height: 90.5vh;
     max-height: 90.5vh;
     min-width: 768px;
@@ -35,25 +74,24 @@
     }
 
     .task-details-cover-color {
-        height: 116px;
+        min-height: 116px;
         width: 100%;
-        margin: -20px auto;
-        margin-bottom: 14px;
+        margin-bottom: 0px;
     }
 
     .task-details-cover-img {
-        width: 100%;
-        height: 200px;
-        margin-top: -20px;
+        /* width: 100%; */
+        height: 160px;
+        /* margin-top: -20px; */
         background-color: lightblue;
-        margin-bottom: 12px;
+        // margin-bottom: 12px;
 
 
         .cover-img-container {
             width: 400px;
 
             img {
-                aspect-ratio: 2/1;
+                aspect-ratio: 2.5/1;
                 // height: 160px;
                 object-fit: cover;
             }
@@ -68,6 +106,7 @@
     }
 
     .task-details-content {
+
         // padding-right: 0 16px;
         .task-details-left-icon {
             margin-left: 7px;
@@ -177,45 +216,6 @@
 
 }
 
-.task-details-header {
-    width: 100%;
-
-    .left-side {
-        gap: 10px;
-        margin-left: 16px;
-
-        .title {
-            h2 {
-            }
-        }
-
-        .title {
-            gap: 7px;
-
-            h1 {
-                font-size: 20px;
-                font-weight: 500;
-                margin: 0;
-            }
-
-            h2 {
-                color: $clr8;
-                font-size: 14px;
-                font-weight: 400;
-                margin: 0 0 0 1px;
-
-                span {
-                    cursor: pointer;
-                    text-decoration: underline;
-
-                    &:hover {
-                        color: $clr1;
-                    }
-                }
-            }
-        }
-    }
-}
 
 .task-main-layout {
     // justify-content: space-between;
@@ -237,7 +237,7 @@
     }
 
     .date-preview {
-        
+
         min-width: 155px;
         max-width: 155px;
         padding: 12px 8px;

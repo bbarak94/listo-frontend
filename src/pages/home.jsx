@@ -12,9 +12,9 @@ import brand3 from '../assets/img/home-page/brand3.svg'
 import brand4 from '../assets/img/home-page/brand4.svg'
 import brand5 from '../assets/img/home-page/brand5.svg'
 import brand6 from '../assets/img/home-page/brand6.svg'
-
 import preview1 from '../assets/img/home-page/preview3.jpg'
 import preview2 from '../assets/img/home-page/preview4.jpg'
+import listo from '../assets/img/asset 11.svg'
 
 export const Home = () => {
 
@@ -58,7 +58,7 @@ export const Home = () => {
                 </h2>
 
                 <p>
-                    Start with a Trello board, lists, and cards. Customize and expand with more features as your teamwork grows. Manage projects, organize tasks, and build team spirit—all in one place.
+                    Start with a Listo board, lists, and cards. Customize and expand with more features as your teamwork grows. Manage projects, organize tasks, and build team spirit—all in one place.
                 </p>
 
                 <button className='btn' onClick={() => { navigation(`/signup`) }}>
@@ -68,7 +68,7 @@ export const Home = () => {
                 <img src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/spirit/product/89d378b845766a8f0c48e955336266f8/board.png" alt="" />
 
                 <p>
-                    Join over 1,000,000 teams worldwide that are using Trello to get more done.
+                    Join over 1,000,000 teams worldwide that are using Listo to get more done.
                 </p>
 
                 <div className="brand-logos flex">
@@ -98,6 +98,34 @@ export const Home = () => {
                 </div>
                 <img src={preview2} alt="" />
             </div>
+
+            <footer className="app-footer flex column justify-center align-center">
+                <img className='logo-img' src={listo} />
+                <small>© 2022 - <span>Listo.com</span> - All Rights Reserved ®</small>
+                {/* <ul className="social-list clean-list flex">
+                    <li>
+                        <a target="_blank" href="http://www.facebook.com">
+                            <FontAwesomeIcon className='icon' icon={faFacebookF} />
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://www.twitter.com">
+                            <FontAwesomeIcon className='icon' icon={faTwitter} />
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://www.instagram.com">
+                            <FontAwesomeIcon className='icon' icon={faInstagram} />
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://www.youtube.com">
+                            <FontAwesomeIcon className='icon' icon={faYoutube} />
+                        </a>
+                    </li>
+
+                </ul> */}
+            </footer>
 
         </section>
     )

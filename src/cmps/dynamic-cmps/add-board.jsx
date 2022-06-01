@@ -3,19 +3,13 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import NewBoardImg from '../../assets/img/add-new-board/new-board.svg'
-import more from '../../assets/img/workspace/more.svg'
-// import { ColorTextFields } from '../color-text-fields'
-import bg1 from '../../assets/img/backgrounds/1.jpg'
-import bg2 from '../../assets/img/backgrounds/2.jpg'
-import bg3 from '../../assets/img/backgrounds/3.jpg'
-import bg4 from '../../assets/img/backgrounds/4.jpg'
 
 import { saveBoard } from '../../store/actions/board.action'
 import { boardService } from '../../services/board.service'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-export const AddBoard = ({ handleClose }) => {
+export const AddBoard = () => {
     const { user } = useSelector((storeState) => storeState.userModule)
     const guest = {
         _id: 'u100',
@@ -117,39 +111,6 @@ export const AddBoard = ({ handleClose }) => {
                             />
                         </div>
                     ))}
-
-                    {/* <div id='bg1' onClick={onHandleClick} className='prev-bg prev-bg1'>
-                        <img
-                            className='bg1'
-                            src={bg1}
-                            alt='background'
-                            style={{ width: '64px', height: '40px' }}
-                        />
-                    </div>
-                    <div id='bg2' onClick={onHandleClick} className='prev-bg prev-bg2'>
-                        <img
-                            className='bg2'
-                            src={bg2}
-                            alt='background'
-                            style={{ width: '64px', height: '40px' }}
-                        />
-                        </div>
-                        <div onClick={onHandleClick} className='prev-bg prev-bg3'>
-                        <img
-                        className='bg3'
-                            src={bg3}
-                            alt='background'
-                            style={{ width: '64px', height: '40px' }}
-                        />
-                        </div>
-                    <div onClick={onHandleClick} className='prev-bg prev-bg4'>
-                    <img
-                    className='bg4'
-                    src={bg4}
-                            alt='background'
-                            style={{ width: '64px', height: '40px' }}
-                        />
-                    </div> */}
                 </div>
             </section>
             <div className='new-board-colors-container flex'>
@@ -165,17 +126,7 @@ export const AddBoard = ({ handleClose }) => {
                         onClick={() => setSelectedBg(bgColor.color)}
                     ></div>
                 ))}
-                {/* <div className='prev-bgColor prev-bgc1'></div>
-                <div className='prev-bgColor prev-bgc2'></div>
-                <div className='prev-bgColor prev-bgc3'></div>
-                <div className='prev-bgColor prev-bgc4'></div>
-                <div className='prev-bgColor prev-bgc5'></div> */}
-                {/* <div className='prev-bgc prev-bgc-more flex'>
-                    <img src={more} alt='more' style={{ width: '25px' }} />
-                </div> */}
             </div>
-
-            {/* <ColorTextFields /> */}
             <div className='flex column'>
                 <form onSubmit={onHandleSubmit}>
                     <label style={{ display: 'block' }} htmlFor='board-title'>

@@ -1,14 +1,12 @@
 import { useDispatch } from 'react-redux'
+import { useState } from 'react'
 
 import { updateTask } from '../../store/actions/board.action'
 
-import cover1 from '../../assets/img/cover/cover1.svg'
-import cover2 from '../../assets/img/cover/cover2.svg'
-import { useState } from 'react'
-
 export const Cover = ({ task, board, group, handleClose }) => {
-    
+
     const dispatch = useDispatch()
+    const [selectedBg, setSelectedBg] = useState()
 
     const colors = [
         '#7BC86C',
@@ -33,6 +31,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
     ]
 
     const onSetCoverColor = (color) => {
+        setSelectedBg(color)
         const taskToUpdate = { ...task }
         taskToUpdate.style.color = color
         taskToUpdate.style.imgUrl = null
@@ -40,6 +39,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
     }
 
     const onSetCoverImg = (imgUrl) => {
+        setSelectedBg(imgUrl)
         const taskToUpdate = { ...task }
         taskToUpdate.style.color = null
         taskToUpdate.style.imgUrl = imgUrl
@@ -54,37 +54,88 @@ export const Cover = ({ task, board, group, handleClose }) => {
 
     const sizeStyle = {
         backgroundColor: task.style.color,
-        backgroundImage: `url(${task.style.imgUrl})`
+        backgroundImage: `url(${task.style.imgUrl})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        opacity: 1,
     }
 
-    const selectedBgClass = task.style.isCoverSizeBig ? 'selectedBgClass' : ''
-
     if (!task) return <div>Loading...</div>
-    // const selectedSize = task.style.isCoverSizeBig ? '0 0 0 2px #FFFFFF, 0 0 0 4px #0079BF' : ''
+
     return (
-        <div className="cover">
+        <div className="cover flex column">
             <div className="popup-header flex align-center justify-center">
                 Cover
-                <span className='close-btn' style={{ position: 'absolute', right: 0 }} onClick={() => handleClose(false)}></span>
+                <span
+                    className='close-btn'
+                    style={{ position: 'absolute', right: 0 }}
+                    onClick={() => handleClose(false)}
+                >
+                </span>
             </div>
             <div>
                 <h4>Size</h4>
-                <div className='cover-size flex justify-center'>
-                    <img style={sizeStyle} className={task.isCoverSizeBig ? 'selected' : ''} onClick={() => setCoverSize(false)} src={cover1} />
-                    <img style={sizeStyle} className={task.isCoverSizeBig ? 'selected' : ''} onClick={() => setCoverSize(true)} src={cover2} />
+                {/* ********Cover Method Selection******** */}
+                <div className="_3DrR3DNGRm88rQ">
+                    <div role="button" className="isvr-Reb94vq0g c2K-XOKpsarOtb _2pFmKTmyH7T3W8" onClick={() => setCoverSize(false)}>
+                        <div className="_28YCxuL0b0PLJg" style={task.style.isCoverSizeBig ? {} : sizeStyle}>
+                        </div>
+                        <div className="_2_NkiO6b3w-TwP" >
+                            <div className="_3zyygYjXmBCuZ8">
+                            </div>
+                            <div className="_2YkoNjZbIBZjxA">
+                            </div>
+                            <div className="_3KUp4qsMp7f0nZ">
+                                <div className="_2TkMxnIj6-MZD9">
+                                </div>
+                                <div className="_2TkMxnIj6-MZD9">
+                                </div>
+                            </div>
+                            <div className="_3K8WSoeRLtPYZP">
+                            </div>
+                        </div>
+                    </div>
+                    <div role="button" className="isvr-Reb94vq0g _3bvxiZCqVvPKiY _2pFmKTmyH7T3W8" style={task.style.isCoverSizeBig ? sizeStyle : {}} onClick={() => setCoverSize(true)}>
+                        <div className="_2_NkiO6b3w-TwP">
+                            <div className="_3zyygYjXmBCuZ8">
+                            </div>
+                            <div className="_2YkoNjZbIBZjxA">
+                            </div>
+                            <div className="_3KUp4qsMp7f0nZ">
+                                <div className="_2TkMxnIj6-MZD9">
+                                </div>
+                                <div className="_2TkMxnIj6-MZD9">
+                                </div>
+                            </div>
+                            <div className="_3K8WSoeRLtPYZP">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className='btn' onClick={() => onSetCoverColor(null)}>Remove cover</div>
             <h4>Colors</h4>
-            <div className={`cover-colors`}>
+            <div className='cover-colors'>
                 {colors.map((color, idx) =>
-                    <div className={`cover-container ${selectedBgClass}`} onClick={() => onSetCoverColor(color)} key={idx} style={{ backgroundColor: color }}></div>
+                    <div
+                        key={idx}
+                        className={`color-container ${selectedBg === color && 'selectedBgClass'}`}
+                        onClick={() => onSetCoverColor(color)}
+                        style={{ backgroundColor: color }}
+                    >
+                    </div>
                 )}
             </div>
             <h4>Photos from Unsplash</h4>
             <div className='cover-imgs'>
                 {imgUrls.map((url, idx) =>
-                    <div key={idx} className={`img-container ${selectedBgClass}`} onClick={() => onSetCoverImg(url)}><img src={url} alt="" /></div>
+                    <div
+                        key={idx}
+                        className={`img-container`}
+                        onClick={() => onSetCoverImg(url)}
+                    >
+                        <img className={selectedBg === url && 'selectedBgClass'} src={url} alt="" />
+                    </div>
                 )}
             </div>
         </div>

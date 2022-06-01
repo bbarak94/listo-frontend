@@ -57,12 +57,18 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                 <div className="task-preview-container flex column">
 
                     <div className="task-preview">
-                        {task.style.color && <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
-                        </div>
+                        {task.style.color &&
+                            <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
+                                {task.style.isCoverSizeBig && <span className='title-over-color'>{task.title}</span>}
+                                {task.style.isCoverSizeBig && <p className='edit-icon-over-color' onClick={onOpenTaskEdit}></p>}
+                            </div>
                         }
-                        {task.style.imgUrl && <div className="task-preview-img-container">
-                            <img src={task.style.imgUrl} />
-                        </div>
+                        {task.style.imgUrl &&
+                            <div className="task-preview-img-container">
+                                <img src={task.style.imgUrl} />
+                                {task.style.isCoverSizeBig && <span className='title-over-img'>{task.title}</span>}
+                                {task.style.isCoverSizeBig && <p className='edit-icon-over-img' onClick={onOpenTaskEdit}></p>}
+                            </div>
                         }
 
                         {task.labelIds && (
@@ -100,7 +106,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                         </div>
                                     </div>  */}
 
-                        <div
+                        {!task.style.isCoverSizeBig && <div
                             className='preview-title flex space-between'
                             style={{ borderRadius: taskBorderRadius }}
                         >
@@ -116,7 +122,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                 className='edit-icon'
                                 onClick={onOpenTaskEdit}
                             ></p>
-                        </div>
+                        </div>}
 
                         {(task.memberIds?.length ||
                             task.labelIds?.length ||

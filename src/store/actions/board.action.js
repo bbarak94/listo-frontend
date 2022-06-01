@@ -98,7 +98,7 @@ export function saveBoard(board) {
         const actionType = board._id ? 'UPDATE_BOARD' : 'ADD_BOARD'
         try {
             const savedBoard = await boardService.save(board)
-            console.log('return ~ savedBoard', savedBoard)
+            // console.log('return ~ savedBoard', savedBoard)
             dispatch({ type: actionType, board: savedBoard })
             return savedBoard
         } catch(err) {

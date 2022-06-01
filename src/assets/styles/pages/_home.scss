@@ -6,7 +6,7 @@
    color: $clr18;
    font-family: Roboto;
    // overflow: auto;
-   
+
    .home-main-layout {
       // margin: 40px;
       // height: 315px;
@@ -66,9 +66,10 @@
 
    .home-content-container {
       align-self: center;
-      max-width: 60%;
+      max-width: 58%;
       text-align: center;
       padding-bottom: 106px;
+      gap: 10px;
 
       h2 {
          font-size: 36px;
@@ -99,12 +100,13 @@
          margin: 30px 0;
          justify-content: center;
          flex-wrap: wrap;
-         column-gap: 162px;
-         row-gap: 52px;
+         column-gap: 154px;
+         row-gap: 69px;
          filter: invert(12%) sepia(20%) saturate(4100%) hue-rotate(194deg) brightness(94%) contrast(90%);
+         max-width: 902px;
 
          img {
-            width: 100px;
+            width: 131px;
          }
       }
 
@@ -122,7 +124,7 @@
          width: 30%;
          box-shadow: 1px 1px 11px 4px rgb(0 0 0 / 30%);
          border-radius: 5px;
-         filter: invert(0%) sepia(10%) saturate(100%) hue-rotate(180deg) brightness(94%) contrast(100%);
+         // filter: invert(0%) sepia(10%) saturate(0%) hue-rotate(180deg) brightness(94%) contrast(100%);
 
 
          // object-fit: none;
@@ -142,15 +144,52 @@
          width: 430px;
          gap: 40px;
          text-align: left;
-         
+
          h2 {
             font-size: 36px;
             font-weight: 500;
          }
-         
+
          p {
             font-size: 20px;
             line-height: 34px;
+         }
+      }
+   }
+
+   .app-footer {
+      // border-top: 1px solid $clr10;
+      // gap: 1em;
+      background-color: $clr14;
+      padding: 1em 0;
+      box-shadow: rgb(0 0 0 / 12%) 0px -3px 7px 0px;
+      // color: $clr10;
+
+      small {
+         padding: 11px 0;
+
+         &span {
+            font-weight: bold;
+         }
+      }
+
+      .logo-img {
+         width: 5em;
+         filter: invert(30%) sepia(99%) saturate(1440%) hue-rotate(196deg) brightness(86%) contrast(98%);
+
+      }
+
+      .social-list {
+         gap: 1.5em;
+
+         & li a svg {
+            color: $clr3;
+            background-color: $clr6;
+            margin-top: 7px;
+            padding: 0.5em;
+            width: 1em;
+            height: 1em;
+            border-radius: 5em;
          }
       }
    }
