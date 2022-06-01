@@ -32,17 +32,6 @@ export const BoardDetails = () => {
         loadBoard()
     }, [params.boardId])
 
-<<<<<<< HEAD
-    // useEffect(() => {
-    //     socketService.emit('shared board', params.boardId);
-    //     socketService.off(SOCKET_EVENT_UPDATE_BOARD);
-    //     socketService.on(SOCKET_EVENT_UPDATE_BOARD, setBoardFromSocket);
-    //     return () => {
-    //         // socketService.off(SOCKET_EVENT_LOAD_BOARD, loadBoard)
-    //         socketService.terminate()
-    //     }
-    // }, [])
-=======
     useEffect(() => {
         socketService.emit('shared board', params.boardId);
         socketService.off(SOCKET_EVENT_UPDATE_BOARD);
@@ -52,7 +41,6 @@ export const BoardDetails = () => {
             // socketService.terminate()
         }
     }, [])
->>>>>>> cf9b742a4b782e0ad989e351e955978afc1be72a
 
     function setBoardFromSocket(board) {
         console.log('setBoardFromSocket ~ board', board)
