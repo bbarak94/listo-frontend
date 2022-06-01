@@ -16,7 +16,7 @@
       background: linear-gradient(0deg, #fff, #eae6ff 100%);
       flex-grow: 1;
       justify-content: center;
-      padding: 60px 0 200px;
+      padding: 60px 0 140px;
       gap: 7em;
       // background: #eae6ff;
       // background: linear-gradient(0deg, #fff, #eae6ff 100%);
@@ -77,6 +77,7 @@
       }
 
       p {
+         max-width: 920px;
          font-size: 20px;
       }
 

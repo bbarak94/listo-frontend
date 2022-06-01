@@ -1,28 +1,49 @@
 import AttachFileIcon from '@mui/icons-material/AttachFile'
 import VideoLabelOutlinedIcon from '@mui/icons-material/VideoLabelOutlined'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-
+import { useState } from 'react'
 
 import moment from 'moment'
-
+import { NewspaperTwoTone } from '@mui/icons-material';
+import { useDispatch } from 'react-redux';
+import { updateTask } from '../store/actions/board.action';
 export const TaskDetailsAttachments = ({ task, boardId, groupId }) => {
-   // console.log('task:', task)
+   const [title, setTitle] = useState(false)
+   const [isEditTitle, setIsEditTitle] = useState(false)
+   const dispatch = useDispatch()
 
 
-   const onComment = (att) => {
-      console.log('comment')
-      console.log('att:', att)
-   }
-   const onRemove = (att) => {
-      console.log('remove')
-      console.log('att:', att)
-   }
-   const onEdit = (att) => {
-      console.log('edit')
-      console.log('att:', att)
+
+   const handleTitleChange = (ev) => {
+      setTitle(ev.target.value)
    }
 
-   if (!task?.attachments) return <h1>no attachments</h1>
+   const handleSubmit = (ev, att,idx) => {
+      const newTask = { ...task }
+      const newAtt = {...att}
+      newAtt.title = title
+      newTask.attachments.splice(idx,1)
+      newTask.attachments.unshift(newAtt)
+      dispatch(updateTask(newTask, boardId, groupId))
+      setIsEditTitle(false)
+   }
+
+
+
+   const onComment = (ev, att) => {
+   }
+   const onRemove = (ev, att,idx) => {
+      const newTask = { ...task }
+      newTask.attachments.splice(idx,1)
+      dispatch(updateTask(newTask, boardId, groupId))
+
+   }
+   const onEdit = (ev, att) => {
+      setIsEditTitle(true)
+
+   }
+
+   if (!task.attachments.length) return <></>
    return <div className='task-attachments'>
       <div className="attachment-header flex">
          <div className='task-details-left-icon flex'>
@@ -34,14 +55,30 @@ export const TaskDetailsAttachments = ({ task, boardId, groupId }) => {
       </div>
       <div className='imgs-container flex column' >
 
-         {task.attachments.map((att) => (
-            <div className='attachment-container flex'>
+         {task.attachments.map((att, idx) => (
+            <div key={idx} className='attachment-container flex'>
                <div className='img-container flex'>
                   <img src={att.url} />
                </div>
                <div className='attachment-details'>
                   <div className='flex'>
-                     <h1>{att.title} </h1>
+                     {!isEditTitle && <h1>{att.title} </h1>}
+                     {isEditTitle &&
+                        (
+                           <form>
+                              <input
+                                 onChange={handleTitleChange}
+                                 placeholder={att.title}
+                              ></input>
+                              <button onClick={(ev) => {
+                                 ev.stopPropagation()
+                                 ev.preventDefault()
+                                 handleSubmit(ev, att,idx)
+                              }
+                              }>Save</button>
+                           </form>
+
+                        )}
                      <ArrowRightAltIcon style={{ transform: 'rotate(-45deg)', width: '16px' }} />
                   </div>
                   <div className='flex'>
@@ -49,11 +86,11 @@ export const TaskDetailsAttachments = ({ task, boardId, groupId }) => {
                      {(Date.now() - att.createdAt > 30000) && <h2 className='date'>{(moment(att.createdAt).fromNow())}</h2>}
                      <h3>
                         {' '}-{' '}
-                        <span onClick={(att) => onComment(att)}>Comment</span>
+                        <span onClick={(ev) => onComment(ev, att)}>Comment</span>
                         -
-                        <span onClick={(att) => onRemove(att)}>Delete</span>
+                        <span onClick={(ev) => onRemove(ev, att,idx)}>Delete</span>
                         -
-                        <span onClick={(att) => onEdit(att)}>Edit</span>
+                        <span onClick={(ev) => onEdit(ev, att)}>Edit</span>
                      </h3>
                   </div>
                   <div className='make-cover flex'>
@@ -62,8 +99,6 @@ export const TaskDetailsAttachments = ({ task, boardId, groupId }) => {
                      </div>
                      <span>Make cover</span>
                   </div>
-
-
                </div>
             </div>
          )

@@ -8,10 +8,9 @@ export const Attachments = ({ task, board, group, handleClose }) => {
    const dispatch = useDispatch()
    const onUploadImg = async (ev) => {
       const thumbnail = await cloudinaryService.uploadImg(ev)
-      console.log('thumbnail:',thumbnail)
       const newAtt={
          id:utilService.makeId(),
-         title:'1',
+         title:'New Attachment',
          url:thumbnail,
          createdAt:Date.now()
       }
