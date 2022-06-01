@@ -10,7 +10,7 @@ import { AppModal } from '../cmps/app-modal'
 import { AppHeader } from '../cmps/app-header'
 
 import { boardService } from '../services/board.service'
-import { updateGroup, setBoard, saveBoard , updateBoardToStore } from '../store/actions/board.action'
+import { updateGroup, setBoard, saveBoard, updateBoardToStore } from '../store/actions/board.action'
 import { socketService, SOCKET_EVENT_UPDATE_BOARD } from '../services/socket.service'
 
 
@@ -26,37 +26,28 @@ export const BoardDetails = () => {
     const [modalPosition, setModalPosition] = useState({})
     const [labelExpandClass, setLabelExpand] = useState('')
     const [taskEditExpandId, setTaskEditExpand] = useState(null)
-        
-    // useEffect(() => {
-    //     socketService.emit('board topic', params.boardId);
-    //     socketService.off(SOCKET_EVENT_LOAD_BOARD);
-    //     socketService.on(SOCKET_EVENT_LOAD_BOARD, loadBoard);
-    //     return () => {
-    //         socketService.off(SOCKET_EVENT_LOAD_BOARD, loadBoard)
-    //         socketService.terminate()
-    //     }
-    // }, [board])
-    
-        useEffect(() => {
-            loadBoard()
-        }, [params.boardId])
+
+
+    useEffect(() => {
+        loadBoard()
+    }, [params.boardId])
 
     useEffect(() => {
         socketService.emit('shared board', params.boardId);
         socketService.off(SOCKET_EVENT_UPDATE_BOARD);
         socketService.on(SOCKET_EVENT_UPDATE_BOARD, setBoardFromSocket);
         return () => {
-            // socketService.off(SOCKET_EVENT_LOAD_BOARD, loadBoard)
-            socketService.terminate()
+            socketService.off(SOCKET_EVENT_UPDATE_BOARD, loadBoard)
+            // socketService.terminate()
         }
     }, [])
 
-    function setBoardFromSocket(board){
-            console.log('setBoardFromSocket ~ board', board)
-            dispatch(updateBoardToStore(board))
+    function setBoardFromSocket(board) {
+        console.log('setBoardFromSocket ~ board', board)
+        dispatch(updateBoardToStore(board))
     }
-    
-    function loadBoard(){
+
+    function loadBoard() {
         dispatch(setBoard(params.boardId))
     }
 
