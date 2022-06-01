@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadBoards } from '../store/actions/board.action'
-import { BoardPreview } from './board-preview'
 
+import { BoardPreview } from './board-preview'
 import { AppModal } from './app-modal'
+
 import starStroke from '../assets/img/workspace/star-stroke.svg'
 import trello from '../assets/img/asset 11.svg'
 
-export const BoardList = (props) => {
+import { loadBoards } from '../store/actions/board.action'
+
+export const BoardList = () => {
+    
     const { boards } = useSelector((storeState) => storeState.boardModule)
     const dispatch = useDispatch()
-
     const [isOpen, setIsOpen] = useState(false)
+    const starredBoards = boards.filter(board => board.isStar)
 
     const onAddBoard = () => {
         setIsOpen(true)
@@ -22,10 +25,6 @@ export const BoardList = (props) => {
     }, [])
 
     if (!boards) return <h1>loading...</h1>
-
-    const starredBoards = boards.filter(board => board.isStar)
-    const allBoards = boards.filter(board => !board.isStar)
-
     return (
         <section className="board-list">
             <section>
@@ -55,8 +54,8 @@ export const BoardList = (props) => {
                 </div>
             </section>
 
-            <AppModal isOpen={isOpen} setIsOpen={setIsOpen} cmpType={'add-board'}
-                onAddBoard={onAddBoard} />
+            <AppModal isOpen={isOpen} setIsOpen={setIsOpen} 
+            cmpType={'add-board'} onAddBoard={onAddBoard} />
         </section>
     )
 }
