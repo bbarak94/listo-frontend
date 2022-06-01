@@ -6,7 +6,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import moment from 'moment'
 
 export const TaskDetailsAttachments = ({ task, boardId, groupId }) => {
-   console.log('task:', task)
+   // console.log('task:', task)
 
 
    const onComment = (att) => {
