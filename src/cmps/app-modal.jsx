@@ -1,5 +1,5 @@
 
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
@@ -15,8 +15,10 @@ import { AddBoard } from './dynamic-cmps/add-board';
 import { WorkspaceNavModal } from './dynamic-cmps/workspace-nav-modal';
 import { MenuModal } from './dynamic-cmps/menu-modal.jsx';
 
-export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member, labelId, position = { top: '50%', left: '50%' } }) {
+const buttonHeight = 32
+const buttonWidth = 170
 
+export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member, labelId, position = { top: '50%', left: '50%' } }) {
     const getType = () => {
         switch (cmpType) {
             case 'labels':
@@ -44,7 +46,49 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         }
     }
 
-    const [open, setOpen] = React.useState(isOpen);
+    const getCmpHeight = (cmpType) => {
+        switch (cmpType) {
+            case 'labels':
+                return 411
+            case 'edit-label':
+                return 330
+            case 'members':
+                return 310
+            case 'member':
+                return 230
+            case 'cover':
+                return 471
+            case 'dates':
+                return 437
+            case 'attachment':
+                return 180
+            case 'checklist':
+                return 293
+        }
+    }
+
+    const getCmpWidth = (cmpType) => {
+        switch (cmpType) {
+            case 'labels':
+                return 300
+            case 'edit-label':
+                return 308
+            case 'members':
+                return 300
+            case 'member':
+                return 311
+            case 'cover':
+                return 304
+            case 'dates':
+                return 348
+            case 'attachment':
+                return 330
+            case 'checklist':
+                return 330
+        }
+    }
+
+    const [open, setOpen] = useState(isOpen);
     const handleOpen = () => setOpen(true);
 
     const handleClose = () => {
@@ -52,15 +96,14 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         setIsOpen(false)
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         setOpen(isOpen)
     }, [isOpen])
 
     const style = {
         position: 'absolute',
-        // top: position.top,
-        right:position.right,
-        top: position.top + position.height,
+        right: position.right,
+        top: position.top,
         left: position.left,
         zIndex: 30,
         border: 'none',
@@ -71,26 +114,27 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         borderRadius: '3px',
         boxShadow: 24,
     }
-    if(cmpType === 'menu'){
+
+    if (cmpType === 'menu') {
         style.top = '36px'
     }
-    
+
+    const cmpHeight = getCmpHeight(cmpType)
+    if (style.top + cmpHeight > window.innerHeight) style.top -= (cmpHeight + buttonHeight)
+    const cmpWidth = getCmpWidth(cmpType)
+    if (style.left + cmpWidth > window.innerWidth) style.left -= (cmpWidth)
 
     return (
-        // <div>
         <Modal
             open={open}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
-            BackdropProps={{ invisible: true, open: true}}
-            // disableEnforceFocus 
-        // BackdropProps={{ open: false}}
+            BackdropProps={{ invisible: true, open: true }}
         >
             <Box sx={style}>
                 {getType()}
             </Box>
         </Modal>
-        // </div>
     );
 }

@@ -10,7 +10,7 @@ import { AppModal } from '../cmps/app-modal'
 import { AppHeader } from '../cmps/app-header'
 
 import { boardService } from '../services/board.service'
-import { updateGroup, setBoard, saveBoard , updateBoardToStore } from '../store/actions/board.action'
+import { updateGroup, setBoard, saveBoard, updateBoardToStore } from '../store/actions/board.action'
 import { socketService, SOCKET_EVENT_UPDATE_BOARD } from '../services/socket.service'
 
 
@@ -26,21 +26,13 @@ export const BoardDetails = () => {
     const [modalPosition, setModalPosition] = useState({})
     const [labelExpandClass, setLabelExpand] = useState('')
     const [taskEditExpandId, setTaskEditExpand] = useState(null)
-        
-    // useEffect(() => {
-    //     socketService.emit('board topic', params.boardId);
-    //     socketService.off(SOCKET_EVENT_LOAD_BOARD);
-    //     socketService.on(SOCKET_EVENT_LOAD_BOARD, loadBoard);
-    //     return () => {
-    //         socketService.off(SOCKET_EVENT_LOAD_BOARD, loadBoard)
-    //         socketService.terminate()
-    //     }
-    // }, [board])
-    
-        useEffect(() => {
-            loadBoard()
-        }, [params.boardId])
 
+
+    useEffect(() => {
+        loadBoard()
+    }, [params.boardId])
+
+<<<<<<< HEAD
     // useEffect(() => {
     //     socketService.emit('shared board', params.boardId);
     //     socketService.off(SOCKET_EVENT_UPDATE_BOARD);
@@ -50,13 +42,24 @@ export const BoardDetails = () => {
     //         socketService.terminate()
     //     }
     // }, [])
+=======
+    useEffect(() => {
+        socketService.emit('shared board', params.boardId);
+        socketService.off(SOCKET_EVENT_UPDATE_BOARD);
+        socketService.on(SOCKET_EVENT_UPDATE_BOARD, setBoardFromSocket);
+        return () => {
+            socketService.off(SOCKET_EVENT_UPDATE_BOARD, loadBoard)
+            // socketService.terminate()
+        }
+    }, [])
+>>>>>>> cf9b742a4b782e0ad989e351e955978afc1be72a
 
-    function setBoardFromSocket(board){
-            console.log('setBoardFromSocket ~ board', board)
-            dispatch(updateBoardToStore(board))
+    function setBoardFromSocket(board) {
+        console.log('setBoardFromSocket ~ board', board)
+        dispatch(updateBoardToStore(board))
     }
-    
-    function loadBoard(){
+
+    function loadBoard() {
         dispatch(setBoard(params.boardId))
     }
 
@@ -115,11 +118,12 @@ export const BoardDetails = () => {
         setIsOpen(true)
         setCmpType(type)
         setMember(member)
-        let elemRect = ev.target.parentNode.getBoundingClientRect()
+        let elemRect = ev.currentTarget.getBoundingClientRect()
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
-        const height = ev.target.offsetHeight
-        setModalPosition({ top, left, height })
+        const height = ev.currentTarget.offsetHeight
+        top += height
+        setModalPosition({ top, left })
     }
 
     if (!board) return <div>Loading...</div>
