@@ -1,15 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadBoards, saveBoard } from '../store/actions/board.action'
+import { loadBoards } from '../store/actions/board.action'
 import { BoardPreview } from './board-preview'
 
-import { AppHeader } from './app-header'
-
-import { NewBoardPrev } from './dynamic-cmps/new-board-prev'
 import { AppModal } from './app-modal'
-
 import starStroke from '../assets/img/workspace/star-stroke.svg'
-import clock from '../assets/img/workspace/clock.svg'
 import trello from '../assets/img/asset 11.svg'
 
 export const BoardList = (props) => {
@@ -30,34 +25,26 @@ export const BoardList = (props) => {
 
     const starredBoards = boards.filter(board => board.isStar)
     const allBoards = boards.filter(board => !board.isStar)
-    console.log('BoardList ~ boards', boards)
+
     return (
         <section className="board-list">
             <section>
                 <div className='title-container flex'>
-                    <img
-                        src={starStroke}
-                        alt='star'
-                        style={{ width: '25px' }}
-                    />
+                    <img src={starStroke} alt='star' style={{ width: '25px' }} />
                     <h2>Starred boards</h2>
                 </div>
                 <section className='board-list flex'>
                     {starredBoards.map((board) => (
-                        <BoardPreview board={board} key={board._id+'stared'} />
+                        <BoardPreview board={board} key={board._id + 'stared'} />
                     ))}
                 </section>
             </section>
 
             <section>
-                    <div className='title-container flex'>
-                        <img
-                            src={trello}
-                            alt='clock'
-                            style={{ width: '25px' }}
-                        />
-                        <h2>All boards</h2>
-                    </div>
+                <div className='title-container flex'>
+                    <img src={trello} alt='clock' style={{ width: '25px' }} />
+                    <h2>All boards</h2>
+                </div>
                 <div className='board-list flex'>
                     <div onClick={() => onAddBoard()} className='board-preview board-preview-btn flex column align-center justify-center'>
                         <h3>create new board</h3>
@@ -68,12 +55,8 @@ export const BoardList = (props) => {
                 </div>
             </section>
 
-            <AppModal
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                cmpType={'add-board'}
-                onAddBoard={onAddBoard}
-            />
+            <AppModal isOpen={isOpen} setIsOpen={setIsOpen} cmpType={'add-board'}
+                onAddBoard={onAddBoard} />
         </section>
     )
 }

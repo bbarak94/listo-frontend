@@ -9,15 +9,26 @@
          font-size: 18px;
       }
    }
-   .user-container{
-      &:hover{
+
+   .user-container {
+      &:hover {
          cursor: pointer;
       }
    }
 
-   .activities {
+   .menu-layout {
       padding: 8px;
       gap: 10px;
+
+      .archived-items {
+         padding: 0 8px;
+         gap: 10px;
+         cursor: pointer;
+         &:hover {
+            background-color: darken($color: $clr13, $amount: 1);
+         }
+      }
+
 
       .activities-header {
          align-content: center;
@@ -37,21 +48,26 @@
             cursor: pointer;
          }
       }
+
+
    }
 
    .menu-modal-activities {
       gap: 8px;
       margin-left: 4px;
       align-items: center;
+
       .txt {
-         .date{
+         .date {
             font-size: 13px;
             font-weight: 400;
          }
-         .board-name{
+
+         .board-name {
             font-size: 16px;
             font-weight: 500;
          }
+
          gap: 5px;
 
          h1 {
@@ -74,6 +90,5 @@
             }
          }
       }
-
    }
 }

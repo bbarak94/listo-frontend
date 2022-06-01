@@ -1,24 +1,15 @@
-import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
-// import { userService } from './user.service.js'
-import {
-    getActionRemoveBoard,
-    getActionAddBoard,
-    getActionUpdateBoard,
-} from '../store/actions/board.action'
 import { userService } from './user.service.js'
 import { httpService } from './http.service.js'
 
-const STORAGE_KEY = 'board'
 const boardChannel = new BroadcastChannel('boardChannel')
-// const listeners = []
 
 export const boardService = {
     query,
     getById,
     save,
     remove,
-    getEmptyBoard,
+    _getEmptyBoard,
     subscribe,
     unsubscribe,
     addGroup,
@@ -30,44 +21,110 @@ export const boardService = {
     getGroup,
     getGroupById,
     getMembersByIds,
-    getEmptyTodo
+    _getEmptyTodo
 }
 window.cs = boardService
 
 async function query() {
-    // return storageService.query(STORAGE_KEY)
     return await httpService.get('board/')
 }
 
 async function getById(boardId) {
-    // return storageService.get(STORAGE_KEY, boardId)
-    // return await httpService.get(`/board/${boardId}`)
     return await httpService.get(`board/${boardId}`)
 }
+
 async function remove(boardId) {
-    // await storageService.remove(STORAGE_KEY, boardId)
-    // boardChannel.postMessage(getActionRemoveBoard(boardId))
     return await httpService.delete(`board/${boardId}`)
 }
 
 async function save(board) {
     var savedBoard
     if (board._id) {
-        // savedBoard = await storageService.put(STORAGE_KEY, board)
         savedBoard = await httpService.put(`board/`, board)
         // boardChannel.postMessage(getActionUpdateBoard(savedBoard))
     } else {
-        // Later, owner is set by the backend
-        // board.owner = userService.getLoggedinUser()
-
-        // savedBoard = await storageService.post(STORAGE_KEY, board)
         savedBoard = await httpService.post(`board/`, board)
         // boardChannel.postMessage(getActionAddBoard(savedBoard))
     }
     return savedBoard
 }
 
-async function getEmptyBoard() {
+function subscribe(listener) {
+    boardChannel.addEventListener('message', listener)
+}
+
+function unsubscribe(listener) {
+    boardChannel.removeEventListener('message', listener)
+}
+
+async function addGroup(title, boardId) {
+    const newGroup = _getEmptyGroup(title)
+    return await httpService.post(`board/${boardId}/group/${newGroup.id}`, newGroup)
+}
+
+async function updateGroup(groupToUpdate, boardId) {
+    return await httpService.put(`board/${boardId}/group`, groupToUpdate)
+}
+
+async function addTask(title, boardId, groupId) {
+    const newTask = _getEmptyTask(title)
+    return await httpService.post(`board/${boardId}/group/${groupId}/task/${newTask.id}`, newTask)
+}
+
+async function updateTask(taskToUpdate, boardId, groupId) {
+    return await httpService.put(`board/${boardId}/group/${groupId}/task`, taskToUpdate)
+}
+
+function getTaskAndGroup(board, taskId) {
+    if (!board) return
+    let currTask
+    let currGroup
+    board.groups.forEach((g) => {
+        if (currTask) return
+        currTask = g.tasks.find((t) => {
+            if (t.id === taskId) {
+                currGroup = g
+                return true
+            }
+        })
+    })
+    return { currGroup, currTask }
+}
+
+function getGroup(board, taskId) {
+    return board.groups.find((g) => {
+        return g.tasks.find((t) => (t.id === taskId))
+    })
+}
+
+function getGroupById(board, groupId) {
+    return board.groups.find((g) => g.id === groupId)
+}
+
+function removeTaskFromBoard(taskId, board) {
+    const boardToUpdate = { ...board }
+
+    const { currGroup, currTask } = getTaskAndGroup(taskId, board)
+
+    const newActivity = _createActivity('deleted a task from', currTask)
+    board.activities.unshift(newActivity)
+
+    currGroup.tasks = currGroup.tasks.filter(t => t.id !== taskId)
+    return boardToUpdate
+}
+
+function getMembersByIds(memberIds, board) {
+    if (!memberIds) return null
+    const members = []
+    board.members.forEach(member => {
+        if (memberIds.includes(member.id)) {
+            members.push(member)
+        }
+    })
+    return members
+}
+
+async function _getEmptyBoard() {
     const newBoard = {
         title: 'New Board',
         archivedAt: null,
@@ -144,53 +201,16 @@ async function getEmptyBoard() {
     return newBoard
 }
 
-function subscribe(listener) {
-    boardChannel.addEventListener('message', listener)
-}
-function unsubscribe(listener) {
-    boardChannel.removeEventListener('message', listener)
-}
-
-async function addGroup(title, boardId) {
-    const user = userService.getLoggedinUser()
-    const newGroup = {
+function _getEmptyGroup(title) {
+    return {
         id: utilService.makeId(),
         title,
         tasks: [],
     }
-    return await httpService.post(`board/${boardId}/group/${newGroup.id}`, newGroup)
-
-    // try {
-    //     const board = await getById(boardId)
-    //     board.groups.push(newGroup)
-    //     save(board)
-    //     return board
-    // } catch (err) {
-    //     console.log('Cannot add group', err)
-    // }
 }
 
-async function updateGroup(groupToUpdate, boardId) {
-
-    return await httpService.put(`board/${boardId}/group`, groupToUpdate)
-
-    // try {
-    //     const board = await getById(boardId)
-    //     let groupIdx = board.groups.findIndex(currGroup => currGroup.id === groupToUpdate.id)
-    //     board.groups.splice(groupIdx, 1, groupToUpdate)
-
-    //     const newActivity = createActivity('updated',newTask)
-    //     board.activities.unshift(newActivity)
-
-    //     save(board)
-    //     return board
-    // } catch (err) {
-    //     console.log('Cannot add group', err)
-    // }
-}
-
-async function addTask(title, boardId, groupId) {
-    const newTask = {
+function _getEmptyTask(title) {
+    return {
         id: utilService.makeId(),
         title,
         status: '',
@@ -209,95 +229,9 @@ async function addTask(title, boardId, groupId) {
         },
         archivedAt: null
     }
-    return await httpService.post(`board/${boardId}/group/${groupId}/task/${newTask.id}`, newTask)
-
-
-    // try {
-    //     const board = await getById(boardId)
-    //     let group = board.groups.find(group => group.id === groupId)
-    //     group.tasks.push(newTask)
-
-    // const newActivity = await createActivity('added a task',newTask)
-    // board.activities.unshift(newActivity)
-    //     save(board)
-    //     return board
-    // } catch (err) {
-    //     console.log('Cannot add Task', err)
-    // }
 }
 
-async function updateTask(taskToUpdate, boardId, groupId) {
-
-    return await httpService.put(`board/${boardId}/group/${groupId}/task`, taskToUpdate)
-
-    // try {
-    //     const board = await getById(boardId)
-    //     let group = board.groups.find(group => group.id === groupId)
-    //     const taskIdx = group.tasks.findIndex(task => task.id === taskToUpdate.id)
-    //     group.tasks.splice(taskIdx, 1, taskToUpdate)
-    //     const newActivity = createActivity('made changes to list', taskToUpdate)
-    //     board.activities.unshift(newActivity)
-    //     save(board)
-    //     // console.log('board:',board)
-
-    //     return board
-    // } catch (err) {
-    //     console.log('Cannot update Task', err)
-    // }
-}
-
-function getTaskAndGroup(board, taskId) {
-    if (!board) return
-    let currTask
-    let currGroup
-
-    board.groups.forEach((g) => {
-        if (currTask) return
-        currTask = g.tasks.find((t) => {
-
-            if (t.id === taskId) {
-                currGroup = g
-                return true
-            }
-        })
-    })
-    return { currGroup, currTask }
-}
-
-function getGroup(board, taskId) {
-    return board.groups.find((g) => {
-        return g.tasks.find((t) => (t.id === taskId))
-    })
-}
-
-function getGroupById(board, groupId) {
-    return board.groups.find((g) => g.id === groupId)
-}
-
-function removeTaskFromBoard(taskId, board) {
-    const boardToUpdate = { ...board }
-
-    const { currGroup, currTask } = getTaskAndGroup( taskId ,board)
-
-    const newActivity = createActivity('deleted a task from', currTask)
-    board.activities.unshift(newActivity)
-
-    currGroup.tasks = currGroup.tasks.filter(t => t.id !== taskId)
-    return boardToUpdate
-}
-
-function getMembersByIds(memberIds, board) {
-    if (!memberIds) return null
-    const members = []
-    board.members.forEach(member => {
-        if (memberIds.includes(member.id)) {
-            members.push(member)
-        }
-    })
-    return members
-}
-
-function getEmptyTodo() {
+function _getEmptyTodo() {
     return {
         id: utilService.makeId(),
         title: '',
@@ -305,8 +239,7 @@ function getEmptyTodo() {
     }
 }
 
-// function createActivity(task,user,txt) {
-function createActivity(txt, task) {
+function _createActivity(txt, task) {
     return {
         byMember: userService.getLoggedinUser(),
         id: utilService.makeId(),
@@ -319,7 +252,3 @@ function createActivity(txt, task) {
         },
     }
 }
-
-
-// TEST DATA
-// storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
