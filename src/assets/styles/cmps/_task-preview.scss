@@ -38,12 +38,14 @@
 
    .task-preview-img-container {
       height: 240px;
+      max-width: 280px;
       // border-radius: 3px;
       overflow: hidden;
 
       img {
-         object-fit: cover;
+         object-fit: contain;
          height: 100%;
+         max-width: 280px;
          border-radius: 3px 3px 0 0;
       }
 
@@ -113,6 +115,7 @@
       }
 
       .task-preview-title {
+         margin-bottom: 7.5px;
          width: 100%;
       }
 
