@@ -1,11 +1,9 @@
-import hero from '../assets/img/hero/hero.png'
-import Button from '@mui/material/Button'
 import { useNavigate } from 'react-router-dom'
-import { HomeHeader } from '../cmps/home-header'
-import { useEffect } from 'react'
-import { loadUsers } from '../store/actions/user.action'
-import { useDispatch } from 'react-redux'
+import Button from '@mui/material/Button'
 
+import { HomeHeader } from '../cmps/home-header'
+
+import hero from '../assets/img/hero/hero.png'
 import brand1 from '../assets/img/home-page/brand1.svg'
 import brand2 from '../assets/img/home-page/brand2.svg'
 import brand3 from '../assets/img/home-page/brand3.svg'
@@ -19,11 +17,6 @@ import listo from '../assets/img/asset 11.svg'
 export const Home = () => {
 
     const navigation = useNavigate()
-    const dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(loadUsers())
-    // }, [])
-
 
     return (
         <section className='home'>
@@ -36,7 +29,6 @@ export const Home = () => {
                         peaks. From high rises to the home office, the way your
                         team works is unique-accomplish it all with Listo.
                     </p>
-
                     <Button
                         onClick={() => {
                             navigation(`/workspace`)
@@ -47,7 +39,6 @@ export const Home = () => {
                         Start Demo
                     </Button>
                 </div>
-
                 <div className='hero-img-container flex align-center'>
                     <img src={hero} alt='home' />
                 </div>
@@ -79,12 +70,9 @@ export const Home = () => {
                     <img src={brand5} alt="" />
                     <img src={brand6} alt="" />
                 </div>
-
             </div>
             <div className="home-preview flex justify-center align-center">
-                {/* <div className='img-container'> */}
                 <img src={preview1} alt="" />
-                {/* </div> */}
                 <div className="content flex column">
                     <h2>Plan, execute, and track projects of any size</h2>
                     <p>Easily assign tasks and prioritize what's most important to your team. Set project timeline, milestones and dependencies, and manage your team's entire workload all in one place.</p>
@@ -102,31 +90,7 @@ export const Home = () => {
             <footer className="app-footer flex column justify-center align-center">
                 <img className='logo-img' src={listo} />
                 <small>© 2022 - <span>Listo.com</span> - All Rights Reserved ®</small>
-                {/* <ul className="social-list clean-list flex">
-                    <li>
-                        <a target="_blank" href="http://www.facebook.com">
-                            <FontAwesomeIcon className='icon' icon={faFacebookF} />
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="http://www.twitter.com">
-                            <FontAwesomeIcon className='icon' icon={faTwitter} />
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="http://www.instagram.com">
-                            <FontAwesomeIcon className='icon' icon={faInstagram} />
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="http://www.youtube.com">
-                            <FontAwesomeIcon className='icon' icon={faYoutube} />
-                        </a>
-                    </li>
-
-                </ul> */}
             </footer>
-
         </section>
     )
 }

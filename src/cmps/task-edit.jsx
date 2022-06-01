@@ -7,10 +7,6 @@ import { TaskEditPreviewNav } from "./task-preview-edit-nav"
 
 export const TaskEdit = ({ task, board, group, setTaskEditExpand, style }) => {
 
-    // let elemRect = ev.target.parentNode.getBoundingClientRect()
-    // let top = elemRect.top - window.pageYOffset
-    // let left = elemRect.left - window.pageXOffset
-
     const [title, setTitle] = useState(task.title)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -44,6 +40,8 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand, style }) => {
     }
 
     if (!task) return
+    const taskEditNavTop = style.top + 290 > window.innerHeight ? -188 : 1
+    if (style.top + 145 > window.innerHeight) style.top = 675 
 
     return (
         <section className="task-edit" style={style}>
@@ -67,7 +65,7 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand, style }) => {
                 task={task}
                 board={board}
                 group={group}
-                style={style}
+                taskEditNavTop={taskEditNavTop}
             />
         </section>
     )

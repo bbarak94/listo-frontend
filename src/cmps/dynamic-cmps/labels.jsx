@@ -1,19 +1,16 @@
 
-import { useEffect, useState, useRef } from 'react'
-import { useParams } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-
-import { useEffectUpdate } from '../../hooks/useEffectUpdate'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import { AppModal } from '../app-modal'
 
 import { labelService } from '../../services/label.service'
-import { boardService } from '../../services/board.service'
 import { updateTask } from '../../store/actions/board.action'
-export const Labels = ({ board, group, task ,handleClose}) => {
+
+export const Labels = ({ board, group, task }) => {
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false)
+    const [position, setPosition] = useState({})
 
     const onToggleLabel = async (labelId) => {
         const updatedTask = await labelService.toggleLabel(labelId, task)
@@ -26,18 +23,16 @@ export const Labels = ({ board, group, task ,handleClose}) => {
         return task.labelIds.includes(labelId)
     }
 
-    const colors = [
-        '#7BC86C',
-        '#F5DD29',
-        '#FFAF3F',
-        '#EF7564',
-        '#CD8DE5',
-        '#5BA4CF',
-        '#29CCE5',
-        '#6DECA9',
-        '#FF8ED4',
-        '#172B4D'
-    ]
+    const onHandleClick = (ev) => {
+        setIsOpen(true)
+
+        let elemRect = ev.currentTarget.getBoundingClientRect()
+        let top = elemRect.top - window.pageYOffset
+        let left = elemRect.left - window.pageXOffset
+        const height = ev.currentTarget.offsetHeight
+        top += height
+        setPosition({top, left})
+    }
 
     return (
         <>
@@ -47,18 +42,17 @@ export const Labels = ({ board, group, task ,handleClose}) => {
                 <ul className='label-list'>
                     {board.labels.map(label => {
                         return (
-                            <li className='label-list-item' key={label.id} style={{ background: label.color }} onClick={() => onToggleLabel(label.id)} >
+                            <li className='label-list-item' key={label.id} style={{ background: label.color }}
+                                onClick={() => onToggleLabel(label.id)} >
                                 <span>{label.title}</span>
                                 {isLabelOnTask(label.id) && <span>✔</span>}
                             </li>
                         )
                     })}
                 </ul>
-                <button onClick={()=>{setIsOpen(true)}} > Create a new label</button>
+                <button onClick={(ev) => { onHandleClick(ev) }} > Create a new label</button>
             </div>}
-
-            {/* <AppModal  board={board} cmpType={'edit-label'} labelId={labelId} isOpen={isOpen} setIsOpen={setIsOpen} /> */}
-            <AppModal  board={board} cmpType={'edit-label'}  isOpen={isOpen} setIsOpen={setIsOpen} />
+            <AppModal position={position} board={board} cmpType={'edit-label'} isOpen={isOpen} setIsOpen={setIsOpen} />
         </>
     )
 }

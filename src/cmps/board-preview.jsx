@@ -14,8 +14,6 @@ export const BoardPreview = ({ board }) => {
     const dispatch = useDispatch()
 
     const onStarBoard = (ev, isStar) => {
-        // console.log(ev);
-        // ev.preventDefault()
         ev.stopPropagation()
         board.isStar = isStar
         dispatch(saveBoard(board))
@@ -36,9 +34,6 @@ export const BoardPreview = ({ board }) => {
             onMouseOver={() => setMouseOver(true)}
             onMouseLeave={() => setMouseOver(false)}
         >
-            {/* <div>
-                <h3>Template</h3>
-            </div> */}
 
             <div>
                 <h2>{board.title}</h2>

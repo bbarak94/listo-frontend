@@ -15,14 +15,13 @@ const NO_COLOR_INDICATION = '#B3BAC5'
 
 export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand, taskEditExpandId, setLabelExpand, labelExpandClass }) => {
 
-
     const [isMouseOver, setIsMouseOver] = useState(false)
     const [style, setStyle] = useState({ top: '', left: '', width: '' })
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
         // ****** Task edit relative to task preview ********
-        let elemRect = ev.target.parentNode.getBoundingClientRect()
+        let elemRect = ev.currentTarget.parentNode.parentNode.getBoundingClientRect()
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
         // ****** Task edit width relative to task preview width ********
@@ -58,7 +57,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                     <p className='edit-icon-over-img' onClick={onOpenTaskEdit}></p> </>}
                             </div>}
 
-                        {task.labelIds && (
+                        {(task.labelIds?.length > 0) && (
                             <div className='task-preview-labels flex'>
                                 {labelService.getLabelsByIds(task.labelIds, board).map((label) => {
                                     return (label.color !== NO_COLOR_INDICATION && <div
@@ -82,12 +81,11 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                 {task.dueDate && (
                                     <div className='task-preview-date flex'
                                         onMouseOver={() => setIsMouseOver(true)}
-                                        onMouseOut={() => setIsMouseOver(false)}  >
+                                        onMouseOut={() => setIsMouseOver(false)}
+                                    >
 
-                                        {!isMouseOver && <>
-                                            <img src={clock} alt='' />
-                                            <img src={checkBox} alt='' />
-                                        </>}
+                                        {!isMouseOver && <img src={clock} alt='' />}
+                                        {isMouseOver && <img src={checkBox} alt='' />}
 
                                         <span>
                                             {moment(task.dueDate).format('MMMM D')}

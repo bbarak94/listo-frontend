@@ -106,11 +106,12 @@ export const BoardDetails = () => {
         setIsOpen(true)
         setCmpType(type)
         setMember(member)
-        let elemRect = ev.target.parentNode.getBoundingClientRect()
+        let elemRect = ev.currentTarget.getBoundingClientRect()
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
-        const height = ev.target.offsetHeight
-        setModalPosition({ top, left, height })
+        const height = ev.currentTarget.offsetHeight
+        top += height
+        setModalPosition({ top, left })
     }
 
     if (!board) return <div>Loading...</div>
