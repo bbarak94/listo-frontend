@@ -10,6 +10,7 @@ import { updateTask } from '../../store/actions/board.action'
 export const Labels = ({ board, group, task }) => {
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false)
+    const [position, setPosition] = useState({})
 
     const onToggleLabel = async (labelId) => {
         const updatedTask = await labelService.toggleLabel(labelId, task)
@@ -20,6 +21,17 @@ export const Labels = ({ board, group, task }) => {
         if (!task) return
         if (!task.labelIds) task.labelIds = []
         return task.labelIds.includes(labelId)
+    }
+
+    const onHandleClick = (ev) => {
+        setIsOpen(true)
+
+        let elemRect = ev.currentTarget.getBoundingClientRect()
+        let top = elemRect.top - window.pageYOffset
+        let left = elemRect.left - window.pageXOffset
+        const height = ev.currentTarget.offsetHeight
+        top += height
+        setPosition({top, left})
     }
 
     return (
@@ -38,9 +50,9 @@ export const Labels = ({ board, group, task }) => {
                         )
                     })}
                 </ul>
-                <button onClick={() => { setIsOpen(true) }} > Create a new label</button>
+                <button onClick={(ev) => { onHandleClick(ev) }} > Create a new label</button>
             </div>}
-            <AppModal board={board} cmpType={'edit-label'} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <AppModal position={position} board={board} cmpType={'edit-label'} isOpen={isOpen} setIsOpen={setIsOpen} />
         </>
     )
 }

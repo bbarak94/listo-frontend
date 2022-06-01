@@ -69,7 +69,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
                 <span
                     className='close-btn'
                     style={{ position: 'absolute', right: 0 }}
-                    onClick={() => handleClose(false)}
+                    onClick={() => handleClose()}
                 >
                 </span>
             </div>

@@ -16,11 +16,9 @@ const uploadImg = async (ev) => {
             method: 'POST',
             body: FORM_DATA
         })
-        console.log('res:',res)
         
         // const elImg = document.createElement('img');
         const { url } = await res.json()
-        console.log('url:',url)
         
         // elImg.src = url;
         // document.body.append(elImg);

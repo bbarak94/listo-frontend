@@ -1,5 +1,5 @@
 
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
@@ -14,6 +14,8 @@ import { Checklist } from './dynamic-cmps/checklist'
 import { AddBoard } from './dynamic-cmps/add-board';
 import { WorkspaceNavModal } from './dynamic-cmps/workspace-nav-modal';
 import { MenuModal } from './dynamic-cmps/menu-modal.jsx';
+
+const buttonHeight = 32
 
 export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member, labelId, position = { top: '50%', left: '50%' } }) {
     const getType = () => {
@@ -48,10 +50,22 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         switch (cmpType) {
             case 'labels':
                 return 411
+            case 'edit-label':
+                return 330
+            case 'members':
+                return 310
+            case 'cover':
+                return 471
+            case 'dates':
+                return 437
+            case 'attachment':
+                return 180
+            case 'checklist':
+                return 293
         }
     }
 
-    const [open, setOpen] = React.useState(isOpen);
+    const [open, setOpen] = useState(isOpen);
     const handleOpen = () => setOpen(true);
 
     const handleClose = () => {
@@ -59,14 +73,14 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         setIsOpen(false)
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         setOpen(isOpen)
     }, [isOpen])
 
     const style = {
         position: 'absolute',
         right: position.right,
-        top: position.top + position.height,
+        top: position.top,
         left: position.left,
         zIndex: 30,
         border: 'none',
@@ -77,12 +91,14 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         borderRadius: '3px',
         boxShadow: 24,
     }
+
     if (cmpType === 'menu') {
         style.top = '36px'
     }
-    const cmpHeight = getCmpHeight()
-    if (style.top + cmpHeight > window.innerHeight) style.top -= cmpHeight
-    // console.log('cmpHeight, style.top', cmpHeight, style.top)
+
+    const cmpHeight = getCmpHeight(cmpType)
+    if (style.top + cmpHeight > window.innerHeight) style.top -= (cmpHeight + buttonHeight)
+
     return (
         <Modal
             open={open}

@@ -22,7 +22,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
         // ****** Task edit relative to task preview ********
-        let elemRect = ev.target.parentNode.getBoundingClientRect()
+        let elemRect = ev.currentTarget.parentNode.parentNode.getBoundingClientRect()
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
         // ****** Task edit width relative to task preview width ********
@@ -37,7 +37,8 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
         labelExpandClass = (labelExpandClass === 'expand') ? 'shrink' : 'expand'
         setLabelExpand(labelExpandClass)
     }
-
+    console.log('task.id', task.id)
+    console.log('task', task.labelIds)
     return (
         <div className="task-preview-helper">
             <Link to={`/board/${board._id}/task/${task.id}`}>
@@ -58,7 +59,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                     <p className='edit-icon-over-img' onClick={onOpenTaskEdit}></p> </>}
                             </div>}
 
-                        {task.labelIds && (
+                        {(task.labelIds?.length > 0) && (
                             <div className='task-preview-labels flex'>
                                 {labelService.getLabelsByIds(task.labelIds, board).map((label) => {
                                     return (label.color !== NO_COLOR_INDICATION && <div

@@ -30,7 +30,7 @@ export const TaskDetails = () => {
     const currGroupRef = useRef(null)
 
     const [task, setTask] = useState(null)
-
+   console.log('task', task)
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(null)
@@ -41,10 +41,10 @@ export const TaskDetails = () => {
         setCmpType(type)
         setMember(member)
 
-        let elemRect = ev.target.parentNode.getBoundingClientRect()
+        let elemRect = ev.currentTarget.getBoundingClientRect()
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
-        const height = ev.target.offsetHeight
+        const height = ev.currentTarget.offsetHeight
         setPosition({ top, left, height })
     }
 
