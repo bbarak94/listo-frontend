@@ -1,7 +1,9 @@
-import Logo from '../assets/img/listo.svg'
 import Button from '@mui/material/Button'
-import { useNavigate } from 'react-router-dom'
+
 import { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import Logo from '../assets/img/listo.svg'
 
 export const HomeHeader = () => {
     const navigation = useNavigate()
@@ -11,37 +13,20 @@ export const HomeHeader = () => {
     const onHandleScroll = () => {
         if (ref.current.offsetTop > 90) setScrollOn(true)
         else setScrollOn(false)
-        // console.log(document.body.scrollTop);
     }
-    // var rect = element.getBoundingClientRect();
     window.onscroll = () => onHandleScroll()
 
     return (
         <div ref={ref} className={isScrollOn ? 'header flex scroll' : 'header flex'}>
             <div className='header-logo'>
-                <img
-                    onClick={() => {
-                        navigation(`/`)
-                    }}
-                    src={Logo}></img>
+                <img onClick={() => { navigation(`/`) }} src={Logo} />
             </div>
-
             <div className='header-btns flex'>
-                <a
-                    className='login-btn'
-                    onClick={() => {
-                        navigation(`/login`)
-                    }}
-                >
+                <a className='login-btn' onClick={() => { navigation(`/login`) }}>
                     Log in
                 </a>
-                <Button
-                    onClick={() => {
-                        navigation(`/signup`)
-                    }}
-                    variant='contained'
-                    size='medium'
-                >
+                <Button onClick={() => { navigation(`/signup`) }}
+                    variant='contained' size='medium'>
                     Signup
                 </Button>
             </div>

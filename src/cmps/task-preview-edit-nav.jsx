@@ -13,7 +13,7 @@ import ArchiveIcon from '@mui/icons-material/Archive'
 import { AppModal } from './app-modal'
 import { updateTask } from '../store/actions/board.action'
 
-export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group, style }) => {
+export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group, taskEditNavTop }) => {
 
     const dispatch = useDispatch()
 
@@ -22,8 +22,6 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group, style 
     const [position, setPosition] = useState({})
 
     const onHandleClick = (ev, type) => {
-        // ev.preventDefault()
-
         setIsOpen(true)
         setCmpType(type)
 
@@ -40,8 +38,8 @@ export const TaskEditPreviewNav = ({ goToTaskDetails, task, board, group, style 
     }
 
     return (
-        <>
-            <nav className="task-edit-nav">
+        <> 
+            <nav className="task-edit-nav" style={{top: taskEditNavTop}}>
                 <button onClick={goToTaskDetails}><CreditCardIcon /><span>Open Card</span></button>
                 <button onClick={(ev) => onHandleClick(ev, 'labels')}><LabelIcon /><span>Edit labels</span></button>
                 <button onClick={(ev) => onHandleClick(ev, 'members')}><PersonOutlineIcon /><span>Change Members</span></button>

@@ -16,7 +16,6 @@ import { WorkspaceNavModal } from './dynamic-cmps/workspace-nav-modal';
 import { MenuModal } from './dynamic-cmps/menu-modal.jsx';
 
 export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member, labelId, position = { top: '50%', left: '50%' } }) {
-
     const getType = () => {
         switch (cmpType) {
             case 'labels':
@@ -44,6 +43,14 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         }
     }
 
+    const getCmpHeight = (cmpType) => {
+
+        switch (cmpType) {
+            case 'labels':
+                return 411
+        }
+    }
+
     const [open, setOpen] = React.useState(isOpen);
     const handleOpen = () => setOpen(true);
 
@@ -58,8 +65,7 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
 
     const style = {
         position: 'absolute',
-        // top: position.top,
-        right:position.right,
+        right: position.right,
         top: position.top + position.height,
         left: position.left,
         zIndex: 30,
@@ -71,26 +77,23 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
         borderRadius: '3px',
         boxShadow: 24,
     }
-    if(cmpType === 'menu'){
+    if (cmpType === 'menu') {
         style.top = '36px'
     }
-    
-
+    const cmpHeight = getCmpHeight()
+    if (style.top + cmpHeight > window.innerHeight) style.top -= cmpHeight
+    // console.log('cmpHeight, style.top', cmpHeight, style.top)
     return (
-        // <div>
         <Modal
             open={open}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
-            BackdropProps={{ invisible: true, open: true}}
-            // disableEnforceFocus 
-        // BackdropProps={{ open: false}}
+            BackdropProps={{ invisible: true, open: true }}
         >
             <Box sx={style}>
                 {getType()}
             </Box>
         </Modal>
-        // </div>
     );
 }

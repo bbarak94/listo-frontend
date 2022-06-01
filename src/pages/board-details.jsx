@@ -3,14 +3,14 @@ import { useParams, Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
+import { boardService } from '../services/board.service'
+import { updateGroup, saveBoard, setBoard } from '../store/actions/board.action'
+
 import { BoardGroup } from '../cmps/board-group'
 import { AddGroup } from '../cmps/add-group'
 import { BoardHeaderNavBar } from '../cmps/board-header-nav-bar'
 import { AppModal } from '../cmps/app-modal'
-import { boardService } from '../services/board.service'
 import { AppHeader } from '../cmps/app-header'
-
-import { updateGroup, saveBoard, setBoard } from '../store/actions/board.action'
 
 export const BoardDetails = () => {
     const params = useParams()
