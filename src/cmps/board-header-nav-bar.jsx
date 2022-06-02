@@ -45,9 +45,15 @@ export const BoardHeaderNavBar = ({ board }) => {
                 {!board.isStar && <img className='stroke' src={star} alt="" />}
                 {board.isStar && <img className='fill' src={starFill} alt="" />}
             </div>
+
+            <span className='sep'>|</span>
+
             <div className="workspace-btn" onClick={(ev) => onOpenModal(ev, 'workspace-nav-modal')} >
                 <span>  Workspace</span>
             </div>
+
+            <span className='sep'>|</span>
+             
             <div className='members-list-container flex column'>
                 <div className='members-avatars-container flex'>
                     {board.members.map((member, idx) => {
@@ -64,7 +70,8 @@ export const BoardHeaderNavBar = ({ board }) => {
             <div className="show-menu-btn" onClick={() => {
                 setModalPosition({ top: '43px', right: '0' })
                 setIsOpen(true)
-                setCmpType('menu') }}>
+                setCmpType('menu')
+            }}>
                 <span>... Show menu</span> </div>
 
             <AppModal

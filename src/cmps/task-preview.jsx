@@ -17,6 +17,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
 
     const [isMouseOver, setIsMouseOver] = useState(false)
     const [style, setStyle] = useState({ top: '', left: '', width: '' })
+    const [isComplete, setIsComplete] = useState(task.isComplete)
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
@@ -37,6 +38,11 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
         setLabelExpand(labelExpandClass)
     }
 
+    const onCompleteTask = (ev) => {
+        ev.preventDefault()
+        // setDateClass('complete')
+    }
+    const dateClass = task.isComplete ? 'complete' : '' 
     return (
         <div className="task-preview-helper">
             <Link to={`/board/${board._id}/task/${task.id}`}>
@@ -79,14 +85,15 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                         {(task.memberIds?.length > 0 || task.labelIds?.length > 0 || task.dueDate) && (
                             <div className='flex space-between'>
                                 {task.dueDate && (
-                                    <div className='task-preview-date flex'
+                                    <div className={`task-preview-date flex ${dateClass}`}
                                         onMouseOver={() => setIsMouseOver(true)}
                                         onMouseOut={() => setIsMouseOver(false)}
+                                        onClick={onCompleteTask}
                                     >
 
-                                        {!isMouseOver && <img src={clock} alt='' />}
-                                        {isMouseOver && <img src={checkBox} alt='' />}
-
+                                        {!isMouseOver && <img className={dateClass} src={clock} alt='' />}
+                                        {isMouseOver && <img className={dateClass} src={checkBox} alt='' />}
+                                    
                                         <span>
                                             {moment(task.dueDate).format('MMMM D')}
                                         </span>

@@ -228,7 +228,8 @@ function _getEmptyTask(title) {
             imgUrl: null,
             isCoverSizeBig: false
         },
-        archivedAt: null
+        archivedAt: null,
+        isComplete: false
     }
 }
 

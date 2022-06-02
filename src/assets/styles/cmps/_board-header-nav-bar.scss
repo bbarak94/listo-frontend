@@ -7,9 +7,14 @@
     justify-content: space-between;
     margin-bottom: 20px;
 
+    .sep {
+        color: $clr1;
+    }
+
     .board-header-right-container {
         display: flex;
         align-items: center;
+        gap: 10px;
 
         .board-star {
             @include boarder-header-btn;
@@ -35,7 +40,7 @@
         }
 
         &>*:not(:first-child) {
-            margin-left: 10px;
+            // margin-left: 10px;
         }
 
         .board-title-btn {
@@ -59,7 +64,7 @@
                 color: #172b4d;
             }
 
-            margin-right: 10px;
+            // margin-right: 10px;
         }
 
         .star-btn {
