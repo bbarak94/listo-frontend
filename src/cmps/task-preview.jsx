@@ -88,9 +88,10 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                         {(task.labelIds?.length > 0) && (
                             <div className='task-preview-labels flex'>
                                 {labelService.getLabelsByIds(task.labelIds, board).map((label) => {
-                                    return (label.color !== NO_COLOR_INDICATION && <div
-                                        key={label.id} className={`task-preview-label ${labelExpandClass}`} onClick={onExpandLabels}
+                                    return (label.color !== NO_COLOR_INDICATION && <div  key={label.id} 
+                                        className={`task-preview-label ${labelExpandClass}`} onClick={onExpandLabels}
                                         style={{ backgroundColor: label.color, }} >
+                                            <span>{label.title}</span>
                                     </div>
                                     )
                                 })}

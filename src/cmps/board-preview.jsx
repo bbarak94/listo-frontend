@@ -36,7 +36,7 @@ export const BoardPreview = ({ board }) => {
         >
 
             <div>
-                <h2>{board.title}</h2>
+                <h2 className='board-preview-title' >{board.title}</h2>
             </div>
             {!board.isStar && isMouseOver && <img className='stroke' src={star} alt="" onClick={(ev) => onStarBoard(ev, true)} />}
             {board.isStar && <img className='fill' src={starFill} alt="" onClick={(ev) => onStarBoard(ev, false)} />}

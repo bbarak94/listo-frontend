@@ -21,7 +21,7 @@ export const boardService = {
     getGroup,
     getGroupById,
     getMembersByIds,
-    _getEmptyTodo
+    getEmptyTodo
 }
 window.cs = boardService
 
@@ -233,7 +233,7 @@ function _getEmptyTask(title) {
     }
 }
 
-function _getEmptyTodo() {
+function getEmptyTodo() {
     return {
         id: utilService.makeId(),
         title: '',
