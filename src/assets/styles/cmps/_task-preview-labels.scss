@@ -3,28 +3,28 @@
     flex-wrap: wrap;
 
     .task-preview-label {
+        
         min-width: 40px;
         min-height: 8px;
         margin: 4px 2px;
         border-radius: 5px;
         color: $clr10;
-        font-size: 12px;
+        // font-size: 12px;
         text-align: center;
         font-weight: 500;
-
+        padding: 4px 4px;
+        line-height: 1.3;
         span {
-            opacity: 0;
-            
+            // opacity: 0;
 
             &.shrink {
-                opacity: 0;
-                transition: opacity 13s;
+                // opacity: 0;
+                // transition: opacity 13s;
             }
 
             &.expand {
-                opacity: 1;
-                transition: opacity 13s;
-
+                // opacity: 1;
+                // transition: opacity 13s;
             }
         }
 
