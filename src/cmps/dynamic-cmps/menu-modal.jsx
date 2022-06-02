@@ -31,7 +31,7 @@ export const MenuModal = ({ handleClose, board }) => {
         <div className='menu-modal'>
 
             {!isArchivedItemsOpen && <>
-                {/* <div className='title-container flex justify-center'>
+                <div className='title-container flex justify-center'>
                     <h1>Menu</h1>
                 </div>
                 <hr></hr>
@@ -94,7 +94,7 @@ export const MenuModal = ({ handleClose, board }) => {
                         )
                     })}
                 </div>
-                <AppModal member={member} board={board} cmpType={'member'} isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+                <AppModal member={member} board={board} cmpType={'member'} isOpen={isOpen} setIsOpen={setIsOpen} />
             </>}
         </div>
     )
@@ -107,72 +107,7 @@ const _ArchiveItems = () => {
 
 }
 
-const _Activity = () => {
-
-    return <>
-        <div className='title-container flex justify-center'>
-            <h1>Menu</h1>
-        </div>
-        <hr></hr>
-
-        <div className="menu-layout flex column">
+const _Activity=()=>{
 
 
-            <div className="archived-items flex" onClick={() => setIsArchivedItemsOpen(!isArchivedItemsOpen)} >
-                <div className='icon flex justify-center align-center'>
-                    <img src={archive} alt="" />
-                </div>
-                <p>Archived items</p>
-            </div>
-
-            <div className="activities-header flex">
-                <div className='ctivity-icon-container'>
-                    <FormatListBulletedRoundedIcon className='activity-icon' />
-                </div>
-                <h3>Activity</h3>
-            </div>
-
-            {board.activities.map((activity, idx) => {
-                // console.log('activity:',activity)                    
-                return (
-                    <div className='menu-modal-activities flex' key={idx}>
-                        <div
-                            className='user-container flex'
-                            onClick={async () => {
-                                const member = await userService.getById(activity.byMember._id)
-                                onOpenModal('member', member)
-                            }}
-                        >
-                            <img src={activity.byMember?.imgUrl} style={{
-                                width: '32px',
-                                height: '32px', borderRadius: '50%',
-                            }} />
-                        </div>
-                        <div className='txt flex column'>
-                            <h1>
-                                {activity.byMember?.fullname}{' '}
-                                <span>
-                                    {activity.txt}
-                                </span>
-                                {(activity?.task) && (
-                                    <span>
-                                        <a onClick={() => {
-                                            navigate(`/board/${board._id}/task/${activity.task?.id}`)
-                                        }}> {activity.task?.title}</a>
-                                    </span>
-                                )}
-                                {(!activity?.task) && (
-                                    <span className='board-name'>{' '}{board.title}</span>
-                                )}
-
-                            </h1>
-                            {(Date.now() - activity.createdAt < 5000) && <h2 className='date'> just now </h2>}
-                            {(Date.now() - activity.createdAt > 5000) && <h2 className='date'>{(moment(activity.createdAt).fromNow())}</h2>}
-                        </div>
-                    </div>
-                )
-            })}
-        </div>
-        <AppModal member={member} board={board} cmpType={'member'} isOpen={isOpen} setIsOpen={setIsOpen} />
-    </>
 }
