@@ -67,9 +67,9 @@ export const AddBoard = () => {
         if (title === '') return
         var board
         if (user) {
-            board = await boardService.getEmptyBoard(user)
+            board = await boardService._getEmptyBoard(user)
         } else {
-            board = await boardService.getEmptyBoard(guest)
+            board = await boardService._getEmptyBoard(guest)
         }
         board.title = title
         board.style.background = selectedBg
