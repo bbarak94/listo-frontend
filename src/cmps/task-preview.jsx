@@ -59,11 +59,12 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
         taskToUpdate.isComplete = !taskToUpdate.isComplete
         dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
+    // const dateClass = task.isComplete ? 'complete' : ''
     let dateClass
     if (task.isComplete) dateClass = 'complete'
     else if(!task.isComplete && task.dueDate < Date.now()) dateClass = 'pastDue'
     else dateClass = ''
-
+    
     return (
         <div className="task-preview-helper">
             <Link to={`/board/${board._id}/task/${task.id}`}>
@@ -73,7 +74,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                         {task.style.color && <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
                             {task.style.isTextOnImg && <>
                                 <span className='title-over-color'>{task.title}</span>
-                                <p className='task-preview-icon over-color' onClick={onOpenTaskEdit}></p>
+                                <p className='edit-icon-over-color' onClick={onOpenTaskEdit}></p>
                             </>}
                         </div>
                         }
@@ -81,7 +82,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                             <div className="task-preview-img-container">
                                 <img src={task.style.imgUrl} />{task.style.isTextOnImg && <>
                                     <span className='title-over-img'>{task.title}</span>
-                                    <p className='task-preview-icon over-img' onClick={onOpenTaskEdit}></p> </>}
+                                    <p className='edit-icon-over-img' onClick={onOpenTaskEdit}></p> </>}
                             </div>}
 
                         {(task.labelIds?.length > 0) && (
@@ -100,7 +101,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                             <div className='task-preview-title'>
                                 <span >{task.title} </span>
                             </div>
-                            <p className='task-preview-icon edit-icon' onClick={onOpenTaskEdit}  ></p>
+                            <p className='edit-icon' onClick={onOpenTaskEdit}  ></p>
                         </div>}
 
                         {(task.memberIds?.length > 0 || task.labelIds?.length > 0 || task.dueDate) && (

@@ -14,12 +14,20 @@
 
       &:hover {
 
-         .over-color {
+         .edit-icon-over-color {
             position: absolute;
             top: 2px;
             right: 2px;
+            padding: 14px;
+            margin: 0;
             background-image: url(../../img/icon/pencil.svg);
+            background-size: 12px 22px;
+            background-repeat: no-repeat;
+            background-position: center;
             background-color: darken($clr10, 8%);
+            width: 8px;
+            height: 8px;
+            border-radius: 3px;
 
             &:hover {
                background-color: $clr13;
@@ -53,13 +61,21 @@
 
       &:hover {
 
-         .over-img {
+         .edit-icon-over-img {
             display: block;
             position: absolute;
             top: 4px;
             right: 4px;
-            background-image: url(../../img/icon/pencil.svg);  
+            padding: 14px;
+            margin: 0;
+            background-image: url(../../img/icon/pencil.svg);
+            background-size: 12px 22px;
+            background-repeat: no-repeat;
+            background-position: center;
             background-color: darken($clr13, 8%);
+            width: 8px;
+            height: 8px;
+            border-radius: 3px;
 
             &:hover {
                background-color: $clr13;
@@ -81,11 +97,19 @@
          background-color: darken($clr10, 5%);
 
          .edit-icon {
+            padding: 14px;
+            margin: 0;
             background-image: url(../../img/icon/pencil.svg);
             filter: invert(54%) sepia(6%) saturate(1076%) hue-rotate(180deg) brightness(87%) contrast(97%);
+            background-size: 12px 22px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 8px;
+            height: 8px;
             position: relative;
             right: -6px;
             top: -2px;
+            border-radius: 3px;
 
             &:hover {
                background-color: $clr13;
@@ -105,7 +129,7 @@
          border-radius: 3px;
          font-size: 12px;
          margin: 0 0 4px 4px;
-         color: $clr8;
+
          span {
             margin: auto;
          }
