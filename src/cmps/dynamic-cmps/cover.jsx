@@ -56,7 +56,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
 
     const setCoverSize = () => {
         const taskToUpdate = { ...task }
-        taskToUpdate.style.isCoverSizeBig = !taskToUpdate.style.isCoverSizeBig
+        taskToUpdate.style.isTextOnImg = !taskToUpdate.style.isTextOnImg
         dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
 
@@ -86,7 +86,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
                 {/* ********Cover Method Selection******** */}
                 <div className="_3DrR3DNGRm88rQ">
                     <div role="button" className="isvr-Reb94vq0g c2K-XOKpsarOtb _2pFmKTmyH7T3W8" onClick={setCoverSize}>
-                        <div className="_28YCxuL0b0PLJg" style={task.style.isCoverSizeBig ? {} : sizeStyle}>
+                        <div className="_28YCxuL0b0PLJg" style={task.style.isTextOnImg ? {} : sizeStyle}>
                         </div>
                         <div className="_2_NkiO6b3w-TwP" >
                             <div className="_3zyygYjXmBCuZ8">
@@ -103,7 +103,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
                             </div>
                         </div>
                     </div>
-                    <div role="button" className="isvr-Reb94vq0g _3bvxiZCqVvPKiY _2pFmKTmyH7T3W8" style={task.style.isCoverSizeBig ? sizeStyle : {}} onClick={setCoverSize}>
+                    <div role="button" className="isvr-Reb94vq0g _3bvxiZCqVvPKiY _2pFmKTmyH7T3W8" style={task.style.isTextOnImg ? sizeStyle : {}} onClick={setCoverSize}>
                         <div className="_2_NkiO6b3w-TwP">
                             <div className="_3zyygYjXmBCuZ8">
                             </div>

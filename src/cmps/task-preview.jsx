@@ -1,23 +1,38 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
+import AccessTimeIcon from '@mui/icons-material/AccessTime'
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank'
 
 import { TaskEdit } from './task-edit'
 import { Screen } from './screen'
 
 import clock from '../assets/img/task/navbar/dates.svg'
 import checkBox from '../assets/img/checkbox.svg'
+// import checkedBox from '../assets/img/checkbox-checked.svg'
 
 import { labelService } from "../services/label.service"
 import { boardService } from "../services/board.service"
 
+import { updateTask } from '../store/actions/board.action'
+
+
 const NO_COLOR_INDICATION = '#B3BAC5'
 
+const iconStyle = {
+    fontSize: '18px',
+    paddingTop: '2px'
+}
+
 export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand, taskEditExpandId, setLabelExpand, labelExpandClass }) => {
+    const dispatch = useDispatch()
 
     const [isMouseOver, setIsMouseOver] = useState(false)
     const [style, setStyle] = useState({ top: '', left: '', width: '' })
-    const [isComplete, setIsComplete] = useState(task.isComplete)
+    // const [isComplete, setIsComplete] = useState(task.isComplete)
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
@@ -40,9 +55,15 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
 
     const onCompleteTask = (ev) => {
         ev.preventDefault()
-        // setDateClass('complete')
+        const taskToUpdate = { ...task }
+        taskToUpdate.isComplete = !taskToUpdate.isComplete
+        dispatch(updateTask(taskToUpdate, board._id, group.id))
     }
-    const dateClass = task.isComplete ? 'complete' : '' 
+    let dateClass
+    if (task.isComplete) dateClass = 'complete'
+    else if(!task.isComplete && task.dueDate < Date.now()) dateClass = 'pastDue'
+    else dateClass = ''
+
     return (
         <div className="task-preview-helper">
             <Link to={`/board/${board._id}/task/${task.id}`}>
@@ -50,17 +71,17 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
 
                     <div className="task-preview">
                         {task.style.color && <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
-                            {task.style.isCoverSizeBig && <>
+                            {task.style.isTextOnImg && <>
                                 <span className='title-over-color'>{task.title}</span>
-                                <p className='edit-icon-over-color' onClick={onOpenTaskEdit}></p>
+                                <p className='task-preview-icon over-color' onClick={onOpenTaskEdit}></p>
                             </>}
                         </div>
                         }
                         {task.style.imgUrl &&
                             <div className="task-preview-img-container">
-                                <img src={task.style.imgUrl} />{task.style.isCoverSizeBig && <>
+                                <img src={task.style.imgUrl} />{task.style.isTextOnImg && <>
                                     <span className='title-over-img'>{task.title}</span>
-                                    <p className='edit-icon-over-img' onClick={onOpenTaskEdit}></p> </>}
+                                    <p className='task-preview-icon over-img' onClick={onOpenTaskEdit}></p> </>}
                             </div>}
 
                         {(task.labelIds?.length > 0) && (
@@ -75,11 +96,11 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                             </div>
                         )}
 
-                        {!task.style.isCoverSizeBig && <div className='preview-title flex space-between'>
+                        {!task.style.isTextOnImg && <div className='preview-title flex space-between'>
                             <div className='task-preview-title'>
                                 <span >{task.title} </span>
                             </div>
-                            <p className='edit-icon' onClick={onOpenTaskEdit}  ></p>
+                            <p className='task-preview-icon edit-icon' onClick={onOpenTaskEdit}  ></p>
                         </div>}
 
                         {(task.memberIds?.length > 0 || task.labelIds?.length > 0 || task.dueDate) && (
@@ -90,10 +111,10 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                         onMouseOut={() => setIsMouseOver(false)}
                                         onClick={onCompleteTask}
                                     >
+                                        {!isMouseOver && <AccessTimeIcon style={iconStyle} />}
+                                        {isMouseOver && task.isComplete && <CheckBoxOutlinedIcon style={iconStyle} />}
+                                        {isMouseOver && !task.isComplete && <CheckBoxOutlineBlankIcon style={iconStyle} />}
 
-                                        {!isMouseOver && <img className={dateClass} src={clock} alt='' />}
-                                        {isMouseOver && <img className={dateClass} src={checkBox} alt='' />}
-                                    
                                         <span>
                                             {moment(task.dueDate).format('MMMM D')}
                                         </span>
