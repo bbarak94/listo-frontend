@@ -76,7 +76,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                             <p className='edit-icon' onClick={onOpenTaskEdit}  ></p>
                         </div>}
 
-                        {(task.memberIds?.length || task.labelIds?.length || task.dueDate) && (
+                        {(task.memberIds?.length > 0 || task.labelIds?.length > 0 || task.dueDate) && (
                             <div className='flex space-between'>
                                 {task.dueDate && (
                                     <div className='task-preview-date flex'
@@ -93,7 +93,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                     </div>
                                 )}
 
-                                <div className='members-list-container flex column'>
+                                {task.memberIds?.length > 0 && <div className='members-list-container flex column'>
                                     <div className='members-avatars-container-task-preview flex'>
                                         {boardService.getMembersByIds(task.memberIds, board)?.map((member) => {
                                             return (
@@ -106,7 +106,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                                 </div>)
                                         })}
                                     </div>
-                                </div>
+                                </div>}
                             </div>
                         )}
                     </div>
