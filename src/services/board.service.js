@@ -222,14 +222,14 @@ function _getEmptyTask(title) {
         labelIds: [],
         createdAt: Date.now(),
         dueDate: null,
+        isComplete: false,
         byMember: null,
         style: {
             color: null,
             imgUrl: null,
-            isCoverSizeBig: false
+            isTextOnImg: false
         },
         archivedAt: null,
-        isComplete: false
     }
 }
 
