@@ -1,22 +1,15 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank'
-import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
-import AttachFileOutlinedIcon from '@mui/icons-material/AttachFileOutlined';
-import LibraryAddCheckOutlinedIcon from '@mui/icons-material/LibraryAddCheckOutlined';
-
-import { TaskEdit } from './task-edit'
-import { Screen } from './screen'
 
 import { labelService } from "../services/label.service"
 import { boardService } from "../services/board.service"
 
-import { updateTask } from '../store/actions/board.action'
+
 
 const NO_COLOR_INDICATION = '#B3BAC5'
 
@@ -25,44 +18,18 @@ const iconStyle = {
     paddingTop: '2px'
 }
 
-export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand,
-    taskEditExpandId, setLabelExpand, labelExpandClass, titleLabelClass, setLabelTitleDelay }) => {
+export const ArchiveTaskPreview = ({ task, board, onOpenModal, setLabelExpand, labelExpandClass }) => {
 
-    const dispatch = useDispatch()
     const [isMouseOver, setIsMouseOver] = useState(false)
-    const [style, setStyle] = useState({ top: '', left: '', width: '' })
 
-    const onOpenTaskEdit = (ev) => {
-        ev.preventDefault()
-        // ****** Task edit relative to task preview ********
-        let elemRect = ev.currentTarget.parentNode.parentNode.getBoundingClientRect()
-        let top = elemRect.top - window.pageYOffset
-        let left = elemRect.left - window.pageXOffset
-        // ****** Task edit width relative to task preview width ********
-        const width = ev.target.parentNode.offsetWidth
-        setStyle({ top, left, width })
-        setTaskEditExpand(task.id)
-    }
 
     const onExpandLabels = (ev) => {
         ev.preventDefault()
         ev.stopPropagation()
         labelExpandClass = (labelExpandClass === 'expand') ? 'shrink' : 'expand'
         setLabelExpand(labelExpandClass)
-        setLabelTitleDelay(labelExpandClass)
     }
 
-    const onCompleteTask = (ev) => {
-        ev.preventDefault()
-        const taskToUpdate = { ...task }
-        taskToUpdate.isComplete = !taskToUpdate.isComplete
-        dispatch(updateTask(taskToUpdate, board._id, group.id))
-    }
-
-    const getChecklistData = () => {
-        // task.checklists
-        return '1/2'
-    }
 
     let dateClass
     if (task.isComplete) dateClass = 'complete'
@@ -78,7 +45,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                         {task.style.color && <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
                             {task.style.isTextOnImg && <>
                                 <span className='title-over-color'>{task.title}</span>
-                                <p className='edit-icon-over-color' onClick={onOpenTaskEdit}></p>
+                                <p className='edit-icon-over-color' ></p>
                             </>}
                         </div>
                         }
@@ -86,7 +53,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                             <div className="task-preview-img-container">
                                 <img src={task.style.imgUrl} />{task.style.isTextOnImg && <>
                                     <span className='title-over-img'>{task.title}</span>
-                                    <p className='edit-icon-over-img' onClick={onOpenTaskEdit}></p> </>}
+                                </>}
                             </div>}
 
                         {(task.labelIds?.length > 0) && (
@@ -95,7 +62,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                     return (label.color !== NO_COLOR_INDICATION && <div key={label.id}
                                         className={`task-preview-label ${labelExpandClass}`} onClick={onExpandLabels}
                                         style={{ backgroundColor: label.color, }} >
-                                        <span className={titleLabelClass}>{label.title}</span>
+                                        <span>{label.title}</span>
                                     </div>
                                     )
                                 })}
@@ -106,7 +73,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                             <div className='task-preview-title'>
                                 <span >{task.title} </span>
                             </div>
-                            <p className='edit-icon' onClick={onOpenTaskEdit}  ></p>
+
                         </div>}
 
                         {(task.memberIds?.length > 0 || task.labelIds?.length > 0 || task.dueDate) && (
@@ -114,9 +81,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                 {task.dueDate && (
                                     <div className={`task-preview-date flex ${dateClass}`}
                                         onMouseOver={() => setIsMouseOver(true)}
-                                        onMouseOut={() => setIsMouseOver(false)}
-                                        onClick={onCompleteTask}
-                                    >
+                                        onMouseOut={() => setIsMouseOver(false)} >
                                         {!isMouseOver && <AccessTimeIcon style={iconStyle} />}
                                         {isMouseOver && task.isComplete && <CheckBoxOutlinedIcon style={iconStyle} />}
                                         {isMouseOver && !task.isComplete && <CheckBoxOutlineBlankIcon style={iconStyle} />}
@@ -126,28 +91,12 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                         </span>
                                     </div>
                                 )}
-                                {task.description &&
-                                    <div className="preview-small-icon">
-                                        <ArticleOutlinedIcon style={{fontSize:'16px'}} />
-                                    </div>}
-
-                                {task.attachments?.length > 0 &&
-                                    <div className="preview-small-icon">
-                                        <AttachFileOutlinedIcon style={{fontSize:'16px'}} />
-                                    </div>}
-                                    
-                                {task.checklists?.length > 0 &&
-                                    <div className="preview-small-icon">
-                                        <LibraryAddCheckOutlinedIcon style={{fontSize:'16px'}} />
-
-                                        <span>{getChecklistData()}</span>    
-                                    </div>}
 
                                 {task.memberIds?.length > 0 && <div className='members-list-container flex column'>
                                     <div className='members-avatars-container-task-preview flex'>
                                         {boardService.getMembersByIds(task.memberIds, board)?.map((member) => {
                                             return (
-                                                <div title={member.fullname} key={member.id} className='member-container flex'
+                                                <div key={member.id} className='member-container flex'
                                                     onClick={(ev) => {
                                                         ev.preventDefault()
                                                         onOpenModal(ev, 'member', member)
@@ -161,11 +110,8 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                         )}
                     </div>
                 </div>
-            </Link>
-            {taskEditExpandId === task.id && <>
-                <Screen cb={() => setTaskEditExpand(null)} />
-                <TaskEdit task={task} board={board} group={group} setTaskEditExpand={setTaskEditExpand} style={style} />
-            </>}
-        </div>
+            </Link >
+
+        </div >
     )
 }

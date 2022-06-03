@@ -29,14 +29,6 @@ export const Cover = ({ task, board, group, handleClose }) => {
         'https://images.unsplash.com/photo-1459213599465-03ab6a4d5931?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2352&q=80',
         'https://images.unsplash.com/photo-1438786657495-640937046d18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80'
     ]
-    // const imgUrls = [
-    //     'https://images.unsplash.com/photo-1631116616602-322db356c4fb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687',
-    //     'https://images.unsplash.com/photo-1497276236755-0f85ba99a126?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687',
-    //     'https://images.unsplash.com/photo-1651438416370-39729e9d43af?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074',
-    //     'https://images.unsplash.com/photo-1653216977231-bd0a1ec414f6?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170',
-    //     'https://images.unsplash.com/photo-1631624729083-c64035648cfb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687',
-    //     'https://images.unsplash.com/photo-1644797694478-d12d4eab8cd8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880'
-    // ]
 
     const onSetCoverColor = (color) => {
         setSelectedBg(color)
@@ -71,18 +63,11 @@ export const Cover = ({ task, board, group, handleClose }) => {
     if (!task) return <div>Loading...</div>
 
     return (
-        <div className="cover flex column">
-            <div className="popup-header flex align-center justify-center">
-                Cover
-                <span
-                    className='close-btn'
-                    style={{ position: 'absolute', right: 0 }}
-                    onClick={() => handleClose()}
-                >
-                </span>
-            </div>
+        <div className="cover flex column align-center">
+            <h3>Cover</h3>
+            <hr />
             <div>
-                <h4>Size</h4>
+                <h4 style={{ marginBottom: '2px' }}>Size</h4>
                 {/* ********Cover Method Selection******** */}
                 <div className="_3DrR3DNGRm88rQ">
                     <div role="button" className="isvr-Reb94vq0g c2K-XOKpsarOtb _2pFmKTmyH7T3W8" onClick={setCoverSize}>
@@ -122,30 +107,34 @@ export const Cover = ({ task, board, group, handleClose }) => {
                 </div>
             </div>
             <div className='btn' onClick={() => onSetCoverColor(null)}>Remove cover</div>
-            <h4>Colors</h4>
-            <div className='cover-colors'>
-                {colors.map((color, idx) =>
-                    <div
-                        key={idx}
-                        className={`color-container ${selectedBg === color && 'selectedBgClass'}`}
-                        onClick={() => onSetCoverColor(color)}
-                        style={{ backgroundColor: color }}
-                    >
-                    </div>
-                )}
-            </div>
-            <h4>Photos from Unsplash</h4>
-            <div className='cover-imgs'>
-                {imgUrls.map((url, idx) =>
-                    <div
-                        key={idx}
-                        className={`img-container`}
-                        onClick={() => onSetCoverImg(url)}
-                    >
-                        <img className={(selectedBg === url) ? 'selectedBgClass' : ''} src={url} alt="" />
-                    </div>
-                )}
-            </div>
+            <section >
+                <h4 >Colors</h4>
+                <div className='cover-colors'>
+                    {colors.map((color, idx) =>
+                        <div
+                            key={idx}
+                            className={`color-container ${selectedBg === color && 'selectedBgClass'}`}
+                            onClick={() => onSetCoverColor(color)}
+                            style={{ backgroundColor: color }}
+                        >
+                        </div>
+                    )}
+                </div>
+            </section>
+            <section>
+                <h4>Photos from Unsplash</h4>
+                <div className='cover-imgs'>
+                    {imgUrls.map((url, idx) =>
+                        <div
+                            key={idx}
+                            className={`img-container`}
+                            onClick={() => onSetCoverImg(url)}
+                        >
+                            <img className={(selectedBg === url) ? 'selectedBgClass' : ''} src={url} alt="" />
+                        </div>
+                    )}
+                </div>
+            </section>
         </div>
     )
 }

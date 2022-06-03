@@ -8,7 +8,7 @@ import starFill from '../assets/img/workspace/star-fill.svg'
 import { saveBoard } from '../store/actions/board.action'
 import { useDispatch } from 'react-redux'
 
-export const BoardHeaderNavBar = ({ board }) => {
+export const BoardHeaderNavBar = ({ board, setLabelExpand, setTaskEditExpand }) => {
 
     const dispatch = useDispatch()
 
@@ -53,7 +53,7 @@ export const BoardHeaderNavBar = ({ board }) => {
             </div>
 
             <span className='sep'>|</span>
-             
+
             <div className='members-list-container flex column'>
                 <div className='members-avatars-container flex'>
                     {board.members.map((member, idx) => {
@@ -75,6 +75,9 @@ export const BoardHeaderNavBar = ({ board }) => {
                 <span className='board-header-btn'>... Show menu</span> </div>
 
             <AppModal
+                onOpenModal={onOpenModal}
+                setLabelExpand={setLabelExpand}
+                setTaskEditExpand={setTaskEditExpand}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
                 cmpType={cmpType}

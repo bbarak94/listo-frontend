@@ -21,7 +21,8 @@ export const boardService = {
     getGroup,
     getGroupById,
     getMembersByIds,
-    getEmptyTodo
+    getEmptyTodo,
+    getArchivedTasks
 }
 window.cs = boardService
 
@@ -101,16 +102,28 @@ function getGroupById(board, groupId) {
     return board.groups.find((g) => g.id === groupId)
 }
 
-function removeTaskFromBoard(taskId, board) {
-    const boardToUpdate = { ...board }
+function removeTaskFromBoard(board, taskId) {
 
-    const { currGroup, currTask } = getTaskAndGroup(taskId, board)
+    const boardToUpdate = { ...board }
+    console.log('removeTaskFromBoard ~ boardToUpdate', boardToUpdate)
+    const { currGroup, currTask } = getTaskAndGroup(boardToUpdate, taskId)
+    console.log('removeTaskFromBoard ~ currTask', currTask)
 
     const newActivity = _createActivity('deleted a task from', currTask)
-    board.activities.unshift(newActivity)
+    boardToUpdate.activities.unshift(newActivity)
 
     currGroup.tasks = currGroup.tasks.filter(t => t.id !== taskId)
     return boardToUpdate
+}
+
+function getArchivedTasks(board) {
+    const archivedTask = []
+    board.groups?.forEach(group => {
+        group.tasks?.forEach(task => {
+            if (task.archivedAt) archivedTask.push(task)
+        })
+    })
+    return archivedTask
 }
 
 function getMembersByIds(memberIds, board) {

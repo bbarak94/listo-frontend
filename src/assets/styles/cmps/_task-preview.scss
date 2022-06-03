@@ -123,6 +123,7 @@
          /* margin-bottom: 7.5px; */
          width: 100%;
          padding: 2px;
+         line-height: 21px;
       }
 
       .task-preview-date {
@@ -192,6 +193,12 @@
             border-radius: 50%;
          }
       }
+   }
+
+   .preview-small-icon {
+      color: $clr8;
+      align-self: center;
+      margin-left: 4px;
    }
 }
 

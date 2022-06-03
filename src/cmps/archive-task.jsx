@@ -50,7 +50,7 @@ export const ArchiveTask = ({ board, group, task }) => {
                 </div>
 
                 <div className='delete-task-btn flex align-center' onClick={onDeleteTask} >
-                        {/* <img src={minus} alt='Delete' /> */}
+                    {/* <img src={minus} alt='Delete' /> */}
                     <h2>Delete</h2>
                 </div>
             </>}

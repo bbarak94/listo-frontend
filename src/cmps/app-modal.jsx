@@ -17,8 +17,8 @@ import { MenuModal } from './dynamic-cmps/menu-modal.jsx';
 
 const buttonHeight = 32
 
-export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, member, labelId, position = { top: '10%', left: '33.3%' } }) {
-   
+export function AppModal({ setLabelExpand, setTaskEditExpand, isOpen, setIsOpen, cmpType, task, board, group, member, labelId, position = { top: '10%', left: '33.3%' } }) {
+
     const getType = () => {
         switch (cmpType) {
             case 'labels':
@@ -42,7 +42,7 @@ export function AppModal({ isOpen, setIsOpen, cmpType, task, board, group, membe
             case 'workspace-nav-modal':
                 return <WorkspaceNavModal task={task} board={board} group={group} handleClose={handleClose} />
             case 'menu':
-                return <MenuModal task={task} board={board} group={group} handleClose={handleClose} />
+                return <MenuModal task={task} board={board} group={group} handleClose={handleClose} setLabelExpand={setLabelExpand} setTaskEditExpand={setTaskEditExpand} />
         }
     }
 

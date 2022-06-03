@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 
 import { updateTask } from "../store/actions/board.action"
 
-import ListIcon from '@mui/icons-material/List';
+import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';;
 
 
 export const TaskDetailsDesc = ({ task, boardId, groupId }) => {
@@ -29,7 +29,7 @@ export const TaskDetailsDesc = ({ task, boardId, groupId }) => {
         <div className='task-desc'>
             <div className="desc-header flex">
                 <div className="task-details-left-icon desc-icon-container">
-                    <ListIcon className="desc-icon" />
+                    <ArticleOutlinedIcon className="desc-icon" />
                 </div>
                 <h3>Description</h3>
             </div>
