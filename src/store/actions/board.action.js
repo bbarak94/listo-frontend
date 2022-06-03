@@ -96,6 +96,7 @@ export function saveBoard(board) {
     return async (dispatch) => {
         const actionType = board._id ? 'UPDATE_BOARD' : 'ADD_BOARD'
         try {
+            console.log('return ~ board', board)
             const savedBoard = await boardService.save(board)
             dispatch({ type: actionType, board: savedBoard })
             socketService.emit(SOCKET_EVENT_UPDATED_BOARD, board)

@@ -126,7 +126,7 @@ export const BoardDetails = () => {
         <AppHeader />
 
         <div className='board-header flex'>
-            <BoardHeaderNavBar board={board} />
+            <BoardHeaderNavBar board={board} setLabelExpand={setLabelExpand} setTaskEditExpand={setTaskEditExpand} />
         </div>
         <main className='board-details flex'>
             <DragDropContext

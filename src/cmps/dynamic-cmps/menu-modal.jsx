@@ -6,29 +6,36 @@ import archive from '../../assets/img/task/navbar/archive.svg'
 
 import FormatListBulletedRoundedIcon from '@mui/icons-material/FormatListBulletedRounded'
 
+import { ArchiveItems } from '../archive-items'
+
 import { AppModal } from '../app-modal'
 import { userService } from '../../services/user.service'
 import { useNavigate } from 'react-router-dom'
 
 
-export const MenuModal = ({ handleClose, board }) => {
-    console.log('board:', board)
+export const MenuModal = ({ handleClose, board , setLabelExpand, setTaskEditExpand }) => {
 
-    // const { board } = useSelector((storeState) => storeState.boardModule)
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false)
-    const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState('')
     const [isArchivedItemsOpen, setIsArchivedItemsOpen] = useState(false)
+    const [modalPosition, setModalPosition] = useState({})
 
-    const onOpenModal = (type, member) => {
+    const onOpenModal = (ev, type, member) => {
         setIsOpen(true)
         setCmpType(type)
         setMember(member)
+        let elemRect = ev.currentTarget.getBoundingClientRect()
+        let top = elemRect.top - window.pageYOffset
+        let left = elemRect.left - window.pageXOffset
+        const height = ev.currentTarget.offsetHeight
+        top += height
+        setModalPosition({ top, left })
     }
 
     return (
         <div className='menu-modal'>
+            {isArchivedItemsOpen && < ArchiveItems onOpenModal={onOpenModal} handleClose={handleClose} board={board} setLabelExpand={setLabelExpand} setTaskEditExpand={setTaskEditExpand} />}
 
             {!isArchivedItemsOpen && <>
                 <div className='title-container flex justify-center'>
@@ -52,9 +59,7 @@ export const MenuModal = ({ handleClose, board }) => {
                         </div>
                         <h3>Activity</h3>
                     </div>
-
                     {board.activities.map((activity, idx) => {
-                        // console.log('activity:',activity)                    
                         return (
                             <div className='menu-modal-activities flex' key={idx}>
                                 <div
@@ -94,20 +99,11 @@ export const MenuModal = ({ handleClose, board }) => {
                         )
                     })}
                 </div>
-                <AppModal member={member} board={board} cmpType={'member'} isOpen={isOpen} setIsOpen={setIsOpen} />
+                <AppModal  position={modalPosition} member={member} board={board} cmpType={'member'} isOpen={isOpen} setIsOpen={setIsOpen} />
             </>}
         </div>
     )
 }
 
 
-const _ArchiveItems = () => {
 
-    return <h1> Archived items modalll</h1>
-
-}
-
-const _Activity=()=>{
-
-
-}
