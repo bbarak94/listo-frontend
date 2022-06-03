@@ -24,9 +24,10 @@ export const Dates = ({ task, board, group, handleClose }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <div className='flex column justify-center align-center' style={{ padding: '14px' }}>
-        <h4>Dates</h4>
-        <Grid item xs={12} md={6}>
-          <CalendarPicker date={date} onChange={(newDate) => setDate(newDate)} />
+        <h3>Dates</h3>
+        <hr />
+        <Grid item xs={12} md={6} >
+          <CalendarPicker date={date} onChange={(newDate) => setDate(newDate)} minHeight='230px' />
         </Grid>
         <button onClick={onHandleSave} className='btn'>Save</button>
       </div>

@@ -6,6 +6,9 @@ import moment from 'moment'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank'
+import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
+import AttachFileOutlinedIcon from '@mui/icons-material/AttachFileOutlined';
+import LibraryAddCheckOutlinedIcon from '@mui/icons-material/LibraryAddCheckOutlined';
 
 import { TaskEdit } from './task-edit'
 import { Screen } from './screen'
@@ -14,7 +17,6 @@ import { labelService } from "../services/label.service"
 import { boardService } from "../services/board.service"
 
 import { updateTask } from '../store/actions/board.action'
-
 
 const NO_COLOR_INDICATION = '#B3BAC5'
 
@@ -29,9 +31,6 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
     const dispatch = useDispatch()
     const [isMouseOver, setIsMouseOver] = useState(false)
     const [style, setStyle] = useState({ top: '', left: '', width: '' })
-    // const [titleLabelClass, setLabelClass] = useState('')
-
-    // var timeoutId
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
@@ -51,21 +50,18 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
         labelExpandClass = (labelExpandClass === 'expand') ? 'shrink' : 'expand'
         setLabelExpand(labelExpandClass)
         setLabelTitleDelay(labelExpandClass)
-        // if (labelExpandClass === 'expand') {
-        //     clearTimeout(timeoutId)
-        //     timeoutId = setTimeout(() => {
-        //         setLabelClass('titleShow')
-        //     }, 270)
-        // } else {
-        //     setLabelClass('titleHide')
-        // }
     }
-    // 
+
     const onCompleteTask = (ev) => {
         ev.preventDefault()
         const taskToUpdate = { ...task }
         taskToUpdate.isComplete = !taskToUpdate.isComplete
         dispatch(updateTask(taskToUpdate, board._id, group.id))
+    }
+
+    const getChecklistData = () => {
+        // task.checklists
+        return '1/2'
     }
 
     let dateClass
@@ -130,10 +126,22 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                         </span>
                                     </div>
                                 )}
+                                {task.description &&
+                                    <div className="preview-small-icon">
+                                        <ArticleOutlinedIcon style={{fontSize:'16px'}} />
+                                    </div>}
 
-                                {/* <div className="desc-preview">
+                                {task.attachments?.length > 0 &&
+                                    <div className="preview-small-icon">
+                                        <AttachFileOutlinedIcon style={{fontSize:'16px'}} />
+                                    </div>}
+                                    
+                                {task.checklists?.length > 0 &&
+                                    <div className="preview-small-icon">
+                                        <LibraryAddCheckOutlinedIcon style={{fontSize:'16px'}} />
 
-                                </div> */}
+                                        <span>{getChecklistData()}</span>    
+                                    </div>}
 
                                 {task.memberIds?.length > 0 && <div className='members-list-container flex column'>
                                     <div className='members-avatars-container-task-preview flex'>
