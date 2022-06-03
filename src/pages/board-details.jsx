@@ -13,6 +13,7 @@ import { boardService } from '../services/board.service'
 import { updateGroup, setBoard, saveBoard, updateBoardToStore } from '../store/actions/board.action'
 import { socketService, SOCKET_EVENT_UPDATE_BOARD } from '../services/socket.service'
 
+import FastAverageColor from 'fast-average-color';
 
 export const BoardDetails = () => {
     const params = useParams()
@@ -58,6 +59,27 @@ export const BoardDetails = () => {
             // socketService.terminate()
         }
     }, [])
+
+    const changeHeaderColor = () => {
+        // const fac = new FastAverageColor();
+        // const container = document.querySelector('.board-header');
+        // const container1 = document.querySelector('.board-header span');
+        // const img = document.querySelector('.board-cover-img')
+        
+        // fac.getColorAsync(document.querySelector('.board-cover-img'))
+        //     .then(color => {
+        //         container.style.backgroundColor = color.rgba;
+        //         container.style.color = color.isDark ? '#fff' : '#000';
+        //         container1.style.backgroundColor = color.rgba;
+        //         container1.style.color = color.isDark ? '#fff' : '#000';
+
+        //     })
+        //     .catch(e => {
+        //         console.log(e);
+        //     });
+
+    }
+
 
     function setBoardFromSocket(board) {
         console.log('setBoardFromSocket ~ board', board)
@@ -130,7 +152,8 @@ export const BoardDetails = () => {
 
     if (!board) return <div>Loading...</div>
     return <section
-        className='board-app cover-img flex column'
+        className='board-app cover-img board-cover-img flex column'
+        // onLoad={changeHeaderColor}
         style={{
             backgroundImage: `url(${board.style.background})`,
             backgroundSize: 'cover',
@@ -140,7 +163,7 @@ export const BoardDetails = () => {
         <AppHeader />
 
         <div className='board-header flex'>
-            <BoardHeaderNavBar board={board} />
+            <BoardHeaderNavBar className="board-header" board={board} />
         </div>
         <main className='board-details flex'>
             <DragDropContext

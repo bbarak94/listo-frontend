@@ -48,7 +48,7 @@ export const BoardHeaderNavBar = ({ board }) => {
 
             <span className='sep'>|</span>
 
-            <div className="workspace-btn" onClick={(ev) => onOpenModal(ev, 'workspace-nav-modal')} >
+            <div className="board-header-btn workspace-btn" onClick={(ev) => onOpenModal(ev, 'workspace-nav-modal')} >
                 <span>  Workspace</span>
             </div>
 
@@ -72,7 +72,7 @@ export const BoardHeaderNavBar = ({ board }) => {
                 setIsOpen(true)
                 setCmpType('menu')
             }}>
-                <span>... Show menu</span> </div>
+                <span className='board-header-btn'>... Show menu</span> </div>
 
             <AppModal
                 isOpen={isOpen}
