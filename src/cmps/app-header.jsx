@@ -4,23 +4,31 @@ import Button from '@mui/material/Button'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { AppModal } from './app-modal'
-import { useState } from 'react'
-import {logout} from '../store/actions/user.action'
+import { useEffect, useState } from 'react'
+import { logout } from '../store/actions/user.action'
 import { useDispatch } from 'react-redux'
-import {userService} from '../services/user.service'
+import { userService } from '../services/user.service'
+import FastAverageColor from 'fast-average-color';
+
 
 export const AppHeader = () => {
     const user = userService.getLoggedinUser()
-    if(user?.password) delete user.password
-    
+    if (user?.password) delete user.password
+    const { board } = useSelector((storeState) => storeState.boardModule)
+
     // const { user } = useSelector((storeState) => storeState.userModule)
-    const [isLoggedIn,setLoggedIn] = useState(false)
+    const [isLoggedIn, setLoggedIn] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(user)
+    const [theme, setTheme] = useState({})
     const navigation = useNavigate()
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        changeHeaderColor()
+
+    }, [board])
 
     const onOpenModal = (type, member) => {
         setIsOpen(true)
@@ -28,15 +36,37 @@ export const AppHeader = () => {
         setMember(member)
     }
 
-    const onLogout = async () =>{
+    const onLogout = async () => {
         setLoggedIn(!isLoggedIn)
         dispatch(logout())
         navigation('/')
     }
 
+    const changeHeaderColor = async () => {
+        const fac = new FastAverageColor()
+
+        try {
+            console.log('board:',board)
+            
+            const mashu = await fac.getColorAsync(board.style.background)
+            console.log('mashu:',mashu)            
+            const backgroundColor = mashu.rgba;
+            const color = mashu.isDark ? '#fff' : '#000'
+            const newTheme = { backgroundColor, color }
+            
+            setTheme(newTheme)
+        }
+        catch (err) {
+            console.log('err:', err)
+            const newTheme = { backgroundColor:"#026aa7", color:'white' }
+            setTheme(newTheme)
+        }
+
+    }
+
 
     return (
-        <div className='app-header flex align-center'>
+        <div className='app-header flex align-center' style={theme}>
             <div className='app-header-btn-container flex'>
                 <div className='app-header-navbar-container'>
                     <img
@@ -110,12 +140,12 @@ export const AppHeader = () => {
                 </Button>
                 {user?.imgUrl && (
                     <div className='welcome flex align-center'>
-                    {user.username!=='guest' && (
-                    <h3 className='logout-btn' onClick={onLogout}>Logout</h3>
-                    )}
-                    {user.username==='guest' && (
-                    <h3 className='login-btn' onClick={() => navigation('/login')}>Login</h3>
-                    )}
+                        {user.username !== 'guest' && (
+                            <h3 className='logout-btn' onClick={onLogout}>Logout</h3>
+                        )}
+                        {user.username === 'guest' && (
+                            <h3 className='login-btn' onClick={() => navigation('/login')}>Login</h3>
+                        )}
 
                         <div
                             className='user-container flex'

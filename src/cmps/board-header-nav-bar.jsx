@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { AppModal } from './app-modal'
 import star from '../assets/img/workspace/star-stroke.svg'
@@ -7,15 +7,22 @@ import starFill from '../assets/img/workspace/star-fill.svg'
 
 import { saveBoard } from '../store/actions/board.action'
 import { useDispatch } from 'react-redux'
+import FastAverageColor from 'fast-average-color';
+
 
 export const BoardHeaderNavBar = ({ board, setLabelExpand, setTaskEditExpand }) => {
-
     const dispatch = useDispatch()
 
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(null)
     const [modalPosition, setModalPosition] = useState({})
+    const [theme, setTheme] = useState({})
+
+    useEffect(() => {
+        changeHeaderColor()
+
+    }, [board])
 
     const onOpenModal = (ev, type, member) => {
 
@@ -36,8 +43,25 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTaskEditExpand }) 
         dispatch(saveBoard(board))
     }
 
+    const changeHeaderColor = async () => {
+        const fac = new FastAverageColor()
+
+        try {
+            const mashu = await fac.getColorAsync(board.style.background)
+            console.log('mashu:',mashu)            
+            const backgroundColor = mashu.rgba;
+            const color = mashu.isDark ? '#fff' : '#000'
+            const newTheme = { color }
+            setTheme(newTheme)
+        }
+        catch (err) {
+            console.log('err:', err)
+        }
+
+    }
+
     return (<>
-        <div className="board-header-right-container">
+        <div className="board-header-right-container" style={theme}>
             <div className="board-title-btn">
                 <h2>{board.title}</h2>
             </div>
@@ -49,7 +73,7 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTaskEditExpand }) 
             <span className='sep'>|</span>
 
             <div className="board-header-btn workspace-btn" onClick={(ev) => onOpenModal(ev, 'workspace-nav-modal')} >
-                <span>  Workspace</span>
+                <span style={theme}>  Workspace</span>
             </div>
 
             <span className='sep'>|</span>
@@ -72,7 +96,7 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTaskEditExpand }) 
                 setIsOpen(true)
                 setCmpType('menu')
             }}>
-                <span className='board-header-btn'>... Show menu</span> </div>
+                <span className='board-header-btn' style={theme}>... Show menu</span> </div>
 
             <AppModal
                 onOpenModal={onOpenModal}
