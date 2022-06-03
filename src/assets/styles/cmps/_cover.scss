@@ -1,21 +1,23 @@
 .cover {
-    padding: 0 12px 12px;
+    padding: 10px;
     width: 304px;
     gap: 12px;
 
-    .popup-header {
-        position: relative;
-        padding: 0 32px;
-        line-height: 40px;
+    h3 {
+        font-size: 14px;
+        font-weight: 500;
+        color: $clr8;
     }
 
-    .popup-header-title {
-        color: #5e6c84;
-        display: block;
-    }
+    hr {
+        width: 90%;
+        color: $clr1;
+     }
 
     .close-btn {
         width: 40px;
+        position: absolute;
+        right: 0;
     }
 
     .btn {
@@ -36,7 +38,7 @@
     h4 {
         font-size: 12px;
         color: $clr8;
-        // margin: 16px 0 4px;
+        margin-bottom: 6px;
     }
 
     .cover-colors {
@@ -57,6 +59,10 @@
         &.selected {
             box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #5ba4cf;
         }
+
+        &:hover {
+            filter: brightness(90%);
+        }
     }
 
     .cover-imgs {
@@ -76,6 +82,7 @@
 
         &:hover {
             cursor: pointer;
+            filter: brightness(90%);
         }
     }
 

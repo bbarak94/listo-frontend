@@ -1,78 +1,58 @@
 .task-preview-labels {
-    padding: 4px 8px 0;
+    padding: 8px 8px 0;
     flex-wrap: wrap;
 
     .task-preview-label {
-        
+        position: relative;
         min-width: 40px;
         min-height: 8px;
         margin: 4px 2px;
         border-radius: 5px;
         color: $clr10;
-        // font-size: 12px;
+        font-size: 12px;
         text-align: center;
         font-weight: 500;
-        padding: 4px 4px;
+        padding: 1px 2px;
         line-height: 1.3;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
         span {
-            // opacity: 0;
+            display: none;
+            // position: absolute;
+            // top: 0;
+            // left: 0;
+            opacity: 0;
 
-            &.shrink {
-                // opacity: 0;
-                // transition: opacity 13s;
+            &.titleShow {
+                display: inline;
+                opacity: 1;
+                transition: opacity .1s;
+                transition-delay: .4s;
+            }
+            
+            &.titleHide {
+                display: none;
+                opacity: 0;
+                transition: opacity .1s;
             }
 
-            &.expand {
-                // opacity: 1;
-                // transition: opacity 13s;
-            }
         }
 
         &.expand {
-            animation-name: task-expand;
-            animation-duration: 0.5s;
-            animation-fill-mode: forwards;
-
-            @keyframes task-expand {
-                0% {
-                    min-width: 40px;
-                    min-height: 8px;
-                }
-
-                50% {
-                    min-width: 56px;
-                    min-height: 8px;
-                }
-
-                100% {
-                    min-width: 56px;
-                    min-height: 16px;
-                }
-            }
+            transition-property: min-width, min-height;
+            transition-duration: 0.1s, 0.1s;
+            transition-delay: 0s, 0.2s;
+            min-width: 56px;
+            min-height: 16px;
         }
 
         &.shrink {
-            animation-name: task-shrink;
-            animation-duration: 0.5s;
-            animation-fill-mode: forwards;
-
-            @keyframes task-shrink {
-                0% {
-                    min-width: 56px;
-                    min-height: 16px;
-
-                }
-
-                50% {
-                    min-width: 56px;
-                    min-height: 8px;
-                }
-
-                100% {
-                    min-width: 40px;
-                    min-height: 8px;
-                }
-            }
+            transition-property: min-height, min-width;
+            transition-duration: 0.1s, 0.1s;
+            transition-delay: 0s, 0.1s;
+            min-width: 40px;
+            min-height: 8px;
         }
 
         &.label-hover {

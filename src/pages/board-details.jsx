@@ -26,11 +26,28 @@ export const BoardDetails = () => {
     const [modalPosition, setModalPosition] = useState({})
     const [labelExpandClass, setLabelExpand] = useState('')
     const [taskEditExpandId, setTaskEditExpand] = useState(null)
+    const [titleLabelClass, setTitleLabelClass] = useState('')
 
+    var timeoutId
+
+    const setLabelTitleDelay = (className) => {
+        if (className === 'expand') {
+            clearTimeout(timeoutId)
+            timeoutId = setTimeout(() => {
+                setTitleLabelClass('titleShow')
+            }, 270)
+        } else {
+            setTitleLabelClass('titleHide')
+        }
+    }
 
     useEffect(() => {
         loadBoard()
     }, [params.boardId])
+
+    function loadBoard() {
+        dispatch(setBoard(params.boardId))
+    }
 
     useEffect(() => {
         socketService.emit('shared board', params.boardId);
@@ -47,8 +64,16 @@ export const BoardDetails = () => {
         dispatch(updateBoardToStore(board))
     }
 
-    function loadBoard() {
-        dispatch(setBoard(params.boardId))
+    const onOpenModal = (ev, type, member) => {
+        setIsOpen(true)
+        setCmpType(type)
+        setMember(member)
+        let elemRect = ev.currentTarget.getBoundingClientRect()
+        let top = elemRect.top - window.pageYOffset
+        let left = elemRect.left - window.pageXOffset
+        const height = ev.currentTarget.offsetHeight
+        top += height
+        setModalPosition({ top, left })
     }
 
     const handleOnDragEnd = (result) => {
@@ -102,17 +127,6 @@ export const BoardDetails = () => {
         }
     }
 
-    const onOpenModal = (ev, type, member) => {
-        setIsOpen(true)
-        setCmpType(type)
-        setMember(member)
-        let elemRect = ev.currentTarget.getBoundingClientRect()
-        let top = elemRect.top - window.pageYOffset
-        let left = elemRect.left - window.pageXOffset
-        const height = ev.currentTarget.offsetHeight
-        top += height
-        setModalPosition({ top, left })
-    }
 
     if (!board) return <div>Loading...</div>
     return <section
@@ -147,10 +161,13 @@ export const BoardDetails = () => {
                                                     expandCardTitleGroupId={expandCardTitleGroupId}
                                                     labelExpandClass={labelExpandClass}
                                                     taskEditExpandId={taskEditExpandId}
+                                                    titleLabelClass={titleLabelClass}
                                                     onOpenModal={onOpenModal}
                                                     setExpandCardTitleId={setExpandCardTitleId}
                                                     setLabelExpand={setLabelExpand}
-                                                    setTaskEditExpand={setTaskEditExpand} />
+                                                    setTaskEditExpand={setTaskEditExpand}
+                                                    setLabelTitleDelay={setLabelTitleDelay}
+                                                />
                                             </div>
                                         )}
                                     </Draggable>

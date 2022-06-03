@@ -2,7 +2,8 @@ import { TaskList } from "./task-list"
 import { AddTask } from "./add-task"
 import { GroupTitleEdit } from "./group-title-edit"
 
-export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal, labelExpandClass, setLabelExpand, setTaskEditExpand, taskEditExpandId }) => {
+export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal,
+    labelExpandClass, setLabelExpand, setTaskEditExpand, taskEditExpandId, titleLabelClass, setLabelTitleDelay }) => {
 
     return (
         <>
@@ -20,6 +21,8 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
                     labelExpandClass={labelExpandClass}
                     setTaskEditExpand={setTaskEditExpand}
                     taskEditExpandId={taskEditExpandId}
+                    titleLabelClass={titleLabelClass}
+                    setLabelTitleDelay={setLabelTitleDelay}
                 />
                 <AddTask
                     setExpandCardTitleId={setExpandCardTitleId}

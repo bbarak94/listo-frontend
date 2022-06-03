@@ -85,10 +85,11 @@
    }
 
    .task-preview {
+      padding: 0;
       width: 100%;
       border-radius: 0.2em;
-      box-shadow: 0 1px 0 #091e4240;
-      background-color: $clr10;
+      box-shadow: 0 1px 0 rgba(9, 30, 66, 0.2509803922);
+      background-color: #ffffff;
       position: relative;
       border-radius: 3px;
       overflow: hidden;
@@ -119,16 +120,20 @@
       }
 
       .task-preview-title {
-         margin-bottom: 7.5px;
+         /* margin-bottom: 7.5px; */
          width: 100%;
+         padding: 2px;
+         line-height: 21px;
       }
 
       .task-preview-date {
+         align-self: center;
          gap: 2px;
-         padding: 2px;
+         padding: 4px;
          border-radius: 3px;
          font-size: 12px;
          margin: 0 0 4px 4px;
+         transition: background-color 85ms;
 
          span {
             margin: auto;
@@ -155,6 +160,7 @@
             background-color: #519839;
          }
       }
+
       .pastDue {
          background-color: #ec9488;
          color: $clr10;
@@ -166,7 +172,7 @@
    }
 
    .preview-title {
-      padding: 6px 8px 0 8px;
+      padding: 2px 8px;
    }
 
    .members-list-container {
@@ -187,6 +193,12 @@
             border-radius: 50%;
          }
       }
+   }
+
+   .preview-small-icon {
+      color: $clr8;
+      align-self: center;
+      margin-left: 4px;
    }
 }
 
