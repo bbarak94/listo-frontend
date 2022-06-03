@@ -1,7 +1,8 @@
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { TaskPreview } from './task-preview'
 
-export const TaskList = ({ board, group, onOpenModal, setIsScrollBar, setLabelExpand, labelExpandClass, setTaskEditExpand, taskEditExpandId }) => {
+export const TaskList = ({ board, group, onOpenModal, setIsScrollBar, setLabelExpand, labelExpandClass, 
+    setTaskEditExpand, taskEditExpandId, titleLabelClass, setLabelTitleDelay}) => {
 
     const tasksToShow = group.tasks.filter((task) => !task.archivedAt)
 
@@ -38,6 +39,8 @@ export const TaskList = ({ board, group, onOpenModal, setIsScrollBar, setLabelEx
                                             setIsScrollBar={setIsScrollBar}
                                             setLabelExpand={setLabelExpand}
                                             labelExpandClass={labelExpandClass}
+                                            titleLabelClass={titleLabelClass}
+                                            setLabelTitleDelay={setLabelTitleDelay}
                                         />
                                     </li>
                                 )}
