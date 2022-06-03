@@ -110,10 +110,13 @@ export const AppHeader = () => {
                 </Button>
                 {user?.imgUrl && (
                     <div className='welcome flex align-center'>
-                    <h3 className='logout-btn' onClick={onLogout}>logout</h3>
-                        <h1 className='welcome-msg'>
-                            Welcome {user.fullname}
-                        </h1>
+                    {user.username!=='guest' && (
+                    <h3 className='logout-btn' onClick={onLogout}>Logout</h3>
+                    )}
+                    {user.username==='guest' && (
+                    <h3 className='login-btn' onClick={() => navigation('/login')}>Login</h3>
+                    )}
+
                         <div
                             className='user-container flex'
                             onClick={() => onOpenModal('member', user)}
