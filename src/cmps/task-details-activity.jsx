@@ -6,9 +6,6 @@ import moment from 'moment'
 export const TaskDetailsActivity = ({ activity, task, board, groupId }) => {
     // const { user } = useSelector((storeState) => storeState.userModule)
     // const user = userService.getById(activity.byMember.id)
-    // console.log('user:', user)
-    // console.log('activity:', activity)
-
     return (
         <div className='task-details-activity flex'>
             <div

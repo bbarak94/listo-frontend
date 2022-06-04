@@ -148,6 +148,7 @@ export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
         checklist.todos.push(todo)
         dispatch(updateTask(task, board._id, groupId))
         setIsTxtOpen(false)
+        setTitle('')
     }
 
     const onToggleTodo = (todoId) => {
@@ -264,7 +265,9 @@ export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
                 )
             })}
             {isTxtOpen && <div className="add-todo">
-                <textarea
+                <form>
+
+                <input
                     className='todo-title'
                     onChange={(ev) => setTitle(ev.target.value)}
                     value={title}
@@ -272,10 +275,12 @@ export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
                     spellCheck='false'
                     autoFocus
                     placeholder='Add an item'
+                    onSubmit={onAddTodo}
                 // onBlur={setIsTxtOpen(false)}
                 />
                 <button className='btn add-todo-btn' onClick={onAddTodo}>Add</button>
                 <button className='btn cancel-todo-btn' onClick={onCloseTxt}>Cancel</button>
+                </form>
             </div>}
 
             <Button onClick={() => setIsTxtOpen(true)} className='add-btn'>Add an item</Button>

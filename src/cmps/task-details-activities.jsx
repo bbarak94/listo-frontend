@@ -37,7 +37,7 @@ export const TaskDetailsActivities = ({ task, board, groupId }) => {
 
             {isActivitiesOpen && (
                 <div>
-                    {board.activities.map((activity, idx) => {
+                    {board.activities.map((activity, idx) => {                        
                         return (
                             <TaskDetailsActivity
                                 key={idx}
