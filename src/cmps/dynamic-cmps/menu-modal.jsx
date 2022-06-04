@@ -23,7 +23,7 @@ export const MenuModal = ({ handleClose, board , setLabelExpand, setTaskEditExpa
 
     const onOpenModal = (ev, type, member) => {
         setIsOpen(true)
-        setCmpType(type)
+        // setCmpType(type)
         setMember(member)
         let elemRect = ev.currentTarget.getBoundingClientRect()
         let top = elemRect.top - window.pageYOffset

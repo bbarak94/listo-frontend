@@ -34,7 +34,7 @@ export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
         dispatch(updateGroup(newGroup, boardId))
         setIsEdit(false)
     }
-
+    
     return (
         <div className='group-title'>
             {(isEdit) && (
@@ -52,11 +52,7 @@ export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
                 />
             )}
             {(!isEdit) && (
-                <p
-                    onClick={() => {
-                        setIsEdit(true)
-                    }}
-                >{title}</p>
+                <p onClick={() => {setIsEdit(true) }}>{title}</p>
             )}
 
         </div>
