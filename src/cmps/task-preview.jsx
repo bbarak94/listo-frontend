@@ -88,7 +88,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
             <Link to={`/board/${board._id}/task/${task.id}`}>
                 <div className="task-preview-container flex column">
                     <div className="task-preview">
-                        <EditOutlinedIcon className='edit-icon' onClick={onOpenTaskEdit} />
+                        {!task.archivedAt && < EditOutlinedIcon className='edit-icon' onClick={onOpenTaskEdit} />}
                         {task.style.color && <div className="task-preview-color" style={{ backgroundColor: task.style.color, minHeight: task.style.isTextOnImg ? '56px' : '32px' }}>
                             {task.style.isTextOnImg &&
                                 <span className='title-over-color'>{task.title}</span>
