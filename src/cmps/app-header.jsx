@@ -1,7 +1,7 @@
 import navBar from '../assets/img/header/navbar.svg'
 import downArrow from '../assets/img/header/down-arrow.svg'
 import Button from '@mui/material/Button'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { AppModal } from './app-modal'
 import { useEffect, useState } from 'react'
@@ -11,11 +11,14 @@ import { userService } from '../services/user.service'
 import FastAverageColor from 'fast-average-color';
 
 
+
 export const AppHeader = () => {
     const user = userService.getLoggedinUser()
+    
     if (user?.password) delete user.password
     const { board } = useSelector((storeState) => storeState.boardModule)
-
+    
+    const location = useLocation()
     // const { user } = useSelector((storeState) => storeState.userModule)
     const [isLoggedIn, setLoggedIn] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
@@ -46,20 +49,20 @@ export const AppHeader = () => {
         const fac = new FastAverageColor()
 
         try {
-            console.log('board:',board)
-            
+            var newTheme
             const mashu = await fac.getColorAsync(board.style.background)
             console.log('mashu:',mashu)            
             const backgroundColor = mashu.rgba;
             const color = mashu.isDark ? '#fff' : '#000'
-            const newTheme = { backgroundColor, color }
-            
+            if (location.pathname==='/workspace') newTheme = { backgroundColor:"#026aa7", color:'white' }
+            else newTheme = { backgroundColor, color }
             setTheme(newTheme)
         }
         catch (err) {
-            console.log('err:', err)
-            const newTheme = { backgroundColor:"#026aa7", color:'white' }
+            console.log('location.pathname:',location.pathname)
+            if (location.pathname==='/workspace') var newTheme = { backgroundColor:"#026aa7", color:'white' }
             setTheme(newTheme)
+            // console.log('err:', err)
         }
 
     }
