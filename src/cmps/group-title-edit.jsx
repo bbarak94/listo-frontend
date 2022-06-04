@@ -7,23 +7,23 @@ export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
     const [isEdit, setIsEdit] = useState(false)
     const inputRef = useRef()
     const dispatch = useDispatch()
+
     useEffect(() => {
         isEdit && inputRef.current.focus()
     }, [isEdit])
-    // const inputRef = inputRef()
+
     const onHandleChange = (ev) => {
         setTitle(ev.target.value)
     }
 
     const onEnterPress = (ev) => {
-        if (ev.keyCode == 13 && ev.shiftKey == false) {
+        if (ev.keyCode === 13 && ev.shiftKey === false) {
             ev.preventDefault()
             ev.target.blur()
         }
     }
 
     const onHandleSubmit = (ev) => {
-        // console.log('ev.target.value:',ev.target.value)
         if (ev.target.value) ev.preventDefault()
         onUpdateGroup(ev.target.value)
     }
@@ -34,27 +34,13 @@ export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
         dispatch(updateGroup(newGroup, boardId))
         setIsEdit(false)
     }
-    
-    return (
-        <div className='group-title'>
-            {(isEdit) && (
-                <input
-                    ref={inputRef}
-                    dir="auto"
-                    type='text'
-                    // onFocus={(ev) => ev.target.select()}
-                    value={title}
-                    onChange={onHandleChange}
-                    onKeyDown={onEnterPress}
-                    onBlur={onHandleSubmit}
-                // onMouseDown={(ev) => ev.preventDefault()}
-                // onMouseUp={(ev) => ev.target.focus()}
-                />
-            )}
-            {(!isEdit) && (
-                <p onClick={() => {setIsEdit(true) }}>{title}</p>
-            )}
 
+    return (
+        // <div className='group-title flex'>
+        <div className='group-title'>
+            {isEdit && <input ref={inputRef} dir="auto" type='text' value={title}
+                onChange={onHandleChange} onKeyDown={onEnterPress} onBlur={onHandleSubmit} />}
+            {!isEdit && <p onClick={() => setIsEdit(true)} >{title}</p>}
         </div>
     )
 }

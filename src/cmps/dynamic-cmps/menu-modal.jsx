@@ -13,19 +13,22 @@ import { userService } from '../../services/user.service'
 import { useNavigate } from 'react-router-dom'
 
 
-export const MenuModal = ({ handleClose, board , setLabelExpand, setTaskEditExpand }) => {
+export const MenuModal = ({ handleClose, board, setLabelExpand, setTitleLabelClass, setLabelTitleDelay , titleLabelClass}) => {
 
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false)
     const [member, setMember] = useState('')
     const [isArchivedItemsOpen, setIsArchivedItemsOpen] = useState(false)
+    const [cmpType, setCmpType] = useState('')
     const [modalPosition, setModalPosition] = useState({})
 
     const onOpenModal = (ev, type, member) => {
         setIsOpen(true)
         // setCmpType(type)
         setMember(member)
+        console.log('onOpenModal ~ ev', ev)
         let elemRect = ev.currentTarget.getBoundingClientRect()
+        // let elemRect = ev.currentTarget.getBoundingClientRect()
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
         const height = ev.currentTarget.offsetHeight
@@ -35,7 +38,8 @@ export const MenuModal = ({ handleClose, board , setLabelExpand, setTaskEditExpa
 
     return (
         <div className='menu-modal'>
-            {isArchivedItemsOpen && < ArchiveItems onOpenModal={onOpenModal} handleClose={handleClose} board={board} setLabelExpand={setLabelExpand} setTaskEditExpand={setTaskEditExpand} />}
+            {isArchivedItemsOpen && < ArchiveItems setLabelTitleDelay={setLabelTitleDelay} onOpenModal={onOpenModal} handleClose={handleClose} board={board} 
+            setLabelExpand={setLabelExpand} setTitleLabelClass={setTitleLabelClass}  titleLabelClass={titleLabelClass}/>}
 
             {!isArchivedItemsOpen && <>
                 <div className='title-container flex justify-center'>
@@ -64,11 +68,10 @@ export const MenuModal = ({ handleClose, board , setLabelExpand, setTaskEditExpa
                             <div className='menu-modal-activities flex' key={idx}>
                                 <div
                                     className='user-container flex'
-                                    onClick={async () => {
+                                    onClick={async (ev) => {
                                         const member = await userService.getById(activity.byMember._id)
-                                        onOpenModal('member', member)
-                                    }}
-                                >
+                                        onOpenModal(ev, 'member', member)
+                                    }} >
                                     <img src={activity.byMember?.imgUrl} style={{
                                         width: '32px',
                                         height: '32px', borderRadius: '50%',
@@ -99,7 +102,7 @@ export const MenuModal = ({ handleClose, board , setLabelExpand, setTaskEditExpa
                         )
                     })}
                 </div>
-                <AppModal  position={modalPosition} member={member} board={board} cmpType={'member'} isOpen={isOpen} setIsOpen={setIsOpen} />
+                <AppModal position={modalPosition} member={member} board={board} cmpType={'member'} isOpen={isOpen} setIsOpen={setIsOpen} />
             </>}
         </div>
     )

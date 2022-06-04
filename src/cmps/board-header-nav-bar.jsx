@@ -11,7 +11,8 @@ import { useDispatch } from 'react-redux'
 import FastAverageColor from 'fast-average-color';
 
 
-export const BoardHeaderNavBar = ({ board, setLabelExpand, setTaskEditExpand }) => {
+export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , setLabelTitleDelay, titleLabelClass}) => {
+
     const dispatch = useDispatch()
 
     const [isOpen, setIsOpen] = useState(false)
@@ -113,7 +114,9 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTaskEditExpand }) 
             <AppModal
                 onOpenModal={onOpenModal}
                 setLabelExpand={setLabelExpand}
-                setTaskEditExpand={setTaskEditExpand}
+                setTitleLabelClass={setTitleLabelClass}
+                setLabelTitleDelay={setLabelTitleDelay}
+                titleLabelClass={titleLabelClass}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
                 cmpType={cmpType}
