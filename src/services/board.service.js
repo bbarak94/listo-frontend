@@ -156,30 +156,30 @@ async function _getEmptyBoard() {
         ],
         members: [
             {
-                _id: 'u100',
+                _id: '62953c7742e472253897fe9e',
                 fullname: 'Guest',
                 username: 'guest',
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg',
             }, {
-                id: 'u101',
+                id: '62953ca542e472253897fe9f',
                 fullname: 'Barak Braun',
                 username: 'barak',
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/barak_v05fhi.jpg',
             },
             {
-                id: 'u102',
+                id: '62953cb842e472253897fea0',
                 fullname: 'Guy Elizarov',
                 username: 'guy',
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guy_r35jqz.jpg',
             },
             {
-                id: 'u103',
+                id: '62953ccb42e472253897fea1',
                 fullname: 'Itai Rotstein',
                 username: 'itai',
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/itai_thvoqr.jpg',
             },
             {
-                id: 'u104',
+                id: '62953cd942e472253897fea2',
                 fullname: 'Tommy Irmia',
                 username: 'tommy',
                 imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653410100/tommy_rnax4n.jpg',

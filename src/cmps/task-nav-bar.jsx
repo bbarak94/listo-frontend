@@ -7,13 +7,52 @@ import members from '../assets/img/task/navbar/members.svg'
 import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
 import { ArchiveTask } from '../cmps/archive-task'
+import { userService } from '../services/user.service'
+import { updateTask } from '../store/actions/board.action'
+import { useDispatch } from 'react-redux'
 
 
 export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
+    const user = userService.getLoggedinUser()
+    const dispatch = useDispatch()
+
+
+
+    console.log('task.memberIds:', task.memberIds)
+    console.log('user:', user)
+
+    const joinToTask = () => {
+        const newTask = { ...task }
+        newTask.memberIds.unshift(user._id)
+        dispatch(updateTask(newTask, board._id, group.id))
+    }
 
     return (
         <>
             <div className='task-nav-bar flex column'>
+                {!task.memberIds.includes(user._id) && (
+                    <>
+                        <div className='title-container flex'>
+                            <h1 className='title'>Suggested</h1>
+                        </div>
+                        <div onClick={joinToTask}>
+                            <div className='task-edit-btn flex align-center'>
+                                <div>
+                                    <img
+                                        src={members}
+                                        alt='Members'
+                                        style={{ width: '18px' }}
+                                    />
+                                </div>
+                                <h2>Join</h2>
+                            </div>
+                        </div>
+                    </>
+
+
+
+                )}
+
                 <div className='title-container flex'>
                     <h1 className='title'>Add to card</h1>
                 </div>

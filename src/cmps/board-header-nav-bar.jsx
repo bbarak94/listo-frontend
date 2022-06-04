@@ -1,12 +1,15 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { AppModal } from './app-modal'
 import star from '../assets/img/workspace/star-stroke.svg'
+import filter from '../assets/img/icon/filter.svg'
 import starFill from '../assets/img/workspace/star-fill.svg'
 
 import { saveBoard } from '../store/actions/board.action'
 import { useDispatch } from 'react-redux'
+import FastAverageColor from 'fast-average-color';
+
 
 export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , setLabelTitleDelay, titleLabelClass}) => {
 
@@ -16,6 +19,12 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , 
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(null)
     const [modalPosition, setModalPosition] = useState({})
+    const [theme, setTheme] = useState({})
+
+    useEffect(() => {
+        changeHeaderColor()
+
+    }, [board])
 
     const onOpenModal = (ev, type, member) => {
 
@@ -36,8 +45,25 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , 
         dispatch(saveBoard(board))
     }
 
+    const changeHeaderColor = async () => {
+        const fac = new FastAverageColor()
+
+        try {
+            const mashu = await fac.getColorAsync(board.style.background)
+            console.log('mashu:', mashu)
+            // const backgroundColor = mashu.rgba;
+            const color = mashu.isDark ? '#fff' : '#000'
+            const newTheme = { color }
+            setTheme(newTheme)
+        }
+        catch (err) {
+            console.log('err:', err)
+        }
+
+    }
+
     return (<>
-        <div className="board-header-right-container">
+        <div className="board-header-right-container" style={theme}>
             <div className="board-title-btn">
                 <h2>{board.title}</h2>
             </div>
@@ -48,8 +74,8 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , 
 
             <span className='sep'>|</span>
 
-            <div className="workspace-btn" onClick={(ev) => onOpenModal(ev, 'workspace-nav-modal')} >
-                <span>  Workspace</span>
+            <div className="board-header-btn workspace-btn" onClick={(ev) => onOpenModal(ev, 'workspace-nav-modal')} >
+                <span style={theme}>  Workspace</span>
             </div>
 
             <span className='sep'>|</span>
@@ -67,12 +93,23 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , 
             </div>
         </div>
         <div className="board-header-left-container">
+            <div className='flex filter-btn show-menu-btn' style={{marginRight:'10px'}} onClick={() => {
+                setModalPosition({ top: '43px', right: '0' })
+                setIsOpen(true)
+                setCmpType('filter')
+            }}>
+                <div className='filter-icon-container flex align-center'>
+                    <img src={filter} alt="" />
+                </div>
+                <span className='board-header-btn' style={theme}>Filter</span>
+            </div>
             <div className="show-menu-btn" onClick={() => {
                 setModalPosition({ top: '43px', right: '0' })
                 setIsOpen(true)
                 setCmpType('menu')
             }}>
-                <span>... Show menu</span> </div>
+                <span className='board-header-btn' style={theme}>... Show menu</span>
+            </div>
 
             <AppModal
                 onOpenModal={onOpenModal}

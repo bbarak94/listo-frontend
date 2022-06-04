@@ -8,7 +8,18 @@
     min-width: 272px;
     border-radius: 3px;
     background-color: $clr13;
-    
+    // display: none;
+    opacity: 0;
+    transition: opacity .5s, height .5s;
+    height: 0;
+    // transition-delay: 1s;
+
+    &.open {
+        // display: block;
+        height: 80px;
+        opacity: 1;
+    }
+
     // form {
     //     padding: 2px 4px 4px 4px;
     // }
@@ -16,32 +27,73 @@
     input {
         display: block;
         width: 100%;
-        padding: 8px 12px;
+        padding: 0 12px;
         outline: none;
         border: none;
         border-radius: 3px;
         box-shadow: inset 0 0 0 2px #0079bf;
         line-height: 20px;
-    }
+        height: 0;
+        transition: height .5s, padding .5s;
 
-    button {
-        // float: left;
-        margin-inline-end: 4px;
+        &.open {
+            padding: 8px 12px;
+            height: 36px;
+        }
     }
 
     .add-group-actions {
         margin-top: 4px;
         position: relative;
-    }
 
+        button {
+            // float: left;
+            margin-inline-end: 4px;
+            padding: 0 12px;
+            height: 0;
+            transition: padding, height;
+            transition-duration: .5s;
+
+            &.open {
+                padding: 4px 12px;
+                height: 32px;
+            }
+        }
+
+        .close-add-group {
+
+            font-size: 0px;
+            color: rgb(66, 82, 110);
+            margin-left: 4px;
+            position: relative;
+            top: -36px;
+            cursor: pointer;
+
+            &.open {
+
+                font-size: 26px;
+                color: rgb(66, 82, 110);
+                margin-left: 4px;
+                position: relative;
+                top: 0px;
+            }
+        }
+    }
 }
+
+
 .add-group-btn {
     @include boarder-header-btn;
     color: #fff;
     min-width: 272px;
     height: 36px;
     margin: 0 4px;
-
+    position: absolute;
+    opacity: 1;
+    transition: opacity .1s;
+    &.open {
+            opacity: 0;
+    }
     .add-icon {
         margin-inline-end: 4px;
         font-size: 16px;
@@ -57,7 +109,7 @@
         content: "";
     }
 
-    &:hover{
+    &:hover {
         background-color: #8080808a;
     }
 

@@ -17,6 +17,15 @@
             text-decoration: underline;
          }
       }
+      .login-btn{
+         color: white;
+         font-size: 12px;
+         margin-right: 4px;
+         &:hover{
+            cursor: pointer;
+            text-decoration: underline;
+         }
+      }
    }
 .user-container{
    border-radius: 50%;

@@ -72,7 +72,7 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
     const loggedInUser = JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
     return (loggedInUser || {
-        _id: 'u100',
+        _id: '62953c7742e472253897fe9e',
         fullname: 'Guest',
         username: 'guest',
         imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg'

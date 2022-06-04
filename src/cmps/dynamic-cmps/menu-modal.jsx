@@ -24,7 +24,7 @@ export const MenuModal = ({ handleClose, board, setLabelExpand, setTitleLabelCla
 
     const onOpenModal = (ev, type, member) => {
         setIsOpen(true)
-        setCmpType(type)
+        // setCmpType(type)
         setMember(member)
         console.log('onOpenModal ~ ev', ev)
         let elemRect = ev.currentTarget.getBoundingClientRect()

@@ -10,6 +10,11 @@
         min-width: 100%;
     }
 
+    [data-rbd-drag-handle-context-id="0"]{
+        //  cursor: -webkit-grab; 
+         cursor: initial; 
+     }
+
     ::-webkit-scrollbar {
         width: 8px;
         height: 8px;

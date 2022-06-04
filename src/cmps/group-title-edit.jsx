@@ -36,7 +36,8 @@ export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
     }
 
     return (
-        <div className='group-title flex'>
+        // <div className='group-title flex'>
+        <div className='group-title'>
             {isEdit && <input ref={inputRef} dir="auto" type='text' value={title}
                 onChange={onHandleChange} onKeyDown={onEnterPress} onBlur={onHandleSubmit} />}
             {!isEdit && <p onClick={() => setIsEdit(true)} >{title}</p>}

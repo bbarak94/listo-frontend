@@ -14,6 +14,9 @@ import { updateGroup, setBoard, saveBoard, updateBoardToStore } from '../store/a
 import { socketService, SOCKET_EVENT_UPDATE_BOARD } from '../services/socket.service'
 
 
+
+
+
 export const BoardDetails = () => {
     const params = useParams()
     const dispatch = useDispatch()
@@ -29,6 +32,7 @@ export const BoardDetails = () => {
     const [titleLabelClass, setTitleLabelClass] = useState('')
 
     var timeoutId
+    
 
     const setLabelTitleDelay = (className) => {
         if (className === 'expand') {
@@ -58,6 +62,9 @@ export const BoardDetails = () => {
             // socketService.terminate()
         }
     }, [])
+
+
+
 
     function setBoardFromSocket(board) {
         dispatch(updateBoardToStore(board))
@@ -129,7 +136,7 @@ export const BoardDetails = () => {
 
     if (!board) return <div>Loading...</div>
     return <section
-        className='board-app cover-img flex column'
+        className='board-app cover-img board-cover-img flex column'
         style={{
             backgroundImage: `url(${board.style.background})`,
             backgroundSize: 'cover',
