@@ -10,7 +10,8 @@
     background-color: $clr13;
     // display: none;
     opacity: 0;
-    transition: opacity .5s, height .5s;
+    transition: opacity, height;
+    transition-duration: .1s;
     height: 0;
     // transition-delay: 1s;
 
@@ -34,7 +35,8 @@
         box-shadow: inset 0 0 0 2px #0079bf;
         line-height: 20px;
         height: 0;
-        transition: height .5s, padding .5s;
+        transition: height, padding;
+        transition-duration: .2s;
 
         &.open {
             padding: 8px 12px;
@@ -52,7 +54,7 @@
             padding: 0 12px;
             height: 0;
             transition: padding, height;
-            transition-duration: .5s;
+            transition-duration: .2s;
 
             &.open {
                 padding: 4px 12px;
@@ -89,11 +91,15 @@
     height: 36px;
     margin: 0 4px;
     position: absolute;
+    z-index: 10;
     opacity: 1;
     transition: opacity .1s;
+    
     &.open {
-            opacity: 0;
+        z-index: -10;
+        opacity: 0;
     }
+
     .add-icon {
         margin-inline-end: 4px;
         font-size: 16px;

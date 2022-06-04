@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+
 import moment from 'moment'
 
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
@@ -19,7 +20,6 @@ import { labelService } from "../services/label.service"
 import { boardService } from "../services/board.service"
 
 import { updateTask } from '../store/actions/board.action'
-import { minHeight } from '@mui/system'
 
 const NO_COLOR_INDICATION = '#B3BAC5'
 
@@ -144,6 +144,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                             </span>
                                         </div>
                                     )}
+                                    
                                     {task.description &&
                                         <div className="preview-small-icon" title='This card has a description'>
                                             <ArticleOutlinedIcon style={previewIconStyle} />
