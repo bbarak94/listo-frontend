@@ -89,12 +89,11 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                 <div className="task-preview-container flex column">
                     <div className="task-preview">
                         <EditOutlinedIcon className='edit-icon' onClick={onOpenTaskEdit} />
-                        {task.style.color && <div className="task-preview-color" style={{ backgroundColor: task.style.color, minHeight: task.style.isTextOnImg ? '56px' : '32px' }}>
-                            {task.style.isTextOnImg &&
-                                <span className='title-over-color'>{task.title}</span>
-                            }
-                        </div>
-                        }
+                        {task.style.color &&
+                            <div className="task-preview-color" style={{ backgroundColor: task.style.color, minHeight: task.style.isTextOnImg ? '56px' : '32px' }}>
+                                {task.style.isTextOnImg && <span className='title-over-color'>{task.title}</span>}
+                            </div>}
+
                         {task.style.imgUrl &&
                             <div className="task-preview-img-container">
                                 <img src={task.style.imgUrl} />
@@ -144,7 +143,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                             </span>
                                         </div>
                                     )}
-                                    
+
                                     {task.description &&
                                         <div className="preview-small-icon" title='This card has a description'>
                                             <ArticleOutlinedIcon style={previewIconStyle} />
