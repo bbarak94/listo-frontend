@@ -18,7 +18,8 @@ import { FilterModal } from './dynamic-cmps/filter-modal.jsx';
 
 const buttonHeight = 32
 
-export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, setTitleLabelClass, isOpen, setIsOpen, cmpType, task, board, group, member, labelId, position = { top: '10%', left: '33.3%' } }) {
+export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, setTitleLabelClass, isOpen, setIsOpen, 
+    cmpType, task, board, group, member, labelId, position = { top: '10%', left: '33.3%' } , setTaskEditExpand}) {
 
     const getType = () => {
         switch (cmpType) {
