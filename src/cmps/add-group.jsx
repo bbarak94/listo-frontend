@@ -1,8 +1,10 @@
-
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
+
 import { addGroup } from '../store/actions/board.action'
+
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 export const AddGroup = () => {
 
@@ -24,22 +26,45 @@ export const AddGroup = () => {
         setAddGroupOpen(false)
     }
 
-    return (<>
-        {!isAddGroupOpen && <div className='add-group-btn' onClick={() => setAddGroupOpen(true)}>
-            <span className="add-icon"></span>
-            Add another list
-        </div>}
-        {isAddGroupOpen && <div className="add-group">
-            <form onSubmit={onHandleSubmit}>
-                <div>
-                    <input type="text" placeholder="Enter list title..." onChange={onHandleChange} value={title} autoFocus />
-                    <div className='add-group-actions flex'>
-                        <button className="btn">Add list</button>
-                        <span className='close-btn' onClick={() => setAddGroupOpen(false)}></span>
+    const addGroupClass = isAddGroupOpen ? 'open' : ''
+
+    const closeBtnStyle =
+        isAddGroupOpen ?
+            {
+                fontSize: '26px',
+                color: '#42526e',
+                marginLeft: '4px',
+                position: 'relative',
+                top: 0
+            }
+            :
+            {
+                fontSize: '0px',
+                color: 'rgb(66, 82, 110)',
+                marginLeft: '4px',
+                position: 'relative',
+                top: '-36px'
+            }
+
+    return (
+        <section style={{ position: 'relative' }}>
+
+            <div className={`add-group-btn ${addGroupClass}`} onClick={() => setAddGroupOpen(true)}>
+                <span className="add-icon"></span>
+                Add another list
+            </div>
+            <div className={`add-group ${addGroupClass}`}>
+                <form onSubmit={onHandleSubmit}>
+                    <div>
+                        <input className={addGroupClass} type="text" placeholder="Enter list title..." onChange={onHandleChange} value={title} autoFocus />
+                        <div className='add-group-actions flex align-center'>
+                            <button className={`btn ${addGroupClass}`}>Add list</button>
+                            <CloseRoundedIcon className={`close-add-group ${addGroupClass}`} onClick={() => setAddGroupOpen(false)} />
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>}
-    </>
+                </form>
+            </div>
+        </section>
+
     )
 }
