@@ -10,8 +10,6 @@ import { useDispatch } from 'react-redux'
 import { userService } from '../services/user.service'
 import FastAverageColor from 'fast-average-color';
 
-
-
 export const AppHeader = () => {
     const user = userService.getLoggedinUser()
     
@@ -50,16 +48,16 @@ export const AppHeader = () => {
 
         try {
             var newTheme
-            const mashu = await fac.getColorAsync(board.style.background)
-            // console.log('mashu:',mashu)            
-            const backgroundColor = mashu.rgba;
-            const color = mashu.isDark ? '#fff' : '#000'
+            const averageColor = await fac.getColorAsync(board.style.background)
+            // console.log('averageColor:',averageColor)            
+            const backgroundColor = averageColor.rgba;
+            const color = averageColor.isDark ? '#fff' : '#000'
             if (location.pathname==='/workspace') newTheme = { backgroundColor:"#026aa7", color:'white' }
             else newTheme = { backgroundColor, color }
             setTheme(newTheme)
         }
         catch (err) {
-            console.log('location.pathname:',location.pathname)
+            // console.log('location.pathname:',location.pathname)
             if (location.pathname==='/workspace') var newTheme = { backgroundColor:"#026aa7", color:'white' }
             setTheme(newTheme)
             // console.log('err:', err)

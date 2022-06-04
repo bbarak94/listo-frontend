@@ -2,6 +2,12 @@ const initialState = {
     boards: [],
     board: null,
     currTask: null,
+    filterBy: {
+        txt: '',
+        memberIds: [],
+        dueDate: '',
+        labelIds: [],
+    }
 }
 export function boardReducer(state = initialState, action) {
     var newState = state
@@ -36,6 +42,9 @@ export function boardReducer(state = initialState, action) {
             break
         case 'SET_TASK':
             newState = { ...state, currTask: action.task }
+            break
+        case 'SET_FILTER':
+            newState = { ...state, filterBy: action.filterBy }
             break
     }
     // For debug:

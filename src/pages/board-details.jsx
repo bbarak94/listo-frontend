@@ -13,14 +13,10 @@ import { boardService } from '../services/board.service'
 import { updateGroup, setBoard, saveBoard, updateBoardToStore } from '../store/actions/board.action'
 import { socketService, SOCKET_EVENT_UPDATE_BOARD } from '../services/socket.service'
 
-
-
-
-
 export const BoardDetails = () => {
     const params = useParams()
     const dispatch = useDispatch()
-    const { board } = useSelector((storeState) => storeState.boardModule)
+    const { board,filterBy } = useSelector((storeState) => storeState.boardModule)
 
     const [expandCardTitleGroupId, setExpandCardTitleId] = useState('')
     const [isOpen, setIsOpen] = useState(false)

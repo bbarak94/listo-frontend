@@ -6,7 +6,7 @@ import CheckIcon from '@mui/icons-material/Check'
 import { updateTask } from '../../store/actions/board.action'
 
 export const Members = ({ task, board, group }) => {
-console.log('board:',board)
+// console.log('board:',board)
 
     const dispatch = useDispatch()
 
