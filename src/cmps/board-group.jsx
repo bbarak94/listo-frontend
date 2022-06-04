@@ -1,18 +1,22 @@
 import { TaskList } from "./task-list"
 import { AddTask } from "./add-task"
 import { GroupTitleEdit } from "./group-title-edit"
+import { useSelector } from "react-redux"
 import { AppModal } from "./app-modal"
 import { useState } from "react"
+
+
 
 export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal,
     labelExpandClass, setLabelExpand, setTaskEditExpand, taskEditExpandId, titleLabelClass, setLabelTitleDelay }) => {
     const [cmpType, setCmpType] = useState('')
     const [isOpen, setIsOpen] = useState(false)
     const [modalPosition, setModalPosition] = useState({})
+    const { filterBy } = useSelector((storeState) => storeState.boardModule)
 
     const onOpenGroupModal = (ev, type) => {
-    // console.log('onOpenGroupModal ~ ev', ev)
-        
+        // console.log('onOpenGroupModal ~ ev', ev)
+
         setIsOpen(true)
         setCmpType(type)
         let elemRect = ev.currentTarget.getBoundingClientRect()
@@ -25,7 +29,6 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
         console.log('onOpenGroupModal ~ top', top)
         setModalPosition({ top, left })
     }
-
     return (
         <>
             <article className="board-group flex column">
@@ -40,6 +43,7 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
 
                 </div>
                 <TaskList
+                    filterBy={filterBy}
                     onOpenModal={onOpenModal}
                     board={board}
                     group={group}
@@ -57,8 +61,8 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
                     boardId={board._id}
                 />
             </article>
-            <AppModal position={modalPosition} group={group} board={board} 
-            cmpType={cmpType} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <AppModal position={modalPosition} group={group} board={board}
+                cmpType={cmpType} isOpen={isOpen} setIsOpen={setIsOpen} />
         </>
     )
 }

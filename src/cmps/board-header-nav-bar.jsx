@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 import { AppModal } from './app-modal'
 import star from '../assets/img/workspace/star-stroke.svg'
+import starWhite from '../assets/img/workspace/star-stroke-white.svg'
 import filter from '../assets/img/icon/filter.svg'
 import starFill from '../assets/img/workspace/star-fill.svg'
 
@@ -49,10 +50,8 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , 
         const fac = new FastAverageColor()
 
         try {
-            const mashu = await fac.getColorAsync(board.style.background)
-            // console.log('mashu:', mashu)
-            // const backgroundColor = mashu.rgba;
-            const color = mashu.isDark ? '#fff' : '#000'
+            const averageColor = await fac.getColorAsync(board.style.background)
+            const color = averageColor.isDark ? '#fff' : '#000'
             const newTheme = { color }
             setTheme(newTheme)
         }

@@ -114,7 +114,6 @@ export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
         })
         if (!doneCount) return 0
         return +100 / (checklist.todos?.length / doneCount)
-
     }
 
     const onDeleteChecklist = () => {

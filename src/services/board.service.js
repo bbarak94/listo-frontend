@@ -133,6 +133,14 @@ function getMembersByIds(memberIds, board) {
     return members
 }
 
+function removeGroupFromBoard(board, groupId) {
+    const boardToUpdate = { ...board }
+    const groupIdx = boardToUpdate.groups?.findIndex(group => group.id === groupId)
+    boardToUpdate.groups?.splice(groupIdx, 1)
+    save(boardToUpdate)
+    return boardToUpdate
+}
+
 async function _getEmptyBoard() {
     const newBoard = {
         title: 'New Board',
@@ -264,10 +272,3 @@ function _createActivity(txt, task) {
     }
 }
 
-function removeGroupFromBoard(board, groupId) {
-    const boardToUpdate = { ...board }
-    const groupIdx = boardToUpdate.groups?.findIndex(group => group.id === groupId)
-    boardToUpdate.groups?.splice(groupIdx, 1)
-    save(boardToUpdate)
-    return boardToUpdate
-}

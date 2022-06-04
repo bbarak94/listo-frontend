@@ -34,10 +34,12 @@ export const BoardPreview = ({ board }) => {
             onMouseOver={() => setMouseOver(true)}
             onMouseLeave={() => setMouseOver(false)}
         >
+            <span className='board-title-fade'>
 
             <div>
                 <h2 className='board-preview-title' >{board.title}</h2>
             </div>
+            </span>
             {!board.isStar && isMouseOver && <img className='stroke' src={star} alt="" onClick={(ev) => onStarBoard(ev, true)} />}
             {board.isStar && <img className='fill' src={starFill} alt="" onClick={(ev) => onStarBoard(ev, false)} />}
         </div>
