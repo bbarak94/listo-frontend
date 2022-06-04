@@ -1,11 +1,17 @@
 .board-preview {
+   .board-title-fade{
+   background-color: #0000004d;
+   position: absolute;
+   padding: 8px;
+   inset: 0;
+   
+   }
    position: relative;
    flex: 1 0 22%;
    max-width: 22.5%;
    min-width: 22%;
    min-height: 98px;
    margin-top: 1.5%;
-   padding: 8px;
    border-radius: 4px;
    cursor: pointer;
 
@@ -65,6 +71,3 @@
 
 }
 
-.board-preview-title{
-   text-shadow: 0px 0px 1.5px #000000;
-}

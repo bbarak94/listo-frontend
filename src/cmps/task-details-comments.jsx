@@ -38,7 +38,7 @@ export const TaskDetailsComments = ({ task, board, groupId }) => {
    const handleSubmit = (ev) => {
       ev.stopPropagation()
       ev.preventDefault()
-      console.log('task.comments:', task.comments)
+      // console.log('task.comments:', task.comments)
 
       const newTask = { ...task }
       newTask.comments.unshift({
@@ -58,7 +58,7 @@ export const TaskDetailsComments = ({ task, board, groupId }) => {
    }
 
    const onRemoveComment = (commentId) => {
-      console.log('commentId:', commentId)
+      // console.log('commentId:', commentId)
       const newTask = { ...task }
       const newComments = newTask.comments.filter(c => c.id !== commentId)
       newTask.comments = newComments
@@ -67,7 +67,7 @@ export const TaskDetailsComments = ({ task, board, groupId }) => {
    }
 
    const onCloseTxt = (ev) => {
-      console.log('ev:', ev)
+      // console.log('ev:', ev)
       ev.preventDefault()
       ev.stopPropagation()
       setIsTextOpen(false)

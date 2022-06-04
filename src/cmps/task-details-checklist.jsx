@@ -1,94 +1,6 @@
-// import { useState } from "react";
-// import { useDispatch } from "react-redux";
-
-// import { updateTask } from "../store/actions/board.action";
-
-// export const TaskDetailsChecklist = ({ checklist, task, boardId, groupId }) => {
-
-
-
-//     return (
-//         <section className="task-checklist">
-//             <div className="title-container flex space-between">
-//                 <h3>{checklist.title}</h3>
-//                 <button>Delete</button>
-//             </div>
-
-//             {checklist.todos.map((todo, idx) =>
-//                 <Todo key={idx} todo={todo} checklist={checklist} task={task} boardId={boardId} groupId={groupId} />
-//             )}
-
-//         </section>
-//     )
-// }
-
-// function Todo({ todo, task, checklist, boardId, groupId }) {
-
-//     const [title, setTitle] = useState(todo.title)
-//     const dispatch = useDispatch()
-
-//     const onHandleChecked = ({ target }) => {
-//         checklist = { ...checklist }
-//         let todo = checklist.todos.find(todo => todo.title === target.name)
-//         const idx = checklist.todos.findIndex(todo => todo.title === target.name)
-//         todo = { ...todo }
-//         todo.isDone = target.checked
-//         checklist.todos.splice(idx, 1, todo)
-//         dispatch(updateTask(task, boardId, groupId))
-//     }
-
-//     return (
-//         <div className="todo-preview">
-//             <input type="checkbox" checked={todo.isDone} name={todo.title} id="" onChange={onHandleChecked} />
-//             <input
-//                 type="text"
-//                 style={{ textDecoration: todo.isDone ? 'line-through' : 'none' }}
-//                 value={title}
-//                 onChange={(ev) => setTitle(ev.target.value)} />
-//         </div>
-//     )
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateTask } from '../store/actions/board.action'
-import { LinearProgress } from '@mui/material'
 import more from '../assets/img/todo/more.svg'
 import date from '../assets/img/todo/date.svg'
 import assign from '../assets/img/todo/assign.svg'
@@ -97,25 +9,13 @@ import done from '../assets/img/todo/done.svg'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
 import Button from '@mui/material/Button'
 
-import { AppModal } from '../cmps/app-modal'
-
-
 import { LinearWithValueLabel } from './helpers/linear-progress-with-label'
 import { boardService } from '../services/board.service'
-import { useEffectUpdate } from '../hooks/useEffectUpdate'
 
 export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
     const [title, setTitle] = useState('')
     const [isTxtOpen, setIsTxtOpen] = useState(false)
     const dispatch = useDispatch()
-
-
-
-
-
-
-
-
 
     const getDonePercentage = () => {
         var doneCount = 0
@@ -124,7 +24,6 @@ export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
         })
         if (!doneCount) return 0
         return +100 / (checklist.todos?.length / doneCount)
-
     }
 
     const onDeleteChecklist = () => {
@@ -136,7 +35,7 @@ export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
     }
 
     const onCloseTxt = (ev) => {
-        console.log('ev:', ev)
+        // console.log('ev:', ev)
         ev.preventDefault()
         ev.stopPropagation()
         setIsTxtOpen(false)

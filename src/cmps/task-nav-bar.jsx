@@ -18,8 +18,8 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
 
 
 
-    console.log('task.memberIds:', task.memberIds)
-    console.log('user:', user)
+    // console.log('task.memberIds:', task.memberIds)
+    // console.log('user:', user)
 
     const joinToTask = () => {
         const newTask = { ...task }

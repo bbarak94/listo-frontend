@@ -1,10 +1,11 @@
 import { TaskList } from "./task-list"
 import { AddTask } from "./add-task"
 import { GroupTitleEdit } from "./group-title-edit"
+import { useSelector } from "react-redux"
 
 export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal,
     labelExpandClass, setLabelExpand, setTaskEditExpand, taskEditExpandId, titleLabelClass, setLabelTitleDelay }) => {
-
+    const { filterBy } = useSelector((storeState) => storeState.boardModule)
     return (
         <>
             <article className="board-group flex column">
@@ -19,6 +20,7 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
 
                 </div>
                 <TaskList
+                    filterBy={filterBy}
                     onOpenModal={onOpenModal}
                     board={board}
                     group={group}

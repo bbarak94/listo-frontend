@@ -37,6 +37,12 @@ export function getActionSetTask(task) {
         task,
     }
 }
+export function getActionSetFilter(filterBy) {
+    return {
+        type: 'SET_FILTER',
+        filterBy,
+    }
+}
 
 export function setBoard(boardId) {
     return async (dispatch) => {
@@ -53,6 +59,16 @@ export function setTask(task) {
     return async (dispatch) => {
         try {
             dispatch(getActionSetTask(task))
+        } catch (err) {
+            console.log('Cannot set task', err)
+        }
+    }
+}
+export function setFilter(filterBy) {
+    console.log('filterBy:',filterBy)    
+    return async (dispatch) => {
+        try {
+            dispatch(getActionSetFilter(filterBy))
         } catch (err) {
             console.log('Cannot set task', err)
         }
