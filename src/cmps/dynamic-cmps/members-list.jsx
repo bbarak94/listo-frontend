@@ -31,7 +31,7 @@ export const MembersList = ({ board, task, onOpenModal }) => {
                         </div>
                     )
                 })}
-                <div onClick={() => onOpenModal('members')}>
+                <div onClick={(ev) => onOpenModal(ev, 'members')}>
                     <div className='plus-container flex'>
                         <img src={add} />
                     </div>

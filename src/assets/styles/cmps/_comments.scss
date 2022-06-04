@@ -6,6 +6,7 @@
    textarea {
       width: 89.5%;
       padding: 10px;
+      box-shadow: 0 1px 2px -1px #091e4240,0 0 0 1px #091e4214;
    }
 
    .comments-box {
@@ -26,6 +27,7 @@
       textarea {
          padding: 10px 10px 60px 10px;
          margin-bottom: -24px;
+         box-shadow: 0 4px 8px -2px #091e4240,0 0 0 1px #091e4214;
       }
 
       .comments-btns {

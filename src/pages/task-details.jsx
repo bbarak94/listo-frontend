@@ -142,6 +142,7 @@ export const TaskDetails = () => {
                                 {task.dueDate && (
                                     <DatePreview
                                         board={board}
+                                        group={currGroupRef.current}
                                         task={task}
                                         onOpenModal={onOpenModal}
                                     />

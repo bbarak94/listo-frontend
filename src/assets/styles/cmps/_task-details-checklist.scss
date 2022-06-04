@@ -94,15 +94,23 @@
          max-height: 15px;
          border: 2px solid transparent;
          border-radius: 3px;
-            
-         img {
-            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(104deg) brightness(103%) contrast(103%);
-            transform: scaleX(-1);
-            -webkit-transform: scaleX(-1);
+
+         .done-icon {
+            color: $clr10;
+            font-size: 16px;
             position: relative;
             right: 2px;
             bottom: 2px;
          }
+            
+         // img {
+         //    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(104deg) brightness(103%) contrast(103%);
+         //    transform: scaleX(-1);
+         //    -webkit-transform: scaleX(-1);
+         //    position: relative;
+         //    right: 2px;
+         //    bottom: 2px;
+         // }
 
          &:hover {
             background-color: lighten($color: #3292ca, $amount: 10);

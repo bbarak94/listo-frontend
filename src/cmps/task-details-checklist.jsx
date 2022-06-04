@@ -85,37 +85,27 @@
 
 
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateTask } from '../store/actions/board.action'
-import { LinearProgress } from '@mui/material'
+
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
+import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
+import Button from '@mui/material/Button'
+
+
 import more from '../assets/img/todo/more.svg'
 import date from '../assets/img/todo/date.svg'
 import assign from '../assets/img/todo/assign.svg'
-import done from '../assets/img/todo/done.svg'
-
-import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
-import Button from '@mui/material/Button'
-
-import { AppModal } from '../cmps/app-modal'
-
+// import done from '../assets/img/todo/done.svg'
 
 import { LinearWithValueLabel } from './helpers/linear-progress-with-label'
 import { boardService } from '../services/board.service'
-import { useEffectUpdate } from '../hooks/useEffectUpdate'
 
 export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
     const [title, setTitle] = useState('')
     const [isTxtOpen, setIsTxtOpen] = useState(false)
     const dispatch = useDispatch()
-
-
-
-
-
-
-
-
 
     const getDonePercentage = () => {
         var doneCount = 0
@@ -136,7 +126,6 @@ export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
     }
 
     const onCloseTxt = (ev) => {
-        console.log('ev:', ev)
         ev.preventDefault()
         ev.stopPropagation()
         setIsTxtOpen(false)
@@ -211,11 +200,12 @@ export const TaskDetailsChecklist = ({ checklist, task, board, groupId }) => {
                                     onClick={() => onToggleTodo(todo.id)}
                                     className='checkbox-done'
                                 >
-                                    <img
+                                    <CheckRoundedIcon className='done-icon'/>
+                                    {/* <img
                                         src={done}
                                         alt='Done'
                                         style={{ width: '16px' }}
-                                    />
+                                    /> */}
                                 </div>
                             )}
                             {!todo.isDone && (

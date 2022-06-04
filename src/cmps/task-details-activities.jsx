@@ -1,6 +1,6 @@
 import { TaskDetailsActivity } from './task-details-activity.jsx'
 import { TaskDetailsComments } from './task-details-comments.jsx'
-import FormatListBulletedRoundedIcon from '@mui/icons-material/FormatListBulletedRounded'
+import FormatListBulletedRoundedIcon from '@mui/icons-material/FormatListBulletedRounded';
 import Button from '@mui/material/Button'
 
 import { useState } from 'react'
@@ -13,7 +13,7 @@ export const TaskDetailsActivities = ({ task, board, groupId }) => {
             <div className='activity-header flex'>
                 <div className='left-container flex'>
                     <div className='task-details-left-icon activity-icon-container'>
-                        <FormatListBulletedRoundedIcon className='activity-icon' />
+                        <FormatListBulletedRoundedIcon style={{color: '#5e6c84'}} />
                     </div>
                     <h3>Activity</h3>
                 </div>

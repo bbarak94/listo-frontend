@@ -24,7 +24,7 @@ export const LabelPreview = ({ board, task, onOpenModal }) => {
         <>
             <div className="label-preview-container">
                 <h1> Labels</h1>
-                <div className="label-preview-flex" onClick={() => onOpenModal('labels')}>
+                <div className="label-preview-flex" onClick={(ev) => onOpenModal(ev, 'labels')}>
                     {labels.map(l => (
                         <div key={l.id} className="label-preview" style={{ backgroundColor: l.color }}>
                             <span>{l.title}</span>

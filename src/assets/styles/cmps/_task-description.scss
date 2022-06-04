@@ -12,6 +12,16 @@
          // display: inline-block;
          font-weight: 500;
          line-height: 25px;
+         color: $clr1;
+         
+         .desc-icon {
+             color: $clr8;
+             
+         }
+
+         .activity-icon{
+            color: $clr8;
+         }
       }
     }
 

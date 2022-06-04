@@ -29,7 +29,7 @@ export const TaskDetailsDesc = ({ task, boardId, groupId }) => {
         <div className='task-desc'>
             <div className="desc-header flex">
                 <div className="task-details-left-icon desc-icon-container">
-                    <ArticleOutlinedIcon className="desc-icon" />
+                    <ArticleOutlinedIcon className="desc-icon" style={{color: '#5e6c84'}}/>
                 </div>
                 <h3>Description</h3>
             </div>
