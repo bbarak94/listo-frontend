@@ -60,12 +60,14 @@
 
     .group-title {
         padding: 7px 12px 0;
-        input{
+
+        input {
             padding-right: 10px;
         }
     }
 
-    .group-title input,.group-title p {
+    .group-title input,
+    .group-title p {
         margin: 4px;
         width: 255px;
         outline: none;
@@ -86,4 +88,12 @@
         margin: 0 -7px;
         cursor: text;
     }
+}
+
+.group-menu-btn {
+    cursor: pointer;
+    &:hover {
+        background-color: $clr12;
+    }
+
 }

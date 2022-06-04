@@ -2,6 +2,7 @@
    padding: 12px;
    max-width: 340px;
    box-shadow: 7px 5px 20px -4px rgb(0 0 0);
+   background-color: $clr13;
 
    // max-height: 100%;
    // overflow: auto;
@@ -23,13 +24,16 @@
       padding: 8px;
       gap: 10px;
       min-height: 100vh;
+      min-width: 316px;
+
       .archived-items {
          padding: 0 8px;
          gap: 10px;
          cursor: pointer;
 
          &:hover {
-            background-color: darken($color: $clr13, $amount: 1);
+            // background-color: darken($color: $clr13, $amount: 1);
+            background-color: $hover-clr;
          }
       }
 
@@ -48,7 +52,8 @@
          }
 
          &:hover {
-            background-color: darken($color: $clr13, $amount: 1);
+            // background-color: darken($color: $clr13, $amount: 1);
+            background-color: $hover-clr;
             cursor: pointer;
          }
       }
@@ -60,6 +65,7 @@
       gap: 8px;
       // margin-left: 4px;
       align-items: center;
+
       .txt {
          .date {
             font-size: 13px;
@@ -98,11 +104,24 @@
 
 .archived-item-container {
 
-   display: flex;
-   
-   .archived-item-details {
-      display: flex;
-      
+   // display: flex;
+
+   // .archived-item-details {
+   //    display: flex;
+
+   // }
+   .span-container {
+      margin: 8px 0;
+      padding: 0 8px;
+
+      &>*:not(:nth-child(2n)) {
+         text-decoration: underline;
+         cursor: pointer;
+      }
+
+      &:hover {
+         color: #172b4d;
+      }
    }
 
 }

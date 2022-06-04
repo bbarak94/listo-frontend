@@ -8,7 +8,7 @@ import starFill from '../assets/img/workspace/star-fill.svg'
 import { saveBoard } from '../store/actions/board.action'
 import { useDispatch } from 'react-redux'
 
-export const BoardHeaderNavBar = ({ board, setLabelExpand, setTaskEditExpand }) => {
+export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , setLabelTitleDelay, titleLabelClass}) => {
 
     const dispatch = useDispatch()
 
@@ -77,7 +77,9 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTaskEditExpand }) 
             <AppModal
                 onOpenModal={onOpenModal}
                 setLabelExpand={setLabelExpand}
-                setTaskEditExpand={setTaskEditExpand}
+                setTitleLabelClass={setTitleLabelClass}
+                setLabelTitleDelay={setLabelTitleDelay}
+                titleLabelClass={titleLabelClass}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
                 cmpType={cmpType}

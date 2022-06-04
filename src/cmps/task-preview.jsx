@@ -78,7 +78,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                         {task.style.color && <div className="task-preview-color" style={{ backgroundColor: task.style.color }}>
                             {task.style.isTextOnImg && <>
                                 <span className='title-over-color'>{task.title}</span>
-                                <p className='edit-icon-over-color' onClick={onOpenTaskEdit}></p>
+                                {!task.archivedAt && <p className='edit-icon-over-color' onClick={onOpenTaskEdit}></p>}
                             </>}
                         </div>
                         }
@@ -86,7 +86,8 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                             <div className="task-preview-img-container">
                                 <img src={task.style.imgUrl} />{task.style.isTextOnImg && <>
                                     <span className='title-over-img'>{task.title}</span>
-                                    <p className='edit-icon-over-img' onClick={onOpenTaskEdit}></p> </>}
+                                    {!task.archivedAt && <p className='edit-icon-over-img' onClick={onOpenTaskEdit}></p>}
+                                </>}
                             </div>}
 
                         {(task.labelIds?.length > 0) && (
@@ -106,7 +107,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                             <div className='task-preview-title'>
                                 <span >{task.title} </span>
                             </div>
-                            <p className='edit-icon' onClick={onOpenTaskEdit}  ></p>
+                            {!task.archivedAt && <p className='edit-icon' onClick={onOpenTaskEdit}  ></p>}
                         </div>}
 
                         {(task.memberIds?.length > 0 || task.labelIds?.length > 0 || task.dueDate) && (
@@ -128,19 +129,19 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                                 )}
                                 {task.description &&
                                     <div className="preview-small-icon">
-                                        <ArticleOutlinedIcon style={{fontSize:'16px'}} />
+                                        <ArticleOutlinedIcon style={{ fontSize: '16px' }} />
                                     </div>}
 
                                 {task.attachments?.length > 0 &&
                                     <div className="preview-small-icon">
-                                        <AttachFileOutlinedIcon style={{fontSize:'16px'}} />
+                                        <AttachFileOutlinedIcon style={{ fontSize: '16px' }} />
                                     </div>}
-                                    
+
                                 {task.checklists?.length > 0 &&
                                     <div className="preview-small-icon">
-                                        <LibraryAddCheckOutlinedIcon style={{fontSize:'16px'}} />
+                                        <LibraryAddCheckOutlinedIcon style={{ fontSize: '16px' }} />
 
-                                        <span>{getChecklistData()}</span>    
+                                        <span>{getChecklistData()}</span>
                                     </div>}
 
                                 {task.memberIds?.length > 0 && <div className='members-list-container flex column'>
@@ -162,7 +163,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                     </div>
                 </div>
             </Link>
-            {taskEditExpandId === task.id && <>
+            {!task.archiveAt && taskEditExpandId === task.id && <>
                 <Screen cb={() => setTaskEditExpand(null)} />
                 <TaskEdit task={task} board={board} group={group} setTaskEditExpand={setTaskEditExpand} style={style} />
             </>}
