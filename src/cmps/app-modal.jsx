@@ -14,6 +14,7 @@ import { Checklist } from './dynamic-cmps/checklist'
 import { AddBoard } from './dynamic-cmps/add-board';
 import { WorkspaceNavModal } from './dynamic-cmps/workspace-nav-modal';
 import { MenuModal } from './dynamic-cmps/menu-modal.jsx';
+import { FilterModal } from './dynamic-cmps/filter-modal.jsx';
 
 const buttonHeight = 32
 
@@ -43,6 +44,8 @@ export function AppModal({ setLabelExpand, setTaskEditExpand, isOpen, setIsOpen,
                 return <WorkspaceNavModal task={task} board={board} group={group} handleClose={handleClose} />
             case 'menu':
                 return <MenuModal task={task} board={board} group={group} handleClose={handleClose} setLabelExpand={setLabelExpand} setTaskEditExpand={setTaskEditExpand} />
+            case 'filter':
+                return <FilterModal task={task} board={board} group={group} handleClose={handleClose} setLabelExpand={setLabelExpand} setTaskEditExpand={setTaskEditExpand} />
         }
     }
 

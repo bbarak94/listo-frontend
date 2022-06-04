@@ -82,7 +82,9 @@
 
         .show-menu-btn {
             @include boarder-header-btn;
-
+        .filter-btn{
+            @include boarder-header-btn;
+        }
             span {
                 color: #172b4d;
             }
