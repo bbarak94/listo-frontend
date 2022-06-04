@@ -184,7 +184,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
                     </div>
                 </div>
             </Link>
-            {taskEditExpandId === task.id && <>
+            {!task.archiveAt && taskEditExpandId === task.id && <>
                 <Screen cb={() => setTaskEditExpand(null)} />
                 <TaskEdit task={task} board={board} group={group} setTaskEditExpand={setTaskEditExpand} style={style} />
             </>}

@@ -6,14 +6,11 @@ import { Link } from 'react-router-dom'
 
 import { boardService } from "../services/board.service"
 import { saveBoard, updateTask } from "../store/actions/board.action"
-import { ArchiveTaskPreview } from "./archive-task-preview"
 import { TaskPreview } from "./task-preview"
 
-export const ArchiveItems = ({ onOpenModal, board, handleClose, setLabelExpand, setTaskEditExpand }) => {
+export const ArchiveItems = ({ onOpenModal, board, handleClose, setLabelExpand, setTitleLabelClass, setLabelTitleDelay, titleLabelClass }) => {
 
-    const navigate = useNavigate()
     const dispatch = useDispatch()
-
 
     const onSendToBoard = (task) => {
         const group = boardService.getGroup(board, task.id)
@@ -22,7 +19,6 @@ export const ArchiveItems = ({ onOpenModal, board, handleClose, setLabelExpand, 
     }
 
     const onDeleteTask = async (task) => {
-        console.log('onDeleteTask ~ task', task)
         const updatedBoard = boardService.removeTaskFromBoard(board, task.id)
         dispatch(saveBoard(updatedBoard))
     }
@@ -36,21 +32,13 @@ export const ArchiveItems = ({ onOpenModal, board, handleClose, setLabelExpand, 
 
             {boardService.getArchivedTasks(board).map(archivedTask => {
                 return <div key={archivedTask.id} className="archived-item-container flex column">
-                    {/* <Link to={`/board/${board._id}/task/${archivedTask.id}`}> */}
 
-                    {/* <ArchiveTaskPreview onOpenModal={onOpenModal} handleClose={handleClose} task={archivedTask} board={board} setLabelExpand={setLabelExpand} setTaskEditExpand={setTaskEditExpand} /> */}
+                    <TaskPreview onOpenModal={onOpenModal} handleClose={handleClose} task={archivedTask} board={board} titleLabelClass={titleLabelClass}
+                        setLabelExpand={setLabelExpand} setTitleLabelClass={setTitleLabelClass} setLabelTitleDelay={setLabelTitleDelay} />
 
-
-                    {/* <div className="archived-item-details" onClick={handleClose} >
-                            <span>{archivedTask.title}</span>
-
-                        </div> */}
-                    {/* </Link> */}
-
-                    <TaskPreview onOpenModal={onOpenModal} handleClose={handleClose} task={archivedTask} board={board} setLabelExpand={setLabelExpand} setTaskEditExpand={setTaskEditExpand} />
-
-                    <div className="flex align-center space-between">
+                    <div className="span-container flex align-center">
                         <span onClick={() => onSendToBoard(archivedTask)} >Send to board</span>
+                        <span>&nbsp; - &nbsp;</span>
                         <span onClick={() => onDeleteTask(archivedTask)}>Delete</span>
                     </div>
                 </div>

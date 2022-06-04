@@ -67,7 +67,6 @@ export const BoardDetails = () => {
 
 
     function setBoardFromSocket(board) {
-        console.log('setBoardFromSocket ~ board', board)
         dispatch(updateBoardToStore(board))
     }
 
@@ -147,7 +146,8 @@ export const BoardDetails = () => {
         <AppHeader />
 
         <div className='board-header flex'>
-            <BoardHeaderNavBar board={board} setLabelExpand={setLabelExpand} setTaskEditExpand={setTaskEditExpand} />
+            <BoardHeaderNavBar board={board} setLabelExpand={setLabelExpand} setTitleLabelClass={setTitleLabelClass}
+             setLabelTitleDelay={setLabelTitleDelay} titleLabelClass={titleLabelClass}  />
         </div>
         <main className='board-details flex'>
             <DragDropContext

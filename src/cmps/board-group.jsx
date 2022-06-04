@@ -8,11 +8,16 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
     return (
         <>
             <article className="board-group flex column">
-                <GroupTitleEdit
-                    groupTitle={group.title}
-                    group={group}
-                    boardId={board._id}
-                />
+                <div className="flex align-center justify-between">
+
+                    <GroupTitleEdit
+                        groupTitle={group.title}
+                        group={group}
+                        boardId={board._id}
+                    />
+                    {/* <div className="group-menu-btn flex justify-center align-center" onClick={() => console.log('hhh')}>...</div> */}
+
+                </div>
                 <TaskList
                     onOpenModal={onOpenModal}
                     board={board}

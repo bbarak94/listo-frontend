@@ -109,7 +109,7 @@ function removeTaskFromBoard(board, taskId) {
     const { currGroup, currTask } = getTaskAndGroup(boardToUpdate, taskId)
     console.log('removeTaskFromBoard ~ currTask', currTask)
 
-    const newActivity = _createActivity('deleted a task from', currTask)
+    const newActivity = _createActivity('deleted a task', currTask)
     boardToUpdate.activities.unshift(newActivity)
 
     currGroup.tasks = currGroup.tasks.filter(t => t.id !== taskId)
