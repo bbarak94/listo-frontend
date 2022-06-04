@@ -69,7 +69,8 @@
     .group-title input,
     .group-title p {
         margin: 4px;
-        width: 255px;
+        // width: 255px;
+        width: 100%;
         outline: none;
         border: none;
         border-radius: 3px;
@@ -91,6 +92,11 @@
 }
 
 .group-menu-btn {
+    width: 35px;
+    height: 35px;
+    margin: 4px;
+    border-radius: 4px;
+    font-weight: 700;
     cursor: pointer;
     &:hover {
         background-color: $clr12;

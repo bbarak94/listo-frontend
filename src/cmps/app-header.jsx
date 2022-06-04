@@ -51,7 +51,7 @@ export const AppHeader = () => {
         try {
             var newTheme
             const mashu = await fac.getColorAsync(board.style.background)
-            console.log('mashu:',mashu)            
+            // console.log('mashu:',mashu)            
             const backgroundColor = mashu.rgba;
             const color = mashu.isDark ? '#fff' : '#000'
             if (location.pathname==='/workspace') newTheme = { backgroundColor:"#026aa7", color:'white' }
