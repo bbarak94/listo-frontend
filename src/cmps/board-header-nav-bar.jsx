@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 import { AppModal } from './app-modal'
 import star from '../assets/img/workspace/star-stroke.svg'
+import starWhite from '../assets/img/workspace/star-stroke-white.svg'
 import filter from '../assets/img/icon/filter.svg'
 import starFill from '../assets/img/workspace/star-fill.svg'
 
