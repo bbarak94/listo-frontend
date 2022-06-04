@@ -10,7 +10,7 @@
         min-width: 100%;
     }
 
-    [data-rbd-drag-handle-context-id="0"]{
+    *[data-rbd-draggable-context-id]{
         //  cursor: -webkit-grab; 
          cursor: initial; 
      }

@@ -1,15 +1,13 @@
 .task-edit {
     position: fixed;
-    // top: 0.1px;
-    // left: 0.1px;
-    // top: 0;
-    // right: 17px;
     z-index: 20;
 
     .task-title-edit {
-        // position: relative;
-        // top: -472px;
-        // left: 4px;
+
+        form {
+            background-color: $clr10;
+            border-radius: 3px;
+        }
 
         textArea {
             padding: 6px 8px 2px;

@@ -15,11 +15,13 @@ import { AddBoard } from './dynamic-cmps/add-board';
 import { WorkspaceNavModal } from './dynamic-cmps/workspace-nav-modal';
 import { MenuModal } from './dynamic-cmps/menu-modal.jsx';
 import { FilterModal } from './dynamic-cmps/filter-modal.jsx';
+import { DeleteGroupModal } from './dynamic-cmps/delete-group-modal.jsx';
+
 
 const buttonHeight = 32
 
-export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, setTitleLabelClass, isOpen, setIsOpen, 
-    cmpType, task, board, group, member, labelId, position = { top: '10%', left: '33.3%' } , setTaskEditExpand}) {
+export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, setTitleLabelClass, isOpen, setIsOpen,
+    cmpType, task, board, group, member, labelId, position = { top: '10%', left: '33.3%' }, setTaskEditExpand }) {
 
     const getType = () => {
         switch (cmpType) {
@@ -43,7 +45,10 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
                 return <AddBoard task={task} board={board} group={group} handleClose={handleClose} />
             case 'workspace-nav-modal':
                 return <WorkspaceNavModal task={task} board={board} group={group} handleClose={handleClose} />
-            case 'menu':
+            case 'delete-group-modal':
+                return <DeleteGroupModal board={board} group={group} handleClose={handleClose} />
+            
+                case 'menu':
                 return <MenuModal task={task} board={board} group={group} handleClose={handleClose} setLabelExpand={setLabelExpand}
                     setTitleLabelClass={setTitleLabelClass} titleLabelClass={titleLabelClass} setLabelTitleDelay={setLabelTitleDelay} />
             case 'filter':

@@ -174,6 +174,17 @@ export function addTask(taskTitle, boardId, groupId) {
     }
 }
 
+export function removeGroupFromBoard(board, groupId) {
+    return async (dispatch) => {
+        try {
+            const updatedBoard = boardService.removeGroupFromBoard(board, groupId)
+            _dispatchAndEmitBoard(dispatch, updatedBoard)
+        } catch (err) {
+            console.log('Cannot remove group', err)
+        }
+    }
+}
+
 export function updateBoardToStore(board) {
     return (dispatch) => {
         dispatch({
