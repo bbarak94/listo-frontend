@@ -1,10 +1,12 @@
 .task-checklist {
-   .progress-container{
+   .progress-container {
       margin-left: 8px;
    }
-   .progress-bar{
+
+   .progress-bar {
       // margin-left: 40px;
    }
+
    .top-container {
       // margin: 14px 16px 6px -4px;
       max-height: 38px;
@@ -14,7 +16,7 @@
       align-items: center;
 
       .top-left-container {
-         h2{
+         h2 {
             position: relative;
             right: 4px;
             margin-top: 2px;
@@ -40,7 +42,7 @@
 
          color: $clr1;
       }
-      
+
    }
 
    .add-btn {
@@ -81,6 +83,7 @@
          max-height: 15px;
          border: 2px solid $clr1;
          border-radius: 3px;
+
          &:hover {
             background-color: darken($color: $clr13, $amount: 1)
          }
@@ -102,7 +105,7 @@
             right: 2px;
             bottom: 2px;
          }
-            
+
          // img {
          //    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(104deg) brightness(103%) contrast(103%);
          //    transform: scaleX(-1);
@@ -176,31 +179,44 @@
       box-shadow: inset 0 0 0 2px #0079bf;
       line-height: 20px;
    }
-   
 
 
-   .add-todo{
-      .todo-title{
+
+   .add-todo {
+      .todo-title {
          margin-top: 6px;
          margin-left: 40px;
          width: 90%;
       }
-      .cancel-todo-btn{
+
+      .cancel-todo-btn {
          color: #172B4D;
          background-color: unset;
-         &:hover{
+
+         &:hover {
             background-color: rgba(9, 30, 67, 0.0392156863);
 
          }
       }
    }
-   .add-todo-btn{
+
+   .add-todo-btn {
       margin-left: 40px;
       margin-right: 6px;
    }
-   .add-todo-btn, .cancel-todo-btn{
+
+   .add-todo-btn,
+   .cancel-todo-btn {
       margin-bottom: 10px;
       margin-top: 2px;
    }
 
+}
+
+@media (max-width:750px) {
+   .task-checklist {
+      .top-container {
+         margin-right: 0;
+      }
+   }
 }

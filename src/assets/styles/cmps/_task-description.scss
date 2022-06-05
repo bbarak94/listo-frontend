@@ -4,32 +4,33 @@
     .desc-header {
         margin: 0 0 8px 0;
 
-         h3 {
-         position: relative;
-         right: 4px;
-         margin-top: 2px;
-         font-size: 16px;
-         // display: inline-block;
-         font-weight: 500;
-         line-height: 25px;
-         color: $clr1;
-         
-         .desc-icon {
-             color: $clr8;
-             
-         }
+        h3 {
+            position: relative;
+            right: 4px;
+            margin-top: 2px;
+            font-size: 16px;
+            // display: inline-block;
+            font-weight: 500;
+            line-height: 25px;
+            color: $clr1;
 
-         .activity-icon{
-            color: $clr8;
-         }
-      }
+            .desc-icon {
+                color: $clr8;
+
+            }
+
+            .activity-icon {
+                color: $clr8;
+            }
+        }
     }
 
     textarea {
-        margin-bottom: 10px;
         background-color: $clr-opa2;
+        margin-bottom: 10px;
         margin-left: 44px;
-        width: 88.5%;
+        width: 92%;
+        max-width: 584px;
         font-size: 14px;
         padding: 8px 12px;
         cursor: pointer;
@@ -58,5 +59,13 @@
     .btn-cancel {
         background-color: inherit;
         color: inherit;
+    }
+}
+
+@media (max-width:750px) {
+    .task-desc {
+        textarea {
+            width: 93%;
+        }
     }
 }

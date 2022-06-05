@@ -2,7 +2,7 @@
     padding: 0 8px;
     position: relative;
     top: 12px;
-    height: calc(100vh - 90px);
+    height: calc(100vh - 102px);
     overflow-x: auto;
     // overflow-y: hidden;
 
@@ -25,10 +25,22 @@
     //     background-color: $clr13;
     // }
 
-    [data-rbd-drag-handle-context-id="1"] {
-        // cursor: -webkit-grab;
-        cursor: initial;
+}
+
+@media (max-width:802px) {
+    .board-details {
+        height: calc(100vh - 138px); 
     }
+}
 
+@media (max-width:604px) {
+    .board-details {
+        height: calc(100vh - 180px); 
+    }
+}
 
+@media (max-width:332px) {
+    .board-details {
+        height: calc(100vh - 222px); 
+    }
 }

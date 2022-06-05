@@ -4,16 +4,17 @@
     top: 38px;
     flex-wrap: wrap;
     row-gap: 4px;
-    padding: 12px;
+    padding: 16px 12px;
     justify-content: space-between;
     margin-bottom: 20px;
 
     .sep {
-        color: $clr1;
+        color: #0003;
     }
 
     .board-header-right-container {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 10px;
 

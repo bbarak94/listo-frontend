@@ -6,11 +6,11 @@
    textarea {
       width: 89.5%;
       padding: 10px;
-      box-shadow: 0 1px 2px -1px #091e4240,0 0 0 1px #091e4214;
+      box-shadow: 0 1px 2px -1px #091e4240, 0 0 0 1px #091e4214;
    }
 
    .comments-box {
-      width: 89.5%;
+      width: 507px;
 
       textarea {
          padding: 10px;
@@ -20,6 +20,7 @@
 
    .comments-box-closed {
       margin-bottom: 10px;
+
       textarea {}
    }
 
@@ -27,13 +28,13 @@
       textarea {
          padding: 10px 10px 60px 10px;
          margin-bottom: -24px;
-         box-shadow: 0 4px 8px -2px #091e4240,0 0 0 1px #091e4214;
+         box-shadow: 0 4px 8px -2px #091e4240, 0 0 0 1px #091e4214;
       }
 
       .comments-btns {
          justify-content: space-between;
 
-         .cancel-btn{
+         .cancel-btn {
             width: 56px;
             height: 30px;
             font-size: 14px;
@@ -47,9 +48,10 @@
             cursor: pointer;
             color: #172B4D;
             background-color: unset;
-            &:hover{
+
+            &:hover {
                background-color: rgba(9, 30, 67, 0.0392156863);
-   
+
             }
          }
 
@@ -109,45 +111,55 @@
 
    .comments-list {
       gap: 6px;
+
       .comment-main-container {
          gap: 5px;
-         .user-container{
 
-         }
+         .user-container {}
+
          .comment-right-container {
             gap: 6px;
             justify-content: center;
             align-content: center;
-            .title{
+
+            .title {
                gap: 8px;
-               h1{
+
+               h1 {
                   margin: 0;
                   font-size: 16px;
                   font-weight: 500;
                }
-               h2{
+
+               h2 {
                   margin-top: 2px;
                   font-size: 14px;
                   font-weight: 400;
                }
             }
+
             flex: 1;
+
             textarea {
                padding: 10px;
-               width: 95.5%;
+               width: 100%;
             }
-            .comment-btns{
+
+            .comment-btns {
                gap: 4px;
-               div{
-                  &:hover{
+
+               div {
+                  &:hover {
                      cursor: pointer;
                   }
                }
-               h3{
-                  span{
+
+               h3 {
+                  span {
                      font-size: 13px;
                      font-weight: 300;
-                     &:hover{
+
+                     &:hover {
                         cursor: pointer;
                         text-decoration: underline;
                      }
@@ -155,9 +167,17 @@
                }
             }
          }
-
       }
+   }
+}
 
-
+@media (max-width:750px) {
+   .comments {
+      .comments-box {
+         textarea {
+            width: 115.7%;
+            max-width: 586px;
+         }
+      }
    }
 }
