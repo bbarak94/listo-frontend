@@ -103,9 +103,9 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , 
                 <span className='board-header-btn' style={theme}>Filter</span>
             </div>
             <div className="show-menu-btn" onClick={() => {
-                // setModalPosition({ top: '43px', right: '0' })
-                // setIsOpen(true)
-                // setCmpType('menu')
+                setModalPosition({ top: '43px', right: '0' })
+                setIsOpen(true)
+                setCmpType('menu')
             }}>
                 <span className='board-header-btn' style={theme}>... Show menu</span>
             </div>

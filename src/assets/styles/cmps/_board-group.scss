@@ -103,3 +103,21 @@
     }
 
 }
+
+@media (max-width:802px) {
+    .board-group {
+        max-height: calc(100vh - 156px); 
+    }
+}
+
+@media (max-width:604px) {
+    .board-group {
+        max-height: calc(100vh - 198px); 
+    }
+}
+
+@media (max-width:332px) {
+    .board-group {
+        max-height: calc(100vh - 240px); 
+    }
+}

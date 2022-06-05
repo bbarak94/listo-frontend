@@ -47,10 +47,10 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
                 return <WorkspaceNavModal task={task} board={board} group={group} handleClose={handleClose} />
             case 'delete-group-modal':
                 return <DeleteGroupModal board={board} group={group} handleClose={handleClose} />
-
-            // case 'menu':
-            //     return <MenuModal task={task} board={board} group={group} handleClose={handleClose} setLabelExpand={setLabelExpand}
-            //         setTitleLabelClass={setTitleLabelClass} titleLabelClass={titleLabelClass} setLabelTitleDelay={setLabelTitleDelay} />
+            
+                case 'menu':
+                return <MenuModal task={task} board={board} group={group} handleClose={handleClose} setLabelExpand={setLabelExpand}
+                    setTitleLabelClass={setTitleLabelClass} titleLabelClass={titleLabelClass} setLabelTitleDelay={setLabelTitleDelay} />
             case 'filter':
                 return <FilterModal task={task} board={board} group={group} handleClose={handleClose} setLabelExpand={setLabelExpand} setTaskEditExpand={setTaskEditExpand} />
         }

@@ -27,11 +27,23 @@
       }
    }
 
+   .all-btns {
+      flex-direction: column;
+      gap: 8px;
+
+      section {
+         display: flex;
+         flex-direction: column;
+         gap: 10px;
+      }
+   }
+
    .task-edit-btn {
       max-height: 32px;
       width: 170px;
       background-color: $clr12;
       align-content: center;
+      border-radius: 3px;
 
       &:hover {
          cursor: pointer;
@@ -53,7 +65,26 @@
          font-weight: 400;
 
       }
+   }
 
+
+}
+
+@media (max-width:750px) {
+   .task-nav-bar {
+      padding: 10px;
+      .all-btns {
+         flex-direction: row;
+         gap: 18px;
+         section{
+            flex-grow: 1;
+         }
+      }
+
+      .task-edit-btn {
+         width: 100%;
+         max-width: 300px;
+      }
    }
 
 }
