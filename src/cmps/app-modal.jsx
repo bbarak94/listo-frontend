@@ -126,7 +126,7 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
     }
 
     if (cmpType === 'menu') {
-        style.top = '36px'
+        style.top = '45px'
     }
 
     const cmpHeight = getCmpHeight(cmpType)
