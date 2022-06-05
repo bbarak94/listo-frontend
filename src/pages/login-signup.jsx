@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
+import GoogleLogin from 'react-google-login'
 
 import OutlinedInput from '@mui/material/OutlinedInput'
 import AppleIcon from '@mui/icons-material/Apple'
@@ -30,6 +31,37 @@ export function LoginSignup() {
         else setMsg('can\'t login, try again')
     }
 
+    // const { signIn, loaded } = useGoogleLogin({
+    //     onSuccess,
+    //     // onAutoLoadFinished,
+    //     clientId: '990922073971-qqfla83br1k1os07bs5agfjdj5r0o9kt.apps.googleusercontent.com',
+    //     // cookiePolicy,
+    //     // loginHint,
+    //     // hostedDomain,
+    //     // autoLoad,
+    //     // isSignedIn,
+    //     // fetchBasicProfile,
+    //     // redirectUri,
+    //     // discoveryDocs,
+    //     onFailure,
+    //     // uxMode,
+    //     // scope,
+    //     // accessType,
+    //     // responseType,
+    //     // jsSrc,
+    //     // onRequest,
+    //     // prompt
+    // })
+
+    function handelLogin(res) {
+        console.log(res)
+    }
+
+    function handelFailure(res) {
+        console.log(res)
+    }
+
+
     const onSignup = (ev = null) => {
         const credentials = { username, fullname, password, imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg' }
         const res = dispatch(signup(credentials))
@@ -52,6 +84,7 @@ export function LoginSignup() {
         }
     }
 
+
     return (
         <div className='login-signup flex justify-center'>
             <div className='login-logo-container'>
@@ -59,6 +92,17 @@ export function LoginSignup() {
                     style={{ width: '200px' }} onClick={() => { navigation(`/`) }} />
             </div>
             <main>
+
+                {/* <div className="g-signin2" data-onsuccess="onSignIn"> <button>click</button></div> */}
+                <GoogleLogin
+                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                    buttonText="CONTINUE WITH GOOGLE"
+                    onSuccess={handelLogin}
+                    onFailure={handelFailure}
+                    cookiePolicy={'single_host_origin'}
+                ></GoogleLogin>
+
+
                 {location.pathname === '/login' && (
                     <div className='login'>
                         <form className='login-form' onSubmit={onLogin}>
@@ -93,12 +137,12 @@ export function LoginSignup() {
                     </div>
                 )}
                 <h3>or</h3>
-                <Button className='social-btn google-btn'>
-                    <div className='google-container'>
+                <Button className='social-btn google-btn'  >
+                    <div className='google-container' >
                         <img className='google-logo' src={google} alt='Logo' style={{ width: '20px' }}
                             onClick={() => { navigation(`/`) }} />
                     </div>
-                    <h2>Continue with Google</h2>
+                    <h2 >Continue with Google</h2>
                 </Button>
                 <Button className='social-btn microsoft-btn'>
                     <div className='microsoft-container'>

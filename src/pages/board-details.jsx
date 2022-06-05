@@ -3,6 +3,8 @@ import { useParams, Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
+import loader from '../assets/img/loader.svg'
+
 import { BoardGroup } from '../cmps/board-group'
 import { AddGroup } from '../cmps/add-group'
 import { BoardHeaderNavBar } from '../cmps/board-header-nav-bar'
@@ -130,7 +132,8 @@ export const BoardDetails = () => {
     }
 
 
-    if (!board) return <div>Loading...</div>
+    // if (!board) return <div>Loading...</div>
+    if (!board) return <img className='loader' src={loader} alt='Loading...'/>
     return <section
         className='board-app cover-img board-cover-img flex column'
         style={{

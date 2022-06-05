@@ -6,11 +6,12 @@ import { AppModal } from './app-modal'
 
 import starStroke from '../assets/img/workspace/star-stroke.svg'
 import trello from '../assets/img/asset 11.svg'
+import loader from '../assets/img/loader.svg'
 
 import { loadBoards } from '../store/actions/board.action'
 
 export const BoardList = () => {
-    
+
     const { boards } = useSelector((storeState) => storeState.boardModule)
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false)
@@ -24,7 +25,7 @@ export const BoardList = () => {
         dispatch(loadBoards())
     }, [])
 
-    if (!boards) return <h1>loading...</h1>
+    if (!boards) return <img className='loader' src={loader} alt='Loading...'/>
     return (
         <section className="board-list">
             <section>
@@ -54,8 +55,8 @@ export const BoardList = () => {
                 </div>
             </section>
 
-            <AppModal isOpen={isOpen} setIsOpen={setIsOpen} 
-            cmpType={'add-board'} onAddBoard={onAddBoard} />
+            <AppModal isOpen={isOpen} setIsOpen={setIsOpen}
+                cmpType={'add-board'} onAddBoard={onAddBoard} />
         </section>
     )
 }
