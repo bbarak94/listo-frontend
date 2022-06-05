@@ -1,7 +1,12 @@
 .filter-popup {
    min-width: 300px;
    min-height: 230px;
+   max-height: calc(100vh - 60px);
    padding: 14px;
+   overflow: auto;
+
+   
+
 
    .title-container {
       justify-content: center;
