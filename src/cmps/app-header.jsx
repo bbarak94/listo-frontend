@@ -69,13 +69,13 @@ export const AppHeader = () => {
     return (
         <div className='app-header flex align-center' style={theme}>
             <div className='app-header-btn-container flex'>
-                <div className='app-header-navbar-container'>
+                {/* <div className='app-header-navbar-container'>
                     <img
                         src={navBar}
                         alt='navigate'
                         style={{ width: '22px' }}
                     />
-                </div>
+                </div> */}
 
                 <div
                     className='app-header-logo-static flex'
@@ -99,7 +99,7 @@ export const AppHeader = () => {
                     />
                 </div>
 
-                <Button className='app-header-btn'>
+                {/* <Button className='app-header-btn'>
                     Workspaces
                     <div className='app-header-navbar-container'>
                         <img
@@ -138,7 +138,7 @@ export const AppHeader = () => {
                             style={{ width: '22px' }}
                         />
                     </div>
-                </Button>
+                </Button> */}
                 {user?.imgUrl && (
                     <div className='welcome flex align-center'>
                         {user.username !== 'guest' && (
