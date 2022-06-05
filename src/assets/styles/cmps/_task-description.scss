@@ -28,11 +28,12 @@
     textarea {
         background-color: $clr-opa2;
         margin-bottom: 10px;
-        margin-left: 44px;
-        width: 92%;
-        max-width: 584px;
+        // margin-left: 44px;
+        width: 100%;
+        max-width: 506px;
         font-size: 14px;
         padding: 8px 12px;
+        align-self: flex-end;
         cursor: pointer;
 
         &.open {
@@ -65,7 +66,17 @@
 @media (max-width:750px) {
     .task-desc {
         textarea {
-            width: 93%;
+            width: 92%;
+            max-width: 586px;
+        }
+    }
+}
+
+@media (max-width:490px) {
+    .task-desc {
+        textarea {
+            width: 92%;
+            max-width: 296px;
         }
     }
 }

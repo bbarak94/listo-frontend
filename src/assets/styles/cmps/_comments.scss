@@ -11,6 +11,7 @@
 
    .comments-box {
       width: 507px;
+      flex-grow: 1;
 
       textarea {
          padding: 10px;
@@ -20,6 +21,7 @@
 
    .comments-box-closed {
       margin-bottom: 10px;
+
 
       textarea {}
    }
@@ -171,12 +173,36 @@
    }
 }
 
-@media (max-width:750px) {
+// @media (max-width:750px) {
+//    .comments {
+//       .comments-box {
+//          textarea {
+//             // width: 115.7%;
+//             // max-width: 586px;
+//          }
+//       }
+//    }
+// }
+
+@media (max-width:590px) {
    .comments {
-      .comments-box {
-         textarea {
-            width: 115.7%;
-            max-width: 586px;
+      .comments-box-open {
+         .comments-btns {
+            .cancel-btn {
+               right: 60px;
+            }
+         }
+      }
+   }
+}
+
+@media (max-width:490px) {
+   .comments {
+      .comments-box-open {
+         .comments-btns {
+            .cancel-btn {
+               right: 0;
+            }
          }
       }
    }

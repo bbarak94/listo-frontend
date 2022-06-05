@@ -5,13 +5,9 @@ import { updateTask } from '../../store/actions/board.action'
 import moment from 'moment'
 
 export const DatePreview = ({ board, group, task, onOpenModal }) => {
-    console.log('task.isComplete', task.isComplete)
     const dispatch = useDispatch()
 
     const onCompleteTask = (ev) => {
-        console.log('ev', ev)
-        ev.stopPropagation()
-        ev.preventDefault()
         const taskToUpdate = { ...task }
         taskToUpdate.isComplete = !taskToUpdate.isComplete
         dispatch(updateTask(taskToUpdate, board._id, group.id))
@@ -21,7 +17,6 @@ export const DatePreview = ({ board, group, task, onOpenModal }) => {
     if (task.isComplete) dateClass = 'complete'
     else if (!task.isComplete && task.dueDate < Date.now()) dateClass = 'pastDue'
     else dateClass = ''
-    console.log('dateClass', dateClass)
 
     const dateTitle = () => {
         if (task.isComplete) return 'This card is complete'
@@ -40,7 +35,7 @@ export const DatePreview = ({ board, group, task, onOpenModal }) => {
             <h1>Due date</h1>
             <div className='date-preview flex column justify-center' >
                 <p className='flex align-center'>
-                    <input type="checkbox" onClick={onCompleteTask} checked={task.isComplete} value={task.isComplete} />
+                    <input type="checkbox" onClick={(ev)=>ev.stopPropagation()} onChange={onCompleteTask} checked={task.isComplete}/>
                     {moment(task.dueDate).format('MMMM D YYYY [at] h:mm a')}
                     <span className={dateClass}>{getDateState()}</span>
                 </p>

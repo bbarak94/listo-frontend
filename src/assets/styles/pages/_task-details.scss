@@ -250,3 +250,25 @@
         }
     }
 }
+
+@media (max-width:590px) {
+    .task-details {
+        min-width: 90%;
+        .task-details-content {
+            max-width: 472px;
+        }
+    }
+}
+
+@media (max-width:490px) {
+    .task-details {
+        min-width: 90%;
+        .task-details-content {
+            max-width: 340px;
+        }
+    }
+
+    .due-date-preview-container {
+        margin-left: 8px;
+    }
+}

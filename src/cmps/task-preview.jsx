@@ -26,9 +26,9 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
         // ****** Task edit relative to task preview ********
-        let elemRect = ev.currentTarget.parentNode.parentNode.getBoundingClientRect()
-        let top = elemRect.top - window.pageYOffset
-        let left = elemRect.left - window.pageXOffset
+        const elemRect = ev.currentTarget.parentNode.parentNode.getBoundingClientRect()
+        const top = elemRect.top - window.pageYOffset
+        const left = elemRect.left - window.pageXOffset
         // ****** Task edit width relative to task preview width ********
         const width = ev.target.parentNode.offsetWidth
         setStyle({ top, left, width })

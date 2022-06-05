@@ -78,7 +78,7 @@ export const TaskDetailsComments = ({ task, board, groupId }) => {
    if (!user) return <></>
    return (
       <div className="comments flex column">
-         <div className="flex" style={{ gap: '5px' }}>
+         <div className="flex space-between" style={{ gap: '5px' }}>
             <div
                className='user-container flex'
             >

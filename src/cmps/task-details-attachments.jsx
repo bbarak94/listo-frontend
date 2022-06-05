@@ -81,16 +81,16 @@ export const TaskDetailsAttachments = ({ task, boardId, groupId }) => {
                         )}
                      <ArrowRightAltIcon style={{ transform: 'rotate(-45deg)', width: '16px' }} />
                   </div>
-                  <div className='flex'>
+                  <div className='actions flex'>
                      {(Date.now() - att.createdAt < 30000) && <h2 className='date'> just now </h2>}
                      {(Date.now() - att.createdAt > 30000) && <h2 className='date'>{(moment(att.createdAt).fromNow())}</h2>}
                      <h3>
-                        {' '}-{' '}
-                        <span onClick={(ev) => onComment(ev, att)}>Comment</span>
-                        -
+                        {/* {' '}-{' '} */}
+                        {/* <span onClick={(ev) => onComment(ev, att)}>Comment</span> */}
+                        {/* - */}
                         <span onClick={(ev) => onRemove(ev, att,idx)}>Delete</span>
-                        -
-                        <span onClick={(ev) => onEdit(ev, att)}>Edit</span>
+                        {/* - */}
+                        {/* <span onClick={(ev) => onEdit(ev, att)}>Edit</span> */}
                      </h3>
                   </div>
                   <div className='make-cover flex'>

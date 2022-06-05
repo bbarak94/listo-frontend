@@ -39,7 +39,7 @@
             div {
                align-items: center;
                h2 {
-                  font-size: 18px;
+                  font-size: 14px;
                   font-weight: 300;
                }
 
@@ -67,12 +67,37 @@
                      }
                }
             }
+
+            .actions {
+               flex-direction: row;
+               justify-content: space-between;
+
+               h3{
+                  align-self: self-start;
+               }
+            }
          }
       }
-
-
-
-
-
    }
+}
+
+@media (max-width:490px) {
+   .task-attachments {
+      .imgs-container {
+         .attachment-container {
+            .attachment-details {
+               .actions {
+                  flex-direction: column;
+                  h3, h2{
+                     align-self: self-start;
+                  }
+               }
+               .make-cover span{
+                  min-width: 80px;
+               }
+            }
+         }
+      }
+   }
+   
 }

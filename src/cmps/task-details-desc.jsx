@@ -26,7 +26,7 @@ export const TaskDetailsDesc = ({ task, boardId, groupId }) => {
     const textAreaClass = isTxtAreaOpen ? 'open' : ''
 
     return (
-        <div className='task-desc'>
+        <div className='task-desc flex column'>
             <div className="desc-header flex">
                 <div className="task-details-left-icon desc-icon-container">
                     <ArticleOutlinedIcon className="desc-icon" style={{color: '#5e6c84'}}/>
