@@ -1,9 +1,10 @@
 .board-header {
     // background-color: $clr13;
     position: relative;
-    top: 34px;
+    top: 38px;
     flex-wrap: wrap;
-    padding: 0 6px;
+    row-gap: 4px;
+    padding: 12px;
     justify-content: space-between;
     margin-bottom: 20px;
 
@@ -50,6 +51,7 @@
             line-height: 16px;
             display: inline-flex;
             align-items: center;
+            min-width: fit-content;
 
             &:hover {
                 cursor: pointer;
