@@ -68,6 +68,16 @@ textarea {
     font-family: inherit;
 }
 
+.loader{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-height: 30vh;
+    max-width: 30vw;
+    background-color: transparent;
+}
+
 // .task-preview-icon {
 //     background-image: url(../../img/icon/pencil.svg);  
 //     background-size: 12px 22px;
