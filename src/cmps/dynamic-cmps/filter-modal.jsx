@@ -34,6 +34,21 @@ export const FilterModal = ({ handleClose, board, setLabelExpand, setTaskEditExp
         dispatch(setFilter(newFilterBy))
     }
 
+    const onToggleLabel = async (labelId) => {
+        console.log('labelId:',labelId)
+        
+        // const updatedTask = await labelService.toggleLabel(labelId, task)
+        // dispatch(updateTask(updatedTask, board._id, group.id))
+    }
+
+    const isLabelOnTask = (labelId) => {
+        console.log('labelId:',labelId)
+        
+        // if (!task) return
+        // if (!task.labelIds) task.labelIds = []
+        // return task.labelIds.includes(labelId)
+    }
+
     return <div className='filter-popup'>
         <div className='title-container flex'>
             <h1>Filter</h1>
@@ -74,6 +89,17 @@ export const FilterModal = ({ handleClose, board, setLabelExpand, setTaskEditExp
         {(!filterBy.dueDate.includes(member.id)) && <CheckBoxOutlineBlankIcon onClick={()=>addMember(member.id)}/>}    */}
 
         <h2>labels</h2>
+        <ul className='label-list'>
+                    {board.labels.map(label => {
+                        return (
+                            <li className='label-list-item' key={label.id} style={{ background: label.color }}
+                                onClick={() => onToggleLabel(label)} >
+                                <span>{label.title}</span>
+                                {isLabelOnTask(label) && <span>✔</span>}
+                            </li>
+                        )
+                    })}
+                </ul>
 
 
 
