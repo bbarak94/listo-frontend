@@ -93,14 +93,15 @@ export function LoginSignup() {
             </div>
             <main>
 
-                {/* <div className="g-signin2" data-onsuccess="onSignIn"> <button>click</button></div> */}
-                <GoogleLogin
-                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                {/* <GoogleLogin
+
+clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                     buttonText="CONTINUE WITH GOOGLE"
                     onSuccess={handelLogin}
                     onFailure={handelFailure}
                     cookiePolicy={'single_host_origin'}
-                ></GoogleLogin>
+                    scope="profile"
+                ></GoogleLogin> */}
 
 
                 {location.pathname === '/login' && (
