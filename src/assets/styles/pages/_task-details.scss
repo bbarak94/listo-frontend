@@ -263,8 +263,9 @@
 
 @media (max-width:490px) {
     .task-details {
-        min-width: 90%;
-
+        min-width: 100%;
+        // max-height: 107.5vh;
+        min-height: 106.5vh;
         .task-details-content {
             max-width: 340px;
         }

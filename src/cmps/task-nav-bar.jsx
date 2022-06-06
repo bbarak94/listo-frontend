@@ -37,7 +37,7 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                                 <h1 className='title'>Suggested</h1>
                             </div>
                             <div onClick={joinToTask}>
-                                <div className='task-edit-btn flex align-center'>
+                                <div className='task-edit-btn member-join flex align-center'>
                                     <div>
                                         <img
                                             src={members}

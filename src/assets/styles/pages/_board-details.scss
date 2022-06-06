@@ -39,8 +39,14 @@
     }
 }
 
-@media (max-width:332px) {
+@media (max-width:490px) {
     .board-details {
-        height: calc(100vh - 222px); 
+        height: calc(100vh - 98px); 
     }
 }
+
+// @media (max-width:332px) {
+//     .board-details {
+//         height: calc(100vh - 222px); 
+//     }
+// }

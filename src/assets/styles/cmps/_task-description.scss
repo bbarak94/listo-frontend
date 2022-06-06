@@ -55,11 +55,13 @@
     .btn {
         margin-inline-end: 4px;
         margin-inline-start: 44px;
+        align-self: flex-start;
     }
-
+    
     .btn-cancel {
         background-color: inherit;
         color: inherit;
+        align-self: flex-start;
     }
 }
 

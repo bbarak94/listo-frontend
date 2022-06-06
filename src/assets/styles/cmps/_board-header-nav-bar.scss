@@ -130,3 +130,15 @@
         }
     }
 }
+
+@media (max-width:332px) {
+    .board-header {  
+       
+
+        .filter-btn{
+            display: none !important;
+        }
+
+      
+    }
+}

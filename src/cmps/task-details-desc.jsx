@@ -45,10 +45,10 @@ export const TaskDetailsDesc = ({ task, boardId, groupId }) => {
                 value={description}
             />
             {isTxtAreaOpen &&
-            <>
+            <div className="flex">
                 <button className="btn" onClick={onHandleSubmit}>Save</button>
                 <button className="btn btn-cancel" onClick={() => setTxtAreaOpen(false)}>Cancel</button>
-            </>}
+            </div>}
         </div>
     )
 }
