@@ -92,7 +92,7 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , 
             </div>
         </div>
         <div className="board-header-left-container">
-            <div className='flex filter-btn show-menu-btn' style={{marginRight:'10px'}} onClick={() => {
+            <div className='flex filter-btn' style={{marginRight:'10px'}} onClick={() => {
                 setModalPosition({ top: '43px', right: '0' })
                 setIsOpen(true)
                 setCmpType('filter')

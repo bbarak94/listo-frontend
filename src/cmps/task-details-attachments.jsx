@@ -87,10 +87,10 @@ export const TaskDetailsAttachments = ({ task, boardId, groupId }) => {
                      <h3>
                         {/* {' '}-{' '} */}
                         {/* <span onClick={(ev) => onComment(ev, att)}>Comment</span> */}
-                        {/* - */}
+                        -
                         <span onClick={(ev) => onRemove(ev, att,idx)}>Delete</span>
-                        {/* - */}
-                        {/* <span onClick={(ev) => onEdit(ev, att)}>Edit</span> */}
+                        -
+                        <span onClick={(ev) => onEdit(ev, att)}>Edit</span>
                      </h3>
                   </div>
                   <div className='make-cover flex'>

@@ -41,10 +41,6 @@
 
         }
 
-        &>*:not(:first-child) {
-            // margin-left: 10px;
-        }
-
         .board-title-btn {
             padding: 4px 12px;
             border-radius: 3px;
@@ -85,12 +81,13 @@
 
         .show-menu-btn {
             @include boarder-header-btn;
-        .filter-btn{
-            @include boarder-header-btn;
-        }
             span {
                 color: #172b4d;
             }
+        }
+
+        .filter-btn{
+            @include boarder-header-btn;
         }
     }
 }
@@ -106,5 +103,30 @@
     &:hover {
         background-color: rgba(9, 30, 66, 0.0784313725);
         cursor: pointer;
+    }
+}
+
+@media (max-width:490px) {
+    .board-header {  
+        padding: 14px 0;
+        .board-header-right-container {
+            .board-star {
+                display: none;
+            }
+
+            .members-list-container {
+               display: none;
+            }
+        }
+
+        .board-header-left-container {
+            .show-menu-btn {
+                display: none;
+            }
+        }
+
+        .sep {
+            display: none;
+        }
     }
 }
