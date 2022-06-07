@@ -7,8 +7,7 @@
       .title {
          font-size: 12px;
          font-weight: 500;
-         margin: 0;
-         padding-bottom: 8px;
+         margin: 0 0 8px 0;
       }
 
       div {
@@ -49,6 +48,10 @@
       }
    }
 
+   .member-join{
+      margin-bottom: 8px;
+   }
+
    .task-edit-btn {
       max-height: 32px;
       width: 170px;
@@ -81,6 +84,8 @@
 
       }
    }
+
+   
 
 
 }

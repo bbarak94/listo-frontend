@@ -77,7 +77,7 @@ export const AppHeader = () => {
                     }}
                 >
                     <img
-                        src='https://res.cloudinary.com/bbarak94/image/upload/v1653768105/ListoStatic2_z2ecxu.gif'
+                        src='https://res.cloudinary.com/bbarak94/image/upload/v1654493829/ListoStatic2_-_Copy_zralmd.gif'
                         alt='navigate'
                         style={{ maxWidth: '110px' }}
                         onMouseOver={(ev) => {
@@ -86,7 +86,7 @@ export const AppHeader = () => {
                         }}
                         onMouseOut={(ev) => {
                             ev.target.src =
-                                'https://res.cloudinary.com/bbarak94/image/upload/v1653768105/ListoStatic2_z2ecxu.gif'
+                                'https://res.cloudinary.com/bbarak94/image/upload/v1654493829/ListoStatic2_-_Copy_zralmd.gif'
                         }}
                     />
                 </div>

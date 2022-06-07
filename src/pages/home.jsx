@@ -56,7 +56,7 @@ export const Home = () => {
                     Start Doing →
                 </button>
 
-                <img src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/spirit/product/89d378b845766a8f0c48e955336266f8/board.png" alt="" />
+                <img src="https://res.cloudinary.com/bbarak94/image/upload/v1654629281/board_oihzyl.png" alt="" />
 
                 <p>
                     Join over 1,000,000 teams worldwide that are using Listo to get more done.
