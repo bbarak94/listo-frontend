@@ -1,5 +1,3 @@
-import custom from '../assets/img/task/navbar/custom.svg'
-import LocationOnIcon from '@mui/icons-material/LocationOn'
 import AttachFileIcon from '@mui/icons-material/AttachFile'
 import VideoLabelOutlinedIcon from '@mui/icons-material/VideoLabelOutlined'
 import dates from '../assets/img/task/navbar/dates.svg'
@@ -16,11 +14,6 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
     const user = userService.getLoggedinUser()
     const dispatch = useDispatch()
 
-
-
-    // console.log('task.memberIds:', task.memberIds)
-    // console.log('user:', user)
-
     const joinToTask = () => {
         const newTask = { ...task }
         newTask.memberIds.unshift(user._id)
@@ -28,34 +21,31 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
     }
 
     return (
-        <>
-            <div className='task-nav-bar flex column'>
-                <section>
-                    {!task.memberIds.includes(user._id) && (
-                        <>
-                            <div className='title-container flex'>
-                                <h1 className='title'>Suggested</h1>
+        <div className='task-nav-bar flex column'>
+            <section className='suggested' style={{ width: '100%' }}>
+                {!task.memberIds.includes(user._id) && (
+                    <>
+                        <div className='title-container flex'>
+                            <h1 className='title'>Suggested</h1>
+                        </div>
+                        <div className='task-edit-btn member-join flex align-center' onClick={joinToTask}>
+                            <div >
+                                <img
+                                    src={members}
+                                    alt='Members'
+                                    style={{ width: '18px' }}
+                                />
                             </div>
-                            <div onClick={joinToTask}>
-                                <div className='task-edit-btn member-join flex align-center'>
-                                    <div>
-                                        <img
-                                            src={members}
-                                            alt='Members'
-                                            style={{ width: '18px' }}
-                                        />
-                                    </div>
-                                    <h2>Join</h2>
-                                </div>
-                            </div>
-                        </>
-                    )}
+                            <h2>Join</h2>
+                        </div>
+                    </>
+                )}
 
-                    <div className='title-container flex'>
-                        <h1 className='title'>Add to card</h1>
-                    </div>
-                </section>
-
+            </section>
+            <section>
+                <div className='title-container flex'>
+                    <h1 className='title'>Add to card</h1>
+                </div>
                 <section className='all-btns flex'>
                     <section>
                         <div onClick={(ev) => onOpenModal(ev, 'members',)}>
@@ -78,6 +68,7 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                                         style={{
                                             width: '16px',
                                             transform: 'rotate(45deg)',
+                                            color: '#17244d'
                                         }}
                                     />
                                 </div>
@@ -87,12 +78,11 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                         <div onClick={(ev) => onOpenModal(ev, 'checklist')}>
                             <div className='task-edit-btn flex align-center'>
                                 <div>
-                                    <CheckBoxOutlinedIcon style={{ width: '16px' }} />
+                                    <CheckBoxOutlinedIcon style={{ width: '16px', color: '#17244d' }} />
                                 </div>
                                 <h2>Checklist</h2>
                             </div>
                         </div>
-                        {/* <DynamicPopup name={'checklist'} /> */}
                         <div onClick={(ev) => onOpenModal(ev, 'dates')}>
                             <div className='task-edit-btn flex align-center'>
                                 <div>
@@ -113,22 +103,16 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
 
                                 <div>
                                     <AttachFileIcon
-                                        style={{ width: '16px', transform: 'rotate(45deg)' }}
+                                        style={{ width: '16px', transform: 'rotate(45deg)', color: '#17244d' }}
                                     />
                                 </div>
                                 <h2>Attachment</h2>
                             </div>
                         </div>
-                        {/* <div className='task-edit-btn flex align-center'>
-                    <div>
-                        <LocationOnIcon style={{ width: '16px' }} />
-                    </div>
-                    <h2>Location</h2>
-                </div> */}
                         <div>
                             <div className='task-edit-btn flex align-center' onClick={(ev) => onOpenModal(ev, 'cover')}>
                                 <div>
-                                    <VideoLabelOutlinedIcon style={{ width: '16px' }} />
+                                    <VideoLabelOutlinedIcon style={{ width: '16px', color: '#17244d' }} />
                                 </div>
                                 <h2>Cover</h2>
                             </div>
@@ -136,21 +120,8 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                         <ArchiveTask board={board} group={group} task={task} />
                     </section>
                 </section>
-
-                {/* <div className='task-edit-btn flex align-center'>
-                    <div>
-                        <img
-                            src={custom}
-                            alt='Custom Fields'
-                            style={{ width: '18px' }}
-                        />
-                    </div>
-                    <h2 >Custom Fields</h2>
-                </div> */}
-
-
-            </div>
-        </>
+            </section>
+        </div>
     )
 }
 

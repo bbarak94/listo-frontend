@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom"
 import { updateTask } from "../store/actions/board.action"
 import { TaskEditPreviewNav } from "./task-preview-edit-nav"
 
-import { Labels } from './task-preview/labels'
-import { Dates } from './task-preview/dates'
-import { Description } from './task-preview/description'
-import { Attachments } from './task-preview/attachments'
-import { Checklists } from './task-preview/checklists'
-import { Comments } from './task-preview/comments'
-import { Members } from './task-preview/members'
+import { Labels } from './task-preview/preview-labels'
+import { Dates } from './task-preview/preview-dates'
+import { Description } from './task-preview/preview-description'
+import { Attachments } from './task-preview/preview-attachments'
+import { Checklists } from './task-preview/preview-checklists'
+import { Comments } from './task-preview/preview-comments'
+import { Members } from './task-preview/preview-members'
 
 export const TaskEdit = ({ task, board, group, setTaskEditExpand, style, previewIconStyle, onOpenModal }) => {
 
@@ -48,16 +48,16 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand, style, preview
     }
 
     if (!task) return
-    const taskEditNavTop = style.top + 290 > window.innerHeight ? -188 : 1
-    if (style.top + 145 > window.innerHeight) style.top = 675
+    // const taskEditNavTop = style.top + 290 > window.innerHeight ? -188 : 1
+    if (style.task.top + 145 > window.innerHeight) style.task.top = 675
 
     return (
-        <section className="task-edit" style={style}>
+        <section className="task-edit" style={style.task}>
             <div className="task-title-edit">
                 <form onSubmit={onHandleSubmit} >
                     <Labels board={board} task={task} />
                     <textarea
-                        style={{ width: style.width }}
+                        style={{ width: style.task.width }}
                         dir="auto"
                         onKeyDown={onEnterPress}
                         onChange={onHandleChange}
@@ -83,7 +83,7 @@ export const TaskEdit = ({ task, board, group, setTaskEditExpand, style, preview
                 task={task}
                 board={board}
                 group={group}
-                taskEditNavTop={taskEditNavTop}
+                style={style.nav}
             />
 
         </section>

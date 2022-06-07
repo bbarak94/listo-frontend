@@ -17,24 +17,27 @@
         flex-wrap: wrap;
         align-items: center;
         gap: 10px;
-
+        
         .board-star {
+            
             @include boarder-header-btn;
             width: 32px;
             margin: 0;
-
+            
             img {
+                filter: invert(29%) sepia(5%) saturate(3388%) hue-rotate(180deg) brightness(100%) contrast(89%);
                 width: 19px;
                 position: relative;
                 left: -5px;
             }
-
+            
             &:hover {
+                filter: none;
                 .stroke {
                     filter: invert(65%) sepia(96%) saturate(489%) hue-rotate(9deg) brightness(105%) contrast(105%);
                 }
             }
-
+            
             .fill {
                 filter: invert(65%) sepia(96%) saturate(489%) hue-rotate(9deg) brightness(105%) contrast(105%);
             }
@@ -86,14 +89,23 @@
 
         .show-menu-btn {
             @include boarder-header-btn;
-            span {
-                color: #172b4d;
-            }
+            gap: 6px;
+            padding: 4px 8px;
         }
 
-        .filter-btn{
+        .filter-btn {
             @include boarder-header-btn;
+            margin-right: 10px;
+            gap: 6px;
+
         }
+
+
+    }
+    
+    .dashboard-btn{
+        margin-right: 10px;
+        @include boarder-header-btn;
     }
 }
 
@@ -112,15 +124,16 @@
 }
 
 @media (max-width:490px) {
-    .board-header {  
+    .board-header {
         padding: 14px 0;
+
         .board-header-right-container {
             .board-star {
                 display: none;
             }
 
             .members-list-container {
-               display: none;
+                display: none;
             }
         }
 
@@ -137,13 +150,13 @@
 }
 
 @media (max-width:332px) {
-    .board-header {  
-       
+    .board-header {
 
-        .filter-btn{
+
+        .filter-btn {
             display: none !important;
         }
 
-      
+
     }
 }

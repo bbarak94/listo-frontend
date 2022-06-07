@@ -9,6 +9,8 @@ import { getBoard } from '../store/actions/board.action'
 import { boardService } from '../services/board.service'
 import { AppModal } from '../cmps/app-modal'
 
+import loader from '../assets/img/loader.svg'
+
 import close from '../assets/img/workspace/close.svg'
 import archive from '../assets/img/task/navbar/archive.svg'
 
@@ -70,125 +72,129 @@ export const TaskDetails = () => {
         navigate(`/board/${boardId}`)
     }
 
-    if (!task) return <h1>Loading...</h1>
-  
+    if (!task) return <img className='loader' src={loader} alt='Loading...' />
+
     return (
         <>
-            <Screen cb={onCloseTaskDetails} />
-            <div className='task-details flex column'>
-                {task.style.color && (
-                    <div
-                        style={{ backgroundColor: task.style.color }}
-                        className='task-details-cover-color'
-                    ></div>
-                )}
-                {task.style.imgUrl && (
-                    <div className='task-details-cover-img'>
-                        <div className='cover-img-container'>
-                            <img src={task.style.imgUrl} alt='' />
-                        </div>
-                    </div>
-                )}
-                {task.archivedAt && (
-                    <div className='task-archived-indication'>
-                        <img
-                            src={archive}
-                            alt='Custom Fields'
-                            style={{ width: '18px' }}
-                        />
-                        <p>This card is archived.</p>
-                    </div>
-                )}
-                <div className='task-details-header flex'>
-                    <div className='flex left-side'>
-                        <CreditCardSharpIcon className='credit-card-icon' />
-                        <div className='title flex column'>
-                            <h1>{task.title}</h1>
-                            <h2>
-                                in list{' '}
-                                <span>{currGroupRef.current.title}</span>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <div className='inner-container'>
-                    <div
-                        className='icon-container close flex'
-                        onClick={onCloseTaskDetails}
-                    >
-                        <img
-                            src={close}
-                            alt='close'
-                            style={{ width: '21px' }}
-                        />
-                    </div>
-                    <div className='task-main-layout flex'>
-                        <div className='task-details-content flex column'>
-                            <div className='upper-content flex'>
-                                {task.memberIds && (
-                                    <MembersList
-                                        board={board}
-                                        task={task}
-                                        onOpenModal={onOpenModal}
-                                    />
-                                )}
-                                {task.labelIds && (
-                                    <LabelPreview
-                                        board={board}
-                                        task={task}
-                                        onOpenModal={onOpenModal}
-                                    />
-                                )}
-                                {task.dueDate && (
-                                    <DatePreview
-                                        board={board}
-                                        group={currGroupRef.current}
-                                        task={task}
-                                        onOpenModal={onOpenModal}
-                                    />
-                                )}
+            {/* <Screen cb={onCloseTaskDetails} /> */}
+            <div className="screen" onClick={onCloseTaskDetails}>
+
+                <div className='task-details flex column' onClick={(ev) => ev.stopPropagation()}>
+                    {task.style.color && (
+                        <div
+                            style={{ backgroundColor: task.style.color }}
+                            className='task-details-cover-color'
+                        ></div>
+                    )}
+                    {task.style.imgUrl && (
+                        <div className='task-details-cover-img'>
+                            <div className='cover-img-container'>
+                                <img src={task.style.imgUrl} alt='' />
                             </div>
-                            <TaskDetailsDesc
-                                task={task}
-                                boardId={boardId}
-                                groupId={currGroupRef.current.id}
+                        </div>
+                    )}
+                    {task.archivedAt && (
+                        <div className='task-archived-indication'>
+                            <img
+                                src={archive}
+                                alt='Custom Fields'
+                                style={{ width: '18px' }}
                             />
-                            <TaskDetailsAttachments
-                                task={task}
-                                boardId={boardId}
-                                groupId={currGroupRef.current.id}
+                            <p>This card is archived.</p>
+                        </div>
+                    )}
+                    <div className='task-details-header flex'>
+                        <div className='flex left-side'>
+                            <CreditCardSharpIcon className='credit-card-icon' />
+                            <div className='title flex column'>
+                                <h1>{task.title}</h1>
+                                <h2>
+                                    in list{' '}
+                                    <span>{currGroupRef.current.title}</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='inner-container'>
+                        <div
+                            className='icon-container close flex'
+                            onClick={onCloseTaskDetails}
+                        >
+                            <img
+                                src={close}
+                                alt='close'
+                                style={{ width: '21px' }}
                             />
-                            <TaskDetailsChecklists
-                                task={task}
+                        </div>
+                        <div className='task-main-layout flex'>
+                            <div className='task-details-content flex column'>
+                                <div className='upper-content flex'>
+                                    {task.memberIds && (
+                                        <MembersList
+                                            board={board}
+                                            task={task}
+                                            onOpenModal={onOpenModal}
+                                        />
+                                    )}
+                                    {task.labelIds && (
+                                        <LabelPreview
+                                            board={board}
+                                            task={task}
+                                            onOpenModal={onOpenModal}
+                                        />
+                                    )}
+                                    {task.dueDate && (
+                                        <DatePreview
+                                            board={board}
+                                            group={currGroupRef.current}
+                                            task={task}
+                                            onOpenModal={onOpenModal}
+                                        />
+                                    )}
+                                </div>
+                                <TaskDetailsDesc
+                                    task={task}
+                                    boardId={boardId}
+                                    groupId={currGroupRef.current.id}
+                                />
+                                <TaskDetailsAttachments
+                                    task={task}
+                                    boardId={boardId}
+                                    groupId={currGroupRef.current.id}
+                                />
+                                <TaskDetailsChecklists
+                                    task={task}
+                                    board={board}
+                                    groupId={currGroupRef.current.id}
+                                    onOpenModal={onOpenModal}
+                                />
+                                <TaskDetailsActivities
+                                    task={task}
+                                    board={board}
+                                    groupId={currGroupRef.current.id}
+                                />
+                            </div>
+                            <TaskNavBar
                                 board={board}
-                                groupId={currGroupRef.current.id}
+                                group={currGroupRef.current}
+                                task={task}
                                 onOpenModal={onOpenModal}
                             />
-                            <TaskDetailsActivities
-                                task={task}
-                                board={board}
-                                groupId={currGroupRef.current.id}
-                            />
                         </div>
-                        <TaskNavBar
-                            board={board}
-                            group={currGroupRef.current}
-                            task={task}
-                            onOpenModal={onOpenModal}
-                        />
                     </div>
                 </div>
+                <AppModal
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    cmpType={cmpType}
+                    task={task}
+                    board={board}
+                    group={currGroupRef.current}
+                    member={member}
+                    position={position}
+                />
             </div>
-            <AppModal
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                cmpType={cmpType}
-                task={task}
-                board={board}
-                group={currGroupRef.current}
-                member={member}
-                position={position}
-            />
+
         </>
     )
 }

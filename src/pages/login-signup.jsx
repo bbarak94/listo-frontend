@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import GoogleLogin from 'react-google-login'
+import { gapi } from 'gapi-script'
 
 import OutlinedInput from '@mui/material/OutlinedInput'
 import AppleIcon from '@mui/icons-material/Apple'
@@ -14,6 +15,7 @@ import microsoft from '../assets/img/login-signup/microsoft.png'
 import google from '../assets/img/login-signup/google.png'
 
 import { login, signup } from '../store/actions/user.action'
+import { getPanelId } from '@mui/base'
 
 export function LoginSignup() {
     const navigation = useNavigate()
@@ -24,34 +26,23 @@ export function LoginSignup() {
     const [password, setPassword] = useState('')
     const [msg, setMsg] = useState('')
 
+
+    useEffect(() => {
+        const start = () => {
+            gapi.client.init({
+                clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+                scope: "email",
+                plugin_name: "chat"
+            })
+        }
+    }, [])
+
     const onLogin = async (ev = null) => {
         const credentials = { username, password }
         const res = await dispatch(login(credentials))
         if (res) navigation('/workspace')
         else setMsg('can\'t login, try again')
     }
-
-    // const { signIn, loaded } = useGoogleLogin({
-    //     onSuccess,
-    //     // onAutoLoadFinished,
-    //     clientId: '990922073971-qqfla83br1k1os07bs5agfjdj5r0o9kt.apps.googleusercontent.com',
-    //     // cookiePolicy,
-    //     // loginHint,
-    //     // hostedDomain,
-    //     // autoLoad,
-    //     // isSignedIn,
-    //     // fetchBasicProfile,
-    //     // redirectUri,
-    //     // discoveryDocs,
-    //     onFailure,
-    //     // uxMode,
-    //     // scope,
-    //     // accessType,
-    //     // responseType,
-    //     // jsSrc,
-    //     // onRequest,
-    //     // prompt
-    // })
 
     function handelLogin(res) {
         console.log(res)
@@ -60,7 +51,6 @@ export function LoginSignup() {
     function handelFailure(res) {
         console.log(res)
     }
-
 
     const onSignup = (ev = null) => {
         const credentials = { username, fullname, password, imgUrl: 'https://res.cloudinary.com/bbarak94/image/upload/v1653409951/guest_he90su.jpg' }
@@ -84,7 +74,6 @@ export function LoginSignup() {
         }
     }
 
-
     return (
         <div className='login-signup flex justify-center'>
             <div className='login-logo-container'>
@@ -93,15 +82,14 @@ export function LoginSignup() {
             </div>
             <main>
 
-                {/* <GoogleLogin
-
-clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                <GoogleLogin
+                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                     buttonText="CONTINUE WITH GOOGLE"
                     onSuccess={handelLogin}
                     onFailure={handelFailure}
                     cookiePolicy={'single_host_origin'}
                     scope="profile"
-                ></GoogleLogin> */}
+                ></GoogleLogin>
 
 
                 {location.pathname === '/login' && (

@@ -131,9 +131,8 @@ export const BoardDetails = () => {
         }
     }
 
-
-    // if (!board) return <div>Loading...</div>
     if (!board) return <img className='loader' src={loader} alt='Loading...'/>
+
     return <section
         className='board-app cover-img board-cover-img flex column'
         style={{

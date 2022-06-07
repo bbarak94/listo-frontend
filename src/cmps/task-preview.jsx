@@ -6,37 +6,38 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { TaskEdit } from './task-edit'
 import { Screen } from './screen'
 
-import { Labels } from './task-preview/labels'
-import { Dates } from './task-preview/dates'
-import { Description } from './task-preview/description'
-import { Attachments } from './task-preview/attachments'
-import { Checklists } from './task-preview/checklists'
-import { Comments } from './task-preview/comments'
-import { Members } from './task-preview/members'
+import { utilService } from '../services/util.service'
 
-const previewIconStyle = {
-    fontSize: '16px'
-}
+import { Labels } from './task-preview/preview-labels'
+import { Dates } from './task-preview/preview-dates'
+import { Description } from './task-preview/preview-description'
+import { Attachments } from './task-preview/preview-attachments'
+import { Checklists } from './task-preview/preview-checklists'
+import { Comments } from './task-preview/preview-comments'
+import { Members } from './task-preview/preview-members'
+
+const previewIconStyle = { fontSize: '16px' }
 
 export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand,
     taskEditExpandId, setLabelExpand, labelExpandClass, titleLabelClass, setLabelTitleDelay }) => {
 
-    const [style, setStyle] = useState({ top: '', left: '', width: '' })
+    const [style, setStyle] = useState({})
 
     const onOpenTaskEdit = (ev) => {
         ev.preventDefault()
-        // ****** Task edit relative to task preview ********
-        const elemRect = ev.currentTarget.parentNode.parentNode.getBoundingClientRect()
-        const top = elemRect.top - window.pageYOffset
+
+        const elemRect = ev.currentTarget.parentNode.getBoundingClientRect()
+        const width = ev.currentTarget.parentNode.offsetWidth
         const left = elemRect.left - window.pageXOffset
-        // ****** Task edit width relative to task preview width ********
-        const width = ev.target.parentNode.offsetWidth
-        setStyle({ top, left, width })
+        const top = elemRect.top - window.pageYOffset
+
+        const style = utilService.getTaskEditStyle(top, left, width)
+        setStyle(style)
         setTaskEditExpand(task.id)
     }
 
     return (
-        <div className="task-preview-helper">
+        <div className="task-preview-main">
             <Link to={`/board/${board._id}/task/${task.id}`}>
                 <div className="task-preview-container flex column">
                     <div className="task-preview">

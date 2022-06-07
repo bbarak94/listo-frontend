@@ -26,6 +26,7 @@ export const BoardList = () => {
     }, [])
 
     if (!boards) return <img className='loader' src={loader} alt='Loading...'/>
+    
     return (
         <section className="board-list">
             <section>

@@ -4,66 +4,75 @@
    box-shadow: 7px 5px 20px -4px rgb(0 0 0);
    background-color: $clr13;
 
-   // max-height: 100%;
-   // overflow: auto;
    .title-container {
       padding: 8px 10px;
 
       h1 {
          font-size: 18px;
       }
+
+      .close-btn {
+         position: relative;
+         left: 110px;
+      }
    }
 
    .user-container {
+      align-self: flex-start;
       &:hover {
          cursor: pointer;
       }
    }
 
+   .activities-header {
+      align-content: center;
+      gap: 10px;
+      padding: 8px 8px 14px 20px;
+
+      .activity-icon-container {
+         font-size: 14px;
+         display: flex;
+      }
+
+      h3 {
+         margin-top: 2.7px;
+         font-size: 14px;
+         color: $clr1;
+      }
+
+      &:hover {
+         background-color: $hover-clr;
+         cursor: pointer;
+      }
+   }
+
+   .archived-items {
+      padding: 8px 8px 8px 20px;
+      gap: 12px;
+      cursor: pointer;
+      align-items: center;
+      
+      h3 {
+         font-weight: 500;
+         margin-top: 1px;
+         font-size: 14px;
+         color: $clr1;
+      }
+
+      &:hover {
+         background-color: $hover-clr;
+      }
+   }
+
    .menu-layout {
-      padding: 15px;
+      padding: 0 15px 15px;
       gap: 10px;
       min-height: 100vh;
       min-width: 316px;
-
-      .archived-items {
-         padding: 0 8px;
-         gap: 10px;
-         cursor: pointer;
-
-         &:hover {
-            // background-color: darken($color: $clr13, $amount: 1);
-            background-color: $hover-clr;
-         }
-      }
-
-
-      .activities-header {
-         align-content: center;
-         gap: 10px;
-         // height: 30px;
-         padding: 8px;
-
-         .activity-icon-container {}
-
-         h3 {
-            margin-top: 1px;
-            font-size: 16px;
-         }
-
-         &:hover {
-            // background-color: darken($color: $clr13, $amount: 1);
-            background-color: $hover-clr;
-            cursor: pointer;
-         }
-      }
-
-
    }
 
    .menu-modal-activities {
       gap: 8px;
-      // margin-left: 4px;
       align-items: center;
 
       .txt {
@@ -104,12 +113,6 @@
 
 .archived-item-container {
 
-   // display: flex;
-
-   // .archived-item-details {
-   //    display: flex;
-
-   // }
    .span-container {
       margin: 8px 0;
       padding: 0 8px;
@@ -123,5 +126,4 @@
          color: #172b4d;
       }
    }
-
 }
