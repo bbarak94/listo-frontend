@@ -90,6 +90,11 @@
             @include boarder-header-btn;
         }
     }
+    
+    .dashboard-btn{
+        margin-right: 10px;
+        @include boarder-header-btn;
+    }
 }
 
 .view-workspace-btn {

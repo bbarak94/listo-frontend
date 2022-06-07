@@ -23,7 +23,8 @@ export const boardService = {
     getMembersByIds,
     getEmptyTodo,
     getArchivedTasks,
-    removeGroupFromBoard
+    removeGroupFromBoard,
+    getDataForDashboard
 }
 window.cs = boardService
 
@@ -141,6 +142,14 @@ function removeGroupFromBoard(board, groupId) {
     return boardToUpdate
 }
 
+function getEmptyTodo() {
+    return {
+        id: utilService.makeId(),
+        title: '',
+        isDone: false
+    }
+}
+
 async function _getEmptyBoard() {
     const newBoard = {
         title: 'New Board',
@@ -250,14 +259,6 @@ function _getEmptyTask(title) {
     }
 }
 
-function getEmptyTodo() {
-    return {
-        id: utilService.makeId(),
-        title: '',
-        isDone: false
-    }
-}
-
 function _createActivity(txt, task) {
     return {
         byMember: userService.getLoggedinUser(),
@@ -271,4 +272,59 @@ function _createActivity(txt, task) {
         },
     }
 }
+
+function getDataForDashboard(board) {
+
+    const currTime = Date.now()
+
+    const data = {
+        totalTasksCount: 0,
+        tasksPerMembers: {
+            members: [],
+            count: [],
+        },
+        tasksPerLabels: {
+            colors: [],
+            count: [],
+            title: []
+        },
+        dueTasksCount: 0,
+        overDueTasksCount: 0,
+        completedTasksCount: 0
+    }
+
+    board.groups.forEach(group => {
+        group.tasks.forEach(task => {
+            if (task.archivedAt) return
+            data.totalTasksCount++
+            board.members.forEach((member, idx) => {
+                data.tasksPerMembers.members[idx] = member.fullname
+                if (task.memberIds?.includes(member.id)) {
+                    const currCount = data.tasksPerMembers.count[idx]
+                    data.tasksPerMembers.count[idx] = currCount ? currCount + 1 : 1
+                }
+            })
+            board.labels.forEach((label, idx) => {
+                data.tasksPerLabels.colors[idx] = label.color
+                data.tasksPerLabels.title[idx] = label.title
+                if (task.labelIds?.includes(label.id)) {
+                    const currCount = data.tasksPerLabels.count[idx]
+                    data.tasksPerLabels.count[idx] = currCount ? currCount + 1 : 1
+                }
+            })
+            if (task.dueDate) {
+                if (task.dueDate > currTime) {
+                    data.dueTasksCount++
+                } else {
+                    data.overDueTasksCount++
+                }
+            }
+            if (task.isComplete) data.completedTasksCount++
+        })
+    })
+    return data
+}
+
+
+
 
