@@ -91,6 +91,8 @@ function getTaskAndGroup(board, taskId) {
             }
         })
     })
+    currGroup = structuredClone(currGroup)
+    currTask = structuredClone(currTask)
     return { currGroup, currTask }
 }
 

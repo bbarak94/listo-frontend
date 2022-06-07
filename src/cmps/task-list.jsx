@@ -17,31 +17,32 @@ export const TaskList = ({ board, filterBy, group, onOpenModal, setIsScrollBar, 
 
     const getTasksToShow = () => {
         var filteredTasks = group.tasks.filter((task) => !task.archivedAt)
+        // var filteredTasks = group.tasks
         // console.log('filterBy:', filterBy)
         if (filterBy.txt !== '') {
             const regex = new RegExp(filterBy.txt, 'i')
             // console.log('tasksToShow:', tasksToShow)
             filteredTasks = filteredTasks.filter(
                 (task) => regex.test(task.title)
-                    // || regex.test(task.description)
+                // || regex.test(task.description)
             )
         }
-        if(filterBy.memberIds.length){
-            console.log('filterBy.memberIds:',filterBy.memberIds)       
-            filteredTasks = filteredTasks.filter(task=>{
-                return task.memberIds.find(memberId=>{
+        if (filterBy.memberIds.length) {
+            console.log('filterBy.memberIds:', filterBy.memberIds)
+            filteredTasks = filteredTasks.filter(task => {
+                return task.memberIds.find(memberId => {
                     return filterBy.memberIds.includes(memberId)
                 })
             })
         }
         return filteredTasks
-        
+
     }
     return (
         <Droppable droppableId={group.id} direction="vertical" type='task'>
 
             {(provided) => (
-                <ul
+                <article
                     className='task-list'
                     {...provided.droppableProps}
                     ref={provided.innerRef}
@@ -56,7 +57,7 @@ export const TaskList = ({ board, filterBy, group, onOpenModal, setIsScrollBar, 
                                 type="task"
                             >
                                 {(provided) => (
-                                    <li {...provided.draggableProps}
+                                    <div {...provided.draggableProps}
                                         {...provided.dragHandleProps}
                                         ref={provided.innerRef}
                                     >
@@ -73,13 +74,13 @@ export const TaskList = ({ board, filterBy, group, onOpenModal, setIsScrollBar, 
                                             titleLabelClass={titleLabelClass}
                                             setLabelTitleDelay={setLabelTitleDelay}
                                         />
-                                    </li>
+                                    </div>
                                 )}
                             </Draggable>
                         )
                     })}
                     {provided.placeholder}
-                </ul>
+                </article>
             )}
         </Droppable>
     )
