@@ -3,16 +3,18 @@ import { useEffect, useState } from 'react'
 
 import { AppModal } from './app-modal'
 import star from '../assets/img/workspace/star-stroke.svg'
-import starWhite from '../assets/img/workspace/star-stroke-white.svg'
-import filter from '../assets/img/icon/filter.svg'
+// import starWhite from '../assets/img/workspace/star-stroke-white.svg'
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+// import filter from '../assets/img/icon/filter.svg'
+import FilterListIcon from '@mui/icons-material/FilterList';
 import starFill from '../assets/img/workspace/star-fill.svg'
 
 import { saveBoard } from '../store/actions/board.action'
 import { useDispatch } from 'react-redux'
 import FastAverageColor from 'fast-average-color';
 
-
-export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , setLabelTitleDelay, titleLabelClass}) => {
+const iconStyle = { fontSize: '16px' }
+export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass, setLabelTitleDelay, titleLabelClass }) => {
 
     const dispatch = useDispatch()
 
@@ -51,7 +53,7 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , 
 
         try {
             const averageColor = await fac.getColorAsync(board.style.background)
-            const color = averageColor.isDark ? '#fff' : '#000'
+            const color = averageColor.isDark ? '#fff' : '#172B4D'
             const newTheme = { color }
             setTheme(newTheme)
         }
@@ -62,18 +64,18 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , 
     }
 
     return (<>
-        <div className="board-header-right-container" style={theme}>
-            <div className="board-title-btn">
+        <div className='board-header-right-container' style={theme}>
+            <div className='board-title-btn'>
                 <h2>{board.title}</h2>
             </div>
-            <div className="board-star" onClick={onStarBoard}>
-                {!board.isStar && <img className='stroke' src={star} alt="" />}
-                {board.isStar && <img className='fill' src={starFill} alt="" />}
+            <div className='board-star' onClick={onStarBoard}>
+                {!board.isStar && <img className='stroke' src={star} alt='' />}
+                {board.isStar && <img className='fill' src={starFill} alt='' />}
             </div>
 
             <span className='sep'>|</span>
 
-            <div className="board-header-btn workspace-btn" onClick={(ev) => onOpenModal(ev, 'workspace-nav-modal')} >
+            <div className='board-header-btn workspace-btn' onClick={(ev) => onOpenModal(ev, 'workspace-nav-modal')} >
                 <span style={theme}>  Workspace</span>
             </div>
 
@@ -91,23 +93,22 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass , 
                 </div>
             </div>
         </div>
-        <div className="board-header-left-container">
-            <div className='flex filter-btn' style={{marginRight:'10px'}} onClick={() => {
+        <div className='board-header-left-container'>
+            <div className='filter-btn flex' style={theme} onClick={() => {
                 setModalPosition({ top: '43px', right: '0' })
                 setIsOpen(true)
                 setCmpType('filter')
             }}>
-                <div className='filter-icon-container flex align-center'>
-                    <img src={filter} alt="" />
-                </div>
-                <span className='board-header-btn' style={theme}>Filter</span>
+                <FilterListIcon style={iconStyle} />
+                Filter
             </div>
-            <div className="show-menu-btn" onClick={() => {
+            <div style={theme} className='show-menu-btn flex' onClick={() => {
                 setModalPosition({ top: '43px', right: '0' })
                 setIsOpen(true)
                 setCmpType('menu')
             }}>
-                <span className='board-header-btn' style={theme}>... Show menu</span>
+                <MoreHorizIcon style={iconStyle} />
+                Show menu
             </div>
 
             <AppModal

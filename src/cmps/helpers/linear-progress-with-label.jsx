@@ -12,7 +12,7 @@ function LinearProgressWithLabel(props) {
           props.value,
         )}%`}</Typography>
       </Box>
-      <Box className='progress-bar' sx={{ width: '90%', mr: 1, }}>
+      <Box className='progress-bar' sx={{ width: '100%'}}>
         <LinearProgress variant="determinate" {...props} />
       </Box>
     </Box>

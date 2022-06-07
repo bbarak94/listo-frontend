@@ -1,7 +1,4 @@
-import navBar from '../assets/img/header/navbar.svg'
-import downArrow from '../assets/img/header/down-arrow.svg'
-import Button from '@mui/material/Button'
-import { useNavigate,useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { AppModal } from './app-modal'
 import { useEffect, useState } from 'react'
@@ -12,26 +9,34 @@ import FastAverageColor from 'fast-average-color';
 
 export const AppHeader = () => {
     const user = userService.getLoggedinUser()
-    
+
     if (user?.password) delete user.password
     const { board } = useSelector((storeState) => storeState.boardModule)
-    
+
     const location = useLocation()
-    // const { user } = useSelector((storeState) => storeState.userModule)
     const [isLoggedIn, setLoggedIn] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
     const [member, setMember] = useState(user)
     const [theme, setTheme] = useState({})
+    const [modalPosition, setModalPosition] = useState({})
     const navigation = useNavigate()
     const dispatch = useDispatch()
 
     useEffect(() => {
         changeHeaderColor()
-
     }, [board])
 
-    const onOpenModal = (type, member) => {
+    const onOpenModal = (ev, type, member) => {
+        
+        let elemRect = ev.currentTarget.getBoundingClientRect()
+        let top = elemRect.top - window.pageYOffset
+        let left = elemRect.left - window.pageXOffset
+        const height = ev.currentTarget.offsetHeight
+        top += height
+        
+        setModalPosition({ top, left })
+        
         setIsOpen(true)
         setCmpType(type)
         setMember(member)
@@ -49,34 +54,21 @@ export const AppHeader = () => {
         try {
             var newTheme
             const averageColor = await fac.getColorAsync(board.style.background)
-            // console.log('averageColor:',averageColor)            
             const backgroundColor = averageColor.rgba;
             const color = averageColor.isDark ? '#fff' : '#000'
-            if (location.pathname==='/workspace') newTheme = { backgroundColor:"#026aa7", color:'white' }
+            if (location.pathname === '/workspace') newTheme = { backgroundColor: "#026aa7", color: 'white' }
             else newTheme = { backgroundColor, color }
             setTheme(newTheme)
         }
         catch (err) {
-            // console.log('location.pathname:',location.pathname)
-            if (location.pathname==='/workspace') var newTheme = { backgroundColor:"#026aa7", color:'white' }
+            if (location.pathname === '/workspace') var newTheme = { backgroundColor: "#026aa7", color: 'white' }
             setTheme(newTheme)
-            // console.log('err:', err)
         }
-
     }
-
 
     return (
         <div className='app-header flex align-center' style={theme}>
             <div className='app-header-btn-container flex'>
-                {/* <div className='app-header-navbar-container'>
-                    <img
-                        src={navBar}
-                        alt='navigate'
-                        style={{ width: '22px' }}
-                    />
-                </div> */}
-
                 <div
                     className='app-header-logo-static flex'
                     style={{ width: '80px' }}
@@ -99,59 +91,16 @@ export const AppHeader = () => {
                     />
                 </div>
 
-                {/* <Button className='app-header-btn'>
-                    Workspaces
-                    <div className='app-header-navbar-container'>
-                        <img
-                            src={downArrow}
-                            alt='navigate'
-                            style={{ width: '22px' }}
-                        />
-                    </div>
-                </Button>
-                <Button className='app-header-btn'>
-                    Recent
-                    <div className='app-header-navbar-container'>
-                        <img
-                            src={downArrow}
-                            alt='navigate'
-                            style={{ width: '22px' }}
-                        />
-                    </div>
-                </Button>
-                <Button className='app-header-btn'>
-                    Starred
-                    <div className='app-header-navbar-container'>
-                        <img
-                            src={downArrow}
-                            alt='navigate'
-                            style={{ width: '22px' }}
-                        />
-                    </div>
-                </Button>
-                <Button className='app-header-btn'>
-                    Templates
-                    <div className='app-header-navbar-container'>
-                        <img
-                            src={downArrow}
-                            alt='navigate'
-                            style={{ width: '22px' }}
-                        />
-                    </div>
-                </Button> */}
                 {user?.imgUrl && (
                     <div className='welcome flex align-center'>
-                        {user.username !== 'guest' && (
+                        {/* {user.username !== 'guest' && (
                             <h3 className='logout-btn' onClick={onLogout}>Logout</h3>
-                        )}
+                        )} */}
                         {user.username === 'guest' && (
                             <h3 className='login-btn' onClick={() => navigation('/login')}>Login</h3>
                         )}
 
-                        <div
-                            className='user-container flex'
-                            onClick={() => onOpenModal('member', user)}
-                        >
+                        <div className='user-container flex' onClick={(ev) => onOpenModal(ev, 'member', user)}>
                             <img
                                 src={user.imgUrl}
                                 style={{
@@ -169,6 +118,9 @@ export const AppHeader = () => {
                 setIsOpen={setIsOpen}
                 cmpType={cmpType}
                 member={member}
+                position={modalPosition}
+                onLogout={onLogout}
+                renderFrom={'header'}
             />
         </div>
     )

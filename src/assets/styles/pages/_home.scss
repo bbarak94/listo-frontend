@@ -1,32 +1,18 @@
 .home {
-   // min-height: 100vh;
    display: flex;
    flex-direction: column;
-   // gap: 1.5em;
    color: $clr18;
    font-family: Roboto;
-   // overflow: auto;
-   // background: linear-gradient(0deg, #fff, #eae6ff 100%);
 
    .home-main-layout {
-      // margin: 40px;
-      // height: 315px;
-      // margin-top: 150px;
-      // justify-content: space-between;
-      // background: #eae6ff;
       background: linear-gradient(0deg, #fff, #eae6ff 100%);
       flex-grow: 1;
       justify-content: center;
-      padding: 60px 0 140px;
+      padding: 60px 0 190px;
       gap: 7em;
-      // background: #eae6ff;
-      // background: linear-gradient(0deg, #fff, #eae6ff 100%);
-      // min-width: 450px;
-      // gap: 40px;
    }
 
    .home-left-container {
-
       min-height: 315px;
       max-width: 550px;
 

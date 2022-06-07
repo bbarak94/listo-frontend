@@ -8,6 +8,7 @@
          font-size: 12px;
          font-weight: 500;
          margin: 0;
+         padding-bottom: 8px;
       }
 
       div {
@@ -27,9 +28,15 @@
       }
    }
 
-   .member-join {
-      max-width: 246px;
+   .suggested {
+      width: 100%;
+      padding: 10px 0;
+
+      h1 {
+         padding-bottom: 6px;
+      }
    }
+
 
    .all-btns {
       flex-direction: column;
@@ -61,6 +68,10 @@
          min-width: 32px;
          min-height: 32px;
          padding: 6px;
+
+         img {
+            filter: invert(13%) sepia(13%) saturate(4569%) hue-rotate(196deg) brightness(98%) contrast(98%);
+         }
       }
 
       h2 {
@@ -77,10 +88,12 @@
 @media (max-width:750px) {
    .task-nav-bar {
       padding: 10px;
+
       .all-btns {
          flex-direction: row;
          gap: 18px;
-         section{
+
+         section {
             flex-grow: 1;
          }
       }
@@ -89,6 +102,12 @@
          width: 100%;
          max-width: 243px;
       }
-   }
 
+      .suggested {
+
+         .member-join {
+            width: 45.5%;
+         }
+      }
+   }
 }

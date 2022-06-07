@@ -2,7 +2,8 @@ export const utilService = {
     makeId,
     makeLorem,
     getRandomIntInclusive,
-    delay
+    delay,
+    getTaskEditStyle
 }
 
 function makeId(length = 6) {
@@ -36,5 +37,22 @@ function delay(ms = 1500) {
     return new Promise(resolve => {
         setTimeout(resolve, ms)
     })
+}
+
+function getTaskEditStyle(top, left, width) {
+    const TASK_EDIT_HEIGHT = 170
+    if (top + TASK_EDIT_HEIGHT > window.innerHeight) top = window.innerHeight - TASK_EDIT_HEIGHT
+    return {
+        task: {
+            top,
+            left,
+            width
+        },
+        nav: {
+            top: top + 290 > window.innerHeight ? -103 : 1,
+            left: left + 170 + 272 > window.innerWidth ? -170 : 250,
+            alignItems: left + 170 + 272 > window.innerWidth ? 'flex-end' : 'flex-start',
+        }
+    }
 }
 

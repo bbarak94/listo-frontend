@@ -60,7 +60,7 @@ export const Cover = ({ task, board, group, handleClose }) => {
         opacity: 1,
     }
 
-    if (!task) return <div>Loading...</div>
+    if (!task) return
 
     return (
         <div className="cover flex column align-center">

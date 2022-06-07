@@ -21,7 +21,7 @@ import { DeleteGroupModal } from './dynamic-cmps/delete-group-modal.jsx';
 const buttonHeight = 32
 
 export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, setTitleLabelClass, isOpen, setIsOpen,
-    cmpType, task, board, group, member, labelId, position = { top: '10%', left: '33.3%' }, setTaskEditExpand }) {
+    cmpType, task, board, group, member, labelId, position = { top: '10%', left: '33.3%' }, setTaskEditExpand, renderFrom, onLogout }) {
 
     const getType = () => {
         switch (cmpType) {
@@ -32,7 +32,7 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
             case 'members':
                 return <Members task={task} board={board} group={group} handleClose={handleClose} />
             case 'member':
-                return <Member task={task} board={board} group={group} handleClose={handleClose} member={member} />
+                return <Member task={task} board={board} group={group} handleClose={handleClose} member={member} renderFrom={renderFrom} onLogout={onLogout} />
             case 'cover':
                 return <Cover task={task} board={board} group={group} handleClose={handleClose} />
             case 'dates':
@@ -47,8 +47,8 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
                 return <WorkspaceNavModal task={task} board={board} group={group} handleClose={handleClose} />
             case 'delete-group-modal':
                 return <DeleteGroupModal board={board} group={group} handleClose={handleClose} />
-            
-                case 'menu':
+
+            case 'menu':
                 return <MenuModal task={task} board={board} group={group} handleClose={handleClose} setLabelExpand={setLabelExpand}
                     setTitleLabelClass={setTitleLabelClass} titleLabelClass={titleLabelClass} setLabelTitleDelay={setLabelTitleDelay} />
             case 'filter':
@@ -136,13 +136,18 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
 
     return (
         <Modal
+            style={{
+                overflowY: 'auto',
+                overflowX: 'hidden',
+            }}
             open={open}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
-            BackdropProps={{ invisible: true, open: true }}
+            BackdropProps={{ invisible: true, open: true, sx: { display: cmpType === 'menu' ? 'none' : 'flex' } }}
+            onBackdropClick={(ev) => ev.stopPropagation()}
         >
-            <Box sx={style}>
+            <Box sx={style} onClick={(ev) => ev.stopPropagation()}>
                 {getType()}
             </Box>
         </Modal>

@@ -31,7 +31,7 @@ export const EditLabel = ({ board, labelId, task, handleClose }) => {
     }
 
 
-    if (!label) return <h1>Loading...</h1>
+    if (!label) return
     return (<div className="edit-label">
 
         <div className="label-edit-header flex aline-center justify-center">
