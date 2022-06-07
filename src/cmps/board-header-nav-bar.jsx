@@ -1,7 +1,12 @@
 
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import FastAverageColor from 'fast-average-color';
 
 import { AppModal } from './app-modal'
+import { Dashboard } from './dashboard'
+import { Screen } from './screen'
+
 import star from '../assets/img/workspace/star-stroke.svg'
 // import starWhite from '../assets/img/workspace/star-stroke-white.svg'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -10,8 +15,6 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import starFill from '../assets/img/workspace/star-fill.svg'
 
 import { saveBoard } from '../store/actions/board.action'
-import { useDispatch } from 'react-redux'
-import FastAverageColor from 'fast-average-color';
 
 const iconStyle = { fontSize: '16px' }
 export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass, setLabelTitleDelay, titleLabelClass }) => {
@@ -23,6 +26,7 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass, s
     const [member, setMember] = useState(null)
     const [modalPosition, setModalPosition] = useState({})
     const [theme, setTheme] = useState({})
+    const [isDashboardOpen, setIsDashboardOpen] = useState(false)
 
     useEffect(() => {
         changeHeaderColor()
@@ -63,6 +67,10 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass, s
 
     }
 
+    const handelScreenClick = () => {
+        setIsDashboardOpen(false)
+    }
+
     return (<>
         <div className='board-header-right-container' style={theme}>
             <div className='board-title-btn'>
@@ -93,7 +101,12 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass, s
                 </div>
             </div>
         </div>
-        <div className='board-header-left-container'>
+        <div className="board-header-left-container">
+
+            <div className="dashboard-btn" onClick={() => setIsDashboardOpen(true)}>
+                <span style={theme}>Dashboard</span>
+            </div>
+
             <div className='filter-btn flex' style={theme} onClick={() => {
                 setModalPosition({ top: '43px', right: '0' })
                 setIsOpen(true)
@@ -110,6 +123,8 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass, s
                 <MoreHorizIcon style={iconStyle} />
                 Show menu
             </div>
+
+            {isDashboardOpen && <Dashboard board={board} exit={handelScreenClick} />}
 
             <AppModal
                 onOpenModal={onOpenModal}
