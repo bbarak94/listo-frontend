@@ -18,7 +18,7 @@ import { socketService, SOCKET_EVENT_UPDATE_BOARD } from '../services/socket.ser
 export const BoardDetails = () => {
     const params = useParams()
     const dispatch = useDispatch()
-    const { board,filterBy } = useSelector((storeState) => storeState.boardModule)
+    const { board, filterBy } = useSelector((storeState) => storeState.boardModule)
 
     const [expandCardTitleGroupId, setExpandCardTitleId] = useState('')
     const [isOpen, setIsOpen] = useState(false)
@@ -30,7 +30,7 @@ export const BoardDetails = () => {
     const [titleLabelClass, setTitleLabelClass] = useState('')
 
     var timeoutId
-    
+
 
     const setLabelTitleDelay = (className) => {
         if (className === 'expand') {
@@ -90,49 +90,63 @@ export const BoardDetails = () => {
             },
             draggableId: draggedTaskId,
         } = result
+
         if (result.type === 'group') {
             const group = boardService.getGroupById(board, result.draggableId)
-            const newBoard = { ...board }
+            // const newBoard = { ...board }
+            const newBoard = structuredClone(board)
             newBoard.groups.splice(result.source.index, 1)
             newBoard.groups.splice(result.destination.index, 0, group)
             dispatch(saveBoard(newBoard))
             return
         }
+
         if (result.type === 'task') {
             const { currGroup: sourceGroup } =
                 boardService.getTaskAndGroup(board, draggedTaskId)
             const sourceNewTasks = [...sourceGroup.tasks]
             const [draggedTask] = sourceNewTasks.splice(sourceIdx, 1)
+
+            console.log('draggedTask', draggedTask);
+            console.log('sourceGroupId', sourceIdx);
+            console.log('destinationGroupId', destinationIdx);
+
             if (sourceGroupId === destinationGroupId) {
                 sourceNewTasks.splice(destinationIdx, 0, draggedTask)
                 let newSourceGroup = { ...sourceGroup }
                 newSourceGroup.tasks = sourceNewTasks
                 dispatch(updateGroup(newSourceGroup, board._id))
             }
+
             if (sourceGroupId !== destinationGroupId) {
-                const destinationGroup = boardService.getGroupById(
-                    board,
-                    destinationGroupId
-                )
-                let newSourceGroup = { ...sourceGroup }
+                let destinationGroup = boardService.getGroupById(board, destinationGroupId)
+                destinationGroup = structuredClone(destinationGroup)
+                let newSourceGroup = structuredClone(sourceGroup)
+
                 newSourceGroup.tasks = sourceNewTasks
                 const destinationNewTasks = [...destinationGroup.tasks]
+
                 destinationNewTasks.splice(destinationIdx, 0, draggedTask)
-                let newDestinationGroup = { ...destinationGroup }
-                newDestinationGroup.tasks = destinationNewTasks
-                const newBoard = { ...board }
+                const newDestinationGroup = { ...destinationGroup, tasks: destinationNewTasks }
+
+
+                console.log('destination tasks', destinationNewTasks);
+                console.log('source tasks', sourceNewTasks);
+                const newBoard = structuredClone(board)
+
                 newBoard.groups.map((group) => {
                     if (group.id === sourceGroupId) group.tasks = sourceNewTasks
                     if (group.id === destinationGroupId)
                         group.tasks = destinationNewTasks
                 })
+                console.log('new BOard', newBoard);
                 dispatch(saveBoard(newBoard))
             }
         }
     }
 
-    if (!board) return <img className='loader' src={loader} alt='Loading...'/>
-
+    if (!board) return <img className='loader' src={loader} alt='Loading...' />
+    console.log('koko after render', board);
     return <section
         className='board-app cover-img board-cover-img flex column'
         style={{
@@ -145,7 +159,7 @@ export const BoardDetails = () => {
 
         <div className='board-header flex'>
             <BoardHeaderNavBar board={board} setLabelExpand={setLabelExpand} setTitleLabelClass={setTitleLabelClass}
-             setLabelTitleDelay={setLabelTitleDelay} titleLabelClass={titleLabelClass}  />
+                setLabelTitleDelay={setLabelTitleDelay} titleLabelClass={titleLabelClass} />
         </div>
         <main className='board-details flex'>
             <DragDropContext

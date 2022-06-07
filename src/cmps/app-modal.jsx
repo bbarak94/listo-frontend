@@ -81,6 +81,8 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
         switch (cmpType) {
             case 'labels':
                 return 300
+            case 'workspace-nav-modal':
+                return 290
             case 'edit-label':
                 return 308
             case 'members':

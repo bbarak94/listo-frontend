@@ -20,13 +20,10 @@ export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCard
         setIsOpen(true)
         setCmpType(type)
         let elemRect = ev.currentTarget.getBoundingClientRect()
-        console.log('onOpenGroupModal ~ elemRect', elemRect)
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
         const height = ev.currentTarget.offsetHeight
         top += height
-        console.log('onOpenGroupModal ~ left', left)
-        console.log('onOpenGroupModal ~ top', top)
         setModalPosition({ top, left })
     }
     return (

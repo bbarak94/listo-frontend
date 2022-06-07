@@ -35,7 +35,6 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
         setStyle(style)
         setTaskEditExpand(task.id)
     }
-
     return (
         <div className="task-preview-main">
             <Link to={`/board/${board._id}/task/${task.id}`}>

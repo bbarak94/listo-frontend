@@ -65,7 +65,7 @@ export function setTask(task) {
     }
 }
 export function setFilter(filterBy) {
-    console.log('filterBy:',filterBy)    
+    console.log('filterBy:', filterBy)
     return async (dispatch) => {
         try {
             dispatch(getActionSetFilter(filterBy))
@@ -113,8 +113,8 @@ export function saveBoard(board) {
         const actionType = board._id ? 'UPDATE_BOARD' : 'ADD_BOARD'
         try {
             console.log('return ~ board', board)
+            dispatch({ type: actionType, board })
             const savedBoard = await boardService.save(board)
-            dispatch({ type: actionType, board: savedBoard })
             socketService.emit(SOCKET_EVENT_UPDATED_BOARD, board)
             return savedBoard
         } catch (err) {
