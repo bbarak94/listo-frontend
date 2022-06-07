@@ -3,13 +3,12 @@
     width: unset;
     inset: 0;
     margin: 0;
+    background-color: #0000009e;
     z-index: 20;
     padding: 85px;
 }
 
 .dashboard-container {
-    height: 100%;
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -22,7 +21,8 @@
 .dashboard-bar {
     grid-column: 3/-1;
     border-radius: 20px;
-    background-color: #fff;
+    background-color: rgba(7, 27, 39, .541);
+    border: 2px solid hsla(0,0%,100%,.192);
     max-height: 400px;
     max-width: 100%;
     padding: 20px;
@@ -31,36 +31,45 @@
 .dashboard-pai {
     grid-column: 2/4;
     border-radius: 20px;
-    background-color: #fff;
+    background-color: rgba(7, 27, 39, .541);
+    border: 2px solid hsla(0,0%,100%,.192);
     max-height: 400px;
     max-width: 580px;
     padding: 20px;
 }
 
 .all-tasks-container {
+    color: #fff;
     grid-column: 1/3;
     border-radius: 20px;
-    background-color: #fff;
+    background-color: rgba(7, 27, 39, .541);
+    border: 2px solid hsla(0,0%,100%,.192);
     height: 400px;
+    min-width: 384px;
+    justify-self: end;
 }
 
 .tasks-status-container {
+    color: #fff;
     grid-column: 4/6;
     border-radius: 20px;
-    background-color: #fff;
+    background-color: rgba(7, 27, 39, .541);
+    border: 2px solid hsla(0,0%,100%,.192);
     height: 400px;
+    min-width: 384px;
 }
 
 .exit-dashboard {
-    
     position: absolute;
     right: 50px;
     top: 60px;
-    background-color: #fff;
-    font-size: 25px;
-    width: 33px;
-    height: 33px;
-    border-radius: 50%;
     cursor: pointer;
-    // z-index: 20;
+}
+
+.dashboard-title {
+
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
 }

@@ -123,10 +123,7 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass, s
                 <span className='board-header-btn' style={theme}>... Show menu</span>
             </div>
 
-            {isDashboardOpen && <>
-                <Dashboard board={board} exit={handelScreenClick} />
-                <Screen cb={handelScreenClick} />
-            </>}
+            {isDashboardOpen && <Dashboard board={board} exit={handelScreenClick} />}
 
             <AppModal
                 onOpenModal={onOpenModal}
