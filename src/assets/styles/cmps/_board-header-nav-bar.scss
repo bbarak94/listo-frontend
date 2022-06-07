@@ -105,6 +105,7 @@
     
     .dashboard-btn{
         margin-right: 10px;
+        gap: 6px;
         @include boarder-header-btn;
     }
 }

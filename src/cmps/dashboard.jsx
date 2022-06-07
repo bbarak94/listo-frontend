@@ -44,10 +44,9 @@ const barOptions = {
 const paiOptions = {
     legend: {
         labels: {
-            fontColor: "#fff"
+            color: "#fff"
         }
     },
-
 }
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend)
@@ -55,6 +54,7 @@ export const Dashboard = ({ board, exit }) => {
 
 
     const boardData = boardService.getDataForDashboard(board)
+    console.log('Dashboard ~ boardData', boardData)
 
     const getBarData = () => {
         return {
@@ -75,9 +75,10 @@ export const Dashboard = ({ board, exit }) => {
                     label: 'Labels',
                     data: boardData.tasksPerLabels.count,
                     backgroundColor: boardData.tasksPerLabels.colors,
-                    borderWidth: 1,
+                    borderWidth: 1
                 }
             ]
+
         }
     }
 
@@ -90,11 +91,14 @@ export const Dashboard = ({ board, exit }) => {
         <div className="dashboard-container">
 
             <div className="top-container flex justify-center align-center">
-                <div className="all-tasks-container">
-                    <h1>All Tasks</h1>
-                    <h1>{boardData.totalTasksCount}</h1>
+                <div className="all-tasks-container flex  flex justify-center align-center">
                     <div className="all-tasks-img-container">
                         <img src={allTasks} alt="" />
+                    </div>
+                    <div className="all-Tasks-text-container flex column flex justify-center align-center">
+
+                        <h2>All Tasks</h2>
+                        <h1>{boardData.totalTasksCount}</h1>
                     </div>
                 </div>
                 <div className='dashboard-bar-container'>
@@ -104,21 +108,21 @@ export const Dashboard = ({ board, exit }) => {
 
             <div className="bottom-container flex justify-center align-center">
                 <div className="dashboard-pai-container">
-                    <Pie className='dashboard-pai' options={paiOptions} data={getPaiData()} />
+                    <Pie height={250} width={250} className='dashboard-pai' options={paiOptions} data={getPaiData()} />
                 </div>
                 <div className="tasks-status-container">
                     <div className="hour-glass-container">
                         <img src={hourGlass} alt="Due" />
                     </div>
                     <div className="due-container flex column ">
-                        <div className="flex align-center space-between">
-                             <h1>On Due</h1> <h2>{boardData.dueTasksCount}</h2>
-                        </div>
-                        <div className="flex align-center space-between">
-                             <h1>Overdue</h1> <h2>{boardData.overDueTasksCount}</h2>
-                        </div>
-                        <div className="flex align-center space-between">
+                        <div style={{color:"#9cf09cde"}} className="flex align-center space-between">
                             <h1>Completed</h1>  <h2>{boardData.completedTasksCount}</h2>
+                        </div>
+                        <div  style={{color:" #ebbf51"}} className="flex align-center space-between">
+                            <h1>On Due</h1> <h2>{boardData.dueTasksCount}</h2>
+                        </div>
+                        <div style={{color:"#ff8989"}} className="flex align-center space-between">
+                            <h1>Overdue</h1> <h2>{boardData.overDueTasksCount}</h2>
                         </div>
                     </div>
                 </div>

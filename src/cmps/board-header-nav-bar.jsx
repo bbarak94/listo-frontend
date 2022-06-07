@@ -11,6 +11,7 @@ import star from '../assets/img/workspace/star-stroke.svg'
 // import starWhite from '../assets/img/workspace/star-stroke-white.svg'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 // import filter from '../assets/img/icon/filter.svg'
+import BarChartIcon from '@mui/icons-material/BarChart';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import starFill from '../assets/img/workspace/star-fill.svg'
 
@@ -103,8 +104,9 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass, s
         </div>
         <div className="board-header-left-container">
 
-            <div className="dashboard-btn" onClick={() => setIsDashboardOpen(true)}>
-                <span style={theme}>Dashboard</span>
+            <div style={theme} className="dashboard-btn flex" onClick={() => setIsDashboardOpen(true)}>
+                <BarChartIcon style={iconStyle} />
+                <span >Dashboard</span>
             </div>
 
             <div className='filter-btn flex' style={theme} onClick={() => {
