@@ -13,20 +13,23 @@ export const Labels = ({ board, task, labelExpandClass,
         setLabelTitleDelay(labelExpandClass)
     }
 
+    if (!task.labelIds?.length > 0) return
+    
     return (
         <>
-            {(task.labelIds?.length > 0) && !task.style.isTextOnImg && (
-                <div className='task-preview-labels flex'>
-                    {labelService.getLabelsByIds(task.labelIds, board).map((label) => {
-                        return (label.color !== NO_COLOR_INDICATION && <div key={label.id}
-                            className={`task-preview-label ${labelExpandClass}`} onClick={onExpandLabels}
-                            style={{ backgroundColor: label.color, }} >
-                            <span className={titleLabelClass}>{label.title}</span>
-                        </div>
-                        )
-                    })}
-                </div>
-            )}
+
+            <div className='task-preview-labels flex'>
+                {labelService.getLabelsByIds(task.labelIds, board).map((label) => {
+                    return (label.color !== NO_COLOR_INDICATION && <div key={label.id}
+                        className={`task-preview-label ${labelExpandClass}`} onClick={onExpandLabels}
+                        style={{ backgroundColor: label.color, }} >
+                        <span className={titleLabelClass}>{label.title}</span>
+                    </div>
+                    )
+                })}
+            </div>
+
+
         </>
     )
 }
