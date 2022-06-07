@@ -5,6 +5,7 @@ import { Bar, Pie } from 'react-chartjs-2'
 import CloseIcon from '@mui/icons-material/Close';
 
 import hourGlass from '../assets/img/dashboard/hour-glass.png'
+import allTasks from '../assets/img/dashboard/all-tasks.png'
 
 import { boardService } from '../services/board.service'
 import { utilService } from '../services/util.service'
@@ -92,6 +93,9 @@ export const Dashboard = ({ board, exit }) => {
                 <div className="all-tasks-container">
                     <h1>All Tasks</h1>
                     <h1>{boardData.totalTasksCount}</h1>
+                    <div className="all-tasks-img-container">
+                        <img src={allTasks} alt="" />
+                    </div>
                 </div>
                 <div className='dashboard-bar-container'>
                     <Bar className='dashboard-bar' options={barOptions} data={getBarData()} />
@@ -107,19 +111,15 @@ export const Dashboard = ({ board, exit }) => {
                         <img src={hourGlass} alt="Due" />
                     </div>
                     <div className="due-container flex column ">
-
                         <div className="flex align-center space-between">
-                            <h2>{boardData.dueTasksCount}</h2> <h1>On Due</h1>
+                             <h1>On Due</h1> <h2>{boardData.dueTasksCount}</h2>
                         </div>
                         <div className="flex align-center space-between">
-                            <h2>{boardData.overDueTasksCount}</h2> <h1>Overdue</h1>
+                             <h1>Overdue</h1> <h2>{boardData.overDueTasksCount}</h2>
                         </div>
                         <div className="flex align-center space-between">
-                            <h2>{boardData.completedTasksCount}</h2> <h1>Completed</h1>
+                            <h1>Completed</h1>  <h2>{boardData.completedTasksCount}</h2>
                         </div>
-                        {/* <h1>{boardData.dueTasksCount} On Due</h1>
-                        <h1>{boardData.overDueTasksCount} Overdue</h1>
-                        <h1>{boardData.completedTasksCount} Completed</h1> */}
                     </div>
                 </div>
             </div>
