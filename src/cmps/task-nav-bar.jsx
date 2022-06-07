@@ -62,6 +62,7 @@ export const TaskNavBar = ({ onOpenModal, board, group, task }) => {
                             <div className='task-edit-btn flex align-center'>
                                 <div>
                                     <img
+                                        className='members-btn'
                                         src={members}
                                         alt='Members'
                                         style={{ width: '18px' }}

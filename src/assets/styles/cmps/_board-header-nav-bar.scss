@@ -72,6 +72,11 @@
 
         .members-list-container {
             margin: 0;
+            .members-avatars-container{
+                .member-container{
+                    margin: 0 -1px;
+                }
+            }
         }
     }
 
