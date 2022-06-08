@@ -93,7 +93,7 @@ export const BoardDetails = () => {
 
         if (result.type === 'group') {
             const group = boardService.getGroupById(board, result.draggableId)
-            // const newBoard = { ...board }
+        
             const newBoard = structuredClone(board)
             newBoard.groups.splice(result.source.index, 1)
             newBoard.groups.splice(result.destination.index, 0, group)
@@ -106,10 +106,6 @@ export const BoardDetails = () => {
                 boardService.getTaskAndGroup(board, draggedTaskId)
             const sourceNewTasks = [...sourceGroup.tasks]
             const [draggedTask] = sourceNewTasks.splice(sourceIdx, 1)
-
-            console.log('draggedTask', draggedTask);
-            console.log('sourceGroupId', sourceIdx);
-            console.log('destinationGroupId', destinationIdx);
 
             if (sourceGroupId === destinationGroupId) {
                 sourceNewTasks.splice(destinationIdx, 0, draggedTask)
@@ -129,9 +125,6 @@ export const BoardDetails = () => {
                 destinationNewTasks.splice(destinationIdx, 0, draggedTask)
                 const newDestinationGroup = { ...destinationGroup, tasks: destinationNewTasks }
 
-
-                console.log('destination tasks', destinationNewTasks);
-                console.log('source tasks', sourceNewTasks);
                 const newBoard = structuredClone(board)
 
                 newBoard.groups.map((group) => {
@@ -139,14 +132,13 @@ export const BoardDetails = () => {
                     if (group.id === destinationGroupId)
                         group.tasks = destinationNewTasks
                 })
-                console.log('new BOard', newBoard);
                 dispatch(saveBoard(newBoard))
             }
         }
     }
 
     if (!board) return <img className='loader' src={loader} alt='Loading...' />
-    console.log('koko after render', board);
+
     return <section
         className='board-app cover-img board-cover-img flex column'
         style={{

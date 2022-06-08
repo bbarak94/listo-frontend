@@ -5,9 +5,6 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 import { TaskEdit } from './task-edit'
 import { Screen } from './screen'
-
-import { utilService } from '../services/util.service'
-
 import { Labels } from './task-preview/preview-labels'
 import { Dates } from './task-preview/preview-dates'
 import { Description } from './task-preview/preview-description'
@@ -15,6 +12,8 @@ import { Attachments } from './task-preview/preview-attachments'
 import { Checklists } from './task-preview/preview-checklists'
 import { Comments } from './task-preview/preview-comments'
 import { Members } from './task-preview/preview-members'
+
+import { utilService } from '../services/util.service'
 
 const previewIconStyle = { fontSize: '16px' }
 
@@ -31,7 +30,7 @@ export const TaskPreview = ({ task, board, group, onOpenModal, setTaskEditExpand
         const left = elemRect.left - window.pageXOffset
         const top = elemRect.top - window.pageYOffset
 
-        const style = utilService.getTaskEditStyle(top, left, width)
+        const style = utilService.getTaskEditPosition(top, left, width)
         setStyle(style)
         setTaskEditExpand(task.id)
     }

@@ -26,6 +26,7 @@ export const ArchiveItems = ({ onOpenModal, board, handleClose, setLabelExpand, 
     return <>
         <div className='title-container flex justify-center'>
             <h1>Archive</h1>
+            <div className="close-btn" onClick={handleClose}></div>
         </div>
         <hr></hr>
         <div className="menu-layout flex column">

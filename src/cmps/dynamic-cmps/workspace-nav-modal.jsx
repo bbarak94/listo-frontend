@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 
 export const WorkspaceNavModal = () => {
 
-
+    console.log('reached workspace');
 
     const navigate = useNavigate()
 

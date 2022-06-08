@@ -3,7 +3,7 @@ export const utilService = {
     makeLorem,
     getRandomIntInclusive,
     delay,
-    getTaskEditStyle,
+    getTaskEditPosition,
     getRandomColor
 }
 
@@ -40,7 +40,7 @@ function delay(ms = 1500) {
     })
 }
 
-function getTaskEditStyle(top, left, width) {
+function getTaskEditPosition(top, left, width) {
     const TASK_EDIT_HEIGHT = 170
     if (top + TASK_EDIT_HEIGHT > window.innerHeight) top = window.innerHeight - TASK_EDIT_HEIGHT
     return {
