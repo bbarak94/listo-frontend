@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams, Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
@@ -14,12 +14,12 @@ import { AppHeader } from '../cmps/app-header'
 import { boardService } from '../services/board.service'
 import { updateGroup, setBoard, saveBoard, updateBoardToStore } from '../store/actions/board.action'
 import { socketService, SOCKET_EVENT_UPDATE_BOARD } from '../services/socket.service'
+import { useEffectUpdate } from '../hooks/useEffectUpdate'
 
 export const BoardDetails = () => {
     const params = useParams()
     const dispatch = useDispatch()
     const { board, filterBy } = useSelector((storeState) => storeState.boardModule)
-
     const [expandCardTitleGroupId, setExpandCardTitleId] = useState('')
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
@@ -30,7 +30,7 @@ export const BoardDetails = () => {
     const [titleLabelClass, setTitleLabelClass] = useState('')
 
     var timeoutId
-
+    const boardRef = useRef()
 
     const setLabelTitleDelay = (className) => {
         if (className === 'expand') {
@@ -52,6 +52,9 @@ export const BoardDetails = () => {
     }
 
     useEffect(() => {
+        setTimeout(() => {
+            if (boardRef.current) boardRef.current.scroll({ left: 0 })
+        })
         socketService.emit('shared board', params.boardId);
         socketService.off(SOCKET_EVENT_UPDATE_BOARD);
         socketService.on(SOCKET_EVENT_UPDATE_BOARD, setBoardFromSocket);
@@ -60,7 +63,6 @@ export const BoardDetails = () => {
             // socketService.terminate()
         }
     }, [])
-
 
 
 
@@ -93,7 +95,7 @@ export const BoardDetails = () => {
 
         if (result.type === 'group') {
             const group = boardService.getGroupById(board, result.draggableId)
-        
+
             const newBoard = structuredClone(board)
             newBoard.groups.splice(result.source.index, 1)
             newBoard.groups.splice(result.destination.index, 0, group)
@@ -153,7 +155,7 @@ export const BoardDetails = () => {
             <BoardHeaderNavBar board={board} setLabelExpand={setLabelExpand} setTitleLabelClass={setTitleLabelClass}
                 setLabelTitleDelay={setLabelTitleDelay} titleLabelClass={titleLabelClass} />
         </div>
-        <main className='board-details flex'>
+        <main className='board-details flex' ref={boardRef} >
             <DragDropContext
                 onDragEnd={handleOnDragEnd}>
                 <Droppable droppableId={board._id} direction="horizontal" type='group'>
