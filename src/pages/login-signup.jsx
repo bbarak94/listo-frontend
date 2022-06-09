@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
+
 import GoogleLogin from 'react-google-login'
 import { gapi } from 'gapi-script'
 
@@ -8,7 +9,7 @@ import OutlinedInput from '@mui/material/OutlinedInput'
 import AppleIcon from '@mui/icons-material/Apple'
 import Button from '@mui/material/Button'
 
-import logoSvg from '../assets/img/login-signup/logo.svg'
+import logoSvg from '../assets/img/listo.svg'
 import leftImg from '../assets/img/login-signup/left.svg'
 import rightImg from '../assets/img/login-signup/right.svg'
 import microsoft from '../assets/img/login-signup/microsoft.png'
@@ -19,8 +20,8 @@ import { getPanelId } from '@mui/base'
 
 export function LoginSignup() {
     const navigation = useNavigate()
-    const location = useLocation()
     const dispatch = useDispatch()
+    const location = useLocation()
     const [fullname, setFullname] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -163,14 +164,11 @@ export function LoginSignup() {
             </main>
 
             <div className='left-container'>
-                <img className='left-img' src={leftImg} alt='image'
-                    style={{ width: '400px' }} />
+                <img className='left-img' src={leftImg} alt='image' />
             </div>
             <div className='right-container'>
-                <img className='right-img' src={rightImg}
-                    alt='image' style={{ width: '400px' }} />
+                <img className='right-img' src={rightImg} alt='image' />
             </div>
-            {/* <h1>{location.pathname.substring(1)} page</h1> */}
         </div>
     )
 }

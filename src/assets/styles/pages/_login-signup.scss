@@ -1,16 +1,18 @@
 .login-signup {
+   height: 100vh;
 
-   .msg{
+   .msg {
       color: red;
    }
-   a{
+
+   a {
       color: blue;
-      &:hover{
+
+      &:hover {
          text-decoration: underline;
          cursor: pointer;
       }
    }
-   height: 100vh;
 
    .login-logo-container {
       display: block;
@@ -19,7 +21,8 @@
       margin-right: auto;
       margin-top: 34px;
       margin-bottom: 40px;
-      img{
+
+      img {
          cursor: pointer;
       }
    }
@@ -55,8 +58,9 @@
          text-align: center;
       }
 
-      
-      .signup,.login{
+
+      .signup,
+      .login {
          .user-input {
             background-color: #fafbfc;
             border: 2px solid #dfe1e6;
@@ -66,36 +70,29 @@
             margin-bottom: 16.8px;
             max-width: 400px;
             outline: none;
-            // padding: 0.5em;
             width: 100%;
          }
-         
-         .login-btn,.signup-btn {
+
+         .login-btn,
+         .signup-btn {
             color: white;
             background: #5AAC44;
             width: 100%;
             font-size: 16px;
             font-weight: 400;
             min-width: 290px;
-
          }
-         // .signup-btn {
-         //    color: white;
-         //    background: #E2E4E6;
-         //    color: hsl(0,0%,55%);
-         //    font-size: 14px;
-         //    width: 100%;
-         //    font-weight: 500;
-         //    min-width: 290px;
-         // }
       }
-      .microsoft-container,.google-container{
+
+      .microsoft-container,
+      .google-container {
          margin-right: 6px;
          display: flex;
          justify-content: center;
          align-content: center;
       }
-      .apple-container{
+
+      .apple-container {
          margin-right: 4px;
          display: flex;
          justify-content: center;
@@ -117,12 +114,12 @@
          margin-bottom: 12px;
          -webkit-transition: background-color .2s ease-in-out 0s, border-color .2s ease-in-out 0s;
          transition: background-color .2s ease-in-out 0s, border-color .2s ease-in-out 0s;
-         h2{
+
+         h2 {
             color: $clr16;
             font-size: 14px;
             margin-top: auto;
          }
-
       }
    }
 
@@ -132,6 +129,9 @@
    .left-container {
       position: fixed;
       bottom: 0;
+      img{
+         width: 400px;
+      }
    }
 
    .right-container {
@@ -141,5 +141,37 @@
    .left-container {
       left: 0;
    }
+}
 
+@media (max-width:1100px) {
+   .login-signup {
+      main{
+         width: 350px;
+      }
+      .right-container,
+      .left-container {
+
+         img{
+            width: 250px;
+         }
+      }
+     
+
+      
+   }
+}
+
+@media (max-width:750px) {
+      .login-signup {
+      main{
+         top: 413px;
+      }
+      .right-container,
+      .left-container {
+
+         img{
+            display: none;
+         }
+      }
+   }
 }

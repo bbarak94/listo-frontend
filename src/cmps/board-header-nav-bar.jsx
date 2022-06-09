@@ -42,6 +42,7 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass, s
         const height = ev.currentTarget.offsetHeight
         top += height
 
+        if (type === 'workspace-nav-modal') left -= 80
         setModalPosition({ top, left })
         setIsOpen(true)
         setCmpType(type)

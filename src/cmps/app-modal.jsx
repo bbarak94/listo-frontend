@@ -127,12 +127,12 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
         boxShadow: 24,
     }
 
-    if (window.innerWidth < 490){
-        if (cmpType==='cover') {
+    if (window.innerWidth < 490 && (cmpType === 'cover' || cmpType === 'attachment')) {
+        if (cmpType === 'cover') {
             style.left = 40
             style.top = 155
         }
-        else if(cmpType === 'attachment') {
+        else if (cmpType === 'attachment') {
             style.left = 40
             style.top = 375
         }

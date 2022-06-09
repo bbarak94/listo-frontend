@@ -25,10 +25,10 @@ export const BoardList = () => {
         dispatch(loadBoards())
     }, [])
 
-    if (!boards.length) return <img className='loader' src={loader} alt='Loading...'/>
+    if (!boards.length) return <img className='loader' src={loader} alt='Loading...' />
     return (
-        <section className="board-list">
-            <section>
+        <>
+            <section className='board-list-container'>
                 <div className='title-container flex'>
                     <img src={starStroke} alt='star' style={{ width: '25px' }} />
                     <h2>Starred boards</h2>
@@ -40,7 +40,7 @@ export const BoardList = () => {
                 </section>
             </section>
 
-            <section>
+            <section className='board-list-container'>
                 <div className='title-container flex'>
                     <img src={trello} alt='clock' style={{ width: '25px' }} />
                     <h2>All boards</h2>
@@ -57,6 +57,6 @@ export const BoardList = () => {
 
             <AppModal isOpen={isOpen} setIsOpen={setIsOpen}
                 cmpType={'add-board'} onAddBoard={onAddBoard} />
-        </section>
+        </>
     )
 }

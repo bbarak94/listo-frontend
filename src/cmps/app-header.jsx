@@ -92,15 +92,12 @@ export const AppHeader = () => {
                 </div>
 
                 {user?.imgUrl && (
-                    <div className='welcome flex align-center'>
-                        {/* {user.username !== 'guest' && (
-                            <h3 className='logout-btn' onClick={onLogout}>Logout</h3>
-                        )} */}
+                    <div className='user-login flex align-center'>
                         {user.username === 'guest' && (
                             <h3 className='login-btn' onClick={() => navigation('/login')}>Login</h3>
                         )}
 
-                        <div className='user-container flex' onClick={(ev) => onOpenModal(ev, 'member', user)}>
+                        <div className='img-container flex' onClick={(ev) => onOpenModal(ev, 'member', user)}>
                             <img
                                 src={user.imgUrl}
                                 style={{
