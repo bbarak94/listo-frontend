@@ -118,7 +118,7 @@ export const BoardHeaderNavBar = ({ board, setLabelExpand, setTitleLabelClass, s
                 Filter
             </div>
             <div style={theme} className='show-menu-btn flex' onClick={() => {
-                setModalPosition({ top: '43px', right: '0' })
+                setModalPosition({ top: '45px', right: '0' })
                 setIsOpen(true)
                 setCmpType('menu')
             }}>

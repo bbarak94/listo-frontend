@@ -176,9 +176,9 @@
 
    .members-avatars-container-task-preview {
       justify-content: flex-end;
-      gap: 3px;
 
       .member-container {
+         margin-left: -3px;
          img {
             width: 28px;
             height: 28px;

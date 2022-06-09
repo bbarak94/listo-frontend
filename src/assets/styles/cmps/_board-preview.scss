@@ -1,11 +1,4 @@
 .board-preview {
-   .board-title-fade{
-   background-color: #0000004d;
-   position: absolute;
-   padding: 8px;
-   inset: 0;
-   
-   }
    position: relative;
    flex: 1 0 22%;
    max-width: 22.5%;
@@ -14,6 +7,13 @@
    margin-top: 1.5%;
    border-radius: 4px;
    cursor: pointer;
+
+   .board-title-fade {
+      background-color: #0000004d;
+      position: absolute;
+      padding: 8px;
+      inset: 0;
+   }
 
    img {
       position: absolute;
@@ -59,15 +59,16 @@
 
       }
    }
-
 }
 
-.workspace-main-layout {
-
-   margin: 40px 16px 0;
-   max-width: 825px;
-   min-width: 288px;
-   width: 100%;
-
+@media (max-width:650px) {
+   .board-preview {
+      min-width: 30%;
+   }
 }
 
+@media (max-width:490px) {
+   .board-preview {
+      min-width: 47%;
+   }
+}

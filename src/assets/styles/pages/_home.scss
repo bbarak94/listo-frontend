@@ -112,23 +112,11 @@
          width: 30%;
          box-shadow: 1px 1px 11px 4px rgb(0 0 0 / 30%);
          border-radius: 5px;
-         // filter: invert(0%) sepia(10%) saturate(0%) hue-rotate(180deg) brightness(94%) contrast(100%);
-
-
-         // object-fit: none;
-         // aspect-ratio: 1/2;
       }
 
-      .img-container {
-         // flex-grow: 1;
-         // width: 500px;
-         // height: 100px;
-
-      }
 
       .content {
-         // flex // gap: 10px;
-         // flex-grow: 0.5;
+
          width: 430px;
          gap: 40px;
          text-align: left;
@@ -146,12 +134,9 @@
    }
 
    .app-footer {
-      // border-top: 1px solid $clr10;
-      // gap: 1em;
       background-color: $clr14;
       padding: 1em 0;
       box-shadow: rgb(0 0 0 / 12%) 0px -3px 7px 0px;
-      // color: $clr10;
 
       small {
          padding: 11px 0;
@@ -185,28 +170,34 @@
 
 @media (max-width:1150px) {
    .home {
-      // padding: 14px;
-
       img {
-         max-height: 325px;
-
+         max-height: 300px;
       }
 
       .home-main-layout {
          align-items: center;
          flex-direction: column;
          gap: 1em;
+         padding: 60px 0 50px;
 
          .home-left-container {
             justify-content: center;
             align-items: center;
+
+            h1 {
+               text-align: center;
+            }
+
+            p {
+               text-align: center;
+            }
 
          }
       }
 
       .hero-img-container {
          img {
-            max-height: 325px;
+            max-height: 340px;
          }
 
          order: -1;
@@ -219,12 +210,89 @@
 
          img {
             order: 1;
+            width: 55%;
          }
 
          .content {
-            margin: 14px;
+            // margin: 14px;
+            gap: 1px;
+
+            h2,
+            p {
+               text-align: center;
+            }
+
          }
       }
 
+      .home-content-container {
+         .brand-logos {
+            column-gap: 70px;
+
+            img {
+               width: 80px;
+            }
+         }
+
+         p {
+            max-width: 600px;
+         }
+      }
    }
+}
+
+@media (max-width:600px) {
+   .home {
+      .home-main-layout {
+         .home-left-container {
+            max-width: 470px;
+         }
+      }
+   }
+}
+
+@media (max-width:490px) {
+   .home {
+      .home-main-layout {
+         padding: 0 0 20px;
+         .home-left-container {
+            max-width: 370px;
+            h1{
+               font-size: 32px;
+            }
+            p{
+               font-size: 16px;
+               line-height: 25px;
+            }
+         }
+         .hero-img-container img{
+   
+            max-height: 200px;
+         
+      }
+      }
+
+      .home-content-container {
+         max-width: 75%;
+
+         .brand-logos {
+            column-gap: 70px;
+         }
+      }
+
+      .home-preview {
+         .content {
+            width: 360px;
+            h2{
+               font-size: 30px;
+            }
+            p{
+               font-size: 16px;
+               line-height: 26px;
+            }
+         }
+      }
+   }
+
+   
 }

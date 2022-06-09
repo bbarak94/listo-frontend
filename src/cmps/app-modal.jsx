@@ -1,5 +1,5 @@
-
 import { useEffect, useState } from 'react';
+
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
@@ -66,7 +66,7 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
             case 'member':
                 return 230
             case 'cover':
-                return 471
+                return 439
             case 'dates':
                 return 437
             case 'attachment':
@@ -80,8 +80,9 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
         switch (cmpType) {
             case 'labels':
                 return 300
-            case 'workspace-nav-modal':
-                return 210
+            case 'delete-group-modal':
+                if (window.innerWidth < 490) return 230
+                return 290
             case 'edit-label':
                 return 308
             case 'members':
@@ -126,14 +127,22 @@ export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, 
         boxShadow: 24,
     }
 
-    if (cmpType === 'menu') {
-        style.top = '45px'
+    if (window.innerWidth < 490){
+        if (cmpType==='cover') {
+            style.left = 40
+            style.top = 155
+        }
+        else if(cmpType === 'attachment') {
+            style.left = 40
+            style.top = 375
+        }
     }
-
-    const cmpHeight = getCmpHeight(cmpType)
-    if (style.top + cmpHeight > window.innerHeight) style.top -= (cmpHeight + buttonHeight)
-    const cmpWidth = getCmpWidth(cmpType)
-    if (style.left + cmpWidth > window.innerWidth) style.left -= (cmpWidth)
+    else {
+        const cmpHeight = getCmpHeight(cmpType)
+        if (style.top + cmpHeight > window.innerHeight) style.top -= (cmpHeight + buttonHeight)
+        const cmpWidth = getCmpWidth(cmpType)
+        if (style.left + cmpWidth > window.innerWidth) style.left -= (cmpWidth)
+    }
 
     return (
         <Modal
