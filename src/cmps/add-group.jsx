@@ -56,7 +56,7 @@ export const AddGroup = () => {
             <div className={`add-group ${addGroupClass}`}>
                 <form onSubmit={onHandleSubmit}>
                     <div>
-                        <input className={addGroupClass} type="text" placeholder="Enter list title..." onChange={onHandleChange} value={title} autoFocus />
+                        <input className={addGroupClass} type="text" placeholder="Enter list title..." onChange={onHandleChange} value={title} />
                         <div className='add-group-actions flex align-center'>
                             <button className={`btn ${addGroupClass}`}>Add list</button>
                             <CloseRoundedIcon className={`close-add-group ${addGroupClass}`} onClick={() => setAddGroupOpen(false)} />

@@ -4,27 +4,6 @@
     top: 12px;
     height: calc(100vh - 102px);
     overflow-x: auto;
-    // overflow-y: hidden;
-
-    // padding: 0 4px;
-    // position: relative;
-    // top: 12px;
-    // height: calc(91.2vh);
-    // overflow-x: auto;
-    // overflow-y: hidden;
-
-
-
-    // height: calc(100vh - 72px - 10px);
-    // margin-top: 20px;
-
-    // &>* {
-    //     margin: 0 4px;
-    //     width: 272px;
-    //     border-radius: 3px;
-    //     background-color: $clr13;
-    // }
-
 }
 
 @media (max-width:802px) {
@@ -44,9 +23,3 @@
         height: calc(100vh - 98px); 
     }
 }
-
-// @media (max-width:332px) {
-//     .board-details {
-//         height: calc(100vh - 222px); 
-//     }
-// }

@@ -45,6 +45,7 @@ export const BoardDetails = () => {
 
     useEffect(() => {
         loadBoard()
+        console.log('test')
     }, [params.boardId])
 
     function loadBoard() {
@@ -52,9 +53,6 @@ export const BoardDetails = () => {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            if (boardRef.current) boardRef.current.scroll({ left: 0 })
-        })
         socketService.emit('shared board', params.boardId);
         socketService.off(SOCKET_EVENT_UPDATE_BOARD);
         socketService.on(SOCKET_EVENT_UPDATE_BOARD, setBoardFromSocket);
