@@ -17,45 +17,49 @@
 @import "pages/task-details";
 
 // Components
-@import "cmps/board-app";
-@import "cmps/home-header";
-@import "cmps/app-header";
-@import "cmps/board-group";
-@import "cmps/task-list";
-@import "cmps/board-list";
-@import "cmps/board-preview";
-@import "cmps/add-new-board";
-@import "cmps/add-group";
-@import "cmps/members-list";
-@import "cmps/member";
-@import "cmps/menu-modal";
-@import "cmps/archive-task";
-@import "cmps/board-header";
-@import "cmps/filter-modal";
-@import "cmps/dashboard";
-@import "cmps/screen";
 
-//Task Details
-@import "cmps/task-details/task-details-header";
-@import "cmps/task-details/attachments";
-@import "cmps/task-details/checklist";
-@import "cmps/task-details/comments";
-@import "cmps/task-details/cover-method";
-@import "cmps/task-details/cover";
-@import "cmps/task-details/dates";
-@import "cmps/task-details/edit-label";
-@import "cmps/task-details/label-preview";
-@import "cmps/task-details/labels";
-@import "cmps/task-details/task-attachments";
-@import "cmps/task-details/task-description";
-@import "cmps/task-details/task-details-activities";
-@import "cmps/task-details/task-details-checklist";
-@import "cmps/task-details/task-details-date-preview";
-@import "cmps/task-details/members";
-@import "cmps/task-details/task-nav-bar";
+// Dynamic Cmps
+@import "cmps/dynamic-cmps/menu-modal";
+@import "cmps/dynamic-cmps/members";
+@import "cmps/dynamic-cmps/members-list";
+@import "cmps/dynamic-cmps/member";
+@import "cmps/dynamic-cmps/task-details-header";
+@import "cmps/dynamic-cmps/attachments";
+@import "cmps/dynamic-cmps/checklist";
+@import "cmps/dynamic-cmps/comments";
+@import "cmps/dynamic-cmps/cover-method";
+@import "cmps/dynamic-cmps/cover";
+@import "cmps/dynamic-cmps/dates";
+@import "cmps/dynamic-cmps/edit-label";
+@import "cmps/dynamic-cmps/label-preview";
+@import "cmps/dynamic-cmps/labels";
+@import "cmps/dynamic-cmps/task-attachments";
+@import "cmps/dynamic-cmps/task-description";
+@import "cmps/dynamic-cmps/task-details-activities";
+@import "cmps/dynamic-cmps/task-details-checklist";
+@import "cmps/dynamic-cmps/task-details-date-preview";
+@import "cmps/dynamic-cmps/task-nav-bar";
 
-//Task Preview
+// Task Preview
 @import "cmps/task-preview/task-preview-labels";
 @import "cmps/task-preview/task-preview-small-previews";
 @import "cmps/task-preview/task-edit";
 @import "cmps/task-preview/task-preview";
+
+// Board
+@import "cmps/board/add-group";
+@import "cmps/board/add-new-board";
+@import "cmps/board/board-app";
+@import "cmps/board/board-group";
+@import "cmps/board/board-list";
+@import "cmps/board/board-preview";
+@import "cmps/board/screen";
+@import "cmps/board/task-list";
+
+// Headers
+@import "cmps/headers/app-header";
+@import "cmps/headers/archive-task";
+@import "cmps/headers/board-header";
+@import "cmps/headers/dashboard";
+@import "cmps/headers/home-header";
+@import "cmps/headers/filter-modal";

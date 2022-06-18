@@ -2,7 +2,7 @@ import { TaskList } from "./task-list"
 import { AddTask } from "./add-task"
 import { GroupTitleEdit } from "./group-title-edit"
 import { useSelector } from "react-redux"
-import { AppModal } from "./app-modal"
+import { AppModal } from "../app-modal"
 import { useState } from "react"
 
 export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal,

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { addGroup } from '../store/actions/board.action'
+import { addGroup } from '../../store/actions/board.action'
 
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 

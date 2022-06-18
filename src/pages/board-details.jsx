@@ -5,8 +5,8 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import loader from '../assets/img/loader.svg'
 
-import { BoardGroup } from '../cmps/board-group'
-import { AddGroup } from '../cmps/add-group'
+import { BoardGroup } from '../cmps/board/board-group'
+import { AddGroup } from '../cmps/board/add-group'
 import { BoardHeader } from '../cmps/headers/board-header'
 import { AppModal } from '../cmps/app-modal'
 import { AppHeader } from '../cmps/headers/app-header'

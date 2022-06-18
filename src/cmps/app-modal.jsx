@@ -17,7 +17,6 @@ import { MenuModal } from './dynamic-cmps/menu-modal.jsx';
 import { FilterModal } from './dynamic-cmps/filter-modal.jsx';
 import { DeleteGroupModal } from './dynamic-cmps/delete-group-modal.jsx';
 
-
 const buttonHeight = 32
 
 export function AppModal({ titleLabelClass, setLabelTitleDelay, setLabelExpand, setTitleLabelClass, isOpen, setIsOpen,

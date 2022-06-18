@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
-import { addTask } from "../store/actions/board.action"
+import { addTask } from "../../store/actions/board.action"
 
 export const AddTask = ({ setExpandCardTitleId, expandCardTitleGroupId, groupId, boardId, isScrollBar }) => {
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 import { TaskEdit } from './task-edit'
-import { Screen } from '../screen'
+import { Screen } from '../board/screen'
 import { Labels } from './preview-labels'
 import { Dates } from './preview-dates'
 import { Description } from './preview-description'

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateGroup } from '../store/actions/board.action'
+import { updateGroup } from '../../store/actions/board.action'
 
 export const GroupTitleEdit = ({ groupTitle, group, boardId }) => {
     const [title, setTitle] = useState(groupTitle)

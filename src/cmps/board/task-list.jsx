@@ -1,6 +1,6 @@
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 
-import { TaskPreview } from './task-preview/task-preview'
+import { TaskPreview } from '../task-preview/task-preview'
 
 export const TaskList = ({ board, filterBy, group, onOpenModal, setIsScrollBar, setLabelExpand, labelExpandClass,
     setTaskEditExpand, taskEditExpandId, titleLabelClass, setLabelTitleDelay }) => {
