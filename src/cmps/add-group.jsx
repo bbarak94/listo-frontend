@@ -28,27 +28,8 @@ export const AddGroup = () => {
 
     const addGroupClass = isAddGroupOpen ? 'open' : ''
 
-    const closeBtnStyle =
-        isAddGroupOpen ?
-            {
-                fontSize: '26px',
-                color: '#42526e',
-                marginLeft: '4px',
-                position: 'relative',
-                top: 0
-            }
-            :
-            {
-                fontSize: '0px',
-                color: 'rgb(66, 82, 110)',
-                marginLeft: '4px',
-                position: 'relative',
-                top: '-36px'
-            }
-
     return (
         <section style={{ position: 'relative' }}>
-
             <div className={`add-group-btn ${addGroupClass}`} onClick={() => setAddGroupOpen(true)}>
                 <span className="add-icon"></span>
                 Add another list
@@ -65,6 +46,5 @@ export const AddGroup = () => {
                 </form>
             </div>
         </section>
-
     )
 }

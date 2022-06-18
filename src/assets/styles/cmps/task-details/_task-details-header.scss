@@ -1,0 +1,35 @@
+.task-details-header {
+    width: 100%;
+    margin-top: 16px;
+
+    .left-side {
+        gap: 10px;
+        margin-left: 16px;
+
+        .title {
+            gap: 7px;
+
+            h1 {
+                font-size: 20px;
+                font-weight: 500;
+                margin: 0;
+            }
+
+            h2 {
+                color: $clr8;
+                font-size: 14px;
+                font-weight: 400;
+                margin: 0 0 0 1px;
+
+                span {
+                    cursor: pointer;
+                    text-decoration: underline;
+
+                    &:hover {
+                        color: $clr1;
+                    }
+                }
+            }
+        }
+    }
+}

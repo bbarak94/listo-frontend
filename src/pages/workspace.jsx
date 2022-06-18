@@ -1,5 +1,5 @@
-import { BoardList } from '../cmps/board-list'
-import { AppHeader } from '../cmps/app-header'
+import { BoardList } from '../cmps/board/board-list'
+import { AppHeader } from '../cmps/headers/app-header'
 
 export const Workspace = () => {
 

@@ -9,7 +9,6 @@
 @import "basics/layout";
 @import "basics/base";
 
-
 // Pages
 @import "pages/home";
 @import "pages/login-signup";
@@ -23,40 +22,40 @@
 @import "cmps/app-header";
 @import "cmps/board-group";
 @import "cmps/task-list";
-@import "cmps/task-attachments";
-@import "cmps/task-preview";
 @import "cmps/board-list";
 @import "cmps/board-preview";
 @import "cmps/add-new-board";
 @import "cmps/add-group";
-@import "cmps/task-edit";
-@import "cmps/task-nav-bar";
-@import "cmps/cover";
-@import "cmps/cover-method";
-@import "cmps/task-preview-edit-nav";
-@import "cmps/user-menu";
-
-@import "cmps/members";
 @import "cmps/members-list";
 @import "cmps/member";
-@import "cmps/checklist";
-@import "cmps/attachments";
 @import "cmps/menu-modal";
-@import "cmps/dates";
-@import "cmps/task-description";
-
-
-@import "cmps/labels";
-@import "cmps/label-preview";
-@import "cmps/task-preview-labels";
 @import "cmps/archive-task";
-@import "cmps/task-details-checklist";
-@import "cmps/task-details-activities";
-@import "cmps/board-header-nav-bar";
-@import "cmps/edit-label";
-@import "cmps/comments";
+@import "cmps/board-header";
 @import "cmps/filter-modal";
 @import "cmps/dashboard";
+@import "cmps/screen";
 
+//Task Details
+@import "cmps/task-details/task-details-header";
+@import "cmps/task-details/attachments";
+@import "cmps/task-details/checklist";
+@import "cmps/task-details/comments";
+@import "cmps/task-details/cover-method";
+@import "cmps/task-details/cover";
+@import "cmps/task-details/dates";
+@import "cmps/task-details/edit-label";
+@import "cmps/task-details/label-preview";
+@import "cmps/task-details/labels";
+@import "cmps/task-details/task-attachments";
+@import "cmps/task-details/task-description";
+@import "cmps/task-details/task-details-activities";
+@import "cmps/task-details/task-details-checklist";
+@import "cmps/task-details/task-details-date-preview";
+@import "cmps/task-details/members";
+@import "cmps/task-details/task-nav-bar";
 
-
+//Task Preview
+@import "cmps/task-preview/task-preview-labels";
+@import "cmps/task-preview/task-preview-small-previews";
+@import "cmps/task-preview/task-edit";
+@import "cmps/task-preview/task-preview";

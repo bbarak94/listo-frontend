@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useEffectUpdate } from './useEffectUpdate';
 
 export const useForm = (initialFields, cb) => {
@@ -15,12 +15,9 @@ export const useForm = (initialFields, cb) => {
         if (cb) cb(fields)
     }, [fields])
 
-    
-
     return [
         fields,
         handleChange,
         setFields
     ]
-
 }

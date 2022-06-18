@@ -7,19 +7,18 @@ import loader from '../assets/img/loader.svg'
 
 import { BoardGroup } from '../cmps/board-group'
 import { AddGroup } from '../cmps/add-group'
-import { BoardHeaderNavBar } from '../cmps/board-header-nav-bar'
+import { BoardHeader } from '../cmps/headers/board-header'
 import { AppModal } from '../cmps/app-modal'
-import { AppHeader } from '../cmps/app-header'
+import { AppHeader } from '../cmps/headers/app-header'
 
 import { boardService } from '../services/board.service'
 import { updateGroup, setBoard, saveBoard, updateBoardToStore } from '../store/actions/board.action'
 import { socketService, SOCKET_EVENT_UPDATE_BOARD } from '../services/socket.service'
-import { useEffectUpdate } from '../hooks/useEffectUpdate'
 
 export const BoardDetails = () => {
     const params = useParams()
     const dispatch = useDispatch()
-    const { board, filterBy } = useSelector((storeState) => storeState.boardModule)
+    const { board } = useSelector((storeState) => storeState.boardModule)
     const [expandCardTitleGroupId, setExpandCardTitleId] = useState('')
     const [isOpen, setIsOpen] = useState(false)
     const [cmpType, setCmpType] = useState('')
@@ -58,11 +57,8 @@ export const BoardDetails = () => {
         socketService.on(SOCKET_EVENT_UPDATE_BOARD, setBoardFromSocket);
         return () => {
             socketService.off(SOCKET_EVENT_UPDATE_BOARD, loadBoard)
-            // socketService.terminate()
         }
     }, [])
-
-
 
     function setBoardFromSocket(board) {
         dispatch(updateBoardToStore(board))
@@ -121,10 +117,7 @@ export const BoardDetails = () => {
 
                 newSourceGroup.tasks = sourceNewTasks
                 const destinationNewTasks = [...destinationGroup.tasks]
-
                 destinationNewTasks.splice(destinationIdx, 0, draggedTask)
-                const newDestinationGroup = { ...destinationGroup, tasks: destinationNewTasks }
-
                 const newBoard = structuredClone(board)
 
                 newBoard.groups.map((group) => {
@@ -150,7 +143,7 @@ export const BoardDetails = () => {
         <AppHeader />
 
         <div className='board-header flex'>
-            <BoardHeaderNavBar board={board} setLabelExpand={setLabelExpand} setTitleLabelClass={setTitleLabelClass}
+            <BoardHeader board={board} setLabelExpand={setLabelExpand} setTitleLabelClass={setTitleLabelClass}
                 setLabelTitleDelay={setLabelTitleDelay} titleLabelClass={titleLabelClass} />
         </div>
         <main className='board-details flex' ref={boardRef} >

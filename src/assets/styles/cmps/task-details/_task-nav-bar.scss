@@ -1,0 +1,112 @@
+.task-nav-bar {
+   gap: 7.5px;
+
+   .title-container {
+      justify-content: space-between;
+
+      .title {
+         font-size: 12px;
+         font-weight: 500;
+         margin: 0 0 8px 0;
+      }
+
+      div {
+         background-color: $clr12;
+         display: flex;
+         align-content: center;
+         justify-content: center;
+         min-width: 22px;
+         min-height: 22px;
+         padding: 2px;
+
+         &:hover {
+            cursor: pointer;
+            background-color: darken($color: $clr11, $amount: 8);
+         }
+      }
+   }
+
+   .suggested {
+      width: 100%;
+      padding: 10px 0;
+
+      h1 {
+         padding-bottom: 6px;
+      }
+   }
+
+
+   .all-btns {
+      flex-direction: column;
+      gap: 8px;
+
+      section {
+         display: flex;
+         flex-direction: column;
+         gap: 10px;
+      }
+   }
+
+   .member-join {
+      margin-bottom: 8px;
+   }
+
+   .task-edit-btn {
+      max-height: 32px;
+      width: 170px;
+      background-color: $clr12;
+      align-content: center;
+      border-radius: 3px;
+
+      &:hover {
+         cursor: pointer;
+         background-color: darken($color: $clr11, $amount: 6);
+      }
+
+      div {
+         display: flex;
+         align-content: center;
+         justify-content: center;
+         min-width: 32px;
+         min-height: 32px;
+         padding: 6px;
+
+         img {
+            filter: invert(13%) sepia(13%) saturate(4569%) hue-rotate(196deg) brightness(98%) contrast(98%);
+         }
+      }
+
+      h2 {
+         color: $clr1;
+         font-size: 12px;
+         font-weight: 400;
+      }
+   }
+}
+
+@media (max-width:750px) {
+   .task-nav-bar {
+      padding: 10px;
+
+      .all-btns {
+         flex-direction: row;
+         gap: 18px;
+
+         section {
+            flex-grow: 1;
+         }
+      }
+
+      .task-edit-btn {
+         width: 100%;
+         max-width: 243px;
+      }
+
+      .suggested {
+
+         .member-join {
+            width: 45.5%;
+         }
+      }
+   }
+}

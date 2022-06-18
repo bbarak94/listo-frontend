@@ -1,0 +1,59 @@
+.task-edit {
+    position: fixed;
+    z-index: 20;
+
+    .task-title-edit {
+
+        form {
+            background-color: $clr10;
+            border-radius: 3px;
+        }
+
+        textArea {
+            padding: 6px 8px 2px;
+            width: 256px;
+            height: 96px;
+            font-size: inherit;
+        }
+
+        button {
+            display: block;
+            margin-top: 12px;
+            padding: 6px 24px;
+        }
+    }
+
+    .task-edit-nav {
+        position: absolute;
+        left: 250px;
+        top: 1px;
+        margin-left: 6px;
+        display: flex;
+        flex-direction: column;
+
+        button {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            border-radius: 3px;
+            color: #e6e6e6;
+            margin: 0 0 4px 8px;
+            padding: 8px 12px 8px 8px;
+            transition: transform 85ms ease-in;
+            cursor: pointer;
+            min-width: max-content;
+
+            &:hover {
+                transform: translateX(5px);
+                background: rgba(0, 0, 0, 0.884);
+            }
+
+            svg {
+                width: 16px;
+                height: 16px;
+                margin-right: 6px;
+            }
+        }
+    }
+}

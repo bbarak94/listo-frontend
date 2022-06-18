@@ -1,0 +1,78 @@
+.task-preview-small-previews {
+    flex-wrap: wrap;
+    padding: 2px 8px 8px;
+    column-gap: 12px;
+    row-gap: 4px;
+
+    .task-preview-date {
+        align-self: center;
+        gap: 2px;
+        padding: 4px;
+        border-radius: 3px;
+        font-size: 12px;
+        transition: background-color 85ms;
+
+        span {
+            margin: auto;
+        }
+
+        img {
+            margin-top: 1px;
+            margin-inline-end: 4px;
+            width: 16px;
+        }
+
+        &:hover {
+            background-color: #091e4211;
+        }
+    }
+
+    .complete {
+        background-color: #61bd4f;
+        color: $clr10;
+
+        &:hover {
+            background-color: #519839;
+        }
+    }
+
+    .pastDue {
+        background-color: #ec9488;
+        color: $clr10;
+
+        &:hover {
+            background-color: #eb5a46;
+        }
+    }
+
+    .preview-small-icon {
+        color: $clr8;
+        align-self: center;
+        display: flex;
+        align-items: center;
+
+        & span {
+            font-size: 12px;
+            margin-left: 2px;
+        }
+    }
+
+    .members-list-container {
+        margin-left: auto;
+        position: relative;
+    }
+
+    .members-avatars-container-task-preview {
+        justify-content: flex-end;
+
+        .member-container {
+            margin-left: -3px;
+
+            img {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+            }
+        }
+    }
+}

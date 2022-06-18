@@ -25,7 +25,6 @@
 }
 
 .dashboard-bar-container {
-    // height: 344px;
     height: 31vh;
     min-width: 760px;
     border-radius: 20px;
@@ -41,7 +40,6 @@
 
 .dashboard-pai-container {
     height: 31vh;
-    // max-width: 580px;
     border-radius: 20px;
     background-color: rgba(7, 27, 39, .541);
     border: 2px solid hsla(0, 0%, 100%, .192);
@@ -82,7 +80,6 @@
 }
 
 .tasks-status-container {
-    // font-size: 20px;
     color: #fff;
     border-radius: 20px;
     background-color: rgba(7, 27, 39, .541);
@@ -97,7 +94,6 @@
     .due-container {
         width: 28%;
         row-gap: 10px;
-
     }
 
     .hour-glass-container {

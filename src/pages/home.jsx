@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import Button from '@mui/material/Button'
 
-import { HomeHeader } from '../cmps/home-header'
+import { HomeHeader } from '../cmps/headers/home-header'
 
 import hero from '../assets/img/hero/hero.png'
 import brand1 from '../assets/img/home-page/brand1.svg'

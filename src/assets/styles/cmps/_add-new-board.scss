@@ -1,9 +1,6 @@
 .board-preview-btn {
    cursor: pointer;
    background-color: #091e420a;
-   // min-height: 104px;
-   // min-width: 194px;
-   // margin: 14px 0;
    padding: 0;
 
    &:hover {
@@ -13,8 +10,6 @@
 
    div {
       margin: auto;
-      // min-width: 100%;
-      // min-height: 100%;
       border-radius: 4px;
    }
 
@@ -52,20 +47,11 @@
 
    input {
       @include nice-input;
-      // box-shadow: inset 0 0 0 2px #0079bf;
-      // font-size: 14px;
-      // line-height: 20px;
-      // font-weight: 400;
-      // border-radius: 3px;
-      // outline: none;
-      // border: none;
-      // padding: 8px 12px;
    }
 }
 
 .create-board-btn {
    width: 92%;
-
 }
 
 .edit-new-board-title {
@@ -78,27 +64,18 @@
    gap: 5px;
 
    .prev-bgImage {
-
-      // height: 100%;
-
       width: 64px;
 
-      // height: 40px;
       img {
-
          object-fit: cover;
          height: 40px;
-
          border-radius: 3px;
          cursor: pointer;
       }
 
       &:hover {
          filter: brightness(89%);
-         // opacity: 0.7;
-         // border-width: 15px;
       }
-
    }
 }
 
@@ -122,52 +99,12 @@
    }
 }
 
-// .prev-bgColor1 {
-//    &:hover {
-//       background-color: darken($color: $clr-bgs1, $amount: 5)
-//    }
-
-//    background: $clr-bgs1;
-// }
-
-// .prev-bgColor2 {
-//    &:hover {
-//       background-color: darken($color: $clr-bgs2, $amount: 5)
-//    }
-
-//    background: $clr-bgs2;
-// }
-
-// .prev-bgColor3 {
-//    &:hover {
-//       background-color: darken($color: $clr-bgs3, $amount: 5)
-//    }
-
-//    background: $clr-bgs3;
-// }
-
-// .prev-bgColor4 {
-//    &:hover {
-//       background-color: darken($color: $clr-bgs4, $amount: 5)
-//    }
-
-//    background: $clr-bgs4;
-// }
-
-// .prev-bgColor5 {
-//    &:hover {
-//       background-color: darken($color: $clr-bgs5, $amount: 5)
-//    }
-
-//    background: $clr-bgs5;
-// }
-
 .prev-bgc-more {
+   background: $clr12;
+
    &:hover {
       background-color: $clr7;
    }
-
-   background: $clr12;
 }
 
 .prev-bgc-more {

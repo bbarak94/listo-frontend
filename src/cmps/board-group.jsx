@@ -5,18 +5,15 @@ import { useSelector } from "react-redux"
 import { AppModal } from "./app-modal"
 import { useState } from "react"
 
-
-
 export const BoardGroup = ({ group, board, expandCardTitleGroupId, setExpandCardTitleId, onOpenModal,
     labelExpandClass, setLabelExpand, setTaskEditExpand, taskEditExpandId, titleLabelClass, setLabelTitleDelay }) => {
+        
     const [cmpType, setCmpType] = useState('')
     const [isOpen, setIsOpen] = useState(false)
     const [modalPosition, setModalPosition] = useState({})
     const { filterBy } = useSelector((storeState) => storeState.boardModule)
 
     const onOpenGroupModal = (ev, type) => {
-        // console.log('onOpenGroupModal ~ ev', ev)
-
         setIsOpen(true)
         setCmpType(type)
         let elemRect = ev.currentTarget.getBoundingClientRect()

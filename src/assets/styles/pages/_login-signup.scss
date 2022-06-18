@@ -58,7 +58,6 @@
          text-align: center;
       }
 
-
       .signup,
       .login {
          .user-input {
@@ -129,7 +128,8 @@
    .left-container {
       position: fixed;
       bottom: 0;
-      img{
+
+      img {
          width: 400px;
       }
    }
@@ -145,31 +145,30 @@
 
 @media (max-width:1100px) {
    .login-signup {
-      main{
+      main {
          width: 350px;
       }
+
       .right-container,
       .left-container {
 
-         img{
+         img {
             width: 250px;
          }
       }
-     
-
-      
    }
 }
 
 @media (max-width:750px) {
-      .login-signup {
-      main{
+   .login-signup {
+      main {
          top: 413px;
       }
+
       .right-container,
       .left-container {
 
-         img{
+         img {
             display: none;
          }
       }

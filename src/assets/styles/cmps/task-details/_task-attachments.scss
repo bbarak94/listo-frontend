@@ -1,0 +1,110 @@
+.task-attachments {
+   margin-top: 12px;
+
+   .attachment-header {
+      .task-details-left-icon {
+         margin-left: 7px;
+         margin-right: 12px;
+      }
+   }
+
+   h1 {
+      font-size: 16.5px;
+      font-weight: 500;
+   }
+
+   .imgs-container {
+      .attachment-container {
+         padding: 10px 46px;
+         gap: 20px;
+         justify-content: center;
+
+         .img-container {
+            max-width: 136px;
+            max-height: 100px;
+
+            img {
+               object-fit: contain;
+            }
+         }
+
+         .attachment-details {
+            h1 {
+               margin: 0;
+               font-size: 16px;
+               font-weight: 600;
+            }
+
+            div {
+               align-items: center;
+
+               h2 {
+                  font-size: 14px;
+                  font-weight: 300;
+               }
+
+               h3 {
+                  font-size: 16px;
+                  font-weight: 400;
+
+                  span {
+                     text-decoration: underline;
+                     font-size: 15px;
+
+                     &:hover {
+                        cursor: pointer;
+                     }
+                  }
+               }
+            }
+
+            .make-cover {
+               margin-top: 6px;
+               gap: 10px;
+               align-items: center;
+
+               span {
+                  text-decoration: underline;
+                  font-size: 15px;
+
+                  &:hover {
+                     cursor: pointer;
+                  }
+               }
+            }
+
+            .actions {
+               flex-direction: row;
+               justify-content: space-between;
+
+               h3 {
+                  align-self: self-start;
+               }
+            }
+         }
+      }
+   }
+}
+
+@media (max-width:490px) {
+   .task-attachments {
+      .imgs-container {
+         .attachment-container {
+            .attachment-details {
+               .actions {
+                  flex-direction: column;
+
+                  h3,
+                  h2 {
+                     align-self: self-start;
+                  }
+               }
+
+               .make-cover span {
+                  min-width: 80px;
+               }
+            }
+         }
+      }
+   }
+}

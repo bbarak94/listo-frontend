@@ -1,44 +1,47 @@
-.header{
+.header {
    font-family: Roboto;
    padding: 1rem !important;
    justify-content: space-between;
-   background-color: rgba(255,255,255,0);
+   background-color: rgba(255, 255, 255, 0);
    position: sticky;
    top: 0;
    transition: background-color 1s, box-shadow 1s;
    z-index: 5;
    background: #eae6ff;
 
-   .header-logo{
+   .header-logo {
       cursor: pointer;
       max-width: 126px;
-      
+
    }
-   .header-btns{
+
+   .header-btns {
       align-items: center;
       gap: 15px;
    }
 
-   .login-btn{
+   .login-btn {
       font-size: 16px;
       color: #1976d2;
-      &:hover{
+
+      &:hover {
          cursor: pointer;
-         text-decoration: underline;      
+         text-decoration: underline;
       }
    }
-   .signup-btn{
-      :hover{
+
+   .signup-btn {
+      :hover {
          cursor: pointer;
       }
    }
+
    Button {
       text-transform: unset;
    }
 
    &.scroll {
       background-color: $clr10;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
    }
 }
-

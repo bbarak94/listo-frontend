@@ -1,5 +1,4 @@
 .add-group {
-
     margin-inline-end: 8px;
     align-self: flex-start;
     padding: 4px;
@@ -8,22 +7,15 @@
     min-width: 272px;
     border-radius: 3px;
     background-color: $clr13;
-    // display: none;
     opacity: 0;
     transition: opacity, height;
     transition-duration: .1s;
     height: 0;
-    // transition-delay: 1s;
 
     &.open {
-        // display: block;
         height: 80px;
         opacity: 1;
     }
-
-    // form {
-    //     padding: 2px 4px 4px 4px;
-    // }
 
     input {
         display: block;
@@ -49,7 +41,6 @@
         position: relative;
 
         button {
-            // float: left;
             margin-inline-end: 4px;
             padding: 0 12px;
             height: 0;
@@ -63,7 +54,6 @@
         }
 
         .close-add-group {
-
             font-size: 0px;
             color: rgb(66, 82, 110);
             margin-left: 4px;
@@ -94,7 +84,7 @@
     z-index: 10;
     opacity: 1;
     transition: opacity .1s;
-    
+
     &.open {
         z-index: -10;
         opacity: 0;

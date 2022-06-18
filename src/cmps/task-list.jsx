@@ -1,30 +1,17 @@
-import { useEffect, useState } from 'react'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import { useSelector } from 'react-redux'
-import { TaskPreview } from './task-preview'
+
+import { TaskPreview } from './task-preview/task-preview'
 
 export const TaskList = ({ board, filterBy, group, onOpenModal, setIsScrollBar, setLabelExpand, labelExpandClass,
     setTaskEditExpand, taskEditExpandId, titleLabelClass, setLabelTitleDelay }) => {
 
-    // const [tasksToShow, setTasksToShow] = useState(group.tasks)
-    // useEffect(() => {
-    //     onFilter()
-    // }, [])
-
-    // useEffect(() => {
-    //     onFilter()
-    // }, [filterBy])
-
     const getTasksToShow = () => {
         var filteredTasks = group.tasks.filter((task) => !task.archivedAt)
-        // var filteredTasks = group.tasks
-        // console.log('filterBy:', filterBy)
+
         if (filterBy.txt !== '') {
             const regex = new RegExp(filterBy.txt, 'i')
-            // console.log('tasksToShow:', tasksToShow)
             filteredTasks = filteredTasks.filter(
                 (task) => regex.test(task.title)
-                // || regex.test(task.description)
             )
         }
         if (filterBy.memberIds.length) {
@@ -36,11 +23,9 @@ export const TaskList = ({ board, filterBy, group, onOpenModal, setIsScrollBar, 
             })
         }
         return filteredTasks
-
     }
     return (
         <Droppable droppableId={group.id} direction="vertical" type='task'>
-
             {(provided) => (
                 <article
                     className='task-list'

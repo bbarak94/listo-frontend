@@ -1,0 +1,49 @@
+
+.due-date-preview-container {
+    margin-left: 8px;
+
+    h1 {
+        font-size: 12px;
+        font-weight: 500;
+        color: $clr8;
+    }
+
+    .date-preview {
+        min-width: 155px;
+        padding: 12px 8px;
+        height: 15px;
+        justify-content: center;
+        margin-top: 14px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        text-align: start;
+        background-color: $clr-opa2;
+        border-radius: 3px;
+
+        p {
+            margin: auto;
+            font-size: 12px;
+            color: $clr8;
+
+            input {
+                outline: none;
+            }
+
+            span {
+                border-radius: 3px;
+                margin-left: 6px;
+                padding: 0 2px;
+
+                &.complete {
+                    background-color: #61bd4f;
+                    color: $clr10;
+                }
+
+                &.pastDue {
+                    background-color: #ec9488;
+                    color: $clr10;
+                }
+            }
+        }
+    }
+}

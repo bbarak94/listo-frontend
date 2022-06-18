@@ -1,0 +1,82 @@
+.edit-label {
+    width: 281px;
+    margin: 14px;
+
+    h1 {
+        font-size: 14px;
+        font-weight: 500;
+        color: $clr8;
+    }
+
+    hr {
+        color: $clr1;
+    }
+
+    label {
+        display: block;
+        margin: 12px 0 0;
+    }
+
+    input {
+        @include nice-input(#B3BAC5);
+        width: 100%;
+
+        &:focus {
+            @include nice-input;
+        }
+    }
+}
+
+.edit-label-color-container {
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .adit-label-color {
+        cursor: pointer;
+        border-radius: 4px;
+        width: 48px;
+        height: 32px;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &.selected-clr {
+            box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #0079BF;
+        }
+    }
+}
+
+
+.no-color-label-container {
+    margin-top: 8px;
+    gap: 8px;
+
+    .no-color-desc>* {
+        margin: 0;
+    }
+
+    .no-color-label {
+        cursor: pointer;
+        border-radius: 4px;
+        width: 48px;
+        height: 32px;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &.selected-clr {
+            box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #0079BF;
+        }
+    }
+}
+
+.edit-label-btn-container {
+    margin-top: 8px;
+    justify-content: space-between;
+
+    .create-label-btn {
+        @include btn-2;
+    }
+}

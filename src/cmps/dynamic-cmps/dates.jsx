@@ -23,7 +23,7 @@ export const Dates = ({ task, board, group, handleClose }) => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <div className='flex column justify-center align-center' style={{ padding: '14px' }}>
+      <div className='dates flex column justify-center align-center' style={{ padding: '14px' }}>
         <h3>Dates</h3>
         <hr />
         <Grid item xs={12} md={6} >

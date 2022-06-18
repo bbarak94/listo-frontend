@@ -3,26 +3,26 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useEffectUpdate } from '../hooks/useEffectUpdate'
+
 import CreditCardSharpIcon from '@mui/icons-material/CreditCardSharp'
 
 import { getBoard } from '../store/actions/board.action'
 import { boardService } from '../services/board.service'
-import { AppModal } from '../cmps/app-modal'
 
 import loader from '../assets/img/loader.svg'
-
 import close from '../assets/img/workspace/close.svg'
 import archive from '../assets/img/task/navbar/archive.svg'
 
-import { Screen } from '../cmps/screen'
-import { TaskNavBar } from '../cmps/task-nav-bar.jsx'
+import { AppModal } from '../cmps/app-modal'
+import { TaskDetailsHeader } from '../cmps/task-details/task-details-header'
+import { TaskDetailsNavBar } from '../cmps/task-details/task-details-nav-bar.jsx'
 import { MembersList } from '../cmps/dynamic-cmps/members-list.jsx'
 import { DatePreview } from '../cmps/dynamic-cmps/date-preview'
-import { LabelPreview } from '../cmps/label-preview'
-import { TaskDetailsDesc } from '../cmps/task-details-desc'
-import { TaskDetailsAttachments } from '../cmps/task-details-attachments.jsx'
-import { TaskDetailsChecklists } from '../cmps/task-details-checklists.jsx'
-import { TaskDetailsActivities } from '../cmps/task-details-activities.jsx'
+import { LabelPreview } from '../cmps/task-details/label-preview'
+import { TaskDetailsDescription } from '../cmps/task-details/task-details-description'
+import { TaskDetailsAttachments } from '../cmps/task-details/task-details-attachments.jsx'
+import { TaskDetailsChecklists } from '../cmps/task-details/task-details-checklists.jsx'
+import { TaskDetailsActivities } from '../cmps/task-details/task-details-activities.jsx'
 
 export const TaskDetails = () => {
     const { boardId, taskId } = useParams()
@@ -76,7 +76,6 @@ export const TaskDetails = () => {
 
     return (
         <>
-            {/* <Screen cb={onCloseTaskDetails} /> */}
             <div className="screen" onClick={onCloseTaskDetails}>
 
                 <div className='task-details flex column' onClick={(ev) => ev.stopPropagation()}>
@@ -103,18 +102,7 @@ export const TaskDetails = () => {
                             <p>This card is archived.</p>
                         </div>
                     )}
-                    <div className='task-details-header flex'>
-                        <div className='flex left-side'>
-                            <CreditCardSharpIcon className='credit-card-icon' />
-                            <div className='title flex column'>
-                                <h1>{task.title}</h1>
-                                <h2>
-                                    in list{' '}
-                                    <span>{currGroupRef.current.title}</span>
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
+                    <TaskDetailsHeader groupTitle={currGroupRef.current.title} taskTitle={task.title}/>
                     <div className='inner-container'>
                         <div
                             className='icon-container close flex'
@@ -152,7 +140,7 @@ export const TaskDetails = () => {
                                         />
                                     )}
                                 </div>
-                                <TaskDetailsDesc
+                                <TaskDetailsDescription
                                     task={task}
                                     boardId={boardId}
                                     groupId={currGroupRef.current.id}
@@ -174,7 +162,7 @@ export const TaskDetails = () => {
                                     groupId={currGroupRef.current.id}
                                 />
                             </div>
-                            <TaskNavBar
+                            <TaskDetailsNavBar
                                 board={board}
                                 group={currGroupRef.current}
                                 task={task}

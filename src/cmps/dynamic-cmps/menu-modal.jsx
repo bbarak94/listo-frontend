@@ -1,17 +1,15 @@
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-// import { useSelector } from 'react-redux'
 import moment from 'moment'
-import archive from '../../assets/img/task/navbar/archive.svg'
 
+import { AppModal } from '../app-modal'
+import { ArchiveItems } from './archive-items'
+
+import { userService } from '../../services/user.service'
 
 import FormatListBulletedRoundedIcon from '@mui/icons-material/FormatListBulletedRounded'
 
-import { ArchiveItems } from '../archive-items'
-
-import { AppModal } from '../app-modal'
-import { userService } from '../../services/user.service'
-import { useNavigate } from 'react-router-dom'
-
+import archive from '../../assets/img/task/navbar/archive.svg'
 
 export const MenuModal = ({ handleClose, board, setLabelExpand, setTitleLabelClass, setLabelTitleDelay, titleLabelClass }) => {
 
@@ -19,16 +17,12 @@ export const MenuModal = ({ handleClose, board, setLabelExpand, setTitleLabelCla
     const [isOpen, setIsOpen] = useState(false)
     const [member, setMember] = useState('')
     const [isArchivedItemsOpen, setIsArchivedItemsOpen] = useState(false)
-    const [cmpType, setCmpType] = useState('')
     const [modalPosition, setModalPosition] = useState({})
 
     const onOpenModal = (ev, type, member) => {
         setIsOpen(true)
-        // setCmpType(type)
         setMember(member)
-        // console.log('onOpenModal ~ ev', ev)
         let elemRect = ev.currentTarget.getBoundingClientRect()
-        // let elemRect = ev.currentTarget.getBoundingClientRect()
         let top = elemRect.top - window.pageYOffset
         let left = elemRect.left - window.pageXOffset
         const height = ev.currentTarget.offsetHeight

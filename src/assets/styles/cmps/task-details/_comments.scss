@@ -1,0 +1,191 @@
+.comments {
+   gap: 5px;
+   margin-top: 5px;
+   margin-left: 5px;
+
+   textarea {
+      width: 89.5%;
+      padding: 10px;
+      box-shadow: 0 1px 2px -1px #091e4240, 0 0 0 1px #091e4214;
+   }
+
+   .comments-box {
+      width: 507px;
+      flex-grow: 1;
+
+      textarea {
+         padding: 10px;
+         width: 100%;
+      }
+   }
+
+   .comments-box-closed {
+      margin-bottom: 10px;
+   }
+
+   .comments-box-open {
+      textarea {
+         padding: 10px 10px 60px 10px;
+         margin-bottom: -24px;
+         box-shadow: 0 4px 8px -2px #091e4240, 0 0 0 1px #091e4214;
+      }
+
+      .comments-btns {
+         justify-content: space-between;
+
+         .cancel-btn {
+            width: 56px;
+            height: 30px;
+            font-size: 14px;
+            padding: 4px;
+            display: inline;
+            position: relative;
+            bottom: 16px;
+            right: 105px;
+            border: none;
+            box-shadow: none;
+            cursor: pointer;
+            color: #172B4D;
+            background-color: unset;
+
+            &:hover {
+               background-color: rgba(9, 30, 67, 0.0392156863);
+
+            }
+         }
+
+         .save-btn-no {
+            width: 56px;
+            height: 30px;
+            font-size: 14px;
+            padding: 4px;
+            display: inline;
+            position: relative;
+            bottom: 16px;
+            left: 10px;
+            background-color: #091e420a;
+            border: none;
+            box-shadow: none;
+            color: #a5adba;
+            cursor: not-allowed;
+         }
+
+         .save-btn-yes {
+            width: 56px;
+            height: 30px;
+            font-size: 14px;
+            padding: 4px;
+            display: inline;
+            position: relative;
+            bottom: 16px;
+            left: 10px;
+            border: none;
+            box-shadow: none;
+            cursor: pointer;
+         }
+
+         .comments-btns-right {
+            div {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               padding: 0 4px;
+
+               &:hover {
+                  background-color: rgba(9, 30, 67, 0.0392156863);
+                  cursor: pointer;
+               }
+            }
+
+            position: relative;
+            gap: 17px;
+            float: right;
+            bottom: 18px;
+            right: 10px;
+         }
+      }
+   }
+
+   .comments-list {
+      gap: 6px;
+
+      .comment-main-container {
+         gap: 5px;
+
+         .comment-right-container {
+            gap: 6px;
+            justify-content: center;
+            align-content: center;
+
+            .title {
+               gap: 8px;
+
+               h1 {
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: 500;
+               }
+
+               h2 {
+                  margin-top: 2px;
+                  font-size: 14px;
+                  font-weight: 400;
+               }
+            }
+
+            flex: 1;
+
+            textarea {
+               padding: 10px;
+               width: 100%;
+            }
+
+            .comment-btns {
+               gap: 4px;
+
+               div {
+                  &:hover {
+                     cursor: pointer;
+                  }
+               }
+
+               h3 {
+                  span {
+                     font-size: 13px;
+                     font-weight: 300;
+
+                     &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+@media (max-width:590px) {
+   .comments {
+      .comments-box-open {
+         .comments-btns {
+            .cancel-btn {
+               right: 60px;
+            }
+         }
+      }
+   }
+}
+
+@media (max-width:490px) {
+   .comments {
+      .comments-box-open {
+         .comments-btns {
+            .cancel-btn {
+               right: 0;
+            }
+         }
+      }
+   }
+}
